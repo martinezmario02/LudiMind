@@ -1,0 +1,923 @@
+\section{Análisis}
+Tras el análisis de propuestas similares, se han extraído las características más apropiadas para el perfil del usuario objetivo, pero también se detectaron ciertos aspectos mejorables o poco adaptados. Estos elementos fueron replanteados en el diseño de esta plataforma con el objetivo de optimizar la experiencia del usuario.
+
+Así, este proyecto no solo toma como referencia propuestas existentes, sino que también propone una evolución de las mismas, centrándose en áreas clave para las personas con TDAH.
+
+\subsection{Historias de Usuario}
+
+\subsubsection{Listado completo de Historias de Usuario}
+Las historias de usuario constan de breves descripciones sobre la funcionalidad del sistema desde la perspectiva del usuario que utiliza la web. De este modo, se centran en las necesidades y objetivos de este usuario.
+
+El siguiente listado cuenta con todas las historias de usuario de nuestra plataforma, asignándoles una estimación de esfuerzo y una prioridad. La estimación del esfuerzo está expresada en Puntos de Historia siguiendo la secuencia de Fibonacci (1, 2, 3, 5, 8),  mientras que la prioridad está medida siguiendo el método MoSCoW (Must, Should, Could, Won’t).
+	
+El método MoSCow es una técnica para priorizar tareas y funcionalidades en la gestión de proyectos, pudiendo asignar cualquiera de los siguientes valores:
+
+\begin{itemize}
+    \item \textbf{Must:} debe tener
+    \item \textbf{Should:} debería tener
+    \item \textbf{Could:} podría tener
+    \item \textbf{Won’t:} no tendrá
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
+\hline
+\textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+\hline
+HU.1 & Como usuario necesito registrarme. & 2 & M & 2 \\
+\hline
+HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 2 \\
+\hline
+HU.3 & Como usuario necesito ver mi perfil. & 2 & C &\\
+\hline
+HU.4 & Como usuario necesito modificar mi perfil. & 2 & C &\\
+\hline
+HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 2\\
+\hline
+HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 2 \\
+\hline
+HU.7 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 3 \\
+\hline
+HU.8 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S &\\
+\hline
+HU.9 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 3 \\
+\hline
+HU.10 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M &\\
+\hline
+HU.11 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M &\\
+\hline
+HU.12 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M &\\
+\hline
+HU.13 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 3 \\
+\hline
+HU.14 & Como usuario necesito consultar mis misiones pendientes. & 3 & C &\\
+\hline
+HU.15 & Como usuario necesito consultar mis misiones realizadas. & 3 & C &\\
+\hline
+HU.16 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C &\\
+\hline
+HU.17 & Como usuario necesito consultar las recompensas obtenidas. &5 & C &\\
+\hline
+HU.18 & Como usuario necesito consultar la evolución de mis habilidades. &5 & S &\\
+\hline
+\end{tabularx}
+\caption{Listado de Historias de usuario}
+\end{table}
+\newpage
+
+\subsubsection{Tarjetas de Historias de Usuario}
+Seguidamente, se muestran las tarjetas de las historias de usuario, las cuales permiten desarrollar cada historia de forma estructurada, especificando la información clave. Este formato facilita el seguimiento del avance del proyecto, la organización del trabajo en fases y la toma de decisiones en función de los objetivos planteados.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.1 - Registro de usuarios}  \\
+\hline
+Como usuario, necesito registrarme en la plataforma introduciendo mis datos personales para poder acceder a todas las funcionalidades disponibles y guardar mi progreso. 
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Completar el formulario de registro y comprobar que se guarda correctamente.
+    \item Intentar registrar un usuario con datos ya existentes y verificar que se muestra un error.
+    \item Dejar campos obligatorios vacíos y verificar la validación del formulario.
+\end{itemize}
+ \\
+\hline
+\end{tabularx}
+\caption{HU.1 - Registro de usuarios}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.2 - Inicio de sesión}  \\
+\hline
+Como usuario, necesito iniciar sesión en la plataforma para acceder a mi perfil personalizado y mantener la sesión segura.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Iniciar sesión con credenciales válidas y acceder correctamente.
+    \item Probar credenciales incorrectas y verificar que se muestra un mensaje de error.
+    \item Verificar que la sesión se mantiene activa.
+\end{itemize}
+ \\
+\hline
+\end{tabularx}
+\caption{HU.2 - Inicio de sesión}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.3 - Visualización de perfil}  \\
+\hline
+Como usuario, necesito ver mi perfil para consultar mis datos personales.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de perfil y visualizar los datos registrados.
+\end{itemize}
+ \\
+\hline
+\end{tabularx}
+\caption{HU.3 - Visualización de perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.4 - Modificar perfil}  \\
+\hline
+Como usuario, necesito modificar mi perfil para actualizar mis datos personales cuando sea necesario. 
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Modificar campos del perfil y comprobar que los cambios se guardan correctamente.
+    \item Dejar campos vacíos y comprobar que se valida el formulario.
+    \item Comprobar que la información modificada se refleja al volver al perfil.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.4 - Modificar perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.5 - Consultar juegos utilizados}  \\
+\hline
+Como usuario, necesito consultar los juegos utilizados anteriormente para revisar mi historial de uso y retomar aquellos que me resultaron útiles.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Consultar la lista de juegos utilizados previamente.
+    \item Comprobar que la lista se actualiza tras jugar a un nuevo juego.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.5 - Consultar juegos utilizados}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.6 - Consultar juegos nuevos}  \\
+\hline
+Como usuario, necesito consultar los juegos nuevos disponibles para poder descubrir contenidos que aún no he probado.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de juegos nuevos y visualizar los disponibles.
+    \item Comprobar que desaparecen de la lista tras jugar por primera vez.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.6 - Consultar juegos nuevos}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.7 - Información sobre juego}  \\
+\hline
+Como usuario, necesito consultar información detallada sobre un juego concreto para entender su objetivo, normas y beneficios.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Seleccionar un juego y visualizar su descripción.
+    \item Comprobar que la información mostrada corresponde al juego elegido.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.7 - Información sobre juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.8 - Ver tutorial del juego}  \\
+\hline
+Como usuario, necesito acceder a un tutorial de cada juego para saber cómo jugar antes de comenzar.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al tutorial desde la pantalla del juego.
+    \item Verificar que el tutorial explica correctamente el funcionamiento.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.8 - Ver tutorial del juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.9 - Jugar a \textit{Metro de la Memoria}}  \\
+\hline
+Como usuario, necesito jugar al minijuego \textit{Metro de la Memoria} para entrenar la memoria de trabajo de forma divertida.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al juego y completar al menos una partida.
+    \item Comprobar que se registran los resultados al finalizar.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.9 - Jugar a \textit{Metro de la Memoria}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.10 - Jugar a \textit{Desván Mágico}}  \\
+\hline
+Como usuario, necesito jugar al minijuego \textit{Desván Mágico} para trabajar la planificación y organización.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al juego y realizar varias actividades de organización.
+    \item Verificar que los resultados se registran correctamente.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.10 - Jugar a \textit{Desván Mágico}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.11 - Jugar a \textit{Detective Emociones}}  \\
+\hline
+Como usuario, necesito jugar a \textit{Detective Emociones} para aprender a identificar emociones en diferentes contextos.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Seleccionar emociones en diversas situaciones.
+    \item Recibir retroalimentación en función de las elecciones.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.11 - Jugar a \textit{Detective Emociones}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.12 - Jugar a \textit{Semáforo Emocional}}  \\
+\hline
+Como usuario, necesito jugar a \textit{Semáforo Emocional} para practicar el control de impulsos mediante toma de decisiones.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Enfrentarme a diferentes estímulos y decidir cómo actuar.
+    \item Evaluar la respuesta escogida y los resultados.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.12 - Jugar a \textit{Semáforo Emocional}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.13 - Ver progreso por juego}  \\
+\hline
+Como usuario, necesito ver mi progreso en cada juego para conocer mi evolución y motivarme a seguir practicando.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de progreso y comprobar resultados de cada juego.
+    \item Observar comparativas entre sesiones.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.13 - Ver progreso por juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.14 - Ver misiones pendientes}  \\
+\hline
+Como usuario, necesito consultar mis misiones pendientes para saber qué retos tengo que completar.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al listado de misiones pendientes.
+    \item Verificar que se actualiza tras completar una misión.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.14 - Ver misiones pendientes}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.15 - Ver misiones realizadas}  \\
+\hline
+Como usuario, necesito consultar las misiones realizadas para revisar lo que he conseguido hasta ahora.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de misiones realizadas.
+    \item Comprobar que aparecen correctamente con fecha de finalización.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.15 - Ver misiones realizadas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.16 - Recibir recompensas}  \\
+\hline
+Como usuario, necesito recibir recompensas al realizar misiones para mantenerme motivado en el proceso de aprendizaje.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Finalizar una misión y recibir una recompensa.
+    \item Verificar que las recompensas se acumulan en el perfil.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.16 - Recibir recompensas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.17 - Ver recompensas}  \\
+\hline
+Como usuario, necesito consultar las recompensas que ya he obtenido para mantener un control de estas.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de recompensas obtenidas.
+    \item Comprobar que aparecen únicamente las que ya he obtenido.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.17 - Ver recompensas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.18 - Ver evolución de habilidades}  \\
+\hline
+Como usuario, necesito consultar la evolución de mis habilidades cognitivas y emocionales para saber en qué áreas estoy progresando.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de evolución y consultar informes gráficos.
+    \item Comparar habilidades a lo largo del tiempo.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.18 - Ver evolución de habilidades}
+\end{table}
+\newpage
+
+\subsection{Especificación de requisitos}
+Tras finalizar con las historias de usuario, se comenzó la búsqueda de los requisitos funcionales y no funcionales de la plataforma. Para ello, se ha establecido el siguiente listado de requisitos, el cual garantiza que se cumplen las necesidades de los usuarios, obteniendo, como resultado, una plataforma totalmente funcional.
+
+\subsubsection{Requisitos funcionales}
+Los requisitos funcionales son especificaciones detalladas que definen las acciones, comportamientos y funcionalidades que un sistema debe realizar para cumplir su propósito. En el contexto del software y los sistemas, describen lo que el sistema debe hacer, incluyendo las tareas que debe realizar, cómo interactuará con los usuarios y cómo responderá a diversas entradas o eventos. Estos requisitos son fundamentales para garantizar que el software cumpla con las expectativas de las partes interesadas y satisfaga las necesidades de negocio previstas \parencite{requisitos}.
+
+A continuación, se detallan todos los requisitos funcionales identificados para el desarrollo del sistema, incluyendo para cada uno su descripción, los datos de entrada y salida asociados, y su código identificador.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.1} & Registro de usuario \\
+\hline
+\textbf{Explicación} & El sistema debe permitir a los nuevos usuarios registrarse mediante un formulario con datos personales (nombre, fecha de nacimiento, correo, etc.). \\
+\hline
+\textbf{Datos de entrada} & Nombre, correo electrónico, contraseña, fecha de nacimiento. \\
+\hline
+\textbf{Datos de salida} & Usuario registrado correctamente o mensaje de error. \\
+\hline
+\end{tabularx}
+\caption{RF.1 - Registro de usuario}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.2} & Inicio de sesión \\
+\hline
+\textbf{Explicación} & El sistema debe permitir que los usuarios inicien sesión introduciendo sus credenciales válidas. \\
+\hline
+\textbf{Datos de entrada} & Correo electrónico, contraseña. \\
+\hline
+\textbf{Datos de salida} & Acceso al sistema o mensaje de error. \\
+\hline
+\end{tabularx}
+\caption{RF.2 - Inicio de sesión}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.3} & Consulta de perfil \\
+\hline
+\textbf{Explicación} & El sistema debe permitir al usuario consultar su perfil personal, incluyendo datos registrados. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Datos del perfil. \\
+\hline
+\end{tabularx}
+\caption{RF.3 - Consulta de perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.4} & Modificación de perfil \\
+\hline
+\textbf{Explicación} & El sistema debe permitir al usuario modificar su perfil personal, actualizando información como nombre, contraseña o correo. \\
+\hline
+\textbf{Datos de entrada} & Datos actualizados del perfil. \\
+\hline
+\textbf{Datos de salida} & Confirmación de modificación o mensaje de error. \\
+\hline
+\end{tabularx}
+\caption{RF.4 - Modificación de perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.5} & Consulta de juegos utilizados \\
+\hline
+\textbf{Explicación} & El sistema debe mostrar un historial de los juegos que el usuario ha utilizado anteriormente. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Lista de juegos utilizados. \\
+\hline
+\end{tabularx}
+\caption{RF.5 - Consulta de juegos utilizados}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.6} & Consulta de juegos nuevos \\
+\hline
+\textbf{Explicación} & El sistema debe permitir al usuario consultar los nuevos juegos disponibles que aún no ha probado. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Lista de juegos nuevos. \\
+\hline
+\end{tabularx}
+\caption{RF.6 - Consulta de juegos nuevos}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.7} & Consulta de información sobre un juego \\
+\hline
+\textbf{Explicación} & El sistema debe permitir consultar información detallada sobre cada juego, incluyendo descripción, habilidades que trabaja... \\
+\hline
+\textbf{Datos de entrada} & ID del juego. \\
+\hline
+\textbf{Datos de salida} & Ficha descriptiva del juego. \\
+\hline
+\end{tabularx}
+\caption{RF.7 - Consulta de información de un juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.8} & Acceso al tutorial de un juego \\
+\hline
+\textbf{Explicación} & El sistema debe permitir acceder a un tutorial específico para cada juego, que facilite la comprensión de su dinámica y normas. \\
+\hline
+\textbf{Datos de entrada} & ID del juego. \\
+\hline
+\textbf{Datos de salida} & Guía del tutorial. \\
+\hline
+\end{tabularx}
+\caption{RF.8 - Acceso al tutorial de un juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.9} & Acceso al juego \textit{Metro de la memoria} \\
+\hline
+\textbf{Explicación} & El sistema debe permitir jugar al minijuego \textit{Metro de la memoria}, orientado a entrenar la memoria de trabajo. \\
+\hline
+\textbf{Datos de entrada} & ID del usuario y del juego. \\
+\hline
+\textbf{Datos de salida} & Puntuación y progreso. \\
+\hline
+\end{tabularx}
+\caption{RF.9 - Acceso al juego \textit{Metro de la memoria}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.10} & Acceso al juego \textit{Desván mágico} \\
+\hline
+\textbf{Explicación} & El sistema debe permitir acceder al juego \textit{Desván mágico}, centrado en la planificación y organización. \\
+\hline
+\textbf{Datos de entrada} & ID del usuario y del juego. \\
+\hline
+\textbf{Datos de salida} & Puntuación y progreso. \\
+\hline
+\end{tabularx}
+\caption{RF.10 - Acceso al juego \textit{Desván mágico}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.11} & Acceso al juego \textit{Detective emociones} \\
+\hline
+\textbf{Explicación} & El sistema debe permitir jugar a \textit{Detective emociones}, un juego orientado a trabajar la identificación y expresión emocional. \\
+\hline
+\textbf{Datos de entrada} & ID del usuario y del juego. \\
+\hline
+\textbf{Datos de salida} & Puntuación y progreso. \\
+\hline
+\end{tabularx}
+\caption{RF.11 - Acceso al juego \textit{Detective emociones}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.12} & Acceso al juego \textit{Semáforo emocional} \\
+\hline
+\textbf{Explicación} & El sistema debe permitir acceder al juego \textit{Semáforo emocional}, enfocado en el control inhibitorio y la autorregulación emocional. \\
+\hline
+\textbf{Datos de entrada} & ID del usuario y del juego. \\
+\hline
+\textbf{Datos de salida} & Puntuación y progreso. \\
+\hline
+\end{tabularx}
+\caption{RF.12 - Acceso al juego \textit{Semáforo emocional}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.13} & Consulta del progreso en los juegos \\
+\hline
+\textbf{Explicación} & El sistema debe mostrar el progreso del usuario en cada uno de los juegos. \\
+\hline
+\textbf{Datos de entrada} & ID del usuario y del juego. \\
+\hline
+\textbf{Datos de salida} & Lista de niveles con progreso. \\
+\hline
+\end{tabularx}
+\caption{RF.13 - Consulta del progreso en los juegos}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.14} & Consulta de misiones pendientes \\
+\hline
+\textbf{Explicación} & El sistema debe permitir al usuario ver una lista de misiones que aún no ha completado. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Lista de misiones pendientes. \\
+\hline
+\end{tabularx}
+\caption{RF.14 - Consulta de misiones pendientes}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.15} & Consulta de misiones realizadas \\
+\hline
+\textbf{Explicación} & El sistema debe permitir consultar las misiones completadas, mostrando la fecha y la recompensa obtenida. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Lista de misiones realizadas. \\
+\hline
+\end{tabularx}
+\caption{RF.15 - Consulta de misiones realizadas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.16} & Recompensas por misiones \\
+\hline
+\textbf{Explicación} & El sistema debe proporcionar recompensas virtuales tras la finalización de misiones, motivando la participación activa. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario y de misión. \\
+\hline
+\textbf{Datos de salida} & Recompensa asignada. \\
+\hline
+\end{tabularx}
+\caption{RF.16 - Recompensas por misiones}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.17} & Consulta de recompensas \\
+\hline
+\textbf{Explicación} & El sistema debe mostrar las recompensas obtenidas por la finalización de misiones. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Lista de recompensas. \\
+\hline
+\end{tabularx}
+\caption{RF.17 - Consulta de recompensas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RF.18} & Evolución de habilidades \\
+\hline
+\textbf{Explicación} & El sistema debe mostrar la evolución de las habilidades cognitivas y emocionales trabajadas, basada en el uso de los juegos y actividades realizadas. \\
+\hline
+\textbf{Datos de entrada} & ID de usuario. \\
+\hline
+\textbf{Datos de salida} & Resumen de evolución por habilidad (gráficas, porcentajes). \\
+\hline
+\end{tabularx}
+\caption{RF.18 - Evolución de habilidades}
+\end{table}
+\newpage
+
+\subsubsection{Requisitos no funcionales}
+Los requisitos no funcionales se refieren a los atributos de calidad de un sistema que definen su rendimiento, no sus funciones. A diferencia de los requisitos funcionales, que especifican las acciones y tareas que debe realizar un sistema, los requisitos no funcionales se centran en las características generales y el comportamiento del sistema en diversas condiciones. Abordan aspectos como el rendimiento, la usabilidad, la fiabilidad y la escalabilidad, garantizando que el sistema cumpla con los estándares de calidad y proporcione una experiencia de usuario satisfactoria \parencite{requisitos}.
+
+A continuación, se presentan los principales requisitos no funcionales que deben cumplirse durante el desarrollo y posterior despliegue del proyecto.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.1} & Usabilidad \\
+\hline
+\textbf{Descripción} & La plataforma debe tener una interfaz clara, sencilla y visualmente accesible, especialmente diseñada para usuarios con dificultades en el área de la atención. \\
+\hline
+\end{tabularx}
+\caption{RNF.1 - Usabilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.2} & Rendimiento \\
+\hline
+\textbf{Descripción} & Las funcionalidades deben cargarse en menos de 2 segundos para evitar frustración en el usuario. \\
+\hline
+\end{tabularx}
+\caption{RNF.2 - Rendimiento}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.3} & Compatibilidad multiplataforma \\
+\hline
+\textbf{Descripción} & La plataforma debe ser accesible desde dispositivos Android, iOS y navegadores modernos. \\
+\hline
+\end{tabularx}
+\caption{RNF.3 - Compatibilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.4} & Accesibilidad \\
+\hline
+\textbf{Descripción} & La interfaz debe ser compatible con lectores de pantalla y contener elementos gráficos adaptados a personas con dificultades de procesamiento visual o cognitivo. \\
+\hline
+\end{tabularx}
+\caption{RNF.4 - Accesibilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.5} & Seguridad de datos \\
+\hline
+\textbf{Descripción} & La plataforma debe almacenar los datos del usuario de forma segura, cumpliendo con la normativa vigente en protección de datos, como el \textit{Reglamento General de Protección de Datos - RGPD} \parencite{rgpd}. \\
+\hline
+\end{tabularx}
+\caption{RNF.5 - Seguridad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.6} & Escalabilidad \\
+\hline
+\textbf{Descripción} & El sistema debe permitir la incorporación de nuevos módulos o funcionalidades sin necesidad de rediseñar la arquitectura principal. \\
+\hline
+\end{tabularx}
+\caption{RNF.6 - Escalabilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.7} & Mantenibilidad \\
+\hline
+\textbf{Descripción} & El código debe estar documentado y estructurado para facilitar futuras tareas de mantenimiento y evolución del sistema. \\
+\hline
+\end{tabularx}
+\caption{RNF.7 - Mantenibilidad}
+\end{table}
+
+\subsection{Diagrama de casos de uso}
+
+El diagrama de caso de uso es un tipo de diagrama UML de comportamiento y se usa frecuentemente para analizar varios sistemas. Permiten visualizar los diferentes tipos de roles en un sistema y cómo esos roles interactúan con el sistema \parencite{diagramacu}.
+
+Los diagramas de casos de uso son  un tipo de diagrama UML de comportamiento usados frecuentemente para analizar sistemas. Permiten representar de forma visual la interacción entre los diferentes actores y el sistema, facilitando la comprensión de las funcionalidades previstas desde una perspectiva orientada al usuario.
+
+En el contexto de esta plataforma, se ha optado por estructurar los casos de uso en un diagrama general que recoge la visión global del sistema, complementado por diagramas específicos para cada módulo principal: acceso a juegos, gestión de recompensas y gestión de usuarios. Esta división favorece una presentación más clara y evita la sobrecarga visual que supondría concentrar todos los elementos en un único diagrama.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{imgs/diagrama_cu_global.PNG}
+    \caption{Diagrama de casos de uso - Global}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/diagrama_cu_juegos.PNG}
+    \caption{Diagrama de casos de uso - Acceso a juegos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/diagrama_cu_recompensas.PNG}
+    \caption{Diagrama de casos de uso - Gestión de recompensas}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/diagrama_cu_perfil.PNG}
+    \caption{Diagrama de casos de uso - Gestión de usuarios}
+\end{figure}

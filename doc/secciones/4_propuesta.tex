@@ -1,0 +1,402 @@
+\section{Propuesta}
+
+\subsection{Definición de la propuesta}
+Este proyecto trata de adaptarse a las necesidades de la población con TDAH, las cuales fueron explicadas anteriormente. Para ello, se desarrollarán cuatro juegos diseñados específicamente para trabajar áreas clave afectadas por el TDAH.
+
+\begin{itemize}
+    \item \textbf{Juego de memoria y funciones ejecutivas:} Se tratará de sumergir a los jugadores y jugadoras en una aventura digital donde deben utilizar la red de metro de una ciudad ficticia, mientras desarrollan funciones ejecutivas y aprenden estrategias de memorización.
+    \item \textbf{Juego de planificación:} El jugador o jugadora accederá a un espacio mágico (desván mágico) que contendrá una gran cantidad de objetos desordenados (escolares, personales, fantásticos). El objetivo será organizar los objetos arrastrándolos a los compartimentos correctos según diferentes criteros que cambiarán según el nivel. Estos compartimentos podrán reflejar categorías de objetos u otras formas de organización (por iniciales, por tipo de palabra). Además, se plantea la posibilidad de añadir niveles de mayor dificultad, en los cuales se agrupen distintas tareas en compartimentos, los cuales reflejen el tiempo que se dedicará a dicha tarea. Esto podría ayudarlos a desarrollar otro área clave como la gestión del tiempo.
+    \item \textbf{Juego de autorregulación emocial:} Se tomará el rol de \textit{detective emocional} y se analizará mensajes, escenas de redes sociales o conversaciones familiares. Su objetivo será identificar emociones complejas en simulaciones de contextos sociales realistas y valorar su intensidad, mejorando la conciencia social y la empatía.
+    \item \textbf{Juego de resolución de conflictos sociales:} Se mostrarán diferentes escenarios de conflicto social, teniendo que analizar la situación utilizando los pasos del \textit{semáforo emocional}, una estrategia visual y sencilla adaptada a la población con TDAH. Esto desembocará en una mejora en la toma de decisiones, la autorregulación emociaonal y las habilidades sociales.
+\end{itemize}
+
+La aplicación se diseñará con una interfaz accesible y adaptada a personas de menor edad; incorporando retroalimentación positiva, refuerzos motivadores y una curva de dificultad gradual entre los diferentes niveles de cada juego, garantizando que el aprendizaje no llegue a generar frustración.
+
+Esta propuesta busca no solo apoyar el desarrollo de habilidades cognitivas y emocionales; sino también mejorar la autonomía, la motivación y la autoestima de este colectivo, contribuyendo a una experiencia educativa más inclusiva y divertida.
+
+\subsection{Comparativa de aplicaciones con el proyecto}
+Tras el análisis de otras aplicaciones similares y el planteamiento del proyecto a desarrollar, se han añadido las características de nuestro proyecto a la comparación previamente realizada. Con esta información, se han obtenido las siguientes tablas resumen, numerando los juegos implementados de la siguiente forma:
+
+\begin{enumerate}
+    \item Metro de la memoria
+    \item Desván mágico
+    \item Detective emociones
+    \item Semáforo emocional
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{1cm}|p{1cm}|p{1cm}|p{1.3cm}|p{3cm}|}
+    \hline
+    \textbf{Competencia} & \textbf{RPA} & \textbf{Lum.} & \textbf{CG} & \textbf{Ludi Mind} & \textbf{Juegos implicados} \\
+    \hline
+    Autorregulación emocional         & x &   &   & x & 3,4 \\
+    \hline
+    Resolución de conflictos sociales & x &   &   & x & 4 \\
+    \hline
+    Identificación emocional          & x &   &   & x & 3 \\
+    \hline
+    Memoria de trabajo                &   & x & x & x & 1 \\
+    \hline
+    Organización de objetos/tareas    &   &   & x & x & 2 \\
+    \hline
+    Planificación / anticipación      &   & x & x & x & 2,4 \\
+    \hline
+    Control inhibitorio / impulsos    & x & x & x & x & 4 \\
+    \hline
+    Gestión del tiempo                &   & x &   & x & 2 \\
+    \hline
+    Motivación por refuerzo           & x & x & x & x & 1,2,3,4 \\
+    \hline
+\end{tabularx}
+\caption{Nueva comparativa entre competencias de aplicaciones}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    \textbf{Aplicación} & \textbf{Precio} & \textbf{Sist. Operativo} & \textbf{Edad recomendada} \\
+    \hline
+    Respira, Piensa, Actúa & Gratuita & iOS, Android & 2–5 años \\
+    \hline
+    Lumosity & Gratis con limitación; suscripción premium para escoger juegos & Web, iOS, Android & $\ge$ 13 años \\
+    \hline
+    CogniFit & Suscripción obligatoria & Web, iOS, Android & 6–18 años \\
+    \hline
+    \textbf{LudiMind} & Gratuita & Web & 6–18 (con TDAH) \\
+    \hline
+\end{tabularx}
+\caption{Comparativa entre otras áreas de las aplicaciones}
+\end{table}
+
+Esta tabla muestra cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. Mientras que la primera aplicación estudiada se centra en la autorregulación emocional y Lumosity en funciones cognitivas generales, la plataforma desarrollada combina memoria, organización, habilidades emocionales y sociales, logrando adaptarse mejor a las necesidades de niños con TDAH. 
+
+\subsection{Bocetos de la plataforma}
+A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos e historias de usuario. En primer lugar, se diseñó un inicio de sesión que dirigiera a la pantalla principal de selección de juegos. Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos, así como a un listado de niveles.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_app_1.png}
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_app_2.png}
+    \caption{Bocetos Pantallas de juegos}
+\end{figure}
+
+Tras esto, se diseñaron pantallas para aportar cierta retroalimentación a los usuarios, aspecto clave para las personas con TDAH. De esta forma, se creó una pantalla para las estadísticas, que muestra su progreso; otra pantalla para las recompensas, en la cual se muestran las misiones a cumplir; y otra para consultar y modificar los datos del perfil del usuario.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{imgs/boceto_app_3.png}
+    \includegraphics[width=0.35\linewidth]{imgs/boceto_app_4.png}
+    \caption{Bocetos Pantallas de retroalimentación}
+\end{figure}
+
+\newpage
+
+Respecto al diseño de los juegos, se ha optado por una estructura interactiva en la que un avatar guía al usuario a lo largo de cada actividad. Este avatar plantea situaciones, preguntas o retos que invitan a la reflexión o resolución de problemas, adaptados a las competencias que se desean trabajar. A lo largo de la experiencia, el usuario deberá resolver distintos tipos de tareas como puzles, escenarios de toma de decisiones, clasificación de elementos o identificación de emociones, en función del juego concreto. Esta dinámica busca mantener la atención del estudiante, fomentar su implicación activa y facilitar el aprendizaje a través del juego significativo y personalizado.
+
+En primer lugar, en el juego \textbf{Metro de la memoria}, el avatar dará indicaciones sobre en qué parada deberá subirse y bajarse el usuario, teniendo que seleccionar, parada a parada, el camino a seguir para llegar al destino establecido. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_metro_1.png}
+    \caption{Bocetos Juego Metro de la memoria - Parte 1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_metro_2.png}
+    \caption{Bocetos Juego Metro de la memoria - Parte 2}
+\end{figure}
+
+En el juego \textbf{Desván mágico}, el personaje explicará al usuario el criterio de organización. Tras esto, se mostrarán tanto los cajones como los objetos, y el usuario deberá arrastrarlos hasta la sección adecuada. También se dará la posibilidad de consultar los objetos ya establecidos en un cajón concreto, pudiendo eliminarlos en caso de querer añadirlos a otra sección. Se añadirán algunos objetos a modo de "trampa", los cuales no deberán ser incorporados a ninguno de los cajones. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_desvan_1.png}
+    \caption{Bocetos Juego Desván mágico - Parte 1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_desvan_2.png}
+    \caption{Bocetos Juego Desván mágico - Parte 2}
+\end{figure}
+
+Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando una barra de nivel para una serie de sentimientos. Posteriormente, mostrará un formulario con opciones para que escoja qué habría hecho él de haber estado en esa situación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_detective_1.png}
+    \caption{Bocetos Juego Detective emociones - Parte 1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_detective_2.png}
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_detective_3.png}
+    \caption{Bocetos Juego Detective emociones - Parte 2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\linewidth]{imgs/boceto_juego_detective_4.png}
+    \caption{Bocetos Juego Detective emociones - Parte 3}
+\end{figure}
+
+En último lugar, se realizaron los bocetos del juego \textbf{Semáforo emocional}, en los cuales se plantea otra situación. Tras esto, se muestra una pantalla con un semáforo en rojo, la cual trata de hacer reflexionar al usuario sobre qué sentiría en esa situación; seguida de otra con un semáforo en amarillo, para tomar una decisión sobre cómo actuar; y una última pantalla con un semáforo en verde, en la que se muestra el desenlace en función de la decisión tomada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_semaforo_1.png}
+    \caption{Bocetos Juego Semáforo emocional - Parte 1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_semaforo_2.png}
+    \includegraphics[width=0.6\linewidth]{imgs/boceto_juego_semaforo_3.png}
+    \caption{Bocetos Juego Semáforo emocional - Parte 2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\linewidth]{imgs/boceto_juego_semaforo_4.png}
+    \caption{Bocetos Juego Semáforo emocional - Parte 3}
+\end{figure}
+
+Estas actividades iniciales han permitido establecer una visión clara y coherente del producto a desarrollar, asegurando que cada juego responda a una necesidad concreta detectada en el contexto del TDAH.
+
+\subsection{Metodologías y herramientas para la planificación}
+Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se prueba la aplicación.
+
+Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
+
+Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una plataforma especializada en la gestión de proyectos ágiles. Esto nos ha permitido la creación de un \textit{backlog} con las tareas a desarrollar, con su priorización y duración. Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
+
+Gracias a la combinación de Scrum y Jira, ha sido posible mantener una planificación estructurada, con objetivos definidos por sprint, así como una organización clara de los recursos y tiempos destinados al desarrollo de los distintos minijuegos educativos de la aplicación.
+
+En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas.
+
+\subsection{Elección de herramientas de desarrollo}
+El objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
+
+A continuación se plantean las principales opciones consideradas para el desarrollo, evaluadas en el contexto del proyecto.
+
+\subsubsection{Flutter + Dart}
+Flutter es un popular framework de código abierto desarrollado por Google, utilizado principalmente para construir aplicaciones nativas para dispositivos móviles, web y escritorio. Para ello, ofrece a los desarrolladores un conjunto completo de herramientas y widgets para crear aplicaciones visualmente atractivas y con un buen rendimiento \parencite{flutter}. 
+
+Entre las características de Flutter encontramos las siguientes ventajas:
+
+\begin{itemize}
+    \item \textbf{Desarrollo multiplataforma:} permite crear apps para Android e iOS desde un solo código base, reduciendo costes y tiempos.
+    \item \textbf{Alto rendimiento:} ofrece animaciones fluidas y carga rápida, compilando a código nativo.
+    \item \textbf{Recarga en caliente (Hot Reload):} los cambios se reflejan al instante sin reiniciar la app, lo que agiliza el desarrollo.
+    \item \textbf{Interfaces atractivas y personalizables:} incluye una gran variedad de widgets y soporte para animaciones, facilitando diseños modernos y visualmente ricos.
+\end{itemize}
+
+No obstante, también cuenta con una serie de desventajas a tener en cuenta:
+
+\begin{itemize}
+    \item \textbf{Bibliotecas y comunidad limitadas:} aunque está creciendo, no cuenta con tantas librerías como otros frameworks más maduros.
+    \item \textbf{Tamaño elevado de las aplicaciones:} las apps pueden ocupar más espacio debido al motor incluido en el paquete final.
+    \item \textbf{Acceso limitado a algunas APIs nativas:} puede haber restricciones al utilizar ciertas funcionalidades específicas del sistema operativo.
+\end{itemize}
+
+En conclusión, las ventajas de Flutter son muchas para los desarrolladores que buscan crear aplicaciones multiplataforma con un rendimiento excepcional. A pesar de algunas desventajas, como un ecosistema de bibliotecas más pequeño y tamaños de aplicación más grandes, Flutter ha demostrado ser una opción confiable y eficiente para muchos desarrolladores en todo el mundo. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/flutter.jpg}
+    \caption{Herramienta - Flutter (Dart)}
+\end{figure}
+
+\subsubsection{Node.js + React.js/Vue.js}
+Node.js es un entorno de ejecución de código JavaScript de código abierto, multiplataforma, que permite ejecutar código fuera del navegador, es decir, en el servidor. Está especialmente diseñado para aplicaciones web en tiempo real, como APIs RESTful, juegos online o plataformas de streaming \parencite{nodejs}.
+
+Este entorno cuenta con grandes ventajas a tener en cuenta de cara a la elección de las herramientas de desarrollo:
+
+\begin{itemize}
+    \item \textbf{Alto rendimiento y escalabilidad:} gestiona miles de conexiones simultáneamente con eficiencia, ideal para aplicaciones con alto tráfico.
+    \item \textbf{Amplio ecosistema con npm:} al contar con más de un millón de paquetes disponibles, el gestor npm ofrece reutilización de soluciones y desarrollo ágil.
+    \item \textbf{Comunidad activa y soporte constante:} Node.js cuenta con una comunidad grande y activa, lo que se traduce en buena documentación, módulos actualizados y abundante soporte en línea.
+    \item \textbf{Compatible con metodologías ágiles y DevOps:} su enfoque modular y ligero lo hace ideal para entornos de microservicios, integración continua y despliegues rápidos.
+\end{itemize}
+
+Sin embargo, cuenta con algunas desventajas que también se deben valorar:
+
+\begin{itemize}
+    \item \textbf{No apto para tareas intensivas en CPU:} al usar un solo hilo, puede bloquearse en operaciones de alto consumo de procesamiento, afectando el rendimiento.
+    \item \textbf{Calidad variable de librerías: } aunque npm es amplio, no todas las librerías están bien mantenidas.
+\end{itemize}
+
+Así pues, Node.js es una plataforma moderna, ágil y potente para el desarrollo de aplicaciones web de alto rendimiento. Su arquitectura asincrónica, su ecosistema maduro y su compatibilidad con JavaScript lo hacen una opción ideal para el desarrollo del backend de nuestro proyecto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/nodejs.jpg}
+    \caption{Herramienta - Node.js}
+\end{figure}
+
+Por otro lado, Node.js se integra perfectamente con bibliotecas modernas de desarrollo frontend como React y Vue.js, lo que permite construir aplicaciones web completas. Esta compatibilidad facilita una comunicación fluida entre el servidor y la interfaz de usuario, promoviendo una arquitectura coherente, escalable y fácilmente mantenible. A continuación, se plantean ambas opciones.
+
+En primer lugar, React es una biblioteca JavaScript de código abierto creada por el equipo de la compañía Facebook (Meta). Esta permite construir interfaces de usuario dinámicas y escalables, usándose en el desarrollo de aplicaciones web móviles, de una sola página o del servidor \parencite{react}.
+
+Entre las principales ventajas de utilizar React, encontramos las expuestas en la siguiente lista:
+
+\begin{itemize}
+    \item \textbf{Componentes reutilizables:} los componentes facilitan la creación de interfaces dinámicas y sensibles a cambios en sitios web o aplicaciones complejas.
+    \item \textbf{DOM virtual eficiente:} optimiza el rendimiento, ahorrando recursos y reduciendo el tráfico de red.
+    \item \textbf{Código claro y mantenible:} el código tiene una lógica clara, es fácil de leer, entender y depurar, lo que ayuda a minimizar errores.
+    \item \textbf{Mejora la experiencia de usuario:} las interfaces interactivas mejoran significativamente la experiencia de usuario.
+\end{itemize}
+
+No obstante, al igual que las anteriores, esta herramienta también cuenta con ciertas limitaciones:
+
+\begin{itemize}
+    \item \textbf{Incremento en tamaño de la app:} el uso de React puede aumentar el tamaño final de la aplicación.
+    \item \textbf{No es un framework completo:} se centra únicamente en la visualización de la interfaz, por lo que para crear aplicaciones completas se requiere combinarlo con otras tecnologías.
+\end{itemize}
+
+En definitiva, React se ha consolidado como una herramienta poderosa y versátil para el desarrollo de interfaces web modernas, gracias a su enfoque basado en componentes reutilizables y su eficiente manejo del DOM virtual. Sin embargo, para aplicaciones completas, es necesario integrarlo con otras tecnologías que complementen su funcionalidad, lo cual no sería un problema ya que, como comentamos anteriormente, se utilizaría junto a Node.js.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/reactjs.png}
+    \caption{Herramienta - React.js}
+\end{figure}
+
+En segundo lugar, Vue es un framework que sirve para crear aplicaciones e interfaces de usuario de forma rápida, práctica y relativamente simple. Para eso, el framework incluye herramientas, lenguaje específico y convenciones de trabajo \parencite{vuejs}.
+
+Este framework también cuenta con una gran cantidad de ventajas a tener en cuenta para el desarrollo:
+
+\begin{itemize}
+    \item \textbf{Comunidad creciente:} está ganando cada vez más popularidad en la comunidad de desarrolladores, lo que facilita el acceso a foros, ayuda técnica y colaboración entre profesionales.
+    \item \textbf{Código abierto y gratuito:} al ser open source, Vue.js no requiere pagos para su uso o aprendizaje, lo cual lo hace accesible y fomenta la participación comunitaria.
+    \item \textbf{Personalización flexible:} permite adaptar sus componentes y configuración según las necesidades específicas del proyecto, ofreciendo un alto grado de personalización.
+    \item \textbf{Buen rendimiento:} las aplicaciones tienden a tener una buena velocidad de carga y rendimiento general frente a otros frameworks.
+\end{itemize}
+
+Entre las desventajas que refleja Vue, encontramos las siguientes:
+
+\begin{itemize}
+    \item \textbf{Soporte limitado en español:} consta de poca documentación y foros locales.
+    \item \textbf{Menor respaldo corporativo:} a diferencia de React, Vue.js no cuenta con el respaldo directo de grandes corporaciones, lo que puede influir en decisiones empresariales para proyectos a gran escala.
+\end{itemize}
+
+En definitiva, Vue.js se presenta como una solución moderna, accesible y flexible para el desarrollo frontend. Su facilidad de aprendizaje, comunidad activa y capacidad de personalización lo convierten en una excelente opción tanto para desarrolladores principiantes como para proyectos rápidos y dinámicos. Aunque cuenta con menor respaldo corporativo que otros frameworks, su evolución constante y su creciente popularidad lo posicionan como una alternativa sólida en el ecosistema del desarrollo web.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/vuejs.png}
+    \caption{Herramienta - Vue.js}
+\end{figure}
+
+\subsubsection{Django + React.js/Vue.js}
+Django es un marco de desarrollo web de alto nivel y de código abierto escrito en Python, el cual ha ganado una prominencia significativa en la comunidad de desarrollo. Proporciona a los desarrolladores un entorno robusto y eficiente para construir aplicaciones web de manera rápida y sencilla \parencite{django}.
+
+Entre sus puntos fuertes, podemos destacar los siguientes:
+
+\begin{itemize}
+    \item \textbf{Desarrollo rápido y alta productividad:} permite crear aplicaciones web de forma ágil, reduciendo el tiempo de desarrollo y acelerando la salida al mercado.
+    \item \textbf{Modularidad y reutilización de código:} facilita la construcción de aplicaciones independientes y reutilizables, cada una con sus propios modelos, vistas y plantillas, lo que mejora el mantenimiento y escalabilidad de proyectos complejos.
+    \item \textbf{Compatibilidad con tecnologías frontend modernas:} se integra sin problemas con frameworks como React o Vue.js, ofreciendo flexibilidad para usar la capa visual que mejor se adapte al proyecto.
+\end{itemize}
+
+Sin embargo, también se deben tener en cuenta los siguientes puntos negativos:
+
+\begin{itemize}
+    \item \textbf{Escalabilidad y optimización:} en proyectos muy grandes o con alto tráfico, pueden surgir problemas de escalabilidad.
+    \item \textbf{Mantenimiento y actualizaciones continuas:} el soporte a largo plazo exige gestionar de forma cuidadosa las actualizaciones del framework y sus librerías.
+    \item \textbf{Seguridad y responsabilidad ética:} aunque  incluye herramientas de seguridad, es clave seguir protocolos y prácticas seguras contra amenazas comunes. 
+\end{itemize}
+
+Así pues, Django es un framework robusto y versátil que combina rapidez de desarrollo, modularidad y compatibilidad con tecnologías modernas de frontend como React y Vue (explicadas anteriormente). Si bien requiere atención en aspectos de escalabilidad, mantenimiento y seguridad, sus herramientas integradas y buenas prácticas lo convierten en otra buena opción para el desarrollo de esta aplicación web.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/django.png}
+    \caption{Herramienta - Django}
+\end{figure}
+\newpage
+
+\subsubsection{Herramientas escogidas}
+Tras analizar distintas opciones para el desarrollo de la plataforma, se ha decidido seleccionar React.js para el frontend y Node.js para el backend. Esta elección se debe a la posibilidad de un desarrollo ágil y sencillo, con una fácil comunicación entre capas. Además, React.js aporta un sistema basado en componentes reutilizables, ideal para construir interfaces interactivas y dinámicas, mientras que Node.js proporciona un backend eficiente, escalable y con un gran ecosistema de librerías disponibles.
+
+Para maximizar el potencial de esta arquitectura, se ha decidido complementar Node.js con Express. Este es un framework que simplifica la creación de API REST y la gestión de rutas, peticiones y middleware. Su integración con Node.js es natural y muy utilizada, ofreciendo una estructura clara y modular que favorece el mantenimiento y la escalabilidad del proyecto \parencite{express}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/node_express.png}
+    \caption{Herramientas seleccionadas - Node.js + Express}
+\end{figure}
+
+Asimismo, se ha optado por incorporar Tailwind CSS como framework de estilos. Este método permite un desarrollo ágil y evita la necesidad de escribir hojas de CSS extensas, propiciando interfaces coherentes, personalizables y responsivas. Estas características lo hacen ideal para una plataforma de juegos con una experiencia visual atractiva, moderna y fácil de mantener \parencite{tailwind}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/react_tailwind.jpg}
+    \caption{Herramientas seleccionadas - React.js + Tailwind CSS}
+\end{figure}
+
+Finalmente, para la base de datos se ha escogido Supabase, una plataforma BaaS (Backend as a Service) alojada en la nube que provee a los desarrolladores una amplia gama de herramientas para crear y gestionar servicios backend. Esta herramienta ofrece todos los servicios necesarios para crear una aplicación escalable y segura: gestión de base de datos, autenticación, almacenamiento de archivos, generación automática de APIs y actualizaciones en tiempo real, entre otros. En cuanto a su base de datos, utiliza PostgreSQL relacional de código abierto, conocida por ser confiable y escalable \parencite{supabase}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/supabase.png}
+    \caption{Herramientas seleccionadas - Supabase + PostgreSQL}
+\end{figure}
+
+En conjunto, la combinación de React.js y Tailwind CSS para el frontend, Node.js con Express para el backend y Supabase para la base de datos proporciona una base tecnológica sólida, escalable y flexible, perfectamente adaptada a los requerimientos de la plataforma y a su integración en la web ya existente.
+
+\subsection{Diagrama de arquitectura}
+Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la plataforma, se ha realizado un diagrama de arquitectura que muestra dicha información de manera más clara y visual.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/diagrama_arq.png}
+    \caption{Diagrama de arquitectura}
+\end{figure}
+
+\subsection{Fases del proyecto}
+\subsubsection{Sprint 0}
+\paragraph{Desarrollo del sprint}
+Durante esta primera fase se ha llevado a cabo una investigación preliminar que incluyó el estudio de las necesidades del público objetivo, analizando aplicaciones existentes que pudieran facilitar la comprensión y la extracción de conclusiones clave. Tras esto, se realizó una propuesta inicial con cuatro juegos, definidos a partir de las competencias clave detectadas: memoria de trabajo, planificación, autorregulación emocional y resolución de conflictos sociales.
+
+Posteriormente, se elaboraron bocetos a mano para la aplicación, así como para cada juego de forma individual, sirviendo de base para la definición de requisitos e historias de usuario, los cuales se realizarán en la siguiente iteración.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint0.PNG}
+    \caption{Backlog - Sprint 0}
+\end{figure}
+
+\paragraph{Retrospectiva}
+El Sprint 0 se desarrolló de forma satisfactoria, cumpliendo con todos los objetivos planteados y estableciendo una base sólida para el resto del proyecto. La investigación inicial permitió comprender en profundidad las necesidades del público objetivo, y la definición de los juegos resultó coherente con las competencias clave identificadas.
+
+Los bocetos elaborados facilitaron la visualización del producto y servirán como referencia para las próximas fases. En general, el trabajo realizado en esta iteración ha permitido iniciar el proyecto con una dirección clara y bien fundamentada.
+
+\subsubsection{Sprint 1}
+\paragraph{Desarrollo del sprint}
+Durante esta fase se continuó con la redacción de apartados como la motivación o la elección de la metodología de planificación. Además, se realizó todo el apartado de análisis, incluyendo historias de usuario, requisitos, tanto funcionales como no funcionales, y diagramas.
+
+Todo esto nos permitió terminar de explicar qué deberá hacer la plataforma y cómo será utilizada por los usuarios, lo que facilitará el posterior desarrollo del proyecto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint1.PNG}
+    \caption{Backlog - Sprint 1}
+\end{figure}
+
+\paragraph{Retrospectiva}
+En términos generales, este sprint se desarrolló de manera satisfactoria, cumpliendo con los objetivos planteados y continuando con el establecimiento de la base del proyecto. 
+
+No obstante, se identificó que el ritmo de trabajo era mayor al esperado, pudiendo haber establecido más tareas en dicha iteración. De cara a los siguientes sprints, se planificará una mejor distribución del tiempo y un incremento de puntos de historia para maximizar el avance en cada iteración.
+
+\subsubsection{Sprint 2}
+
+\subsubsection{Sprint 3}
+
+\subsection{Estructura del proyecto}
+
+\subsection{Presupuesto del proyecto}

@@ -12,6 +12,7 @@ code/**/pnpm-debug.log*
 # Build/Dist
 code/**/dist/
 code/**/build/
+doc/build/
 
 # System files
 .DS_Store

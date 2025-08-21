@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\graphicspath{ {./imgs/} }
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+}
+\usepackage{url}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{wasysym}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames]{color}
+\usepackage[document]{ragged2e}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\definecolor{lightgray}{rgb}{0.9, 0.9, 0.9}
+\definecolor{black}{rgb}{0, 0, 0}
+\renewcommand{\arraystretch}{1.3}
+\arrayrulecolor{black}
+\setlength{\arrayrulewidth}{0.8pt}
+\usepackage{tabularx}
+\usepackage{booktabs} 
+\usepackage{longtable}
+
+\usepackage[backend=biber,style=apa]{biblatex} % Citación APA
+\addbibresource{bibliografia.bib}
+\usepackage{csquotes}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{titlesec}
+
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4} 
+\makeatletter
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{0mm}%
+  {3.25ex plus 1ex minus .2ex}%
+  {1.5ex plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \centering
+    
+    % Logo UGR arriba
+    \includegraphics[width=0.6\textwidth]{imgs/UGR-Logo.png}
+    
+    \vspace{0.5cm}
+
+    {\LARGE TRABAJO DE FIN DE MÁSTER \par}
+
+    \vspace{0.5cm}
+    
+    {\Large Máster Universitario en Ingeniería Informática\\
+    Universidad de Granada \par}
+    
+    \vspace{0.7cm}
+    
+    {\Huge \textbf{LudiMind} \par}
+    
+    {\LARGE \textit{Sistema de estimulación cognitiva mediante juegos interactivos para niños con TDAH} \par}
+    
+    \vspace{0.7cm}
+    
+    % Logo ETSIIT abajo
+    \includegraphics[width=0.35\textwidth]{imgs/ETSIIT-logo.png}
+    
+    {\Large \textbf{Autor} \par}
+    {\Large Mario Martínez Sánchez \par}
+
+    \vspace{0.4cm}
+    
+    {\Large \textbf{Tutores} \par}
+    {\Large María José Rodríguez Fórtiz \par}
+    {\Large Dulce Romero Ayuso \par}
+    
+    \vfill
+    
+\end{titlepage}
+\newpage
+\justifying
+
+% Páginas informativas
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+\begin{center}
+    \textbf{LudiMind: Sistema de estimulación cognitiva mediante juegos interactivos para niños con TDAH}
+    
+    Mario Martínez Sánchez
+\end{center}
+\vspace{2cm}
+
+\textbf{Resumen}
+
+Las personas que padecen Trastorno por Déficit de Atención e Hiperactividad (TDAH) enfrentan diariamente retos relacionados con la autorregulación, la impulsividad, la concentración y la planificación. Estas limitaciones pueden impactar el desarrollo académico, social y emocional de los estudiantes, especialmente si no se aplican estrategias de intervención adecuadas.
+
+Con el propósito de proporcionar una herramienta lúdica y educativa que favorezca la mejora de estas funciones ejecutivas, en este Trabajo de Fin de Máster se ha creado una plataforma digital de minijuegos educativos enfocada en niños y niñas con TDAH. La aplicación tiene como objetivo estimular habilidades fundamentales como la memoria de trabajo o la planificación, utilizando dinámicas motivadoras, refuerzo positivo y un diseño adaptado a sus necesidades cognitivas.
+
+Cada juego está diseñado para desarrollar una competencia específica, brindando retroalimentación inmediata y una experiencia atractiva que promueve la autonomía, el pensamiento crítico y la perseverancia. Además, se incluye un sistema de seguimiento del progreso y recompensas para mantener el compromiso del usuario.
+
+Este enfoque integra la evidencia científica sobre la intervención en TDAH con los principios del aprendizaje basado en el juego, ofreciendo un entorno accesible y efectivo que complementa otras terapias o apoyos educativos.
+\\
+
+\textbf{Palabras clave}
+
+TDAH, Funciones ejecutivas, Juegos educativos, Atención, Motivación, Plataforma digital, Memoria de trabajo, Planificación, Autorregulación emocional, Resolución de conflictos, Estudiantes, Usabilidad, Gamificación, Refuerzo positivo, Evaluación.
+\newpage
+
+\begin{center}
+    \textbf{LudiMind: Cognitive stimulation system through interactive games for children with ADHD}
+    
+    Mario Martínez Sánchez
+\end{center}
+\vspace{2cm}
+
+\textbf{Abstract}
+
+People with Attention Deficit Hyperactivity Disorder (ADHD) face daily challenges related to self-regulation, impulsivity, concentration, and planning. These limitations can impact students' academic, social, and emotional development, especially if appropriate intervention strategies are not implemented.
+
+With the aim of providing a fun and educational tool that favors the improvement of these executive functions, this Final Master Project created a digital platform of educational minigames focused on children with ADHD. The application aims to stimulate fundamental skills such as working memory and planning, using motivating dynamics, positive reinforcement, and a design adapted to their cognitive needs.
+
+Each game is designed to develop a specific skill, providing immediate feedback and an engaging experience that promotes autonomy, critical thinking, and perseverance. In addition, a progress tracking and rewards system are included to maintain user engagement.
+
+This approach integrates scientific evidence on ADHD intervention with the principles of play-based learning, offering an accessible and effective environment that complements other therapies or educational supports.
+\\
+
+\textbf{Keywords}
+
+ADHD, Executive Functions, Educational Games, Attention, Motivation, Digital Platform, Working Memory, Planning, Emotional Self-Regulation, Conflict Resolution, Students, Usability, Gamification, Positive Reinforcement, Assessment.
+\newpage
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+Yo, \textbf{Mario Martínez Sánchez}, alumno de la titulación Máster en Ingeniería Informática de la \textbf{Escuela Técnica Superior de  Ingenierías  Informática y de Telecomunicación de la Universidad de Granada}, con DNI 23310000Y, autorizo la ubicación de la siguiente copia de mi Trabajo Fin de Máster en la biblioteca del centro para que pueda ser consultada por las personas que lo deseen.
+
+\vspace{4cm}
+
+Fdo: Mario Martínez Sánchez
+
+\vspace{2cm}
+
+\begin{flushright}
+    Granada, a 01 de septiembre de 2025.
+\end{flushright}
+\newpage
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+\textbf{María José Rodríguez Fortiz}, Profesora del
+
+Departamento de Lenguajes y Sistemas 
+
+Informáticos de la Universidad de Granada.
+\\
+
+\textbf{Dulce Romero Ayuso}, Profesora 
+
+del Departamento de Fisioterapia de 
+
+la Universidad de Granada.
+
+\vspace{2cm}
+
+\textbf{Informan:}
+
+\vspace{1cm}
+
+Que el presente trabajo, titulado \textbf{LudiMind: Sistema de estimulación cognitiva mediante juegos interactivos para niños con TDAH}, ha sido realizado bajo su supervisión por \textbf{Mario Martínez Sánchez}, y autorizamos la defensa de dicho trabajo ante el tribunal que corresponda.
+\\
+
+Y para que conste, expiden y firman el presente informe en Granada a 1 de septiembre de 2025.
+
+\vspace{2cm}
+\textbf{Las directoras:}
+
+\vspace{4cm}
+\begin{center}
+    \textbf{María José Rodríguez Fortiz \hspace{2cm}
+    Dulce Romero Ayuso}
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+\subsection*{Agradecimientos}
+\newpage
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+% Índices
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+
+% Secciones
+\newpage
+\input{secciones/1_introduccion}
+
+\newpage
+\input{secciones/2_estadodelarte}
+
+\newpage
+\input{secciones/3_analisis}
+
+\newpage
+\input{secciones/4_propuesta}
+
+\newpage
+\input{secciones/5_mecanicajuegos}
+
+% Bibliografía
+\newpage
+\section{Bibliografía}
+\defbibheading{empty}{}
+\renewcommand{\bibitemsep}{1em}
+\printbibliography[heading=empty]
+
+\end{document}
