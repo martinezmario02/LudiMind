@@ -1,10 +1,7 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:15-alpine
     container_name: postgres_db
-    restart: unless-stopped
     env_file: .env
     ports:
       - "${POSTGRES_PORT}:5432"
@@ -14,7 +11,6 @@ services:
   backend:
     build: ./backend
     container_name: backend_app
-    restart: unless-stopped
     env_file: .env
     depends_on:
       - db
@@ -23,15 +19,17 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL}
     volumes:
-      - ./backend:/app
+      - ./code/backend:/app
       - /app/node_modules
 
   frontend:
     build: ./frontend
     container_name: frontend_app
-    restart: unless-stopped
     env_file: .env
     depends_on:
       - backend
     ports:
       - "${FRONTEND_PORT}:80"
+
+volumes:
+  db_data:
