@@ -11,6 +11,8 @@ services:
       - /app/node_modules
     depends_on:
       - db
+    networks:
+      - tfm-network
 
   frontend:
     build:
@@ -21,6 +23,8 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    networks:
+      - tfm-network
 
   db:
     image: postgres:15
@@ -34,6 +38,12 @@ services:
       POSTGRES_DB: tfm
     volumes:
       - db_data:/var/lib/postgresql/data
+    networks:
+      - tfm-network
 
 volumes:
   db_data:
+
+networks:
+  tfm-network:
+    driver: bridge
