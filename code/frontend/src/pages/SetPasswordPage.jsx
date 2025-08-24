@@ -2,27 +2,28 @@ import Input from "../components/ui/Input.jsx";
 import Button from "../components/ui/Button.jsx";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
-export default function ResetPasswordPage() {
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+export default function SetPasswordPage() {
+    const [password, setPassword] = useState("");
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const recoveryToken = searchParams.get("access_token");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage(null);
         setError(null);
 
         try {
             const response = await axios.post(
-                "/auth/reset-password",
-                { email },
+                "/auth/set-password",
+                { password, passwordConfirmation, recoveryToken },
                 { headers: { "Content-Type": "application/json" } }
             );
-            setMessage("Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico.");
+            navigate("/login");
         } catch (error) {
             if (error.response) {
                 setError(error.response.data.error || "Error al restablecer la contraseña");
@@ -43,16 +44,19 @@ export default function ResetPasswordPage() {
                 <p className="text-xl text-muted-foreground mb-8 font-sans max-w-2xl mx-auto">
                     ¿Has olvidado tu contraseña?
                     <br />
-                    Introduce tu correo electrónico para recibir un enlace de restablecimiento de contraseña.
+                    Introduce tu nueva constraseña para guardarla.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto p-6 bg-white rounded-lg shadow">
-                    {message && <p className="text-green-500 mb-2">{message}</p>}
                     {error && <p className="text-red-500 text-center">{error}</p>}
                     <div>
-                        <label className="block text-sm font-medium mb-1">Email</label>
-                        <Input type="email" placeholder="correo@ejemplo.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
+                        <label className="block text-sm font-medium mb-1">Nueva Contraseña</label>
+                        <Input type="password" placeholder="Nueva Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
                     </div>
-                    <Button type="submit" className="w-full">Enviar Correo</Button>
+                    <div>
+                        <label className="block text-sm font-medium mb-1">Confirmar Nueva Contraseña</label>
+                        <Input type="password" placeholder="Confirmar Nueva Contraseña" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+                    <Button type="submit" className="w-full">Restablecer Contraseña</Button>
                 </form>
             </div>
         </div>

@@ -45,3 +45,44 @@ export const login = async (req, res) => {
   }
   res.json({ session: data.session });
 };
+
+export const resetPassword = async (req, res) => {
+  const { email } = req.body;
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: "http://localhost:3000/set-password"
+  });
+
+  if (error) {
+    return res.status(400).json({ error: error.message });
+  }
+  res.json({ message: "Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico." });
+};
+
+export const setPassword = async (req, res) => {
+  const { password, passwordConfirmation, recoveryToken } = req.body;
+
+  if (!password || !passwordConfirmation || !recoveryToken) {
+    return res.status(400).json({ error: "Faltan datos necesarios" });
+  }
+
+  if (password !== passwordConfirmation) {
+    return res.status(400).json({ error: "Las contraseñas no coinciden" });
+  }
+
+  try {
+    const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
+      access_token: recoveryToken,
+      refresh_token: recoveryToken
+    });
+
+    if (sessionError) return res.status(400).json({ error: sessionError.message });
+
+    const { data, error } = await supabase.auth.updateUser({ password });
+
+    if (error) return res.status(400).json({ error: error.message });
+
+    res.json({ message: "Contraseña cambiada correctamente" });
+  } catch (err) {
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
