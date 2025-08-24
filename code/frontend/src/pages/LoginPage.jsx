@@ -21,7 +21,6 @@ export default function LoginPage() {
                 { email, password },
                 { headers: { "Content-Type": "application/json" } }
             );
-
             localStorage.setItem("token", response.data.session.access_token);
             navigate("/");
         } catch (error) {
