@@ -7,9 +7,10 @@ import axios from "axios";
 
 export default function RegisterPage() {
     const [name, setName] = useState("");
+    const [birthdate, setBirthdate] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [birthdate, setBirthdate] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ export default function RegisterPage() {
         try {
             const response = await axios.post(
                 "/auth/register",
-                { name, email, password, birthdate },
+                { name, birthdate, email, password, confirmPassword },
                 { headers: { "Content-Type": "application/json" } }
             );
             navigate("/login");
@@ -61,6 +62,10 @@ export default function RegisterPage() {
                     <div>
                         <label className="block text-sm font-medium mb-1">Contraseña</label>
                         <Input type="password" placeholder="********" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-1">Confirmar Contraseña</label>
+                        <Input type="password" placeholder="********" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
                     </div>
                     <Button type="submit" className="w-full">Registrarse</Button>
                 </form>
