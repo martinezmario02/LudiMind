@@ -3,6 +3,7 @@ import Button from "../components/ui/Button.jsx";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -15,21 +16,22 @@ export default function LoginPage() {
         setError(null);
 
         try {
-            const response = await fetch("/auth/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await axios.post(
+                "/auth/login",
+                { email, password },
+                { headers: { "Content-Type": "application/json" } }
+            );
 
-            if (!response.ok) {
-                throw new Error("Error al iniciar sesión");
-            }
-
-            const data = await response.json();
-            // localStorage.setItem("token", data.session.access_token);
-            // navigate("/");
+            localStorage.setItem("token", response.data.session.access_token);
+            navigate("/");
         } catch (error) {
-            setError("No se pudo conectar con el servidor");
+            if (error.response) {
+                setError(error.response.data.error || "Error al iniciar sesión");
+            } else if (error.request) {
+                setError("No se pudo conectar con el servidor");
+            } else {
+                setError("Error inesperado: " + error.message);
+            }
         }
     };
 
