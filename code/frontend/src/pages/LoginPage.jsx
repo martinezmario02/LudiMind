@@ -56,6 +56,11 @@ export default function LoginPage() {
                     <Button type="submit" className="w-full">Iniciar Sesión</Button>
                 </form>
             </div>
+            <div className="text-center">
+                <p className="text-sm text-muted-foreground">
+                    ¿Has olvidado tu contraseña? <a href="/reset-password" className="text-blue-500">Restablecer</a>
+                </p>
+            </div>
         </div>
     );
 }
