@@ -90,3 +90,30 @@ export const setPassword = async (req, res) => {
     return res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
+export const getCurrentUser = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "No autorizado" });
+
+  try {
+    // Get user
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+
+    const userId = authData.user.id;
+
+    // Get name
+    const { data: profileData, error: profileError } = await supabase
+      .from("profiles")
+      .select("name")
+      .eq("id", userId)
+      .single();
+
+    if (profileError) return res.status(400).json({ error: profileError.message });
+
+    const name = profileData?.name || authData.user.email; 
+    res.json({ name });
+  } catch (err) {
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
