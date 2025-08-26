@@ -59,9 +59,9 @@ export const resetPassword = async (req, res) => {
 };
 
 export const setPassword = async (req, res) => {
-  const { password, passwordConfirmation, recoveryToken } = req.body;
+  const { password, passwordConfirmation, accessToken, refreshToken } = req.body;
 
-  if (!password || !passwordConfirmation || !recoveryToken) {
+  if (!password || !passwordConfirmation || !accessToken || !refreshToken) {
     return res.status(400).json({ error: "Faltan datos necesarios" });
   }
 
@@ -70,19 +70,23 @@ export const setPassword = async (req, res) => {
   }
 
   try {
-    const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
-      access_token: recoveryToken,
-      refresh_token: recoveryToken
+    const { error: sessionError } = await supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
     });
 
-    if (sessionError) return res.status(400).json({ error: sessionError.message });
+    if (sessionError) {
+      return res.status(400).json({ error: sessionError.message });
+    }
 
-    const { data, error } = await supabase.auth.updateUser({ password });
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) {
+      return res.status(400).json({ error: error.message });
+    }
 
-    if (error) return res.status(400).json({ error: error.message });
-
-    res.json({ message: "Contraseña cambiada correctamente" });
+    return res.json({ message: "Contraseña cambiada correctamente" });
   } catch (err) {
-    res.status(500).json({ error: "Error interno del servidor" });
+    console.error("Error en setPassword:", err);
+    return res.status(500).json({ error: "Error interno del servidor" });
   }
 };

@@ -1,17 +1,28 @@
 import Input from "../components/ui/Input.jsx";
 import Button from "../components/ui/Button.jsx";
 
-import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function SetPasswordPage() {
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [error, setError] = useState(null);
+    const [token, setToken] = useState(null);
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const recoveryToken = searchParams.get("access_token");
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const params = new URLSearchParams(hash.substring(1));
+            const accessToken = params.get("access_token");
+            const refreshToken = params.get("refresh_token");
+            if (accessToken && refreshToken) {
+            setToken({ accessToken, refreshToken });
+            }
+        }
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,9 +30,12 @@ export default function SetPasswordPage() {
 
         try {
             const response = await axios.post(
-                "/auth/set-password",
-                { password, passwordConfirmation, recoveryToken },
-                { headers: { "Content-Type": "application/json" } }
+                "/auth/set-password", {
+                    password,
+                    passwordConfirmation,
+                    accessToken: token?.accessToken,
+                    refreshToken: token?.refreshToken
+                }
             );
             navigate("/login");
         } catch (error) {
