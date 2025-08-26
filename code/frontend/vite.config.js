@@ -5,11 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/auth": "http://localhost:5000",
-      // '/games': {
-      //   target: 'http://localhost:5000',
-      //   changeOrigin: true
-      // }
+      "/": "http://localhost:5000",
     }
   }
 })

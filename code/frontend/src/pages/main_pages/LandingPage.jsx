@@ -1,5 +1,5 @@
-import Button from "../components/ui/Button.jsx"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/Card.jsx"
+import Button from "../../components/ui/Button.jsx"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/Card.jsx"
 import { Link } from "react-router-dom";
 
 export default function HomePage() {

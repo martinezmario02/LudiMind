@@ -1,5 +1,5 @@
-import Input from "../components/ui/Input.jsx";
-import Button from "../components/ui/Button.jsx";
+import Input from "../../components/ui/Input.jsx";
+import Button from "../../components/ui/Button.jsx";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

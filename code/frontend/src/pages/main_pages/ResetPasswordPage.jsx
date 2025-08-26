@@ -1,31 +1,31 @@
-import Input from "../components/ui/Input.jsx";
-import Button from "../components/ui/Button.jsx";
+import Input from "../../components/ui/Input.jsx";
+import Button from "../../components/ui/Button.jsx";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function LoginPage() {
+export default function ResetPasswordPage() {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage(null);
         setError(null);
 
         try {
             const response = await axios.post(
-                "/auth/login",
-                { email, password },
+                "/auth/reset-password",
+                { email },
                 { headers: { "Content-Type": "application/json" } }
             );
-            localStorage.setItem("token", response.data.session.access_token);
-            navigate("/");
+            setMessage("Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico.");
         } catch (error) {
             if (error.response) {
-                setError(error.response.data.error || "Error al iniciar sesión");
+                setError(error.response.data.error || "Error al restablecer la contraseña");
             } else if (error.request) {
                 setError("No se pudo conectar con el servidor");
             } else {
@@ -41,25 +41,19 @@ export default function LoginPage() {
                     LudiMind
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 font-sans max-w-2xl mx-auto">
-                    Inicia sesión para acceder a tu cuenta y comenzar a mejorar tus habilidades
+                    ¿Has olvidado tu contraseña?
+                    <br />
+                    Introduce tu correo electrónico para recibir un enlace de restablecimiento de contraseña.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto p-6 bg-white rounded-lg shadow">
+                    {message && <p className="text-green-500 mb-2">{message}</p>}
                     {error && <p className="text-red-500 text-center">{error}</p>}
                     <div>
                         <label className="block text-sm font-medium mb-1">Email</label>
                         <Input type="email" placeholder="correo@ejemplo.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
                     </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Contraseña</label>
-                        <Input type="password" placeholder="********" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-                    <Button type="submit" className="w-full">Iniciar Sesión</Button>
+                    <Button type="submit" className="w-full">Enviar Correo</Button>
                 </form>
-            </div>
-            <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                    ¿Has olvidado tu contraseña? <a href="/reset-password" className="text-blue-500">Restablecer</a>
-                </p>
             </div>
         </div>
     );
