@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
 
         try {
             const response = await axios.post(
-                "/auth/reset-password",
+                "/api/auth/reset-password",
                 { email },
                 { headers: { "Content-Type": "application/json" } }
             );

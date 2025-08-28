@@ -12,7 +12,7 @@ export default function Header() {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get("/auth/me", {
+        const response = await axios.get("/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserName(response.data.name);

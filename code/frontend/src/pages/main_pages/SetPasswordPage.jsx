@@ -30,7 +30,7 @@ export default function SetPasswordPage() {
 
         try {
             const response = await axios.post(
-                "/auth/set-password", {
+                "/api/auth/set-password", {
                     password,
                     passwordConfirmation,
                     accessToken: token?.accessToken,

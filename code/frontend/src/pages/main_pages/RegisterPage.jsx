@@ -20,7 +20,7 @@ export default function RegisterPage() {
 
         try {
             const response = await axios.post(
-                "/auth/register",
+                "/api/auth/register",
                 { name, birthdate, email, password, confirmPassword },
                 { headers: { "Content-Type": "application/json" } }
             );

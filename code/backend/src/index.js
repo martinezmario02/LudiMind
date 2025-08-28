@@ -13,7 +13,7 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use("/auth", authRoutes);
-app.use("/games", gamesRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/games", gamesRoutes);
 
 app.listen(5000, () => console.log("✅ Backend en http://localhost:5000"));
