@@ -1,5 +1,6 @@
 import { supabase } from "../supabaseClient.js";
 
+// Register function
 export const register = async (req, res) => {
   const { name, birthdate, email, password, confirmPassword } = req.body;
 
@@ -33,6 +34,7 @@ export const register = async (req, res) => {
   res.json({ message: "Revisa tu correo para confirmar tu cuenta", data });
 };
 
+// Login function
 export const login = async (req, res) => {
   const { email, password } = req.body;
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
@@ -46,6 +48,7 @@ export const login = async (req, res) => {
   res.json({ session: data.session });
 };
 
+// Reset password function
 export const resetPassword = async (req, res) => {
   const { email } = req.body;
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -58,6 +61,7 @@ export const resetPassword = async (req, res) => {
   res.json({ message: "Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico." });
 };
 
+// Set password function
 export const setPassword = async (req, res) => {
   const { password, passwordConfirmation, accessToken, refreshToken } = req.body;
 
@@ -91,6 +95,7 @@ export const setPassword = async (req, res) => {
   }
 };
 
+// Get current user function
 export const getCurrentUser = async (req, res) => {
   const token = req.headers.authorization?.replace("Bearer ", "");
   if (!token) return res.status(401).json({ error: "No autorizado" });
