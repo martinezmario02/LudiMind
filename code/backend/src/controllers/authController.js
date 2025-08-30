@@ -65,30 +65,26 @@ export const resetPassword = async (req, res) => {
 export const setPassword = async (req, res) => {
   const { password, passwordConfirmation, accessToken, refreshToken } = req.body;
 
-  if (!password || !passwordConfirmation || !accessToken || !refreshToken) {
+  if (!password || !passwordConfirmation)
     return res.status(400).json({ error: "Faltan datos necesarios" });
-  }
 
-  if (password !== passwordConfirmation) {
+  if (password !== passwordConfirmation)
     return res.status(400).json({ error: "Las contraseñas no coinciden" });
-  }
 
   try {
-    const { error: sessionError } = await supabase.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
+    if (accessToken && refreshToken) {
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+      });
+      if (sessionError) return res.status(400).json({ error: sessionError.message });
 
-    if (sessionError) {
-      return res.status(400).json({ error: sessionError.message });
+      const { error: updateError } = await supabase.auth.updateUser({ password });
+      if (updateError) return res.status(400).json({ error: updateError.message });
+      return res.json({ message: "Contraseña cambiada correctamente 1" });
     }
 
-    const { error } = await supabase.auth.updateUser({ password });
-    if (error) {
-      return res.status(400).json({ error: error.message });
-    }
-
-    return res.json({ message: "Contraseña cambiada correctamente" });
+    return res.status(400).json({ error: "Faltan credenciales del enlace" });
   } catch (err) {
     console.error("Error en setPassword:", err);
     return res.status(500).json({ error: "Error interno del servidor" });
