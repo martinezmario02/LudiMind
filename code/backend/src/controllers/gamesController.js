@@ -62,3 +62,15 @@ export const newGames = async (req, res) => {
     if (error) return res.status(400).json({ error: error.message });
     return res.json(unplayed);
 };
+
+export const infoGame = async (req, res) => {
+    const { id } = req.params;
+    const { data, error } = await supabase
+        .from("games")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (error) return res.status(400).json({ error: error.message });
+    return res.json(data);
+};
