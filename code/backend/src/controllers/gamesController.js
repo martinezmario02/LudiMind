@@ -63,6 +63,7 @@ export const newGames = async (req, res) => {
     return res.json(unplayed);
 };
 
+// Game information function
 export const infoGame = async (req, res) => {
     const { id } = req.params;
     const { data, error } = await supabase
@@ -73,4 +74,35 @@ export const infoGame = async (req, res) => {
 
     if (error) return res.status(400).json({ error: error.message });
     return res.json(data);
+};
+
+// Completed levels function
+export const completedLevels = async (req, res) => {
+  const { id } = req.params;
+
+  const { count, error } = await supabase
+    .from("game_sessions")
+    .select("*", { count: "exact", head: true })
+    .eq("game_id", id)
+    .eq("score", 3);
+
+  if (error) return res.status(400).json({ error: error.message });
+
+  return res.json({ completedLevels: count });
+};
+
+// Total score function
+export const totalScore = async (req, res) => {
+  const { id } = req.params;
+
+  const { data, error } = await supabase
+    .from("game_sessions")
+    .select("score")
+    .eq("game_id", id);
+
+  if (error) return res.status(400).json({ error: error.message });
+
+  const totalScore = data.reduce((acc, session) => acc + (session.score || 0), 0);
+
+  return res.json({ totalScore });
 };

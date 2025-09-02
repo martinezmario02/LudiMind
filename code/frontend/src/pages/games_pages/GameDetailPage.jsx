@@ -14,15 +14,28 @@ export default function GameDetailPage() {
   const { id } = useParams(); 
   const [game, setGame] = useState(null);
   const [error, setError] = useState(null);
+  const [completedLevels, setCompletedLevels] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
 
   useEffect(() => {
     const fetchGame = async () => {
       try {
         const token = localStorage.getItem("token");
+        // Set game information
         const response = await axios.get(`/api/games/info-game/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setGame(response.data);
+        // Set completed levels
+        const levelsResponse = await axios.get(`/api/games/completed-levels/${id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setCompletedLevels(levelsResponse.data.completedLevels);
+        // Set total score
+        const scoreResponse = await axios.get(`/api/games/total-score/${id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setTotalScore(scoreResponse.data.totalScore);
       } catch (err) {
         setError("No se pudo cargar el juego");
       }
@@ -65,12 +78,12 @@ export default function GameDetailPage() {
         {/* Progress Section */}
         <div className="w-full grid grid-cols-2 divide-x divide-gray-200 text-center bg-gray-50 py-6 px-6">
             <div>
-                <p className="font-bold text-gray-800">Misiones completadas</p>
-                <p className="text-2xl text-primary font-semibold mt-2">{game.missions_completed ?? 0}</p>
+                <p className="font-bold text-gray-800">Niveles completados</p>
+                <p className="text-2xl text-primary font-semibold mt-2">{completedLevels ?? 0}</p>
             </div>
             <div>
                 <p className="font-bold text-gray-800">Puntos conseguidos</p>
-                <p className="text-2xl text-primary font-semibold mt-2">{game.xp ?? 0}</p>
+                <p className="text-2xl text-primary font-semibold mt-2">{totalScore ?? 0}</p>
             </div>
         </div>
 
