@@ -77,7 +77,8 @@ export default function GamesPage() {
           ) : (
             <div className="flex space-x-3 overflow-x-auto py-2">
               {newGames.map((game) => (
-                <Card key={game.id} className="hover:shadow-lg transition-shadow min-w-[300px] max-w-[320px] flex-shrink-0">
+                <Card key={game.id} className="hover:shadow-lg transition-shadow min-w-[300px] max-w-[320px] flex-shrink-0"
+                  onClick={() => navigate(`/games/${game.id}`)}>
                   <CardHeader>
                     <CardTitle className="text-primary font-sans">{game.name}</CardTitle>
                     <CardDescription>{game.slogan}</CardDescription>
