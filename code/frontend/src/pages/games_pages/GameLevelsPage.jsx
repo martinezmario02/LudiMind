@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/ui/Header.jsx";
@@ -16,6 +17,7 @@ export default function LevelsPage() {
     const [game, setGame] = useState(null);
     const [levels, setLevels] = useState([]);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchLevels = async () => {
@@ -67,7 +69,8 @@ export default function LevelsPage() {
                     {levels.length === 0 && <p className="text-gray-500">No hay niveles disponibles para este juego.</p>}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {levels.map((level) => (
-                            <div key={level.id} className="p-4 bg-white rounded-lg shadow hover:shadow-lg transition cursor-pointer text-center">
+                            <div key={level.id} className="p-4 bg-white rounded-lg shadow hover:shadow-lg transition cursor-pointer text-center"
+                                onClick={() => navigate(`/metro/${level.id}`)}>
                                 <h2 className="font-bold mb-2">Nivel {level.level_number}</h2>
                                 <div className="flex justify-center space-x-1">
                                     {[1, 2, 3].map((i) => (
