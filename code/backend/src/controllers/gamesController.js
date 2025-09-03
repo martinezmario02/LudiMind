@@ -79,11 +79,20 @@ export const infoGame = async (req, res) => {
 // Completed levels function
 export const completedLevels = async (req, res) => {
   const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const { data: authData, error: authError } = await supabase.auth.getUser(token);
+  if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+
+  const userId = authData.user.id;
 
   const { count, error } = await supabase
     .from("game_sessions")
     .select("*", { count: "exact", head: true })
     .eq("game_id", id)
+    .eq("user_id", userId)
     .eq("score", 3);
 
   if (error) return res.status(400).json({ error: error.message });
@@ -94,11 +103,20 @@ export const completedLevels = async (req, res) => {
 // Total score function
 export const totalScore = async (req, res) => {
   const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const { data: authData, error: authError } = await supabase.auth.getUser(token);
+  if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+
+  const userId = authData.user.id;
 
   const { data, error } = await supabase
     .from("game_sessions")
     .select("score")
-    .eq("game_id", id);
+    .eq("game_id", id)
+    .eq("user_id", userId);
 
   if (error) return res.status(400).json({ error: error.message });
 
