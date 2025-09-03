@@ -6,6 +6,7 @@ import ResetPasswordPage from "./pages/main_pages/ResetPasswordPage";
 import SetPasswordPage from "./pages/main_pages/SetPasswordPage";
 import GamesPage from "./pages/games_pages/GamesPage";
 import GameDetailPage from "./pages/games_pages/GameDetailPage";
+import GameLevelsPage from "./pages/games_pages/GameLevelsPage";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/set-password" element={<SetPasswordPage />} />
         <Route path="/games" element={<GamesPage />} />
         <Route path="/games/:id" element={<GameDetailPage />} />
+        <Route path="/games/:id/levels" element={<GameLevelsPage />} />
       </Routes>
     </Router>
   );

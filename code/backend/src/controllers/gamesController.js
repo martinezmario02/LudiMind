@@ -106,3 +106,51 @@ export const totalScore = async (req, res) => {
 
   return res.json({ totalScore });
 };
+
+// Game levels function
+export const getLevels = async (req, res) => {
+  const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const { data: authData, error: authError } = await supabase.auth.getUser(token);
+  if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+
+  const userId = authData.user.id;
+
+  // Get levels (ordenados por número de nivel)
+  const { data: levels, error: errorLevels } = await supabase
+    .from("game_levels")
+    .select("*")
+    .eq("game_id", id)
+    .order("level_number", { ascending: true });
+
+  if (errorLevels) {
+    console.error("Error al obtener niveles:", errorLevels.message);
+    return res.status(400).json({ error: errorLevels.message });
+  }
+
+  // Get user progress
+  const { data: sessions, error: errorSessions } = await supabase
+    .from("game_sessions")
+    .select("level_id, score")
+    .eq("user_id", userId)
+    .eq("game_id", id);
+
+  if (errorSessions) {
+    console.error("Error al obtener progreso:", errorSessions.message);
+    return res.status(400).json({ error: errorSessions.message });
+  }
+
+  // Map levels with score
+  const levelsWithProgress = levels.map(level => {
+    const session = sessions.find(s => s.level_id === level.id);
+    return {
+      ...level,
+      score: session ? session.score : 0
+    };
+  });
+
+  return res.json(levelsWithProgress);
+};
