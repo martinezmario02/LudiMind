@@ -6,8 +6,8 @@ import CharacterSpeech from "../CharacterSpeech";
 export default function IntroMetro() {
   const { id } = useParams();
   const [task, setTask] = useState(null);
-  const [startName, setStartName] = useState("");
-  const [endName, setEndName] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   useEffect(() => {
     const fetchTask = async () => {
@@ -24,8 +24,8 @@ export default function IntroMetro() {
             axios.get(`/api/metro/stations/${endStationId}`)
           ]);
 
-          setStartName(startRes.data.name);
-          setEndName(endRes.data.name);
+          setStart(startRes.data);
+          setEnd(endRes.data);
         }
       } catch (err) {
         console.error("Error fetching task:", err);
@@ -37,7 +37,7 @@ export default function IntroMetro() {
   if (!task) return <p className="text-center">Cargando misión...</p>;
 
   return (
-    <CharacterSpeech text={`Actualmente me encuentro en la parada ${startName} 
-      y necesito llegar a ${endName}. ¿Podrías ayudarme a llegar?`} image="/imgs/avatar_panda.png"/>
+    <CharacterSpeech text={`Actualmente me encuentro en la parada ${start.name} (${start.emoji}) 
+      y necesito llegar a ${end.name} (${end.emoji}). ¿Podrías ayudarme a llegar?`} image="/imgs/avatar_panda.png"/>
   );
 }

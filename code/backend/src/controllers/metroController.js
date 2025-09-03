@@ -27,7 +27,7 @@ export const getStation = async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("metro_stations")
-      .select("id, name, emoji")
+      .select("*")
       .eq("id", id)
       .single();
 
