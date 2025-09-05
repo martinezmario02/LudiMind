@@ -1,1 +1,51 @@
 \section{Mecánica de los juegos}
+
+\subsection{Metro de la Memoria}
+
+\subsubsection{Descripción del juego}
+Este minijuego está diseñado para ayudar a los estudiantes con TDAH a mejorar su memoria y concentración. 
+El juego se desarrolla en un mapa ficticio que representa una red de metro, con diferentes estaciones y líneas de tren con nombres llamativos y divertidos. 
+El jugador o jugadora debe llevar a un personaje desde un punto A hasta un punto B, cambiando de línea en las estaciones adecuadas.
+Para hacerlo, el juego le enseña frases mnemotécnicas que resumen el trayecto.
+
+\subsubsection{Funciones cognitivas trabajadas}
+Este juego trabaja principalmente las siguientes funciones cognitivas:
+\begin{itemize}
+    \item \textbf{Memoria de trabajo:} Los jugadores y jugadoras deben mantener en mente la información sobre las estaciones de entrada y salida, así como la frase proporcionada a modo de pista.
+    \item \textbf{Flexibilidad cognitiva:} El juego requiere que los jugadores y jugadoras vayan cambiando de línea en las estaciones correctas, lo que implica adaptarse a nuevas reglas y situaciones.
+\end{itemize}
+
+\subsubsection{Desarrollo del juego}
+El juego cuenta con varios niveles, cada uno con un nivel de dificultad creciente. 
+En las primeras fases, se presentan frases muy concretas, especificando gran parte de las paradas por las que el usuario debe pasar,
+mientras que en las fases posteriores se introducen frases más complejas. 
+A medida que avanzan en el juego, estas frases se vuelven más abstractas, requiriendo que los jugadores y jugadoras utilicen su memoria de trabajo y flexibilidad cognitiva para recordar y aplicar la información.
+
+Inicialmente, se muestra a un avatar que le plantea al jugador o jugadora el reto del nivel, indicando la estación de inicio y la estación de destino. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/desarrollo_metro_1.png}
+    \caption{Metro de la Memoria - Inicio del nivel}
+\end{figure}
+
+Luego, se presenta a modo de pista una frase mnemotécnica que resume el trayecto que el usuario debe seguir.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/desarrollo_metro_2.png}
+    \caption{Metro de la Memoria - Frase mnemotécnica}
+\end{figure}
+
+A continuación, el jugador o jugadora debe seleccionar las estaciones correctas en el orden adecuado para completar el trayecto.
+El usuario solo podrá avanzar si selecciona estaciones contiguas y, una vez seleccionadas todas, podrá resolver el  para comprobar su corrección.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/desarrollo_metro_3.png}
+    \includegraphics[width=1\linewidth]{imgs/desarrollo_metro_4.png}
+    \caption{Metro de la Memoria - Selección de estaciones}
+\end{figure}
+
+Si el jugador o jugadora selecciona las estaciones correctas, recibirá una puntuación de tres estrellas, completando el nivel.
+El usuario contará con tres intentos cada vez que inicie el juego, de forma que el número de estrellas obtenidas se calculará en función del número de intentos realizados.
