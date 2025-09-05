@@ -9,6 +9,8 @@ export default function MetroMap() {
     const { id } = useParams();
     const [task, setTask] = useState(null);
     const [selectedStations, setSelectedStations] = useState([]);
+    const [attempts, setAttempts] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchLines = async () => {
@@ -54,12 +56,29 @@ export default function MetroMap() {
 
     const handleSubmit = async () => {
         try {
-            const res = await axios.post(`/api/metro/tasks/${id}/check`, { sequence: selectedStations });
-            alert(res.data.message);
+            const token = localStorage.getItem("token");
+            const newAttempts = attempts + 1;
+            setAttempts(newAttempts);
+
+            const res = await axios.post(
+                `/api/metro/tasks/${id}/check`,
+                {
+                    sequence: selectedStations,
+                    game_id: "f4512460-eb79-4449-a145-c910c2d41da9",
+                    attempt: newAttempts
+                },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            if (res.data.isCorrect) alert(`✅ Correcto: Has obtenido ${res.data.score}⭐`);
+            else alert(`❌ Incorrecto: Te quedan ${3 - newAttempts} intentos`);
+            setSelectedStations([]);
+            if (res.data.finished) navigate("/games");
         } catch (err) {
             console.error("Error submitting sequence:", err);
         }
     };
+
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -99,7 +118,7 @@ export default function MetroMap() {
                                 );
                             })
                         )}
-                    </svg>     
+                    </svg>
                 </div>
                 <div className="mt-8">
                     <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSubmit}>Comprobar</Button>
