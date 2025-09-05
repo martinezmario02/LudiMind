@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
+import Button from "../../../components/ui/Button";
 
 export default function MetroMap() {
     const [lines, setLines] = useState([]);
     const { id } = useParams();
     const [task, setTask] = useState(null);
+    const [selectedStations, setSelectedStations] = useState([]);
 
     useEffect(() => {
         const fetchLines = async () => {
@@ -24,6 +26,40 @@ export default function MetroMap() {
     }, []);
 
     if (lines.length === 0) return <p className="text-center mt-10">Cargando mapa...</p>;
+
+    // Check if the new station is contiguous to the last selected station
+    const isContiguous = (stationId) => {
+        if (selectedStations.length === 0) return true;
+
+        const lastStationId = selectedStations[selectedStations.length - 1];
+        for (const line of lines) {
+            const idx = line.stations.findIndex((s) => s.id === lastStationId);
+            if (idx !== -1) {
+                const prev = line.stations[idx - 1]?.id;
+                const next = line.stations[idx + 1]?.id;
+                if (stationId === prev || stationId === next) return true;
+            }
+        }
+        return false;
+    };
+
+    const handleStationClick = (stationId) => {
+        if (selectedStations.includes(stationId)) return;
+        if (!isContiguous(stationId)) {
+            alert("Debes seleccionar una estación contigua a la anterior.");
+            return;
+        }
+        setSelectedStations([...selectedStations, stationId]);
+    };
+
+    const handleSubmit = async () => {
+        try {
+            const res = await axios.post(`/api/metro/tasks/${id}/check`, { sequence: selectedStations });
+            alert(res.data.message);
+        } catch (err) {
+            console.error("Error submitting sequence:", err);
+        }
+    };
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -50,11 +86,12 @@ export default function MetroMap() {
                                 const textWidth = Math.max(station.name.length * 8, 24);
                                 const rectWidth = paddingX * 2 + textWidth;
                                 const rectHeight = paddingY * 2 + 24;
+                                const isSelected = selectedStations.includes(station.id);
 
                                 return (
-                                    <g key={station.id} onClick={() => alert(`Has clicado en ${station.name}`)} style={{ cursor: "pointer" }}>
+                                    <g key={station.id} onClick={() => handleStationClick(station.id)} style={{ cursor: "pointer" }}>
                                         <rect x={cx - rectWidth / 2} y={cy - rectHeight / 2} width={rectWidth} height={rectHeight}
-                                            rx={12} ry={12} fill={station.is_transfer ? "#FFD700" : "#fff"}
+                                            rx={12} ry={12} fill={isSelected ? "#00ff99" : station.is_transfer ? "#eeeeeeff" : "#fff"}
                                             stroke={line.color} strokeWidth={station.is_transfer ? 4 : 3} />
                                         <text x={cx} y={cy - 4} textAnchor="middle" fontSize="18"> {station.emoji} </text>
                                         <text x={cx} y={cy + 15} textAnchor="middle" fontSize="14" fill="#333"> {station.name} </text>
@@ -62,7 +99,10 @@ export default function MetroMap() {
                                 );
                             })
                         )}
-                    </svg>
+                    </svg>     
+                </div>
+                <div className="mt-8">
+                    <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSubmit}>Comprobar</Button>
                 </div>
             </div>
         </div>

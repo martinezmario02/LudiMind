@@ -59,7 +59,7 @@ export const getAllStations = async (req, res) => {
 // Get lines with stations (including transfers)
 export const getLinesWithStations = async (req, res) => {
   try {
-    // 1️⃣ Traer todas las líneas del nivel
+    // Get lines
     const { data: lines, error: errLines } = await supabase
       .from("metro_lines")
       .select("*")
@@ -67,21 +67,21 @@ export const getLinesWithStations = async (req, res) => {
 
     if (errLines) throw errLines;
 
-    // 2️⃣ Traer todas las estaciones
+    // Get stations
     const { data: stations, error: errStations } = await supabase
       .from("metro_stations")
       .select("*");
 
     if (errStations) throw errStations;
 
-    // 3️⃣ Traer las relaciones línea-estación
+    // Get line-station relationships
     const { data: lineStations, error: errLineStations } = await supabase
       .from("metro_line_stations")
       .select("*");
 
     if (errLineStations) throw errLineStations;
 
-    // 4️⃣ Mapear estaciones a cada línea usando metro_line_stations
+    // Map stations to each line
     const linesWithStations = lines.map((line) => ({
       ...line,
       stations: lineStations
@@ -94,5 +94,37 @@ export const getLinesWithStations = async (req, res) => {
   } catch (err) {
     console.error("Error fetching lines with stations:", err);
     return res.status(500).json({ error: "Error fetching lines with stations" });
+  }
+};
+
+// Check sequence function
+export const checkSequence = async (req, res) => {
+  const { id } = req.params;
+  const { sequence } = req.body;
+
+  if (!Array.isArray(sequence) || sequence.length === 0) {
+    return res.status(400).json({ error: "Invalid sequence format" });
+  }
+
+  try {
+    const { data: task, error: taskError } = await supabase
+      .from("metro_tasks")
+      .select("path")
+      .eq("level_id", id)
+      .single();
+
+    if (taskError || !task) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+
+    const isCorrect = JSON.stringify(sequence) === JSON.stringify(task.path);
+    return res.json({
+      message: isCorrect
+        ? "¡Secuencia correcta! Bien hecho."
+        : "Secuencia incorrecta. Inténtalo de nuevo."
+    });
+  } catch (error) {
+    console.error("Error checking sequence:", error);
+    return res.status(500).json({ error: "Error checking sequence" });
   }
 };
