@@ -57,3 +57,26 @@ export const getDrawersInfo = async (req, res) => {
     return res.status(500).json({ error: "Error fetching drawers info" });
   }
 };
+
+// Get objects info function
+export const getObjectsInfo = async (req, res) => {
+  const { ids } = req.body;
+
+  if (!ids || !Array.isArray(ids) || ids.length === 0) {
+    return res.status(400).json({ error: "Array of object IDs is required" });
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("magic_objects")
+      .select("id, name, type, size, utility, image_url")
+      .in("id", ids);
+
+    if (error) throw error;
+
+    return res.json(data);
+  } catch (err) {
+    console.error("Error fetching objects info:", err);
+    return res.status(500).json({ error: "Error fetching objects info" });
+  }
+};
