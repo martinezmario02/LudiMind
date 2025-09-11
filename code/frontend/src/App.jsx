@@ -10,6 +10,8 @@ import GameLevelsPage from "./pages/games_pages/GameLevelsPage";
 import IntroMetro from "./pages/games_pages/metro_game/IntroMetro";
 import ClueMetro from "./pages/games_pages/metro_game/ClueMetro";
 import LinesMetro from "./pages/games_pages/metro_game/LinesMetro";
+import IntroDrawer from "./pages/games_pages/drawer_game/IntroDrawer";
+import OrganizationDrawer from "./pages/games_pages/drawer_game/OrganizationDrawer";
 
 export default function App() {
   return (
@@ -23,9 +25,11 @@ export default function App() {
         <Route path="/games" element={<GamesPage />} />
         <Route path="/games/:id" element={<GameDetailPage />} />
         <Route path="/games/:id/levels" element={<GameLevelsPage />} />
-        <Route path="/metro/:id" element={<IntroMetro />} />
-        <Route path="/metro/:id/clue" element={<ClueMetro />} />
-        <Route path="/metro/:id/lines" element={<LinesMetro />} />
+        <Route path="/memory/:id" element={<IntroMetro />} />
+        <Route path="/memory/:id/clue" element={<ClueMetro />} />
+        <Route path="/memory/:id/lines" element={<LinesMetro />} />
+        <Route path="/organization/:id" element={<IntroDrawer />} />
+        <Route path="/organization/:id/level" element={<OrganizationDrawer />} />
       </Routes>
     </Router>
   );

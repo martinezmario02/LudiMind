@@ -27,7 +27,7 @@ export default function ClueMetro() {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <div className="flex-grow" onClick={() => navigate(`/metro/${id}/lines`)}>
+            <div className="flex-grow" onClick={() => navigate(`/memory/${id}/lines`)}>
                 <CharacterSpeech text={<>Te daré una pista:<br/>"{task.clue}"</>} image="/imgs/avatar_panda.png" />
             </div>
         </div>

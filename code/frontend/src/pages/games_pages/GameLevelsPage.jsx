@@ -70,7 +70,7 @@ export default function LevelsPage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {levels.map((level) => (
                             <div key={level.id} className="p-4 bg-white rounded-lg shadow hover:shadow-lg transition cursor-pointer text-center"
-                                onClick={() => navigate(`/metro/${level.id}`)}>
+                                onClick={() => navigate(`/${game.category}/${level.id}`)}>
                                 <h2 className="font-bold mb-2">Nivel {level.level_number}</h2>
                                 <div className="flex justify-center space-x-1">
                                     {[1, 2, 3].map((i) => (
