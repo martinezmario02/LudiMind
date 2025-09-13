@@ -80,3 +80,48 @@ export const getObjectsInfo = async (req, res) => {
     return res.status(500).json({ error: "Error fetching objects info" });
   }
 };
+
+// Add object to drawer function
+export const addObjectToDrawer = async (req, res) => {
+  const { drawerId, objectId } = req.body;
+
+  if (!drawerId || !objectId) {
+    return res.status(400).json({ error: "drawerId and objectId are required" });
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("magic_drawer_contents")
+      .insert([{ drawer_id: drawerId, object_id: objectId }])
+      .select();
+
+    if (error) throw error;
+
+    return res.json(data[0]);
+  } catch (err) {
+    console.error("Error adding object to drawer:", err);
+    return res.status(500).json({ error: "Error adding object to drawer" });
+  }
+};
+
+// Gtet drawer contents function
+export const getDrawerContents = async (req, res) => {
+  const { drawerId } = req.params;
+
+  try {
+    const { data, error } = await supabase
+      .from("magic_drawer_contents")
+      .select(`
+        id,
+        object: magic_objects (id, name, image_url, type, size, utility)
+      `)
+      .eq("drawer_id", drawerId);
+
+    if (error) throw error;
+
+    return res.json(data);
+  } catch (err) {
+    console.error("Error fetching drawer contents:", err);
+    return res.status(500).json({ error: "Error fetching drawer contents" });
+  }
+};
