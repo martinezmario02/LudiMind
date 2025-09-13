@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getInfoLevel, getDrawersInfo, getObjectsInfo, addObjectToDrawer, getDrawerContents, removeObjectFromDrawer, getUnassignedObjects } from "../controllers/drawerController.js";
+import { getInfoLevel, getDrawersInfo, getObjectsInfo, addObjectToDrawer, getDrawerContents, removeObjectFromDrawer, getUnassignedObjects, solveDrawerLevel } from "../controllers/drawerController.js";
 
 const router = Router();
 
@@ -10,5 +10,6 @@ router.post("/add-object", addObjectToDrawer);
 router.get("/content/:id", getDrawerContents);
 router.post("/remove-object", removeObjectFromDrawer);
 router.get("/unassigned-objects/:id", getUnassignedObjects);
+router.post("/solve-level", solveDrawerLevel);
 
 export default router;

@@ -194,3 +194,88 @@ export const getUnassignedObjects = async (req, res) => {
     return res.status(500).json({ error: "Error fetching unassigned objects" });
   }
 };
+
+export const solveDrawerLevel = async (req, res) => {
+  const { levelId } = req.body;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+  if (!levelId) return res.status(400).json({ error: "levelId requerido" });
+
+  try {
+    // Get user
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+    const userId = authData.user.id;
+
+    // Objects assigned by the user in this level
+    const { data: userContents, error: userError } = await supabase
+      .from("magic_drawer_contents")
+      .select("drawer_id, object_id")
+      .eq("user_id", userId)
+      .eq("level_id", levelId);
+
+    if (userError) throw userError;
+
+    // Correct solutions
+    const { data: solutions, error: solutionError } = await supabase
+      .from("magic_drawer_solutions")
+      .select("drawer_id, object_ids, category")
+      .eq("level_id", levelId);
+    if (solutionError) throw solutionError;
+
+    // Calculate score
+    let totalFailures = 0;
+    solutions.forEach((solution) => {
+      const userObjectsInDrawer = userContents
+        .filter((uc) => uc.drawer_id === solution.drawer_id)
+        .map((uc) => uc.object_id);
+      const incorrect = userObjectsInDrawer.filter((id) => !solution.object_ids.includes(id)).length;
+      const missing = solution.object_ids.filter((id) => !userObjectsInDrawer.includes(id)).length;
+
+      totalFailures += incorrect + missing;
+    });
+
+    let score = 0;
+    if (totalFailures === 0) score = 3;
+    else if (totalFailures <= 3) score = 2;
+    else if (totalFailures <= 5) score = 1;
+    else score = 0;
+
+    // Set or update game session
+    const { data: existing } = await supabase
+      .from("game_sessions")
+      .select("id, score")
+      .eq("user_id", userId)
+      .eq("game_id", "db0bdeed-cad8-41e7-8bc1-79edc7b3ca0b")
+      .eq("level_id", levelId)
+      .maybeSingle();
+
+    if (existing) {
+      const { error: updateError } = await supabase
+        .from("game_sessions")
+        .update({ score })
+        .eq("id", existing.id);
+
+      if (updateError) {
+        console.error("Error updating session:", updateError.message);
+        return res.status(500).json({ error: "Error updating game session" });
+      }
+    } else {
+      const { error: insertError } = await supabase
+        .from("game_sessions")
+        .insert([
+          { user_id: userId, game_id: "db0bdeed-cad8-41e7-8bc1-79edc7b3ca0b", level_id: levelId, score }
+        ]);
+
+      if (insertError) {
+        console.error("Error inserting session:", insertError.message);
+        return res.status(500).json({ error: "Error saving game session" });
+      }
+    }
+    return res.json({ score, totalFailures, message: "Nivel resuelto" });
+  } catch (err) {
+    console.error("Error resolviendo el nivel:", err);
+    return res.status(500).json({ error: "Error resolviendo el nivel" });
+  }
+};
