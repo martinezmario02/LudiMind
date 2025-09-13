@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
+import Button from "../../../components/ui/Button";
 import { useDrag, useDrop } from "react-dnd";
 
 const ItemTypes = { OBJECT: "object" };
@@ -156,12 +157,9 @@ export default function OrganizationDrawer() {
                 </div>
 
                 {/* Solve Level Button */}
-                <div className="mb-6">
-                    <button onClick={handleSolveLevel} className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
-                        Resolver
-                    </button>
+                <div className="mb-6 mt-4">
+                    <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSolveLevel}>Comprobar</Button>
                 </div>
-
             </div>
         </div>
     );
