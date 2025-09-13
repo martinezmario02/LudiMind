@@ -83,16 +83,21 @@ export const getObjectsInfo = async (req, res) => {
 
 // Add object to drawer function
 export const addObjectToDrawer = async (req, res) => {
-  const { drawerId, objectId } = req.body;
+  const { drawerId, objectId, levelId } = req.body;
+  const token = req.headers.authorization?.replace("Bearer ", "");
 
-  if (!drawerId || !objectId) {
-    return res.status(400).json({ error: "drawerId and objectId are required" });
+  if (!drawerId || !objectId || !levelId) {
+    return res.status(400).json({ error: "drawerId, objectId y levelId son requeridos" });
   }
 
   try {
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+    const userId = authData.user.id;
+
     const { data, error } = await supabase
       .from("magic_drawer_contents")
-      .insert([{ drawer_id: drawerId, object_id: objectId }])
+      .insert([{ drawer_id: drawerId, object_id: objectId, level_id: levelId, user_id: userId }])
       .select();
 
     if (error) throw error;
@@ -104,24 +109,88 @@ export const addObjectToDrawer = async (req, res) => {
   }
 };
 
-// Gtet drawer contents function
+// Get drawer contents function
 export const getDrawerContents = async (req, res) => {
-  const { drawerId } = req.params;
+  const { id } = req.params;
 
   try {
-    const { data, error } = await supabase
+    // Get objects
+    const { data: contents, error: contentsError } = await supabase
       .from("magic_drawer_contents")
-      .select(`
-        id,
-        object: magic_objects (id, name, image_url, type, size, utility)
-      `)
-      .eq("drawer_id", drawerId);
+      .select("object_id")
+      .eq("drawer_id", id);
 
-    if (error) throw error;
+    if (contentsError) throw contentsError;
+    if (!contents || contents.length === 0) {
+      return res.json([]);
+    }
 
-    return res.json(data);
+    const objectIds = contents.map((c) => c.object_id);
+
+    // Get objects info
+    const { data: objects, error: objectsError } = await supabase
+      .from("magic_objects")
+      .select("id, name, image_url")
+      .in("id", objectIds);
+
+    if (objectsError) throw objectsError;
+
+    return res.json(objects);
   } catch (err) {
     console.error("Error fetching drawer contents:", err);
     return res.status(500).json({ error: "Error fetching drawer contents" });
+  }
+};
+
+// Remove object from drawer function
+export const removeObjectFromDrawer = async (req, res) => {
+  const { drawerId, objectId } = req.body;
+
+  try {
+    const { error } = await supabase
+      .from("magic_drawer_contents")
+      .delete()
+      .eq("drawer_id", drawerId)
+      .eq("object_id", objectId);
+
+    if (error) throw error;
+
+    return res.json({ success: true });
+  } catch (err) {
+    console.error("Error removing object from drawer:", err);
+    return res.status(500).json({ error: "Error removing object from drawer" });
+  }
+};
+
+export const getUnassignedObjects = async (req, res) => {
+  const levelId = req.params.id;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  try {
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+    const userId = authData.user.id;
+    if (!userId) return res.status(400).json({ error: "userId no encontrado" });
+
+    const { data: assigned, error: assignedError } = await supabase
+      .from("magic_drawer_contents")
+      .select("object_id")
+      .eq("user_id", userId)
+      .eq("level_id", levelId);
+    if (assignedError) throw assignedError;
+
+    const assignedIds = assigned.map(a => a.object_id);
+
+    const { data: allObjects, error: allError } = await supabase
+      .from("magic_objects")
+      .select("*");
+    if (allError) throw allError;
+
+    const unassignedObjects = allObjects.filter(obj => !assignedIds.includes(obj.id));
+    return res.json(unassignedObjects);
+
+  } catch (err) {
+    console.error("Error fetching unassigned objects:", err);
+    return res.status(500).json({ error: "Error fetching unassigned objects" });
   }
 };

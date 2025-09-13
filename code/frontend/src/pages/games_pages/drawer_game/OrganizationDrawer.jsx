@@ -1,15 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
 import { useDrag, useDrop } from "react-dnd";
 
-const ItemTypes = {
-  OBJECT: "object",
-};
+const ItemTypes = { OBJECT: "object" };
 
-// 🔹 Componente draggable (objeto)
-function DraggableObject({ obj, onDropSuccess }) {
+// Object component
+function DraggableObject({ obj }) {
   const [{ isDragging }, dragRef] = useDrag({
     type: ItemTypes.OBJECT,
     item: { id: obj.id },
@@ -31,8 +29,9 @@ function DraggableObject({ obj, onDropSuccess }) {
   );
 }
 
-// 🔹 Componente drop zone (cajón)
+// Drawer component
 function DroppableDrawer({ drawer, onObjectDropped }) {
+  const navigate = useNavigate();
   const [{ isOver }, dropRef] = useDrop({
     accept: ItemTypes.OBJECT,
     drop: (item) => onObjectDropped(item.id, drawer.id),
@@ -44,6 +43,7 @@ function DroppableDrawer({ drawer, onObjectDropped }) {
   return (
     <div
       ref={dropRef}
+      onClick={() => navigate(`/organization/content/${drawer.id}`)}
       className={`bg-[url('/imgs/wood_texture.jpg')] bg-cover bg-center rounded-2xl shadow-lg p-4 flex flex-col items-center justify-center h-64 w-64 hover:scale-105 transform transition ${
         isOver ? "ring-4 ring-yellow-400" : ""
       }`}
@@ -54,43 +54,68 @@ function DroppableDrawer({ drawer, onObjectDropped }) {
 }
 
 export default function OrganizationDrawer() {
-  const { id } = useParams();
+  const { id } = useParams(); // level_id
+  const [user, setUser] = useState(null);
   const [drawers, setDrawers] = useState([]);
   const [objects, setObjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Obtener el usuario a partir del token
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get("/api/auth/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUser(res.data); // res.data debería contener { id, name, ... }
+      } catch (err) {
+        console.error("Error getting user:", err);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  // Fetch drawers y objetos no asignados
+  useEffect(() => {
+    if (!user) return;
+
     const fetchInfo = async () => {
       try {
-        const response = await axios.get(`/api/drawer/drawers-info/${id}`);
-        setDrawers(response.data);
+        const resDrawers = await axios.get(`/api/drawer/drawers-info/${id}`);
+        setDrawers(resDrawers.data);
 
-        const objectIds = response.data.flatMap((drawer) =>
-          drawer.solutions?.flatMap((sol) => sol.object_ids) || []
-        );
-
-        if (objectIds.length > 0) {
-          const { data: objectsData } = await axios.post(`/api/drawer/objects-info`, { ids: objectIds });
-          setObjects(objectsData);
-        }
+        const resObjects = await axios.get(`/api/drawer/unassigned-objects/${id}`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
+        setObjects(resObjects.data);
       } catch (err) {
-        console.error("Error fetching drawers:", err);
+        console.error("Error fetching drawers or objects:", err);
       } finally {
         setLoading(false);
       }
     };
-    fetchInfo();
-  }, [id]);
 
-  // 🔹 Handler al soltar objeto
-  const handleObjectDropped = useCallback(async (objectId, drawerId) => {
-    try {
-      await axios.post(`/api/drawer/add-object`, { objectId, drawerId });
-      setObjects((prev) => prev.filter((obj) => obj.id !== objectId));
-    } catch (err) {
-      console.error("Error al guardar objeto en cajón:", err);
-    }
-  }, []);
+    fetchInfo();
+  }, [id, user]);
+
+  const handleObjectDropped = useCallback(
+    async (objectId, drawerId) => {
+      try {
+        await axios.post(
+        "/api/drawer/add-object",
+            { objectId, drawerId, levelId: id },
+            { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+        );
+        setObjects((prev) => prev.filter((obj) => obj.id !== objectId));
+      } catch (err) {
+        console.error("Error dropping object:", err);
+      }
+    },
+    []
+  );
 
   if (loading) return <p className="text-center mt-10">Cargando desván mágico...</p>;
 
@@ -102,14 +127,14 @@ export default function OrganizationDrawer() {
           Mi Desván Mágico
         </h2>
 
-        {/* Cajones */}
+        {/* Drawers */}
         <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center mb-8">
           {drawers.map((drawer) => (
             <DroppableDrawer key={drawer.id} drawer={drawer} onObjectDropped={handleObjectDropped} />
           ))}
         </div>
 
-        {/* Objetos */}
+        {/* Unassigned Objects */}
         <div className="w-full max-w-5xl overflow-x-auto flex space-x-4 py-4 px-2 bg-background rounded-xl">
           {objects.map((obj) => (
             <DraggableObject key={obj.id} obj={obj} />

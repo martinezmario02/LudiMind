@@ -14,6 +14,7 @@ import ClueMetro from "./pages/games_pages/metro_game/ClueMetro";
 import LinesMetro from "./pages/games_pages/metro_game/LinesMetro";
 import IntroDrawer from "./pages/games_pages/drawer_game/IntroDrawer";
 import OrganizationDrawer from "./pages/games_pages/drawer_game/OrganizationDrawer";
+import ContentDrawer from "./pages/games_pages/drawer_game/ContentDrawer";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/memory/:id/lines" element={<LinesMetro />} />
           <Route path="/organization/:id" element={<IntroDrawer />} />
           <Route path="/organization/:id/level" element={<OrganizationDrawer />} />
+          <Route path="/organization/content/:id" element={<ContentDrawer />} />
         </Routes>
       </Router>
     </DndProvider>
