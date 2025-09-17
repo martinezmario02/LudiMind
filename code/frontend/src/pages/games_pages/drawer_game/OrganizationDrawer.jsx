@@ -116,8 +116,8 @@ export default function OrganizationDrawer() {
                 { levelId: id },
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );
-            alert(`¡Nivel resuelto! Puntuación: ${res.data.score}`);
-            navigate(`/games`);
+            // alert(`¡Nivel resuelto! Puntuación: ${res.data.score}`);
+            navigate(`/organization/${id}/retrospective`);
         } catch (err) {
             console.error("Error resolviendo nivel:", err);
             alert("No se pudo resolver el nivel");

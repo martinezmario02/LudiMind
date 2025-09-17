@@ -15,6 +15,7 @@ import LinesMetro from "./pages/games_pages/metro_game/LinesMetro";
 import IntroDrawer from "./pages/games_pages/drawer_game/IntroDrawer";
 import OrganizationDrawer from "./pages/games_pages/drawer_game/OrganizationDrawer";
 import ContentDrawer from "./pages/games_pages/drawer_game/ContentDrawer";
+import RetrospectiveDrawer from "./pages/games_pages/drawer_game/RetrospectiveDrawer";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/organization/:id" element={<IntroDrawer />} />
           <Route path="/organization/:id/level" element={<OrganizationDrawer />} />
           <Route path="/organization/content/:id" element={<ContentDrawer />} />
+          <Route path="/organization/:id/retrospective" element={<RetrospectiveDrawer />} />
         </Routes>
       </Router>
     </DndProvider>
