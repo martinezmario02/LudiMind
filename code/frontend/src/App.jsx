@@ -12,6 +12,7 @@ import GameLevelsPage from "./pages/games_pages/GameLevelsPage";
 import IntroMetro from "./pages/games_pages/metro_game/IntroMetro";
 import ClueMetro from "./pages/games_pages/metro_game/ClueMetro";
 import LinesMetro from "./pages/games_pages/metro_game/LinesMetro";
+import RetrospectiveMetro from "./pages/games_pages/metro_game/RetrospectiveMetro";
 import IntroDrawer from "./pages/games_pages/drawer_game/IntroDrawer";
 import OrganizationDrawer from "./pages/games_pages/drawer_game/OrganizationDrawer";
 import ContentDrawer from "./pages/games_pages/drawer_game/ContentDrawer";
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/memory/:id" element={<IntroMetro />} />
           <Route path="/memory/:id/clue" element={<ClueMetro />} />
           <Route path="/memory/:id/lines" element={<LinesMetro />} />
+          <Route path="/memory/:id/retrospective" element={<RetrospectiveMetro />} />
           <Route path="/organization/:id" element={<IntroDrawer />} />
           <Route path="/organization/:id/level" element={<OrganizationDrawer />} />
           <Route path="/organization/content/:id" element={<ContentDrawer />} />

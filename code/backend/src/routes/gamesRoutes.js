@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { usedGames, newGames, infoGame, completedLevels, totalScore, getLevels } from "../controllers/gamesController.js";
+import { usedGames, newGames, infoGame, completedLevels, totalScore, getLevels, resultLevel } from "../controllers/gamesController.js";
 
 const router = Router();
 
@@ -9,5 +9,6 @@ router.get("/info-game/:id", infoGame);
 router.get("/completed-levels/:id", completedLevels);
 router.get("/total-score/:id", totalScore);
 router.get("/levels/:id", getLevels);
+router.get("/result/:id", resultLevel);
 
 export default router;

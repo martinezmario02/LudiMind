@@ -308,34 +308,3 @@ export const resetLevel = async (req, res) => {
     return res.status(500).json({ error: "Error resetting level" });
   }
 }
-
-// Get result level function
-export const resultLevel = async (req, res) => {
-  const { id } = req.params;
-  const token = req.headers.authorization?.replace("Bearer ", "");
-
-  if (!token) return res.status(401).json({ error: "Token requerido" });
-  if (!id) return res.status(400).json({ error: "levelId requerido" });
-
-  try {
-    // Get user
-    const { data: authData, error: authError } = await supabase.auth.getUser(token);
-    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
-    const userId = authData.user.id;
-
-    const { data, error } = await supabase
-      .from("game_sessions")
-      .select("score")
-      .eq("level_id", id)
-      .eq("user_id", userId)
-      .single();
-
-    if (error) throw error;
-
-    return res.json(data);
-  } catch (err) {
-    console.error("Error fetching objects info:", err);
-    return res.status(500).json({ error: "Error fetching objects info" });
-  }
-};
-    

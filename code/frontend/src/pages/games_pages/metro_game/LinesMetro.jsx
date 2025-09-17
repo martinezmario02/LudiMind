@@ -70,10 +70,9 @@ export default function MetroMap() {
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
-            if (res.data.isCorrect) alert(`✅ Correcto: Has obtenido ${res.data.score}⭐`);
-            else alert(`❌ Incorrecto: Te quedan ${3 - newAttempts} intentos`);
+            if (!res.data.isCorrect) alert(`❌ Incorrecto: Te quedan ${3 - newAttempts} intentos`);
             setSelectedStations([]);
-            if (res.data.finished) navigate("/games");
+            if (res.data.finished) navigate("/memory/" + id + "/retrospective");
         } catch (err) {
             console.error("Error submitting sequence:", err);
         }

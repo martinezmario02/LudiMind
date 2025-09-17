@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../../../components/ui/Header";
 import CharacterSpeech from "../CharacterSpeech";
 
-export default function RetrospectiveDrawer() {
+export default function RetrospectiveMetro() {
     const { id } = useParams();
     const [levelData, setLevelData] = useState(null);
     const navigate = useNavigate();
@@ -33,20 +33,22 @@ export default function RetrospectiveDrawer() {
                     <>
                         ¡Muchas gracias por tu ayuda!
                         <br />
-                        {levelData?.score === 3 ? (
-                            <>Hemos conseguido organizar correctamente los objetos para mi viaje.</>
+                        {levelData?.score === 0 ? (
+                            <>No hemos conseguido llegar al destino, la próxima vez será...</>
                         ) : (
-                            <>Me da la sensación de que no lo hemos organizado de la mejor manera...</>
+                            <>
+                                He conseguido llegar a mi destino.
+                                <br />
+                                Te entrego esto como agradecimiento:
+                                <br />
+                                {/* Stars */}
+                                {[1, 2, 3].map((n) => (
+                                    <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
+                                ))}
+                            </>
                         )}
-                        <br />
-                        Te entrego esto como agradecimiento:
-                        <br />
-                        {/* Stars */}
-                        {[1, 2, 3].map((n) => (
-                            <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
-                        ))}
                     </>
-                    } image="/imgs/avatar_goat.png"/>
+                    } image="/imgs/avatar_panda.png"/>
             </div>
         </div>
     );
