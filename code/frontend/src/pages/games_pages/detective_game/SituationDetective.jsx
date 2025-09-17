@@ -2,15 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
-import CharacterSpeech from "../CharacterSpeech";
 
-const categoryLevel = {
-  utility: "utilidad",
-  type: "tipo",
-  size: "tamaño"
-};
-
-export default function IntroDrawer() {
+export default function SituationDetective() {
     const { id } = useParams();
     const [levelData, setLevelData] = useState(null);
     const navigate = useNavigate();
@@ -18,10 +11,7 @@ export default function IntroDrawer() {
     useEffect(() => {
         const fetchLevelData = async () => {
             try {
-                const token = localStorage.getItem("token");
-                if (!token) return;
-                await axios.post(`/api/drawer/reset-level/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
-                const response = await axios.get(`/api/drawer/info-level/${id}`);
+                const response = await axios.get(`/api/detective/info-level/${id}`);
                 const levelData = response.data;
                 setLevelData(levelData);
             } catch (err) {
@@ -35,8 +25,8 @@ export default function IntroDrawer() {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <div className="flex-grow" onClick={() => navigate(`/organization/${id}/level`)}>
-                <CharacterSpeech text={`Necesito organizar mi desván mágico en función de su ${categoryLevel[levelData[0].category]}. ¿Podrías ayudarme?`} image="/imgs/avatar_goat.png" />
+            <div className="flex-grow" onClick={() => navigate(`/emotions/${id}/choose`)}>
+                <img src={levelData.image_url} alt="situation" className="mx-auto my-6 max-h-[800px]"  />
             </div>
         </div>
     );

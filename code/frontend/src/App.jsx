@@ -17,6 +17,8 @@ import IntroDrawer from "./pages/games_pages/drawer_game/IntroDrawer";
 import OrganizationDrawer from "./pages/games_pages/drawer_game/OrganizationDrawer";
 import ContentDrawer from "./pages/games_pages/drawer_game/ContentDrawer";
 import RetrospectiveDrawer from "./pages/games_pages/drawer_game/RetrospectiveDrawer";
+import IntroDetective from "./pages/games_pages/detective_game/IntroDetective";
+import SituationDetective from "./pages/games_pages/detective_game/SituationDetective";
 
 export default function App() {
   return (
@@ -28,17 +30,23 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/set-password" element={<SetPasswordPage />} />
+
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/:id" element={<GameDetailPage />} />
           <Route path="/games/:id/levels" element={<GameLevelsPage />} />
+
           <Route path="/memory/:id" element={<IntroMetro />} />
           <Route path="/memory/:id/clue" element={<ClueMetro />} />
           <Route path="/memory/:id/lines" element={<LinesMetro />} />
           <Route path="/memory/:id/retrospective" element={<RetrospectiveMetro />} />
+
           <Route path="/organization/:id" element={<IntroDrawer />} />
           <Route path="/organization/:id/level" element={<OrganizationDrawer />} />
           <Route path="/organization/content/:id" element={<ContentDrawer />} />
           <Route path="/organization/:id/retrospective" element={<RetrospectiveDrawer />} />
+
+          <Route path="/emotions/:id" element={<IntroDetective />} />
+          <Route path="/emotions/:id/situation" element={<SituationDetective />} />
         </Routes>
       </Router>
     </DndProvider>
