@@ -279,3 +279,32 @@ export const solveDrawerLevel = async (req, res) => {
     return res.status(500).json({ error: "Error resolviendo el nivel" });
   }
 };
+
+// Reset level function
+export const resetLevel = async (req, res) => {
+  const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+  if (!id) return res.status(400).json({ error: "levelId requerido" });
+
+  try {
+    // Get user
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
+    const userId = authData.user.id;
+
+    // Delete user's contents for this level
+    const { error: deleteError } = await supabase
+      .from("magic_drawer_contents")
+      .delete()
+      .eq("user_id", userId)
+      .eq("level_id", id);
+
+    if (deleteError) throw deleteError;
+    return res.json({ success: true });
+  } catch (err) {
+    console.error("Error resetting level:", err);
+    return res.status(500).json({ error: "Error resetting level" });
+  }
+}

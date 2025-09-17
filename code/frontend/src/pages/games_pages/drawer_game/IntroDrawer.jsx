@@ -19,6 +19,9 @@ export default function IntroDrawer() {
     useEffect(() => {
         const fetchLevelData = async () => {
             try {
+                const token = localStorage.getItem("token");
+                if (!token) return;
+                await axios.post(`/api/drawer/reset-level/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
                 const response = await axios.get(`/api/drawer/info-level/${id}`);
                 const levelData = response.data;
                 setLevelData(levelData);
