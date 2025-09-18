@@ -11,66 +11,619 @@ Este proyecto trata de adaptarse a las necesidades de la población con TDAH, la
 \end{itemize}
 
 La aplicación se diseñará con una interfaz accesible y adaptada a personas de menor edad; incorporando retroalimentación positiva, refuerzos motivadores y una curva de dificultad gradual entre los diferentes niveles de cada juego, garantizando que el aprendizaje no llegue a generar frustración.
+Además, contará con una serie de misiones y recompensas para cada nivel, las cuales estarán disponibles desde el inicio. Estas recompensas podrán ser insignias o medallas virtuales, las cuales se irán desbloqueando a medida que se vayan completando las misiones. 
+De esta forma, se busca fomentar la motivación intrínseca y el sentido de logro en los usuarios.
 
 Esta propuesta busca no solo apoyar el desarrollo de habilidades cognitivas y emocionales; sino también mejorar la autonomía, la motivación y la autoestima de este colectivo, contribuyendo a una experiencia educativa más inclusiva y divertida.
 
-\subsection{Comparativa de aplicaciones con el proyecto}
-Tras el análisis de otras aplicaciones similares y el planteamiento del proyecto a desarrollar, se han añadido las características de nuestro proyecto a la comparación previamente realizada. Con esta información, se han obtenido las siguientes tablas resumen, numerando los juegos implementados de la siguiente forma:
+\subsection{Metodologías y herramientas para la planificación}
+Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se prueba la aplicación.
 
-\begin{enumerate}
-    \item Metro de la memoria
-    \item Desván mágico
-    \item Detective emociones
-    \item Semáforo emocional
-\end{enumerate}
+Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
+
+Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una plataforma especializada en la gestión de proyectos ágiles. Esto nos ha permitido la creación de un \textit{backlog} con las tareas a desarrollar, con su priorización y duración. Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
+
+Gracias a la combinación de Scrum y Jira, ha sido posible mantener una planificación estructurada, con objetivos definidos por sprint, así como una organización clara de los recursos y tiempos destinados al desarrollo de los distintos minijuegos educativos de la aplicación.
+
+En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas.
+
+\subsection{Requisitos y análisis de la plataforma}
+Tras el análisis de propuestas similares, se han extraído las características más apropiadas para el perfil del usuario objetivo, pero también se detectaron ciertos aspectos mejorables o poco adaptados. Estos elementos fueron replanteados en el diseño de esta plataforma con el objetivo de optimizar la experiencia del usuario.
+
+Así, este proyecto no solo toma como referencia propuestas existentes, sino que también propone una evolución de las mismas, centrándose en áreas clave para las personas con TDAH.
+
+\subsubsection{Product Backlog}
+
+\paragraph{Listado completo}
+Las historias de usuario constan de breves descripciones sobre la funcionalidad del sistema desde la perspectiva del usuario que utiliza la web. De este modo, se centran en las necesidades y objetivos de este usuario.
+
+El siguiente listado cuenta con todas las historias de usuario de nuestra plataforma, asignándoles una estimación de esfuerzo y una prioridad. La estimación del esfuerzo está expresada en Puntos de Historia siguiendo la secuencia de Fibonacci (1, 2, 3, 5, 8),  mientras que la prioridad está medida siguiendo el método MoSCoW (Must, Should, Could, Won’t).
+	
+El método MoSCow es una técnica para priorizar tareas y funcionalidades en la gestión de proyectos, pudiendo asignar cualquiera de los siguientes valores:
+
+\begin{itemize}
+    \item \textbf{Must:} debe tener
+    \item \textbf{Should:} debería tener
+    \item \textbf{Could:} podría tener
+    \item \textbf{Won’t:} no tendrá
+\end{itemize}
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|p{1cm}|p{1cm}|p{1cm}|p{1.3cm}|p{3cm}|}
-    \hline
-    \textbf{Competencia} & \textbf{RPA} & \textbf{Lum.} & \textbf{CG} & \textbf{Ludi Mind} & \textbf{Juegos implicados} \\
-    \hline
-    Autorregulación emocional         & x &   &   & x & 3,4 \\
-    \hline
-    Resolución de conflictos sociales & x &   &   & x & 4 \\
-    \hline
-    Identificación emocional          & x &   &   & x & 3 \\
-    \hline
-    Memoria de trabajo                &   & x & x & x & 1 \\
-    \hline
-    Organización de objetos/tareas    &   &   & x & x & 2 \\
-    \hline
-    Planificación / anticipación      &   & x & x & x & 2,4 \\
-    \hline
-    Control inhibitorio / impulsos    & x & x & x & x & 4 \\
-    \hline
-    Gestión del tiempo                &   & x &   & x & 2 \\
-    \hline
-    Motivación por refuerzo           & x & x & x & x & 1,2,3,4 \\
-    \hline
+\begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
+\hline
+\textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+\hline
+HU.1 & Como usuario necesito registrarme. & 2 & M & 2 \\
+\hline
+HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 2 \\
+\hline
+HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 5 \\
+\hline
+HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 5 \\
+\hline
+HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 2 \\
+\hline
+HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 2 \\
+\hline
+HU.7 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 3 \\
+\hline
+HU.8 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S & 6 \\
+\hline
+HU.9 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 3 \\
+\hline
+HU.10 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 4 \\
+\hline
+HU.11 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 4 \\
+\hline
+HU.12 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M & 5 \\
+\hline
+HU.13 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 3 \\
+\hline
+HU.14 & Como usuario necesito consultar mis misiones pendientes. & 3 & C & 6 \\
+\hline
+HU.15 & Como usuario necesito consultar mis misiones realizadas. & 3 & C & 6 \\
+\hline
+HU.16 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C & 6 \\
+\hline
+HU.17 & Como usuario necesito consultar las recompensas obtenidas. &5 & C & 6\\
+\hline
+HU.18 & Como usuario necesito consultar la evolución de mis habilidades. &5 & S & 5 \\
+\hline
 \end{tabularx}
-\caption{Nueva comparativa entre competencias de aplicaciones}
+\caption{Product Backlog}
+\end{table}
+\newpage
+
+\paragraph{Tarjetas de Historias de Usuario}
+Seguidamente, se muestran las tarjetas de las historias de usuario, las cuales permiten desarrollar cada historia de forma estructurada, especificando la información clave. Este formato facilita el seguimiento del avance del proyecto, la organización del trabajo en fases y la toma de decisiones en función de los objetivos planteados.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.1 - Registro de usuarios}  \\
+\hline
+Como usuario, necesito registrarme en la plataforma introduciendo mis datos personales (nombre, fecha de nacimiento, correo electrónico y contraseña) para poder acceder a todas las funcionalidades disponibles y guardar mi progreso. 
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Completar el formulario de registro y comprobar que se guarda correctamente.
+    \item Intentar registrar un usuario con datos ya existentes y verificar que se muestra un error.
+    \item Dejar campos obligatorios vacíos y verificar la validación del formulario.
+\end{itemize}
+ \\
+\hline
+\end{tabularx}
+\caption{HU.1 - Registro de usuarios}
 \end{table}
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|X|X|X|}
-    \hline
-    \textbf{Aplicación} & \textbf{Precio} & \textbf{Sist. Operativo} & \textbf{Edad recomendada} \\
-    \hline
-    Respira, Piensa, Actúa & Gratuita & iOS, Android & 2–5 años \\
-    \hline
-    Lumosity & Gratis con limitación; suscripción premium para escoger juegos & Web, iOS, Android & $\ge$ 13 años \\
-    \hline
-    CogniFit & Suscripción obligatoria & Web, iOS, Android & 6–18 años \\
-    \hline
-    \textbf{LudiMind} & Gratuita & Web & 6–18 (con TDAH) \\
-    \hline
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.2 - Inicio de sesión}  \\
+\hline
+Como usuario, necesito iniciar sesión en la plataforma para acceder a los juegos disponibles.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Iniciar sesión con credenciales válidas y acceder correctamente.
+    \item Probar credenciales incorrectas y verificar que se muestra un mensaje de error.
+    \item Verificar que la sesión se mantiene activa.
+\end{itemize}
+ \\
+\hline
 \end{tabularx}
-\caption{Comparativa entre otras áreas de las aplicaciones}
+\caption{HU.2 - Inicio de sesión}
 \end{table}
 
-Esta tabla muestra cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. Mientras que la primera aplicación estudiada se centra en la autorregulación emocional y Lumosity en funciones cognitivas generales, la plataforma desarrollada combina memoria, organización, habilidades emocionales y sociales, logrando adaptarse mejor a las necesidades de niños con TDAH. 
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.3 - Visualización de perfil}  \\
+\hline
+Como usuario, necesito consultar mis datos personales.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de perfil y visualizar los datos registrados.
+\end{itemize}
+ \\
+\hline
+\end{tabularx}
+\caption{HU.3 - Visualización de perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.4 - Modificar perfil}  \\
+\hline
+Como usuario, necesito modificar mi perfil para actualizar mis datos personales cuando sea necesario. 
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Modificar campos del perfil y comprobar que los cambios se guardan correctamente.
+    \item Dejar campos vacíos y comprobar que no se valida el formulario.
+    \item Comprobar que la información modificada se refleja al volver al perfil.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.4 - Modificar perfil}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.5 - Consultar juegos utilizados anteriormente}  \\
+\hline
+Como usuario, necesito consultar los juegos utilizados anteriormente para revisar mi historial de uso y retomar aquellos que me resultaron útiles.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Consultar la lista de juegos utilizados previamente.
+    \item Comprobar que la lista se actualiza tras jugar a un nuevo juego.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.5 - Consultar juegos utilizados}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.6 - Consultar juegos no utilizados anteriormente}  \\
+\hline
+Como usuario, necesito consultar los juegos nuevos disponibles para poder descubrir contenidos que aún no he probado.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de juegos nuevos y visualizar los disponibles.
+    \item Comprobar que desaparecen de la lista tras jugar por primera vez.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.6 - Consultar juegos nuevos}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.7 - Información sobre juego}  \\
+\hline
+Como usuario, necesito consultar información detallada sobre un juego concreto para entender su objetivo, normas y beneficios.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Seleccionar un juego y visualizar su descripción.
+    \item Comprobar que la información mostrada corresponde al juego elegido.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.7 - Información sobre juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.8 - Ver tutorial del juego}  \\
+\hline
+Como usuario, necesito acceder a un tutorial de cada juego para saber cómo jugar antes de comenzar.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al tutorial correcto desde la pantalla del juego seleccionado.
+    \item Verificar que el tutorial explica correctamente el funcionamiento.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.8 - Ver tutorial del juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.9 - Jugar a \textit{Metro de la Memoria}}  \\
+\hline
+Como usuario, necesito jugar al minijuego \textit{Metro de la Memoria} para entrenar la memoria de trabajo de forma divertida.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al juego y completar al menos una partida.
+    \item Comprobar que se registran los resultados al finalizar.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.9 - Jugar a \textit{Metro de la Memoria}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.10 - Jugar a \textit{Desván Mágico}}  \\
+\hline
+Como usuario, necesito jugar al minijuego \textit{Desván Mágico} para trabajar la planificación y organización.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al juego y realizar varias actividades de organización.
+    \item Verificar que los resultados se registran correctamente.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.10 - Jugar a \textit{Desván Mágico}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.11 - Jugar a \textit{Detective Emociones}}  \\
+\hline
+Como usuario, necesito jugar a \textit{Detective Emociones} para aprender a identificar emociones en diferentes contextos.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Seleccionar emociones en diversas situaciones.
+    \item Recibir retroalimentación en función de las elecciones.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.11 - Jugar a \textit{Detective Emociones}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.12 - Jugar a \textit{Semáforo Emocional}}  \\
+\hline
+Como usuario, necesito jugar a \textit{Semáforo Emocional} para practicar el control de impulsos mediante toma de decisiones.
+\clearpage
+\textbf{Estimación: }7
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Enfrentarme a diferentes estímulos y decidir cómo actuar.
+    \item Evaluar la respuesta escogida y los resultados.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.12 - Jugar a \textit{Semáforo Emocional}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.13 - Ver progreso por juego}  \\
+\hline
+Como usuario, necesito ver mi progreso en cada juego para conocer mi evolución y motivarme a seguir practicando.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }M
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de progreso y comprobar resultados de cada juego.
+    \item Observar comparativas entre sesiones.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.13 - Ver progreso por juego}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.14 - Ver misiones pendientes}  \\
+\hline
+Como usuario, necesito consultar mis misiones pendientes para saber qué retos tengo que completar.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al listado de misiones pendientes.
+    \item Acceder a la información detallada de una misión seleccionada.
+    \item Verificar que el listado de misiones pendientes se actualiza tras completar una misión.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.14 - Ver misiones pendientes}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.15 - Ver misiones realizadas anteriormente}  \\
+\hline
+Como usuario, necesito consultar las misiones realizadas anteriormente (desde que se registró la cuenta) para revisar lo que he conseguido hasta ahora.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de misiones realizadas.
+    \item Acceder a la información detallada de una misión seleccionada.
+    \item Comprobar que aparecen correctamente con fecha de finalización.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.15 - Ver misiones realizadas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.16 - Recibir recompensas}  \\
+\hline
+Como usuario, necesito recibir recompensas al realizar misiones para mantenerme motivado en el proceso de aprendizaje.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Finalizar una misión y recibir una recompensa.
+    \item Verificar que las recompensas se acumulan en el perfil.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.16 - Recibir recompensas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.17 - Ver recompensas}  \\
+\hline
+Como usuario, necesito consultar las recompensas que ya he obtenido anteriormente (desde que se registró la cuenta) para mantener un control de estas.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de recompensas obtenidas.
+    \item Comprobar que aparecen únicamente las que ya he obtenido.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.17 - Ver recompensas}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.18 - Ver evolución de habilidades}  \\
+\hline
+Como usuario, necesito consultar la evolución (desde que se registró la cuenta) de mis habilidades cognitivas y emocionales (memoria, organización, autorregulación emocional y resolución de conflictos) para saber qué habilidades estoy mejorando.
+\clearpage
+\textbf{Estimación: }5
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Consultar informes gráficos.
+    \item Consultar insignias y medallas obtenidas.
+    \item Comparar habilidades a lo largo del tiempo.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.18 - Ver evolución de habilidades}
+\end{table}
+\newpage
+
+\subsubsection{Requisitos no funcionales}
+Los requisitos no funcionales se refieren a los atributos de calidad de un sistema que definen su rendimiento, no sus funciones. A diferencia de los requisitos funcionales, que especifican las acciones y tareas que debe realizar un sistema, los requisitos no funcionales se centran en las características generales y el comportamiento del sistema en diversas condiciones. Abordan aspectos como el rendimiento, la usabilidad, la fiabilidad y la escalabilidad, garantizando que el sistema cumpla con los estándares de calidad y proporcione una experiencia de usuario satisfactoria \parencite{requisitos}.
+
+A continuación, se presentan los principales requisitos no funcionales que deben cumplirse durante el desarrollo y posterior despliegue del proyecto.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.1} & Usabilidad \\
+\hline
+\textbf{Descripción} & La plataforma debe tener una interfaz clara, sencilla y visualmente accesible, especialmente diseñada para usuarios con dificultades en el área de la atención. \\
+\hline
+\end{tabularx}
+\caption{RNF.1 - Usabilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.2} & Rendimiento \\
+\hline
+\textbf{Descripción} & Las funcionalidades deben cargarse en menos de 2 segundos para evitar frustración en el usuario. \\
+\hline
+\end{tabularx}
+\caption{RNF.2 - Rendimiento}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.3} & Compatibilidad multiplataforma \\
+\hline
+\textbf{Descripción} & La plataforma debe ser accesible desde dispositivos Android, iOS y navegadores modernos. \\
+\hline
+\end{tabularx}
+\caption{RNF.3 - Compatibilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.4} & Accesibilidad \\
+\hline
+\textbf{Descripción} & La interfaz debe contener elementos gráficos adaptados a personas con TDAH. \\
+\hline
+\end{tabularx}
+\caption{RNF.4 - Accesibilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.5} & Seguridad de datos \\
+\hline
+\textbf{Descripción} & La plataforma debe almacenar y transferir los datos del usuario de forma segura, cumpliendo con la normativa vigente en protección de datos, como la \textit{Ley Orgánica de Protección de Datos Personales y garantía de los derechos digitales - LPDGDD} \parencite{rgpd}. \\
+\hline
+\end{tabularx}
+\caption{RNF.5 - Seguridad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.6} & Escalabilidad \\
+\hline
+\textbf{Descripción} & El sistema debe permitir la incorporación de nuevos módulos o funcionalidades sin necesidad de rediseñar la arquitectura principal. \\
+\hline
+\end{tabularx}
+\caption{RNF.6 - Escalabilidad}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.7} & Mantenibilidad \\
+\hline
+\textbf{Descripción} & El código debe estar documentado y estructurado para facilitar futuras tareas de mantenimiento y evolución del sistema. \\
+\hline
+\end{tabularx}
+\caption{RNF.7 - Mantenibilidad}
+\end{table}
 
 \subsection{Bocetos de la plataforma}
 A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos e historias de usuario. En primer lugar, se diseñó un inicio de sesión que dirigiera a la pantalla principal de selección de juegos. Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos, así como a un listado de niveles.
@@ -167,16 +720,63 @@ En último lugar, se realizaron los bocetos del juego \textbf{Semáforo emociona
 
 Estas actividades iniciales han permitido establecer una visión clara y coherente del producto a desarrollar, asegurando que cada juego responda a una necesidad concreta detectada en el contexto del TDAH.
 
-\subsection{Metodologías y herramientas para la planificación}
-Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se prueba la aplicación.
+\subsection{Comparativa de aplicaciones con el proyecto}
+Tras el análisis de otras aplicaciones similares y el planteamiento del proyecto a desarrollar, se han añadido las características de nuestro proyecto a la comparación previamente realizada. Con esta información, se han obtenido las siguientes tablas resumen, numerando los juegos implementados de la siguiente forma:
 
-Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
+\begin{enumerate}
+    \item Metro de la memoria
+    \item Desván mágico
+    \item Detective emociones
+    \item Semáforo emocional
+\end{enumerate}
 
-Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una plataforma especializada en la gestión de proyectos ágiles. Esto nos ha permitido la creación de un \textit{backlog} con las tareas a desarrollar, con su priorización y duración. Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{1cm}|p{1cm}|p{1cm}|p{1.3cm}|p{3cm}|}
+    \hline
+    \textbf{Competencia} & \textbf{RPA} & \textbf{Lum.} & \textbf{CG} & \textbf{Ludi Mind} & \textbf{Juegos implicados} \\
+    \hline
+    Autorregulación emocional         & x &   &   & x & 3,4 \\
+    \hline
+    Resolución de conflictos sociales & x &   &   & x & 4 \\
+    \hline
+    Identificación emocional          & x &   &   & x & 3 \\
+    \hline
+    Memoria de trabajo                &   & x & x & x & 1 \\
+    \hline
+    Organización de objetos/tareas    &   &   & x & x & 2 \\
+    \hline
+    Planificación / anticipación      &   & x & x & x & 2,4 \\
+    \hline
+    Control inhibitorio / impulsos    & x & x & x & x & 4 \\
+    \hline
+    Gestión del tiempo                &   & x &   & x & 2 \\
+    \hline
+    Motivación por refuerzo           & x & x & x & x & 1,2,3,4 \\
+    \hline
+\end{tabularx}
+\caption{Nueva comparativa entre competencias de aplicaciones}
+\end{table}
 
-Gracias a la combinación de Scrum y Jira, ha sido posible mantener una planificación estructurada, con objetivos definidos por sprint, así como una organización clara de los recursos y tiempos destinados al desarrollo de los distintos minijuegos educativos de la aplicación.
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    \textbf{Aplicación} & \textbf{Precio} & \textbf{Sist. Operativo} & \textbf{Edad recomendada} \\
+    \hline
+    Respira, Piensa, Actúa & Gratuita & iOS, Android & 2–5 años \\
+    \hline
+    Lumosity & Gratis con limitación; suscripción premium para escoger juegos & Web, iOS, Android & $\ge$ 13 años \\
+    \hline
+    CogniFit & Suscripción obligatoria & Web, iOS, Android & 6–18 años \\
+    \hline
+    \textbf{LudiMind} & Gratuita & Web & 6–18 (con TDAH) \\
+    \hline
+\end{tabularx}
+\caption{Comparativa entre otras áreas de las aplicaciones}
+\end{table}
 
-En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas.
+Esta tabla muestra cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. Mientras que la primera aplicación estudiada se centra en la autorregulación emocional y Lumosity en funciones cognitivas generales, la plataforma desarrollada combina memoria, organización, habilidades emocionales y sociales, logrando adaptarse mejor a las necesidades de niños con TDAH. 
 
 \subsection{Elección de herramientas de desarrollo}
 El objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
