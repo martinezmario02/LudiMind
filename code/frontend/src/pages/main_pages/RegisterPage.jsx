@@ -52,8 +52,8 @@ export default function RegisterPage() {
                         <Input type="text" placeholder="Tu nombre" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">Fecha de Nacimiento</label>
-                        <Input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
+                        <label className="block text-sm font-medium mb-1">Año de Nacimiento</label>
+                        <Input type="number" placeholder="XXXX" value={birthdate} min="1900" max={new Date().getFullYear()} onChange={(e) => setBirthdate(e.target.value)} className="w-full px-4 py-2 border rounded-md" />
                     </div>
                     <div>
                         <label className="block text-sm font-medium mb-1">Email</label>
