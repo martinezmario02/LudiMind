@@ -1,5 +1,15 @@
 import { supabase } from "../supabaseClient.js";
 
+// All games function
+export const allGames = async (req, res) => {
+    const { data, error } = await supabase
+      .from("games")
+      .select("*");
+
+    if (error) return res.status(400).json({ error: error.message });
+    return res.json(data);
+};
+
 // Used games function
 export const usedGames = async (req, res) => {
     const token = req.headers.authorization?.replace("Bearer ", "");
