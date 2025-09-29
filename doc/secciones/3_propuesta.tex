@@ -977,151 +977,67 @@ La aplicación Respira, Piensa, Actúa nos ha inspirado para la elaboración del
 Por otro lado, Lumosity y CogniFit han servido de referencia para la estructura de la aplicación, añadiendo diferentes misiones y evaluaciones del rendimiento del usuario.
 
 \subsection{Elección de herramientas de desarrollo}
-El objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
+El objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. 
+Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
 
-A continuación se plantean las principales opciones consideradas para el desarrollo, evaluadas en el contexto del proyecto.
+A continuación, se muestra una tabla comparativa con las principales opciones consideradas para el desarrollo de la plataforma, evaluadas en el contexto del proyecto.
 
-\subsubsection{Flutter + Dart}
-Flutter es un popular framework de código abierto desarrollado por Google, utilizado principalmente para construir aplicaciones nativas para dispositivos móviles, web y escritorio. Para ello, ofrece a los desarrolladores un conjunto completo de herramientas y widgets para crear aplicaciones visualmente atractivas y con un buen rendimiento \parencite{flutter}. 
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|p{3.5cm}|X|X|}
+\hline
+\textbf{Tecnología} & \textbf{Ventajas} & \textbf{Desventajas} \\
+\hline
+\parbox[t]{\hsize}{\textbf{Flutter + Dart} \\[0.5em] \vspace*{\fill} \parencite{flutter}} &
+\begin{itemize}[leftmargin=*]
+    \item Desarrollo multiplataforma desde un solo código.
+    \item Alto rendimiento con compilación nativa.
+    \item Hot Reload para agilizar pruebas.
+    \item Interfaces atractivas y personalizables.
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+    \item Ecosistema de librerías más limitado.
+    \item Aplicaciones más pesadas.
+    \item Acceso restringido a algunas APIs nativas.
+\end{itemize} \\
+\hline
+\parbox[t]{\hsize}{\textbf{Node.js + React.js/Vue.js} \\[0.5em] \vspace*{\fill} \parencite{nodejs,react,vuejs}} &
+\begin{itemize}[leftmargin=*]
+    \item Alto rendimiento y escalabilidad.
+    \item Ecosistema muy amplio con npm.
+    \item Comunidad activa y soporte constante.
+    \item \textbf{React}: componentes reutilizables, DOM virtual eficiente.
+    \item \textbf{Vue}: aprendizaje sencillo y personalización flexible.
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+    \item Calidad variable en librerías npm.
+    \item \textbf{Node}: no apto para tareas intensivas en CPU.
+    \item \textbf{React}: solo cubre la capa de interfaz.
+    \item \textbf{Vue}: menor respaldo corporativo, menos soporte en español.
+\end{itemize} \\
+\hline
+\parbox[t]{\hsize}{\textbf{Django + React.js/Vue.js} \\[0.5em] \vspace*{\fill} \parencite{django}} &
+\begin{itemize}[leftmargin=*]
+    \item Desarrollo rápido y alta productividad.
+    \item Modularidad y reutilización de código.
+    \item Buenas herramientas de seguridad integradas.
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+    \item Problemas de escalabilidad en proyectos muy grandes.
+    \item Requiere mantenimiento continuo y gestión de actualizaciones.
+\end{itemize} \\
+\hline
+\end{tabularx}
+\caption{Comparativa de tecnologías para el desarrollo de la plataforma.}
+\end{table}
 
-Entre las características de Flutter encontramos las siguientes ventajas:
+Tras analizar distintas opciones para el desarrollo de la plataforma, se ha decidido seleccionar React.js para el frontend y Node.js para el backend. 
+Esta elección se debe a la posibilidad de un desarrollo ágil y sencillo, con una fácil comunicación entre capas. 
+Además, React.js aporta un sistema basado en componentes reutilizables, ideal para construir interfaces interactivas y dinámicas, mientras que Node.js proporciona un backend eficiente, escalable y con un gran ecosistema de librerías disponibles.
 
-\begin{itemize}
-    \item \textbf{Desarrollo multiplataforma:} permite crear apps para Android e iOS desde un solo código base, reduciendo costes y tiempos.
-    \item \textbf{Alto rendimiento:} ofrece animaciones fluidas y carga rápida, compilando a código nativo.
-    \item \textbf{Recarga en caliente (Hot Reload):} los cambios se reflejan al instante sin reiniciar la app, lo que agiliza el desarrollo.
-    \item \textbf{Interfaces atractivas y personalizables:} incluye una gran variedad de widgets y soporte para animaciones, facilitando diseños modernos y visualmente ricos.
-\end{itemize}
-
-No obstante, también cuenta con una serie de desventajas a tener en cuenta:
-
-\begin{itemize}
-    \item \textbf{Bibliotecas y comunidad limitadas:} aunque está creciendo, no cuenta con tantas librerías como otros frameworks más maduros.
-    \item \textbf{Tamaño elevado de las aplicaciones:} las apps pueden ocupar más espacio debido al motor incluido en el paquete final.
-    \item \textbf{Acceso limitado a algunas APIs nativas:} puede haber restricciones al utilizar ciertas funcionalidades específicas del sistema operativo.
-\end{itemize}
-
-En conclusión, las ventajas de Flutter son muchas para los desarrolladores que buscan crear aplicaciones multiplataforma con un rendimiento excepcional. A pesar de algunas desventajas, como un ecosistema de bibliotecas más pequeño y tamaños de aplicación más grandes, Flutter ha demostrado ser una opción confiable y eficiente para muchos desarrolladores en todo el mundo. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{imgs/flutter.jpg}
-    \caption{Herramienta - Flutter (Dart)}
-\end{figure}
-
-\subsubsection{Node.js + React.js/Vue.js}
-Node.js es un entorno de ejecución de código JavaScript de código abierto, multiplataforma, que permite ejecutar código fuera del navegador, es decir, en el servidor. Está especialmente diseñado para aplicaciones web en tiempo real, como APIs RESTful, juegos online o plataformas de streaming \parencite{nodejs}.
-
-Este entorno cuenta con grandes ventajas a tener en cuenta de cara a la elección de las herramientas de desarrollo:
-
-\begin{itemize}
-    \item \textbf{Alto rendimiento y escalabilidad:} gestiona miles de conexiones simultáneamente con eficiencia, ideal para aplicaciones con alto tráfico.
-    \item \textbf{Amplio ecosistema con npm:} al contar con más de un millón de paquetes disponibles, el gestor npm ofrece reutilización de soluciones y desarrollo ágil.
-    \item \textbf{Comunidad activa y soporte constante:} Node.js cuenta con una comunidad grande y activa, lo que se traduce en buena documentación, módulos actualizados y abundante soporte en línea.
-    \item \textbf{Compatible con metodologías ágiles y DevOps:} su enfoque modular y ligero lo hace ideal para entornos de microservicios, integración continua y despliegues rápidos.
-\end{itemize}
-
-Sin embargo, cuenta con algunas desventajas que también se deben valorar:
-
-\begin{itemize}
-    \item \textbf{No apto para tareas intensivas en CPU:} al usar un solo hilo, puede bloquearse en operaciones de alto consumo de procesamiento, afectando el rendimiento.
-    \item \textbf{Calidad variable de librerías: } aunque npm es amplio, no todas las librerías están bien mantenidas.
-\end{itemize}
-
-Así pues, Node.js es una plataforma moderna, ágil y potente para el desarrollo de aplicaciones web de alto rendimiento. Su arquitectura asincrónica, su ecosistema maduro y su compatibilidad con JavaScript lo hacen una opción ideal para el desarrollo del backend de nuestro proyecto.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{imgs/nodejs.jpg}
-    \caption{Herramienta - Node.js}
-\end{figure}
-
-Por otro lado, Node.js se integra perfectamente con bibliotecas modernas de desarrollo frontend como React y Vue.js, lo que permite construir aplicaciones web completas. Esta compatibilidad facilita una comunicación fluida entre el servidor y la interfaz de usuario, promoviendo una arquitectura coherente, escalable y fácilmente mantenible. A continuación, se plantean ambas opciones.
-
-En primer lugar, React es una biblioteca JavaScript de código abierto creada por el equipo de la compañía Facebook (Meta). Esta permite construir interfaces de usuario dinámicas y escalables, usándose en el desarrollo de aplicaciones web móviles, de una sola página o del servidor \parencite{react}.
-
-Entre las principales ventajas de utilizar React, encontramos las expuestas en la siguiente lista:
-
-\begin{itemize}
-    \item \textbf{Componentes reutilizables:} los componentes facilitan la creación de interfaces dinámicas y sensibles a cambios en sitios web o aplicaciones complejas.
-    \item \textbf{DOM virtual eficiente:} optimiza el rendimiento, ahorrando recursos y reduciendo el tráfico de red.
-    \item \textbf{Código claro y mantenible:} el código tiene una lógica clara, es fácil de leer, entender y depurar, lo que ayuda a minimizar errores.
-    \item \textbf{Mejora la experiencia de usuario:} las interfaces interactivas mejoran significativamente la experiencia de usuario.
-\end{itemize}
-
-No obstante, al igual que las anteriores, esta herramienta también cuenta con ciertas limitaciones:
-
-\begin{itemize}
-    \item \textbf{Incremento en tamaño de la app:} el uso de React puede aumentar el tamaño final de la aplicación.
-    \item \textbf{No es un framework completo:} se centra únicamente en la visualización de la interfaz, por lo que para crear aplicaciones completas se requiere combinarlo con otras tecnologías.
-\end{itemize}
-
-En definitiva, React se ha consolidado como una herramienta poderosa y versátil para el desarrollo de interfaces web modernas, gracias a su enfoque basado en componentes reutilizables y su eficiente manejo del DOM virtual. Sin embargo, para aplicaciones completas, es necesario integrarlo con otras tecnologías que complementen su funcionalidad, lo cual no sería un problema ya que, como comentamos anteriormente, se utilizaría junto a Node.js.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{imgs/reactjs.png}
-    \caption{Herramienta - React.js}
-\end{figure}
-
-En segundo lugar, Vue es un framework que sirve para crear aplicaciones e interfaces de usuario de forma rápida, práctica y relativamente simple. Para eso, el framework incluye herramientas, lenguaje específico y convenciones de trabajo \parencite{vuejs}.
-
-Este framework también cuenta con una gran cantidad de ventajas a tener en cuenta para el desarrollo:
-
-\begin{itemize}
-    \item \textbf{Comunidad creciente:} está ganando cada vez más popularidad en la comunidad de desarrolladores, lo que facilita el acceso a foros, ayuda técnica y colaboración entre profesionales.
-    \item \textbf{Código abierto y gratuito:} al ser open source, Vue.js no requiere pagos para su uso o aprendizaje, lo cual lo hace accesible y fomenta la participación comunitaria.
-    \item \textbf{Personalización flexible:} permite adaptar sus componentes y configuración según las necesidades específicas del proyecto, ofreciendo un alto grado de personalización.
-    \item \textbf{Buen rendimiento:} las aplicaciones tienden a tener una buena velocidad de carga y rendimiento general frente a otros frameworks.
-\end{itemize}
-
-Entre las desventajas que refleja Vue, encontramos las siguientes:
-
-\begin{itemize}
-    \item \textbf{Soporte limitado en español:} consta de poca documentación y foros locales.
-    \item \textbf{Menor respaldo corporativo:} a diferencia de React, Vue.js no cuenta con el respaldo directo de grandes corporaciones, lo que puede influir en decisiones empresariales para proyectos a gran escala.
-\end{itemize}
-
-En definitiva, Vue.js se presenta como una solución moderna, accesible y flexible para el desarrollo frontend. Su facilidad de aprendizaje, comunidad activa y capacidad de personalización lo convierten en una excelente opción tanto para desarrolladores principiantes como para proyectos rápidos y dinámicos. Aunque cuenta con menor respaldo corporativo que otros frameworks, su evolución constante y su creciente popularidad lo posicionan como una alternativa sólida en el ecosistema del desarrollo web.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{imgs/vuejs.png}
-    \caption{Herramienta - Vue.js}
-\end{figure}
-
-\subsubsection{Django + React.js/Vue.js}
-Django es un marco de desarrollo web de alto nivel y de código abierto escrito en Python, el cual ha ganado una prominencia significativa en la comunidad de desarrollo. Proporciona a los desarrolladores un entorno robusto y eficiente para construir aplicaciones web de manera rápida y sencilla \parencite{django}.
-
-Entre sus puntos fuertes, podemos destacar los siguientes:
-
-\begin{itemize}
-    \item \textbf{Desarrollo rápido y alta productividad:} permite crear aplicaciones web de forma ágil, reduciendo el tiempo de desarrollo y acelerando la salida al mercado.
-    \item \textbf{Modularidad y reutilización de código:} facilita la construcción de aplicaciones independientes y reutilizables, cada una con sus propios modelos, vistas y plantillas, lo que mejora el mantenimiento y escalabilidad de proyectos complejos.
-    \item \textbf{Compatibilidad con tecnologías frontend modernas:} se integra sin problemas con frameworks como React o Vue.js, ofreciendo flexibilidad para usar la capa visual que mejor se adapte al proyecto.
-\end{itemize}
-
-Sin embargo, también se deben tener en cuenta los siguientes puntos negativos:
-
-\begin{itemize}
-    \item \textbf{Escalabilidad y optimización:} en proyectos muy grandes o con alto tráfico, pueden surgir problemas de escalabilidad.
-    \item \textbf{Mantenimiento y actualizaciones continuas:} el soporte a largo plazo exige gestionar de forma cuidadosa las actualizaciones del framework y sus librerías.
-    \item \textbf{Seguridad y responsabilidad ética:} aunque  incluye herramientas de seguridad, es clave seguir protocolos y prácticas seguras contra amenazas comunes. 
-\end{itemize}
-
-Así pues, Django es un framework robusto y versátil que combina rapidez de desarrollo, modularidad y compatibilidad con tecnologías modernas de frontend como React y Vue (explicadas anteriormente). Si bien requiere atención en aspectos de escalabilidad, mantenimiento y seguridad, sus herramientas integradas y buenas prácticas lo convierten en otra buena opción para el desarrollo de esta aplicación web.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{imgs/django.png}
-    \caption{Herramienta - Django}
-\end{figure}
-\newpage
-
-\subsubsection{Herramientas escogidas}
-Tras analizar distintas opciones para el desarrollo de la plataforma, se ha decidido seleccionar React.js para el frontend y Node.js para el backend. Esta elección se debe a la posibilidad de un desarrollo ágil y sencillo, con una fácil comunicación entre capas. Además, React.js aporta un sistema basado en componentes reutilizables, ideal para construir interfaces interactivas y dinámicas, mientras que Node.js proporciona un backend eficiente, escalable y con un gran ecosistema de librerías disponibles.
-
-Para maximizar el potencial de esta arquitectura, se ha decidido complementar Node.js con Express. Este es un framework que simplifica la creación de API REST y la gestión de rutas, peticiones y middleware. Su integración con Node.js es natural y muy utilizada, ofreciendo una estructura clara y modular que favorece el mantenimiento y la escalabilidad del proyecto \parencite{express}.
+Para maximizar el potencial de esta arquitectura, se ha decidido complementar Node.js con Express. 
+Este es un framework que simplifica la creación de API REST y la gestión de rutas, peticiones y middleware. 
+Su integración con Node.js es natural y muy utilizada, ofreciendo una estructura clara y modular que favorece el mantenimiento y la escalabilidad del proyecto \parencite{express}.
 
 \begin{figure}[H]
     \centering
