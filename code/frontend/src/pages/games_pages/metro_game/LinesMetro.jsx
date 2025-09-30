@@ -83,7 +83,7 @@ export default function MetroMap() {
         <div className="min-h-screen flex flex-col">
             <Header />
             <div className="flex-grow flex flex-col items-center pt-8 px-4">
-                <h2 className="text-4xl font-extrabold text-primary text-center mb-8 drop-shadow-md"> "{task?.clue}"" </h2>
+                <h2 className="text-2xl font-extrabold text-center mb-8 drop-shadow-md"> Selecciona, una a una, las paradas por las que deberá pasar. </h2>
 
                 {/* Metro map */}
                 <div className="rounded-xl shadow-lg p-6 flex justify-center items-center">
@@ -99,8 +99,8 @@ export default function MetroMap() {
                             line.stations.map((station) => {
                                 const cx = station.x * 150 + 50;
                                 const cy = station.y * 150 + 50;
-                                const paddingX = 12;
-                                const paddingY = 12;
+                                const paddingX = 24;
+                                const paddingY = 20;
                                 const textWidth = Math.max(station.name.length * 8, 24);
                                 const rectWidth = paddingX * 2 + textWidth;
                                 const rectHeight = paddingY * 2 + 24;
@@ -111,8 +111,8 @@ export default function MetroMap() {
                                         <rect x={cx - rectWidth / 2} y={cy - rectHeight / 2} width={rectWidth} height={rectHeight}
                                             rx={12} ry={12} fill={isSelected ? "#00ff99" : station.is_transfer ? "#eeeeeeff" : "#fff"}
                                             stroke={line.color} strokeWidth={station.is_transfer ? 4 : 3} />
-                                        <text x={cx} y={cy - 4} textAnchor="middle" fontSize="18"> {station.emoji} </text>
-                                        <text x={cx} y={cy + 15} textAnchor="middle" fontSize="14" fill="#333"> {station.name} </text>
+                                        <text x={cx} y={cy - 6} textAnchor="middle" fontSize="26"> {station.emoji} </text>
+                                        <text x={cx} y={cy + 20} textAnchor="middle" fontSize="20" fill="#333"> {station.name} </text>
                                     </g>
                                 );
                             })

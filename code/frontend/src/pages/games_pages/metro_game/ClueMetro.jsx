@@ -28,7 +28,16 @@ export default function ClueMetro() {
         <div className="min-h-screen flex flex-col">
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/memory/${id}/lines`)}>
-                <CharacterSpeech text={<>Te daré una pista:<br/>"{task.clue}"</>} image="/imgs/avatar_panda.png" />
+                <CharacterSpeech 
+                    text={
+                        <>
+                        Vamos a utilizar una frase para que recuerdes por donde pasar.<br/>
+                        Deberás memorizarla antes de continuar al siguiente paso:<br/>
+                        <span className="font-extrabold text-primary">"{task.clue}"</span>
+                        </>
+                    } 
+                    image="/imgs/avatar_panda.png" 
+                />
             </div>
         </div>
     );
