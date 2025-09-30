@@ -67,43 +67,43 @@ El método MoSCow es una técnica para priorizar tareas y funcionalidades en la 
 \hline
 \textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
 \hline
-HU.1 & Como usuario necesito registrarme. & 2 & M & 2 \\
+HU.1 & Como usuario necesito registrarme. & 2 & M & 1 \\
 \hline
-HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 2 \\
+HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 1 \\
 \hline
-HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 5 \\
+HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 4 \\
 \hline
-HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 5 \\
+HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 4 \\
 \hline
-HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 2 \\
+HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 1 \\
 \hline
-HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 2 \\
+HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 1 \\
 \hline
-HU.7 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 3 \\
+HU.7 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 2 \\
 \hline
-HU.8 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S & 6 \\
+HU.8 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S & 5 \\
 \hline
-HU.9 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 3 \\
+HU.9 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 2 \\
 \hline
-HU.10 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 4 \\
+HU.10 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 3 \\
 \hline
-HU.11 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 4 \\
+HU.11 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 2 \\
 \hline
-HU.12 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M & 5 \\
+HU.12 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M & 4 \\
 \hline
-HU.13 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 3 \\
+HU.13 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 2 \\
 \hline
-HU.14 & Como usuario necesito consultar mis misiones pendientes. & 3 & C & 6 \\
+HU.14 & Como usuario necesito consultar mis misiones pendientes. & 3 & C & 5 \\
 \hline
-HU.15 & Como usuario necesito consultar mis misiones realizadas. & 3 & C & 6 \\
+HU.15 & Como usuario necesito consultar mis misiones realizadas. & 3 & C & 5 \\
 \hline
-HU.16 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C & 6 \\
+HU.16 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C & 5 \\
 \hline
-HU.17 & Como usuario necesito consultar las recompensas obtenidas. & 5 & C & 6\\
+HU.17 & Como usuario necesito consultar las recompensas obtenidas. & 5 & C & 5 \\
 \hline
-HU.18 & Como usuario necesito consultar la evolución de mis habilidades. & 5 & S & 5 \\
+HU.18 & Como usuario necesito consultar la evolución de mis habilidades. & 5 & S & 4 \\
 \hline
-HU.19 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 5 \\
+HU.19 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 4 \\
 \hline
 \end{tabularx}
 \caption{Product Backlog}
@@ -668,6 +668,8 @@ A continuación, se presentan los principales requisitos no funcionales que debe
 A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos. 
 En primer lugar, se diseñó un inicio de sesión [\ref{fig:boceto_inicio}] que dirigiera a la pantalla principal de selección de juegos [\ref{fig:boceto_juegos}]. 
 Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos [\ref{fig:boceto_infojuego}], así como a un listado de niveles [\ref{fig:boceto_niveles}].
+Estos niveles se irán desbloqueando a medida que se vayan completando los anteriores con la máxima puntuación.
+En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependiendo de la cantidad de errores cometidos.
 
 \begin{figure}[H]
     \centering
@@ -729,7 +731,10 @@ Esta dinámica busca mantener la atención del estudiante, fomentar su implicaci
 
 En primer lugar, en el juego \textbf{Metro de la memoria}, el avatar dará indicaciones sobre en qué parada deberá subirse y bajarse el usuario [\ref{fig:boceto_metro_1}].
 Tras esto, se le proporcionará, a modo de ayuda, una frase mnemotécnica que explique el camino a tomar [\ref{fig:boceto_metro_2}].
-Con toda esta información, el usuario deberá seleccionar, parada a parada, el camino a seguir para llegar al destino establecido [\ref{fig:boceto_metro_3}].
+Con toda esta información, el usuario deberá seleccionar, parada a parada, el camino a seguir para llegar al destino establecido.
+Tras seleccionar el camino, se deberá confirmar la elección pulsando sobre el botón \textit{Comprobar} [\ref{fig:boceto_metro_3}].
+Así pues, se comprobará si la ruta seleccionada es correcta o no, mostrando un mensaje de éxito [\ref{fig:boceto_metro_4}] o una advertencia de que el camino es incorrecto, en cuyo caso se restará un intento a un total de 3.
+Finalmente, el usuario obtendrá una puntuación en función de los intentos que le hayan sobrado.
 
 \begin{figure}[H]
     \centering
@@ -761,8 +766,11 @@ Con toda esta información, el usuario deberá seleccionar, parada a parada, el 
 
 En el juego \textbf{Desván mágico}, el personaje explicará al usuario el criterio de organización al iniciar el nivel [\ref{fig:boceto_desvan_1}]. 
 Tras esto, se mostrarán tanto los compartimentos como los objetos, y el usuario deberá arrastrarlos hasta la sección adecuada [\ref{fig:boceto_desvan_2}]. 
-También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto, pudiendo eliminarlos en caso de querer añadirlos a otra sección [\ref{fig:boceto_desvan_3}]. 
+Estos objetos se mostrarán con un dibujo significativo.
+También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto pulsando sobre este, pudiendo eliminarlos en caso de querer añadirlos a otra sección [\ref{fig:boceto_desvan_3}]. 
 Se añadirán algunos objetos a modo de "trampa", los cuales no deberán ser incorporados a ninguno de los compartimentos. 
+Una vez se hayan colocado todos los objetos, se deberá pulsar el botón \textit{Comprobar} para verificar si la organización es correcta.
+Esta pantalla dará información sobre el resultado de la comprobación, obteniendo puntos en función del número de errores [\ref{fig:boceto_desvan_4}].
 
 \begin{figure}[H]
     \centering
@@ -950,7 +958,7 @@ Tras el análisis de otras aplicaciones similares y el planteamiento del proyect
     \hline
     Sistema Operativo & iOS, Android & Web, iOS, Android & Web, iOS, Android & Web, iOS, Android \\
     \hline
-    Edad recomendada & 2–5 años & $\ge$ 13 años & 6–18 años & 6–18 años \\
+    Edad recomendada & 2–5 años & $\ge$ 13 años & 6–18 años & 9–17 años \\
     \hline
     Nivel de dificultad & Fijo & Adaptativo & Adaptativo & Adaptativo \\
     \hline
@@ -1072,47 +1080,8 @@ Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la 
     \caption{Diagrama de arquitectura}
 \end{figure}
 
-\subsection{Fases del proyecto}
-\subsubsection{Sprint 0}
-\paragraph{Desarrollo del sprint}
-Durante esta primera fase se ha llevado a cabo una investigación preliminar que incluyó el estudio de las necesidades del público objetivo, analizando aplicaciones existentes que pudieran facilitar la comprensión y la extracción de conclusiones clave. Tras esto, se realizó una propuesta inicial con cuatro juegos, definidos a partir de las competencias clave detectadas: memoria de trabajo, planificación, autorregulación emocional y resolución de conflictos sociales.
-
-Posteriormente, se elaboraron bocetos a mano para la aplicación, así como para cada juego de forma individual, sirviendo de base para la definición de requisitos e historias de usuario, los cuales se realizarán en la siguiente iteración.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{imgs/sprint0.PNG}
-    \caption{Backlog - Sprint 0}
-\end{figure}
-
-En esta etapa inicial no encontramos historias de usuario asociadas, pues se centró en la investigación y definición del proyecto. 
-Por ello, ninguna de las tareas planteadas en este sprint son de tipo "Desarrollo".
-
-\paragraph{Retrospectiva}
-El Sprint 0 se desarrolló de forma satisfactoria, cumpliendo con todos los objetivos planteados y estableciendo una base sólida para el resto del proyecto. La investigación inicial permitió comprender en profundidad las necesidades del público objetivo, y la definición de los juegos resultó coherente con las competencias clave identificadas.
-
-Los bocetos elaborados facilitaron la visualización del producto y servirán como referencia para las próximas fases. En general, el trabajo realizado en esta iteración ha permitido iniciar el proyecto con una dirección clara y bien fundamentada.
-
+\subsection{Iteraciones del proyecto}
 \subsubsection{Sprint 1}
-\paragraph{Desarrollo del sprint}
-Durante esta fase se continuó con la redacción de apartados como la motivación o la elección de la metodología de planificación. Además, se realizó todo el apartado de análisis, incluyendo historias de usuario, requisitos, tanto funcionales como no funcionales, y diagramas.
-
-Todo esto nos permitió terminar de explicar qué deberá hacer la plataforma y cómo será utilizada por los usuarios, lo que facilitará el posterior desarrollo del proyecto.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{imgs/sprint1.PNG}
-    \caption{Backlog - Sprint 1}
-\end{figure}
-
-En esta etapa, al igual que en la anterior, no encontramos historias de usuario asociadas, pues está también centrada en la investigación y definición del proyecto. 
-
-\paragraph{Retrospectiva}
-En términos generales, este sprint se desarrolló de manera satisfactoria, cumpliendo con los objetivos planteados y continuando con el establecimiento de la base del proyecto. 
-
-No obstante, se identificó que el ritmo de trabajo era mayor al esperado, pudiendo haber establecido más tareas en dicha iteración. De cara a los siguientes sprints, se planificará una mejor distribución del tiempo y un incremento de puntos de historia para maximizar el avance en cada iteración.
-
-\subsubsection{Sprint 2}
 \paragraph{Desarrollo del sprint}
 En esta iteración se comenzó con el desarrollo de la plataforma. Para ello, se escogió el lenguaje de programación, planteando diversos lenguajes de programación, y se creó un repositorio de trabajo al que ir incorporando gradualmente el progreso de la implementación.
 
@@ -1121,8 +1090,8 @@ A esto se le añadió la creación de la pantalla principal, que permite consult
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{imgs/sprint2.PNG}
-    \caption{Backlog - Sprint 2}
+    \includegraphics[width=1\linewidth]{imgs/sprint1.PNG}
+    \caption{Backlog - Sprint 1}
 \end{figure}
 
 Respecto a las historias de usuario, en esta fase se han desarrollado cuatro de ellas, expuestas a continuación:
@@ -1133,24 +1102,27 @@ Respecto a las historias de usuario, en esta fase se han desarrollado cuatro de 
 \hline
 \textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
 \hline
-HU.1 & Como usuario necesito registrarme. & 2 & M & 2 \\
+HU.1 & Como usuario necesito registrarme. & 2 & M & 1 \\
 \hline
-HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 2 \\
+HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 1 \\
 \hline
-HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 2 \\
+HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 1 \\
 \hline
-HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 2 \\
+HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 1 \\
 \hline
 \end{tabularx}
-\caption{Listado de Historias de usuario - Sprint 2}
+\caption{Listado de Historias de usuario - Sprint 1}
 \end{table}
 
 \paragraph{Retrospectiva}
-El Sprint 2 se desarrolló también de manera satisfactoria, logrando avances significativos en la implementación de la plataforma. La elección del lenguaje de programación y la creación del repositorio de trabajo facilitaron el desarrollo de manera cómoda y la integración continua de los avances.
+Este sprint se desarrolló de manera satisfactoria, logrando avances significativos en la implementación de la plataforma. 
+La elección del lenguaje de programación y la creación del repositorio de trabajo facilitaron el desarrollo de manera cómoda y la integración continua de los avances.
 
-Sin embargo, al igual que en el sprint anterior, el ritmo de trabajo fue superior al previsto, terminando las tareas planteadas antes de lo estipulado. No obstante, se determinó que dicho suceso no ocurriría en futuras iteraciones, pues ya se comenzaría con la implementación de los juegos, 
-los cuales contarán con diversos niveles. De este modo, el número de niveles añadidos podrá ir en función del ritmo de trabajo de cada iteración.
-\subsubsection{Sprint 3}
+Sin embargo, el ritmo de trabajo fue superior al previsto, terminando las tareas planteadas antes de lo estipulado. 
+No obstante, se determinó que dicho suceso no ocurriría en futuras iteraciones, pues ya se comenzaría con la implementación de los juegos, los cuales contarán con diversos niveles. 
+De este modo, el número de niveles añadidos podrá ir en función del ritmo de trabajo de cada iteración.
+
+\subsubsection{Sprint 2}
 
 \subsection{Estructura del proyecto}
 
