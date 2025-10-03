@@ -700,7 +700,9 @@ En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependie
 
 \newpage
 Tras esto, se diseñaron pantallas para aportar cierta retroalimentación a los usuarios, aspecto clave para las personas con TDAH. 
-De esta forma, se creó una pantalla para las estadísticas [\ref{fig:boceto_analisis}], que muestra su progreso; otra pantalla para las recompensas [\ref{fig:boceto_misiones}], en la cual se muestran las misiones a cumplir; y otra para consultar y modificar los datos del perfil del usuario [\ref{fig:boceto_perfil}].
+En primer lugar, se creó una pantalla para las estadísticas, la cual muestra el progreso del usuario en cada modalidad mediante una barra que refleja el porcentaje de puntos obtenidos respecto al total [\ref{fig:boceto_analisis}].
+En segundo lugar, se añadió otra pantalla para las misiones pendientes, las cuales permitían a los usuarios ganar recompensas si completaban ciertos niveles de cada juego [\ref{fig:boceto_misiones}].
+En tercer lugar, se diseñó una pantalla para consultar y modificar los datos del perfil del usuario [\ref{fig:boceto_perfil}].
 
 \begin{figure}[H]
     \centering
@@ -909,7 +911,167 @@ Tras esto, se muestra una pantalla con un semáforo en rojo, la cual trata de ha
 \end{figure}
 
 \newpage
-Todos estos bocetos han sido mostrados a las tutoras del proyecto, quienes dieron su aprobación.
+Todos estos bocetos han sido mostrados a las tutoras del proyecto, quienes aportaron su opinión y sugerencias para mejorar el diseño y la experiencia de usuario.
+Así pues, se han realizado varias modificaciones en los bocetos iniciales para adaptarlos mejor a las necesidades de los usuarios finales.
+En primer lugar, se ha optado por un diseño web para facilitar la integración con la plataforma ya existente, en lugar de una aplicación móvil.
+Respecto al inicio de sesión, se ha decidido incorporar una opción de inicio mediante nombre de usuario e imágenes para la contraseña, facilitando el acceso a los niños más pequeños, los cuales no tienen correo electrónico [\ref{fig:nuevo_boceto_inicio}] [\ref{fig:nuevo_boceto_inicio_imgs}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_inicio_nuevo.png}
+    \caption{Nuevo boceto Inicio de sesión con correo}
+    \label{fig:nuevo_boceto_inicio}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_inicio_imgs_nuevo.png}
+    \caption{Nuevo boceto Inicio de sesión con imágenes}
+    \label{fig:nuevo_boceto_inicio_imgs}
+\end{figure}
+
+En las pantallas de juegos, se decidió eliminar la distinción entre juegos utilizados anteriormente y nuevos juegos, mostrando todos los juegos disponibles desde el inicio [\ref{fig:nuevo_boceto_juegos}].
+Este cambió se ha debido a que no habrá un número muy elevado de juegos y puede resultar más intuitivo para el usuario ver todos los juegos en la misma disposición desde el principio.
+Además, se añadió una barra de progreso en cada juego, mostrando la puntuación obtenida en función de la total en cada uno de ellos [\ref{fig:nuevo_boceto_infojuego}].
+Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una versión web [\ref{fig:nuevo_boceto_niveles}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_juegos_nuevo.png}
+    \caption{Nuevo boceto Pantalla de juegos}
+    \label{fig:nuevo_boceto_juegos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_infojuego_nuevo.png}
+    \caption{Nuevo boceto Información de juego}
+    \label{fig:nuevo_boceto_infojuego}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_niveles_nuevo.png}
+    \caption{Nuevo boceto Pantalla de niveles}
+    \label{fig:nuevo_boceto_niveles}
+\end{figure}
+
+De cara a los bocetos de las pantallas de retroalimentación, se decidió añadir avatares en cada una de ellas, los cuales guiarán a los usuarios de menor edad y le darán consejos para mejorar su experiencia.
+De este modo, se anadió un avatar como guía en la pantalla de evaluación [\ref{fig:nuevo_boceto_analisis_1}] y se modificó el contenido de este para que fuera más intuitivo e informativo.
+En primer lugar, se modificó la forma de mostrar el progreso, optando por reflejarlo con estrellas, marcando el número de estrellas conseguidas en función del total de esa modalidad.
+Además, se añadió el número de aciertos y fallos por modalidad, así como un porcentaje que marcara el progreso total [\ref{fig:nuevo_boceto_analisis_2}].
+En segundo lugar, se añadió una sección de historial de intentos, en la cual se muestran los resultados obtenidos en las últimas partidas, pudiendo observar la puntuación obtenida, así como el número de aciertos y fallos [\ref{fig:nuevo_boceto_analisis_3}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_analisis_nuevo_1.png}
+    \caption{Nuevo boceto Pantalla de evaluación - Parte 1}
+    \label{fig:nuevo_boceto_analisis_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_analisis_nuevo_2.png}
+    \caption{Nuevo boceto Pantalla de evaluación - Parte 2}
+    \label{fig:nuevo_boceto_analisis_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_analisis_nuevo_3.png}
+    \caption{Nuevo boceto Pantalla de evaluación - Parte 3}
+    \label{fig:nuevo_boceto_analisis_3}
+\end{figure}
+
+Para la sección de las misiones, se añadió también un avatar de apoyo que informara al usuario de la finalizad de la sección [\ref{fig:nuevo_boceto_misiones_1}].
+Además, se modificó el diseño para que fuera más visual y atractivo, mostrando tanto las misiones diarias que pudiera tener el usuario (jugar un tiempo específico al día o pasarse cierto número de niveles), como las misiones pendientes y realizadas en dos listas diferenciadas.
+Para estas misiones se ha añadido información de ayuda para el usuario como el progreso o las etiquetas de la esquina superior derecha de cada misión, las cuales informarían al usuario de aspectos como la dificultad o la habilidad a desarrollar [\ref{fig:nuevo_boceto_misiones_2}]. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_misiones_nuevo_1.png}
+    \caption{Nuevo boceto Pantalla de misiones - Parte 1}
+    \label{fig:nuevo_boceto_misiones_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_misiones_nuevo_2.png}
+    \caption{Nuevo boceto Pantalla de misiones - Parte 2}
+    \label{fig:nuevo_boceto_misiones_2}
+\end{figure}
+\newpage
+
+Para la pantalla de perfil, también se añadió el avatar de apoyo [\ref{fig:nuevo_boceto_perfil_1}] y se modificó el diseño para que fuera más visual y atractivo.
+Se eliminó la fecha de nacimiento para evitar problemas de privacidad, por lo que se decidió mostrar únicamente el nombre sin apellidos y la edad.
+Además, se añadió un resumen de los niveles completados, los puntos conseguidos y el tiempo jugado entre todos los juegos [\ref{fig:nuevo_boceto_perfil_2}].
+Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto los avatares, los cuales se van desbloqueando con las misiones, como los nombres; pudiendo eliminar la cuenta también en caso de ser deseado [\ref{fig:nuevo_boceto_perfil_3}].
+Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cuales se irán desbloqueando a medida que se vayan completando misiones [\ref{fig:nuevo_boceto_logros}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_perfil_nuevo_1.png}
+    \caption{Nuevo boceto Pantalla de perfil - Parte 1}
+    \label{fig:nuevo_boceto_perfil_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_perfil_nuevo_2.png}
+    \caption{Nuevo boceto Pantalla de perfil - Parte 2}
+    \label{fig:nuevo_boceto_perfil_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_perfil_nuevo_3.png}
+    \caption{Nuevo boceto Pantalla de perfil - Parte 3}
+    \label{fig:nuevo_boceto_perfil_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_logros_nuevo.png}
+    \caption{Nuevo boceto Pantalla de logros}
+    \label{fig:nuevo_boceto_logros}
+\end{figure}
+
+Respecto a los juegos, se decidió mantener la estructura y dinámica de los bocetos iniciales, realizando únicamente modificaciones superficiales.
+Además, se planteó la incorporación de elementos visuales y auditivos que pudieran suponer una distracción para los usuarios con TDAH con el objetivo de ayudar a mejorar su concentración y atención durante las actividades.
+Así pues, se añadieron sonidos de fondo como una bocina de un coche y efectos visuales como confeti en cada juego, los cuales podrán ir apareciendo en momentos específicos y con una frecuencia dependiente del nivel de dificultad.
+A continuación, se muestran los nuevos bocetos de cada juego, en los cuales no se mostrarán dichos elementos, pues no serán algo fijo de cada nivel, sino que irán apareciendo de forma aleatoria.
+
+En el juego \textbf{Metro de la memoria} no se realizaron cambios significativos, salvo el paso a una versión web y la incorporación de unas instrucciones más específicas para ayudar a los usuarios [\ref{fig:nuevo_boceto_metro_1}] [\ref{fig:nuevo_boceto_metro_2}].
+Respecto a la pantalla de selección del camino, se mantuvo sin cambios [\ref{fig:nuevo_boceto_metro_3}], mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_metro_4}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_metro_nuevo_1.png}
+    \caption{Nuevo boceto Metro de la Memoria - Parte 1}
+    \label{fig:nuevo_boceto_metro_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_metro_nuevo_2.png}
+    \caption{Nuevo boceto Metro de la Memoria - Parte 2}
+    \label{fig:nuevo_boceto_metro_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_metro_nuevo_3.png}
+    \caption{Nuevo boceto Metro de la Memoria - Parte 3}
+    \label{fig:nuevo_boceto_metro_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_metro_nuevo_4.png}
+    \caption{Nuevo boceto Metro de la Memoria - Parte 4}
+    \label{fig:nuevo_boceto_metro_4}
+\end{figure}
+
 Estas actividades iniciales han permitido establecer una visión clara y coherente del producto a desarrollar, asegurando que cada juego responda a una necesidad concreta detectada en el contexto del TDAH.
 
 \subsection{Comparativa de aplicaciones con el proyecto}
