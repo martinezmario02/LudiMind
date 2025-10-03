@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import LandingPage from "./pages/main_pages/LandingPage";
+import InfoPage from "./pages/main_pages/InfoPage";
 import LoginPage from "./pages/main_pages/LoginPage";
 import RegisterPage from "./pages/main_pages/RegisterPage";
 import ResetPasswordPage from "./pages/main_pages/ResetPasswordPage";
@@ -26,6 +27,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/info" element={<InfoPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
