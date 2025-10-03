@@ -21,7 +21,7 @@ export const getInfoLevel = async (req, res) => {
 
 // Get drawers info function
 export const getDrawersInfo = async (req, res) => {
-  const { id } = req.params; // level_id
+  const { id } = req.params; 
 
   try {
     // Take drawers ids
@@ -55,6 +55,27 @@ export const getDrawersInfo = async (req, res) => {
   } catch (error) {
     console.error("Error fetching drawers info:", error);
     return res.status(500).json({ error: "Error fetching drawers info" });
+  }
+};
+
+// Get a drawer info function
+export const getDrawerInfo = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const { data, error } = await supabase
+      .from("magic_drawers")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (error) throw error;
+    if (!data) return res.status(404).json({ error: "Drawer not found" });
+
+    return res.json(data);
+  } catch (err) {
+    console.error("Error fetching drawer info:", err);
+    return res.status(500).json({ error: "Error fetching drawer info" });
   }
 };
 

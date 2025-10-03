@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 
 export default function ContentDrawer() {
   const { id } = useParams();
+  const [drawer, setDrawer] = useState(null);
   const [objects, setObjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ export default function ContentDrawer() {
       try {
         const res = await axios.get(`/api/drawer/content/${id}`);
         setObjects(res.data);
+        const drawer = await axios.get(`/api/drawer/drawer-info/${id}`);
+        setDrawer(drawer.data);
       } catch (err) {
         console.error("Error fetching objects:", err);
       } finally {
@@ -43,35 +46,22 @@ export default function ContentDrawer() {
       <Header />
       <div className="flex-grow flex flex-col items-center pt-8 px-4">
         <h2 className="text-4xl font-extrabold text-primary text-center mb-8 drop-shadow-md">
-          Objetos en el Cajón
+          Objetos en el Cajón "{drawer.name || ''}"
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {objects.map(obj => (
-            <div
-              key={obj.id}
-              className="relative w-32 h-32 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center"
-            >
-              <button
-                onClick={() => removeObject(obj.id)}
-                className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 hover:bg-red-800"
-              >
+            <div key={obj.id} className="relative w-60 h-50 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
+              <button onClick={() => removeObject(obj.id)} className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 hover:bg-red-800">
                 <X size={16} />
               </button>
-              <img
-                src={obj.image_url}
-                alt={obj.name}
-                className="w-16 h-16 object-contain mb-2"
-              />
-              <span className="text-sm font-bold text-center">{obj.name}</span>
+              <img src={obj.image_url} alt={obj.name} className="w-28 h-28 object-contain mb-2" />
+              <span className="text-m font-bold text-center">{obj.name}</span>
             </div>
           ))}
         </div>
 
-        <button
-          onClick={() => navigate(-1)}
-          className="mt-8 px-6 py-2 bg-primary text-white rounded-lg shadow hover:bg-primary-dark"
-        >
+        <button onClick={() => navigate(-1)} className="mt-8 px-6 py-2 bg-primary text-white rounded-lg shadow hover:bg-primary-dark">
           Volver
         </button>
       </div>

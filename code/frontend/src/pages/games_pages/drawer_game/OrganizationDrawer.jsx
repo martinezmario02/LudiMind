@@ -18,9 +18,9 @@ function DraggableObject({ obj }) {
     });
 
     return (
-        <div ref={dragRef} className={`flex-shrink-0 w-32 h-32 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center cursor-move transition ${isDragging ? "opacity-50 scale-95" : "opacity-100"}`}>
-            <img src={obj.image_url} alt={obj.name} className="w-16 h-16 object-contain mb-2" />
-            <span className="text-sm font-bold text-center">{obj.name}</span>
+        <div ref={dragRef} className={`flex-shrink-0 w-60 h-50 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center cursor-move transition ${isDragging ? "opacity-50 scale-95" : "opacity-100"}`}>
+            <img src={obj.image_url} alt={obj.name} className="w-28 h-28 object-contain mb-2" />
+            <span className="text-m font-bold text-center">{obj.name}</span>
         </div>
     );
 }
@@ -38,8 +38,8 @@ function DroppableDrawer({ drawer, onObjectDropped }) {
 
     return (
         <div ref={dropRef} onClick={() => navigate(`/organization/content/${drawer.id}`)}
-            className={`bg-[url('/imgs/wood_texture.jpg')] bg-cover bg-center rounded-2xl shadow-lg p-4 flex flex-col items-center justify-center h-64 w-64 hover:scale-105 transform transition ${isOver ? "ring-4 ring-yellow-400" : ""}`}>
-            <h2 className="text-xl font-bold text-white">{drawer.name}</h2>
+            className={`bg-[url('/imgs/wood_texture.jpg')] bg-cover bg-center rounded-2xl shadow-lg p-4 flex flex-col items-center justify-center h-80 w-80 hover:scale-105 transform transition ${isOver ? "ring-4 ring-yellow-400" : ""}`}>
+            <h2 className="text-3xl font-bold text-white">{drawer.name}</h2>
         </div>
     );
 }
@@ -116,7 +116,6 @@ export default function OrganizationDrawer() {
                 { levelId: id },
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
             );
-            // alert(`¡Nivel resuelto! Puntuación: ${res.data.score}`);
             navigate(`/organization/${id}/retrospective`);
         } catch (err) {
             console.error("Error resolviendo nivel:", err);

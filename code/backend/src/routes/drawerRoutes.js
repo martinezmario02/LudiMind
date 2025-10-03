@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { getInfoLevel, getDrawersInfo, getObjectsInfo, addObjectToDrawer, getDrawerContents, removeObjectFromDrawer, getUnassignedObjects, solveDrawerLevel, resetLevel } from "../controllers/drawerController.js";
+import { getInfoLevel, getDrawerInfo, getDrawersInfo, getObjectsInfo, addObjectToDrawer, getDrawerContents, removeObjectFromDrawer, getUnassignedObjects, solveDrawerLevel, resetLevel } from "../controllers/drawerController.js";
 
 const router = Router();
 
 router.get("/info-level/:id", getInfoLevel);
 router.get("/drawers-info/:id", getDrawersInfo);
+router.get("/drawer-info/:id", getDrawerInfo);
 router.post("/objects-info", getObjectsInfo);
 router.post("/add-object", addObjectToDrawer);
 router.get("/content/:id", getDrawerContents);
