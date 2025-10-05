@@ -665,7 +665,7 @@ A continuación, se presentan los principales requisitos no funcionales que debe
 \end{table}
 
 \subsection{Bocetos de la plataforma}
-A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos. 
+A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual. 
 En primer lugar, se diseñó un inicio de sesión [\ref{fig:boceto_inicio}] que dirigiera a la pantalla principal de selección de juegos [\ref{fig:boceto_juegos}]. 
 Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos [\ref{fig:boceto_infojuego}], así como a un listado de niveles [\ref{fig:boceto_niveles}].
 Estos niveles se irán desbloqueando a medida que se vayan completando los anteriores con la máxima puntuación.
@@ -807,6 +807,7 @@ Esta pantalla dará información sobre el resultado de la comprobación, obtenie
 \newpage
 Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio [\ref{fig:boceto_detective_2}] y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando una barra de nivel para una serie de sentimientos [\ref{fig:boceto_detective_4}]. 
 Posteriormente, mostrará un formulario con opciones para que escoja qué habría hecho él de haber estado en esa situación [\ref{fig:boceto_detective_6}].
+Finalmente, el usuario recibirá una recompensa en función de las respuestas dadas, tratando de analizar si ha comprendido la situación y las emociones implicadas, así como su propia respuesta ante una situación similar.
 
 \begin{figure}[H]
     \centering
@@ -1002,7 +1003,7 @@ Para estas misiones se ha añadido información de ayuda para el usuario como el
 \end{figure}
 \newpage
 
-Para la pantalla de perfil, también se añadió el avatar de apoyo [\ref{fig:nuevo_boceto_perfil_1}] y se modificó el diseño para que fuera más visual y atractivo.
+Para la pantalla de perfil, también se añadió el avatar de apoyo [\ref{fig:nuevo_boceto_perfil_1}] y se modificó el diseño para que fuera más informativa.
 Se eliminó la fecha de nacimiento para evitar problemas de privacidad, por lo que se decidió mostrar únicamente el nombre sin apellidos y la edad.
 Además, se añadió un resumen de los niveles completados, los puntos conseguidos y el tiempo jugado entre todos los juegos [\ref{fig:nuevo_boceto_perfil_2}].
 Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto los avatares, los cuales se van desbloqueando con las misiones, como los nombres; pudiendo eliminar la cuenta también en caso de ser deseado [\ref{fig:nuevo_boceto_perfil_3}].
@@ -1070,6 +1071,170 @@ Respecto a la pantalla de selección del camino, se mantuvo sin cambios [\ref{fi
     \includegraphics[width=0.7\linewidth]{imgs/boceto_metro_nuevo_4.png}
     \caption{Nuevo boceto Metro de la Memoria - Parte 4}
     \label{fig:nuevo_boceto_metro_4}
+\end{figure}
+
+\newpage
+En el juego \textbf{Desván mágico} tampoco se realizaron cambios significativos, salvo el paso a una versión web [\ref{fig:nuevo_boceto_desvan_1}] y el aumento del tamaño de los objetos y títulos [\ref{fig:nuevo_boceto_desvan_2}].
+Además, se añadió un botón para volver de la pantalla de objetos a la pantalla de organización, en caso de haberse consultado los objetos de un cajón concreto [\ref{fig:nuevo_boceto_desvan_3}].
+Finalmente, en la pantalla de retroalimentación  también se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_desvan_4}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_desvan_nuevo_1.png}
+    \caption{Nuevo boceto Desván Mágico - Parte 1}
+    \label{fig:nuevo_boceto_desvan_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_desvan_nuevo_2.png}
+    \caption{Nuevo boceto Desván Mágico - Parte 2}
+    \label{fig:nuevo_boceto_desvan_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_desvan_nuevo_3.png}
+    \caption{Nuevo boceto Desván Mágico - Parte 3}
+    \label{fig:nuevo_boceto_desvan_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_desvan_nuevo_4.png}
+    \caption{Nuevo boceto Desván Mágico - Parte 4}
+    \label{fig:nuevo_boceto_desvan_4}
+\end{figure}
+
+En el juego \textbf{Detective emociones} también se diseñó una nueva versión web [\ref{fig:nuevo_boceto_detective_1}] [\ref{fig:nuevo_boceto_detective_2}], incorporando instrucciones más específicas como la posibilidad de escoger un único sentimiento [\ref{fig:nuevo_boceto_detective_3}] o la existencia de únicamente tres puntos de parada para cada barra [\ref{fig:nuevo_boceto_detective_4}].
+El apartado de toma de decisiones se mantuvo sin cambios [\ref{fig:nuevo_boceto_detective_5}] [\ref{fig:nuevo_boceto_detective_6}], mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_detective_7}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_1.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 1}
+    \label{fig:nuevo_boceto_detective_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_2.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 2}
+    \label{fig:nuevo_boceto_detective_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_3.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 3}
+    \label{fig:nuevo_boceto_detective_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_4.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 4}
+    \label{fig:nuevo_boceto_detective_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_5.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 5}
+    \label{fig:nuevo_boceto_detective_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_6.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 6}
+    \label{fig:nuevo_boceto_detective_6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_detective_nuevo_7.png}
+    \caption{Nuevo boceto Detective Emociones - Parte 7}
+    \label{fig:nuevo_boceto_detective_7}
+\end{figure}
+
+Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio significativo, por lo que se aportan a continuación los bocetos de la nueva versión web [\ref{fig:nuevo_boceto_semaforo_1}] [\ref{fig:nuevo_boceto_semaforo_2}] [\ref{fig:nuevo_boceto_semaforo_3}] [\ref{fig:nuevo_boceto_semaforo_4}] [\ref{fig:nuevo_boceto_semaforo_5}] [\ref{fig:nuevo_boceto_semaforo_6}] [\ref{fig:nuevo_boceto_semaforo_7}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_1.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 1}
+    \label{fig:nuevo_boceto_semaforo_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_2.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 2}
+    \label{fig:nuevo_boceto_semaforo_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_3.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 3}
+    \label{fig:nuevo_boceto_semaforo_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_4.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 4}
+    \label{fig:nuevo_boceto_semaforo_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_5.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 5}
+    \label{fig:nuevo_boceto_semaforo_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_6.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 6}
+    \label{fig:nuevo_boceto_semaforo_6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_semaforo_nuevo_7.png}
+    \caption{Nuevo boceto Semáforo Emocional - Parte 7}
+    \label{fig:nuevo_boceto_semaforo_7}
+\end{figure}
+
+\newpage
+Finalmente, se acordó añadir la opción de iniciar sesión como tutores.
+Estos usuarios tendrán acceso a una sección específica en la cual podrían ver el progreso de los niños y niñas a su cargo.
+Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsqueda [\ref{fig:nuevo_boceto_tutores_1}].
+Además, se podrá acceder al perfil de cada estudiante, en el cual se mostrará su información básica, pudiendo asignar al estudiante [\ref{fig:nuevo_boceto_tutores_2}] y acceder a su evaluación [\ref{fig:nuevo_boceto_analisis_2}] [\ref{fig:nuevo_boceto_analisis_3}].
+También se podrá acceder a su perfil, en el cual se mostrará su información de usuario y se podrá editar [\ref{fig:nuevo_boceto_tutores_3}].
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_tutor_listado.png}
+    \caption{Nuevo boceto Pantalla de tutores - Listado de estudiantes}
+    \label{fig:nuevo_boceto_tutores_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_tutor_estudiante.png}
+    \caption{Nuevo boceto Pantalla de tutores - Perfil de estudiante}
+    \label{fig:nuevo_boceto_tutores_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_tutor_perfil.png}
+    \caption{Nuevo boceto Pantalla de tutores - Perfil de tutor}
+    \label{fig:nuevo_boceto_tutores_3}
 \end{figure}
 
 Estas actividades iniciales han permitido establecer una visión clara y coherente del producto a desarrollar, asegurando que cada juego responda a una necesidad concreta detectada en el contexto del TDAH.
