@@ -37,12 +37,12 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 min-h-screen bg-background">
             <div className="text-center mb-12 mt-8">
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 font-sans">
                     LudiMind
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8 font-sans max-w-2xl mx-auto">
+                <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto">
                     Crea tu propia cuenta para comenzar a mejorar tus habilidades de manera divertida y efectiva
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto p-6 bg-white rounded-lg shadow">

@@ -1420,7 +1420,7 @@ A esto se le añadió la creación de la pantalla principal, que permite consult
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{imgs/sprint1.png}
-    \caption{Backlog - Sprint 1}
+    \caption{Sprint 1 - Backlog}
 \end{figure}
 
 \newpage
@@ -1542,6 +1542,72 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
 \vspace{0.8em}
 \end{table}
 
+\paragraph{Resultados obtenidos}
+Durante este sprint añadió una pantalla inicial a modo de bienvenida para los usuarios \cref{fig:result_landing}.
+Además, se logró implementar la funcionalidad de registro \cref{fig:result_registro} e inicio de sesión de usuarios mediante correo electrónico y contraseña alfanumérica \cref{fig:result_login}, así como la posibilidad de recuperar la contraseña mediante correo electrónico \cref{fig:result_contraseña}.
+También se creó la pantalla principal que permite la consulta de juegos disponibles \cref{fig:result_juegos}.
+Las pruebas de aceptación confirmaron que los requisitos funcionales se cumplían adecuadamente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_landing.png}
+    \caption{Resultados obtenidos - Pantalla de bienvenida}
+    \label{fig:result_landing}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_info.png}
+    \caption{Resultados obtenidos - Pantalla de bienvenida (Más Información)}
+    \label{fig:result_info}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_registro.png}
+    \caption{Resultados obtenidos - Pantalla de registro}
+    \label{fig:result_registro}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_login.png}
+    \caption{Resultados obtenidos - Pantalla de inicio de sesión}
+    \label{fig:result_login}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_contraseña.png}
+    \caption{Resultados obtenidos - Pantalla de recuperación de contraseña}
+    \label{fig:result_contraseña}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_juegos.png}
+    \caption{Resultados obtenidos - Pantalla de juegos disponibles}
+    \label{fig:result_juegos}
+\end{figure}
+
+A continuación, se muestran diagramas tanto de ficheros \cref{fig:sprint1_ficheros} como de base de datos \cref{fig:sprint1_bd}, a modo de resumen de la estructura del backend hasta el momento.
+Para la gestión de usuarios, se utilizó la tabla \textit{auth.users} proporcionada por Supabase, la cual almacena la información básica de los usuarios registrados en la plataforma, a la que se le añadió la tabla \textit{profiles} para almacenar información adicional de los usuarios: su nombre y año de nacimiento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint1_ficheros.png}
+    \caption{Sprint 1- Diagrama de ficheros}
+    \label{fig:sprint1_ficheros}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint1_bd.png}
+    \caption{Sprint 1- Diagrama de base de datos}
+    \label{fig:sprint1_bd}
+\end{figure}
+
+\newpage
 \paragraph{Retrospectiva}
 Este sprint se desarrolló de manera satisfactoria, logrando avances significativos en la implementación de la plataforma. 
 La elección del lenguaje de programación y la creación del repositorio de trabajo facilitaron el desarrollo de manera cómoda y la integración continua de los avances.
@@ -1549,8 +1615,6 @@ La elección del lenguaje de programación y la creación del repositorio de tra
 Sin embargo, el ritmo de trabajo fue superior al previsto, terminando las tareas planteadas antes de lo estipulado. 
 No obstante, se determinó que dicho suceso no ocurriría en futuras iteraciones, pues ya se comenzaría con la implementación de los juegos, los cuales contarán con diversos niveles. 
 De este modo, el número de niveles añadidos podrá ir en función del ritmo de trabajo de cada iteración.
-
-\paragraph{Resultados obtenidos}
 
 \subsubsection{Sprint 2}
 
