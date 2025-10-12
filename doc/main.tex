@@ -40,6 +40,10 @@
 \usepackage{titlesec}
 \usepackage{makecell}
 
+\usepackage{cleveref}
+\crefformat{figure}{(#2Fig.~#1#3)}
+\Crefformat{figure}{(#2Fig.~#1#3)}
+\newcommand{\tabref}[1]{Cuadro~\ref{#1}}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4} 

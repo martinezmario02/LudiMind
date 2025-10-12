@@ -25,12 +25,12 @@ export default function GamesPage() {
   return (
     <div>
       <Header />
-      <main className="p-4">
+      <main className="p-4 bg-background min-h-screen">
         {error && <p className="text-red-500">{error}</p>}
 
         {/* All games */}
         <div className="m-6">
-          <h1 className="text-2xl font-bold mb-4 mt-4">Juegos disponibles</h1>
+          <h1 className="text-2xl font-bold mb-4 mt-4 text-foreground2">Juegos disponibles</h1>
           {games.length === 0 ? (
             <p className="text-gray-500">No hay juegos disponibles</p>
           ) : (

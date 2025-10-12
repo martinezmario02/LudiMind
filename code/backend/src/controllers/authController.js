@@ -118,3 +118,78 @@ export const getCurrentUser = async (req, res) => {
     res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
+// Login with images
+export const visualLogin = async (req, res) => {
+  const { name, selectedSequence } = req.body;
+
+  if (!name || !selectedSequence || !Array.isArray(selectedSequence)) {
+    return res.status(400).json({ error: "Faltan datos o formato incorrecto" });
+  }
+
+  try {
+    // 1️⃣ Obtener el usuario por nombre
+    const { data: profile, error: profileError } = await supabase
+      .from("profiles")
+      .select("id")
+      .eq("name", name)
+      .single();
+
+    if (profileError || !profile) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    const userId = profile.id;
+
+    // 2️⃣ Obtener la secuencia real desde la BD
+    const { data: visualLogin, error: visualError } = await supabase
+      .from("visual_logins")
+      .select("id")
+      .eq("user_id", userId)
+      .single();
+
+    if (visualError || !visualLogin) {
+      return res.status(400).json({ error: "El usuario no tiene login por imágenes" });
+    }
+
+    const { data: storedSequence, error: sequenceError } = await supabase
+      .from("visual_login_sequences")
+      .select("image_url, order_index")
+      .eq("visual_login_id", visualLogin.id)
+      .order("order_index", { ascending: true });
+
+    if (sequenceError || !storedSequence || storedSequence.length === 0) {
+      return res.status(400).json({ error: "Secuencia no encontrada" });
+    }
+
+    // 3️⃣ Verificar coincidencia exacta de orden
+    const isMatch = storedSequence.every(
+      (item, index) => item.image_url === selectedSequence[index]
+    );
+
+    if (!isMatch) {
+      return res.status(401).json({ error: "Secuencia incorrecta" });
+    }
+
+    // 4️⃣ Crear sesión manualmente (igual que login normal)
+    // Para esto, pedimos un token a Supabase para el usuario
+    const { data: tokenData, error: tokenError } = await supabase.auth.admin.generateLink({
+      type: "magiclink",
+      email: `${userId}@visual-login.local`, // correo virtual si el niño no tiene email
+      options: {
+        redirectTo: "https://tuweb.com/dashboard",
+      },
+    });
+
+    if (tokenError) return res.status(400).json({ error: tokenError.message });
+
+    res.json({
+      message: "Inicio de sesión exitoso",
+      session: tokenData,
+      userId,
+    });
+  } catch (err) {
+    console.error("Error en loginWithImages:", err);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};

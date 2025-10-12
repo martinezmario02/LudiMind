@@ -49,7 +49,7 @@ export default function GameDetailPage() {
   if (!game) return <p className="text-gray-500">Cargando...</p>;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <div className="w-full max-w-3xl min-w-[400px] mx-auto my-8 shadow-lg rounded-xl overflow-hidden bg-white">
         {/* Image */}

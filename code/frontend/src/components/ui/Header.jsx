@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, Gamepad2, ClipboardCheck, Target, User, LogOut } from "lucide-react";
+import { Gamepad2, ClipboardCheck, Target, User, LogOut } from "lucide-react";
 import axios from "axios";
+import { Brain } from "lucide-react";
 
 export default function Header() {
   const [userName, setUserName] = useState("Usuario");
@@ -30,15 +31,15 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-header text-card py-6 shadow-md">
+    <header className="bg-foreground text-card py-6 shadow-md">
       <div className="container mx-auto flex flex-col items-center px-4">
-        <h1 className="text-4xl font-extrabold mb-6">LudiMind</h1>
+        <div className="flex items-center space-x-2 mb-4">
+            <Brain className="h-8 w-8 text-background" />
+            <span className="text-2xl font-bold text-card">LudiMind</span>
+        </div>
 
         <div className="w-full flex items-center justify-center relative">
           <nav className="flex space-x-6">
-            <Link to="/" className="flex items-center space-x-1 hover:text-accent">
-              <Home size={20} /><span>Inicio</span>
-            </Link>
             <Link to="/games" className="flex items-center space-x-1 hover:text-accent">
               <Gamepad2 size={20} /><span>Juegos</span>
             </Link>
@@ -55,7 +56,7 @@ export default function Header() {
 
           <div className="absolute right-0 flex flex-col items-end mb-12">
             <span className="mb-2 font-medium">Hola, {userName}</span>
-            <button className="flex items-center space-x-1 hover:text-red-500 text-red-400" onClick={handleLogout}>
+            <button className="flex items-center space-x-1 hover:text-card text-foreground2" onClick={handleLogout}>
               <LogOut size={20} /><span>Salir</span>
             </button>
           </div>

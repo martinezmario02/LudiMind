@@ -31,12 +31,12 @@ De este modo, se plantea como proyecto la implementación de una plataforma de m
 Este proyecto constará de un sistema de tele-rehabilitación en colaboración con los principales agentes implicados en el proceso de intervención en las actividades diarias y académicas \parencite{diveraccion}.
 
 \subsection{Juegos serios para personas con NEAE}
-Los juegos serios son aplicaciones diseñadas con un fin educativo o terapéutico que combinan elementos lúdicos con objetivos específicos de aprendizaje o mejora de habilidades.
+Los juegos serios son aplicaciones diseñadas con un fin educativo o terapéutico que combinan elementos lúdicos con objetivos específicos de aprendizaje o mejora de habilidades \parencite{gamestrategies2025}.
 En el contexto de las personas con Necesidades Específicas de Apoyo Educativo (NEAE), los juegos serios pueden ser una herramienta eficaz para abordar diversas áreas de desarrollo, como la cognición, la motricidad, la socialización y la autorregulación emocional.
 Estos juegos permiten a los usuarios interactuar con entornos controlados donde puedan practicar habilidades sin la presión de un entorno clínico.
 Esto puede facilitar el ritmo de aprendizaje y la retroalimentación inmediata \parencite{neurekalab2022}.
 
-En el caso específico de personas con TDAH, estos juegos serios han mostrado ser muy efectivos para mejorar la atención sostenida y la memoria de trabajo.
+En el caso específico de personas con TDAH, estos juegos serios han mostrado ser muy efectivos para mejorar la atención sostenida y la memoria de trabajo \parencite{games_adhd_2021} \parencite{games_adhd_2025} \parencite{games_adhd_sf}.
 Un estudio realizado en Cataluña implementó un programa que contaba con diversos juegos serios, incluyendo actividades como selección de estímulos o laberintos.
 Los resultados obtenidos indicaron mejoras significativas en la atención sostenida y la memoria de trabajo en niños y niñas con TDAH tras la intervención \parencite{redalyc2019}.
 
@@ -74,6 +74,27 @@ No obstante, la aplicación a desarrollar en este proyecto debe estar adaptada a
 Además, nuestro proyecto trata de mejorar la autonomía y el pensamiento crítico mediante la toma de decisiones y retos, mientras que este otro juego sigue una narrativa guiada (pulsar para avanzar). 
 Aun así, la estructura narrativa y el enfoque emocional de esta aplicación pueden servir como inspiración para diseñar experiencias similares en algunos minijuegos del proyecto.
 
+\subsubsection{Jumpy Car ADHD}
+El juego \textit{Jumpy Car ADHD} \parencite{jumpycaradhd} es una aplicación diseñada para mejorar la atención sostenida, la impulsividad y la capacidad de planificación en niños y niñas con TDAH. 
+A través de una dinámica de conducción, el usuario controla un vehículo que debe saltar obstáculos, recoger recompensas y evitar colisiones, lo cual requiere mantener la concentración y tomar decisiones rápidas en entornos cambiantes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/app_jumpycar.png}
+    \caption{Interfaz principal del juego Jumpy Car ADHD}
+\end{figure}
+
+El objetivo del juego es entrenar habilidades de autorregulación y atención mediante una mecánica sencilla pero exigente. 
+Durante la partida, la velocidad del coche aumenta progresivamente, lo que obliga al jugador a mantener la atención y controlar los impulsos. 
+Además, el juego incluye un sistema de retroalimentación inmediata mediante recompensas visuales y auditivas, lo que favorece la motivación y el refuerzo positivo, elementos fundamentales para mantener el interés en usuarios con dificultades de atención. 
+El diseño del entorno, colorido y con niveles progresivos, busca equilibrar el desafío y la accesibilidad, adaptándose a distintos niveles de rendimiento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/app_jumpycar_level.jpeg}
+    \caption{Ejemplo de nivel en Jumpy Car ADHD}
+\end{figure}
+
 \subsubsection{Lumosity - Entrenador Cerebral}
 Esta otra aplicación \parencite{lumosity} consta de una gran variedad de juegos para ejercitar la memoria y entrenar el cerebro de forma interactiva y amena. 
 Estos juegos están divididos en función del área a entrenar, tal y como se busca con nuestro proyecto.
@@ -103,6 +124,8 @@ Por otro lado, juegos como Pirate Passage, que requiere planificar rutas óptima
 \end{figure}
 
 Además, contiene una página con estadísticas que muestra el desempeño del usuario, lo cual puede resultar muy útil para personas con TDAH, ya que de este modo, pueden recibir retroalimentación acerca de sus logros y aspectos a mejorar. 
+Por otro lado, diversos estudios científicos han evaluado la eficacia de esta plataforma, analizando el impacto real en personas adultas con TDAH \parencite{lumosity_tdah}.
+Este estudio concluye que al aumentar la frecuencia de uso de la aplicación, se obtienen mejoras en medidas de atención, lo que respalda su utilidad como herramienta complementaria para el desarrollo de habilidades cognitivas.
 
 Sin embargo, aunque estos juegos se adaptan al nivel de los usuarios, algunos de ellos pueden llegar a resultar algo complejos cuando el usuario va avanzando, pues están realizados para un intervalo de edad mayor. 
 Nuestra plataforma, por el contrario, estará centrada en un público más joven e inexperto, por lo que los juegos que se buscan tendrán una dificultad algo menor.
@@ -140,27 +163,27 @@ Tras el análisis de otras aplicaciones, se ha realizado un estudio de aspectos 
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
     \hline
-    \textbf{Competencia} & \textbf{Respira, Piensa, Actúa} & \textbf{Lumosity} & \textbf{CogniFit}\\
+    \textbf{Competencia} & \textbf{Respira, Piensa, Actúa} & \textbf{Jumpy Car ADHD} & \textbf{Lumosity} & \textbf{CogniFit}\\
     \hline
-    Autorregulación emocional         & x &   &   \\
+    Autorregulación emocional         & x & x &   & x \\
     \hline
-    Resolución de conflictos sociales & x &   &   \\
+    Resolución de conflictos sociales & x &   &   &   \\
     \hline
-    Identificación emocional          & x &   &   \\
+    Identificación emocional          & x &   &   & x \\
     \hline
-    Memoria de trabajo                &   & x & x \\
+    Memoria de trabajo                &   & x & x & x \\
     \hline
-    Organización de objetos/tareas    &   &   & x \\
+    Organización de objetos/tareas    &   &   &   & x \\
     \hline
-    Planificación / anticipación      &   & x & x \\
+    Planificación / anticipación      &   & x & x & x \\
     \hline
-    Control inhibitorio / impulsos    & x & x & x \\
+    Control inhibitorio / impulsos    & x & x & x & x \\
     \hline
-    Gestión del tiempo                &   & x &   \\
+    Gestión del tiempo                &   & x & x & x \\
     \hline
-    Motivación por refuerzo           & x & x & x \\
+    Motivación por refuerzo           & x & x & x & x \\
     \hline
 \end{tabularx}
 \caption{Comparativa entre competencias de aplicaciones}
@@ -168,33 +191,39 @@ Tras el análisis de otras aplicaciones, se ha realizado un estudio de aspectos 
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
     \hline
-    \textbf{Característica} & \textbf{Respira, Piensa, Actúa} & \textbf{Lumosity} & \textbf{CogniFit} \\
+    \textbf{Característica} & \textbf{Respira, Piensa, Actúa} & \textbf{Jumpy Car ADHD} & \textbf{Lumosity} & \textbf{CogniFit} \\
     \hline
-    Precio & Gratuita & Gratis con limitación; suscripción premium para escoger juegos & Suscripción obligatoria \\
+    Precio & Gratuita & Gratuita & Gratis con limitación; suscripción premium & Suscripción obligatoria \\
     \hline
-    Sistema Operativo & iOS, Android & Web, iOS, Android & Web, iOS, Android \\
+    Sistema Operativo & iOS, Android & Android & Web, iOS, Android & Web, iOS, Android \\
     \hline
-    Edad recomendada & 2–5 años & $\ge$ 13 años & 9–17 años \\
+    Edad recomendada & 2–5 años & 6–12 años & $\ge$ 13 años & 6–18 años \\
     \hline
-    Nivel de dificultad & Fijo & Adaptativo & Adaptativo \\
+    Nivel de dificultad & Fijo & Fijo & Adaptativo & Adaptativo \\
     \hline
-    Perfil TDAH & No & No & Sí \\
+    Perfil TDAH & No & Sí & No & Sí \\
     \hline
-    Personalización & No & Sí & Sí \\
+    Personalización & No & No & Sí & Sí \\
     \hline
-    Estudios que evalúan su eficacia & No & Sí & Sí \\
+    Estudios que evalúan su eficacia & No & No & Sí & Sí \\
     \hline
-    Registro de usuarios y perfiles & No & Sí & Sí \\
+    Registro de usuarios y perfiles & No & No & Sí & Sí \\
     \hline
-    Seguimiento del progreso & No & Sí & Sí \\
+    Niveles progresivos & No & Sí & Sí & Sí \\
     \hline
-    Refuerzos y recompensas & No & Sí & Sí \\
+    Retroaliment. & Sí & Sí & Sí & Sí \\
+    \hline
+    Gamificación & Sí & Sí & Sí & Sí \\
     \hline
 \end{tabularx}
 \caption{Comparativa de las aplicaciones según características}
 \end{table}
+
+Como se ha podido observar, cada una de estas aplicaciones tiene sus puntos fuertes y débiles, destacando la aplicación \textit{CogniFit} por su enfoque integral y personalizado, así como por la evidencia científica que respalda su eficacia.
+No obstante, el precio de suscripción puede ser una barrera para algunos usuarios, y la interfaz puede resultar algo compleja para estudiantes de menor edad.
+Además, no trata todas las competencias que se buscan en este proyecto, como la resolución de conflictos sociales.
 
 \subsection{Artículos científicos relacionados}
 Para el diseño de una aplicación dirigida a niños y niñas con TDAH, resulta esencial revisar la evidencia científica disponible sobre el diseño y la eficacia de las herramientas tecnológicas en este ámbito. 
@@ -203,12 +232,14 @@ Así pues, se destacan dos artículos recientes que ofrecen claros resultados po
 En primer lugar, encontramos el artículo \textit{Meta-analysis of the efficacy of digital therapies in children with attention-deficit hyperactivity disorder} \parencite{tech_interventions_tdah}, cuyo objetivo es la evaluación de la efectividad de intervenciones digitales para mejorar los síntomas del TDAH en estudiantes. 
 Este estudio sigue las directrices PRISMA y el Manual Cochrane \parencite{prisma}, lo cual indica que la revisión es sistemática y fiable; además de estar registrado en PROSPERO \parencite{prospero}, lo que añade también transparencia al proceso.
 
-Para la evaluación se utilizan instrumentos que podrían ser útiles para la validación de la plataforma. 
+Para la evaluación se utilizan instrumentos que podrían ser útiles para la validación de la plataforma a desarrollar en este proyecto. 
 Por un lado, se utiliza la \textit{Escala de Calificación del Trastorno por Déficit de Atención e Hiperactividad (ADHD-RS)} para medir la inatención e impulsividad del alumnado \parencite{adhdrs}. 
 Para ello, se basa en los criterios del \textit{Manual Diagnóstico y Estadístico de los Trastornos Mentales, Cuarta Edición (DSM-IV)}, el cual contiene descripciones detalladas de los diferentes trastornos mentales, incluyendo criterios diagnósticos específicos para cada uno \parencite{dsmiv}. 
 Por otro lado, también se utiliza la herramienta \textit{Evaluación Conductual de la Función Ejecutiva-2 (BRIEF-2)}, un cuestionario completado por padres o tutores que mide las funciones ejecutivas, evaluando los aspectos más cotidianos y conductuales \parencite{brief2}.
 
 Además de los resultados sobre eficacia, este metaanálisis describe las características de las terapias digitales incluidas, que abarcan fundamentalmente programas de entrenamiento cognitivo asistidos por ordenador y videojuegos terapéuticos. 
+Entre dichos programas podemos destacar \textit{Computerized Progressive Attentional Training (CPAT)}, el cual está compuesto por cuatro conjuntos de tareas estructuradas que activan de forma única la atención sostenida, la atención selectiva, la orientación de la atención y la atención ejecutiva \parencite{cpat}.
+Como resultado, se observó cómo los participantes mejoraban de forma significativa en la comprensión lectora, reduciendo también el número de informes de los padres sobre la falta de atención.
 Estas intervenciones se orientan a mejorar habilidades como la atención sostenida, la memoria de trabajo o la autorregulación conductual. 
 Una de sus características principales es el uso de mecánicas de gamificación (niveles progresivos, retroalimentación inmediata y recompensas), lo que favorece la motivación y la adherencia en la población infantil con TDAH.
 
@@ -221,4 +252,26 @@ Esta metodología puede servir como referencia para la selección de instrumento
 
 En este caso, se analizan distintos tipos de intervenciones tecnológicas aplicadas en ensayos clínicos aleatorizados: programas de entrenamiento cognitivo digital, neurofeedback, aplicaciones educativas interactivas y entornos de realidad virtual. 
 Estas herramientas trabajan un abanico de competencias relacionadas con el TDAH, entre ellas la atención visual, el control de impulsos, la memoria de trabajo y la planificación. 
-El estudio destaca el uso de plataformas gamificadas o entornos lúdicos, lo que potencia la implicación del alumnado y contribuye a la mejora en medidas clínicas y funcionales.
+Respecto al neurofeedback, se trata de una técnica para entrenar el cerebro, ta sea para mejorar el rendimiento del usuario o para corregir alguna dificultad o trastorno que pueda estar causando un desequilibrio en el funcionamiento cerebral \parencite{neurofeedback}.
+
+Así pues, al igual que en el estudio anterior, este estudio destaca el uso de plataformas gamificadas o entornos lúdicos, lo que potencia la implicación del alumnado y contribuye a la mejora en medidas clínicas y funcionales.
+
+Además, se han estudiado otros tres artículos relacionados con los juegos serios.
+Por un lado, encontramos \textit{A Review on Serious Games for ADHD} \parencite{games_adhd_2021}, el cual ofrece una revisión exhaustiva de los juegos serios en distintos ámbitos, como la salud o la educación.
+Este artículo analiza cómo los juegos serios pueden combinar elementos de entretenimiento y aprendizaje en búsqueda del desarrollo de las habilidades cognitivas y sociales, al mismo tiempo que se mantiene la motivación del usuario con la gamificación.
+Así, los autores subrayan la importancia del diseño centrado en el usuario, la retroalimentación y la adaptabilidad de la dificultad al usuario para maximizar la efectividad de estos juegos.
+
+\newpage
+Por otro lado, \textit{Effectiveness of Serious Games as Digital Therapeutics for Enhancing the Abilities of Children With Attention-Deficit/Hyperactivity Disorder (ADHD): Systematic Literature Review} \parencite{games_adhd_2025} analiza el uso de juegos serios como terapias digitales para niños con TDAH.
+Siguiendo también la directrices PRISMA, los autores revisaron numeroso artículos, evaluando aspectos como la atención, las habilidades sociales o la hiperactividad.
+Los resultados también indicaron que los juegos serios pueden ser una herramienta eficaz para mejorar diversas habilidades en niños con TDAH, manifestando una actitud positiva hacia las intervenciones lúdicas.
+
+Finalmente, \textit{Serious Games for ADHD: a narrative review} \parencite{games_adhd_sf} discute sobre cómo dichos juegos incorporan tecnologías como interfaces cerebro-computadora (BCI), sensores de movimiento y algoritmos adaptativos para el ajuste del nivel de desafío al rendimiento del usuario.
+Respecto a las BCI, son una tecnología que se basa en la adquisición de información neural para su procesamiento e interpretación a través de un ordenador \parencite{bci}. 
+De este modo, se destacan juegos utilizados en investigaciones, los cuales trabajan funciones ejecutivas, atención y autorregulación emocional, tales como \textit{Braingame Brian}, concluyendo también que dichos juegos son prometedores como herramientas complementarias al tratamiento convencional del TDAH.
+
+En conjunto, todos estos artículos revisados aportan una visión amplia y detallada sobre el uso de intervenciones tecnológicas y juegos serios en el tratamiento del TDAH.
+Así pues, se consluye que tanto las terapias digitales como los juegos serios pueden mejorar la funciones cognitivas, pudiendo emplear protocolos estandarizados, como PRISMA o Cochrane, y herramientas de evaluación validadas, como ADHD-RS o BRIEF-2.
+Además, se profundiza en las características funcionales y tecnológicas de los juegos serios, destacando la adaptabilidad del nivel de dificultad y la retroalimentación.
+Finalmente, se resalta la importancia de la gamificación y el diseño centrado en el usuario para maximizar la efectividad de estas intervenciones.
+En definitiva, estos artículos proporcionan una base sólida para el desarrollo de la plataforma de minijuegos propuesta en este proyecto, orientada a mejorar habilidades cognitivas y emocionales en estudiantes con TDAH.

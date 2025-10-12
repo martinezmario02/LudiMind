@@ -1,10 +1,28 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/Card.jsx"
 import Button from "../../components/ui/Button.jsx"
 import { Link } from "react-router-dom";
+import { Brain } from "lucide-react";
 
 export default function InfoPage() {
     return (
         <div className="min-h-screen bg-background">
+            {/* Header */}
+            <header className="container mx-auto px-4 py-6">
+                <nav className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                    <Brain className="h-8 w-8 text-primary" />
+                    <span className="text-2xl font-bold text-foreground">LudiMind</span>
+                </div>
+                <div className="flex space-x-4">
+                    <Button asChild variant="outline" size="lg" className="text-foreground hover:text-foreground2">
+                        <Link to="/login">Iniciar Sesión</Link>
+                    </Button>
+                    <Button asChild size="lg" className="bg-foreground hover:bg-foreground2 text-white">
+                        <Link to="/register">Registrarse Ahora</Link>
+                    </Button>
+                </div>
+                </nav>
+            </header>
             {/* Main section */}
             <div className="container mx-auto px-4 py-8">
                 <div className="text-center mb-12 mt-8">

@@ -3,7 +3,7 @@
 \subsection{Definición de la propuesta}
 Este proyecto recibe el nombre de \textit{LudiMind}, el cual surge de la combinación de la palabra \textit{ludus} (del latín, juego o actividad lúdica) y \textit{mind} (palabra inglesa que significa mente).
 De esta forma, \textit{LudiMind} transmite la idea de una plataforma que utiliza el juego como vía para estimular la mente, favoreciendo el aprendizaje, la autorregulación emocional y el desarrollo de habilidades cognitivas en niños y niñas con necesidades específicas de apoyo educativo, más concretamente, con TDAH.
-Para ello, se desarrollarán cuatro juegos diseñados específicamente para trabajar áreas clave afectadas por el TDAH, todos ellos con numerosos niveles cuya complejidad se verá incrementada a medida que el jugador avance.
+Se desarrollarán cuatro juegos diseñados específicamente para trabajar áreas clave afectadas por el TDAH, todos ellos con numerosos niveles, cuya complejidad se verá incrementada a medida que el jugador avance.
 Estos juegos son guiados por un avatar que plantea situaciones, preguntas o retos que invitan a la reflexión o resolución de problemas, adaptados a las competencias que se desean trabajar.
 
 \begin{itemize}
@@ -11,15 +11,15 @@ Estos juegos son guiados por un avatar que plantea situaciones, preguntas o reto
     El jugador o jugadora deberá recordar la parada de origen y destino, proporcionándole una frase mnemotécnica a modo de ayuda.
     A medida que se avanzan los niveles, se incrementa la dificultad proporcionando frases menos precisas.
     \item \textbf{Juego de planificación:} El jugador o jugadora accederá a un espacio mágico (desván mágico) que contendrá una gran cantidad de objetos desordenados (escolares, personales, fantásticos). 
-    El objetivo será organizar los objetos arrastrándolos a los compartimentos correctos según diferentes criteros que cambiarán según el nivel. 
+    El objetivo será organizar los objetos moviéndolos a los compartimentos correctos según diferentes criteros que cambiarán según el nivel. 
     Estos compartimentos podrán reflejar categorías de objetos u otras formas de organización (por iniciales, por tipo de palabra). 
     Además, se plantea la posibilidad de añadir niveles de mayor dificultad, en los cuales se agrupen distintas tareas en compartimentos, los cuales reflejen el tiempo que se dedicará a dicha tarea. 
     Esto podría ayudarlos a desarrollar otro área clave como la gestión del tiempo.
     \item \textbf{Juego de autorregulación emocional:} Se tomará el rol de \textit{detective emocional} y se analizarán mensajes, escenas de redes sociales o conversaciones familiares. 
-    Estas situaciones se mostrarán a modo de imagen, planteando una situación ficticia.
+    Estas situaciones se mostrarán como secuencia de mensajes de texto entre varios interlocutores, planteando una situación ficticia.
     Su objetivo será identificar emociones complejas en simulaciones de contextos sociales realistas y valorar su intensidad, mejorando la conciencia social y la empatía.
     \item \textbf{Juego de resolución de conflictos sociales:} Se mostrarán diferentes escenarios de conflicto social, teniendo que analizar la situación utilizando los pasos del \textit{semáforo emocional}, una estrategia visual y sencilla adaptada a la población con TDAH. 
-    Estos escenario también se podrán mostrar a modo de imagen o texto (un avatar explicando la situación).
+    Estos escenarios también se podrán mostrar a modo de imagen o texto (un avatar explicando la situación).
     Esto desembocará en una mejora en la toma de decisiones, la autorregulación emocional y las habilidades sociales.
 \end{itemize}
 
@@ -30,27 +30,34 @@ De esta forma, se busca fomentar la motivación intrínseca y el sentido de logr
 Esta propuesta busca no solo apoyar el desarrollo de habilidades cognitivas y emocionales; sino también mejorar la autonomía, la motivación y la autoestima de este colectivo, contribuyendo a una experiencia educativa más inclusiva y divertida.
 
 \subsection{Metodologías y herramientas para la planificación}
-Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se prueba la aplicación.
+Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. 
+Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se desarrolla y prueba la aplicación, además de ayudar a la revisión y aportación de mejoras por parte de las tutoras del proyecto.
+Además, Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
 
-Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
-
-Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una plataforma especializada en la gestión de proyectos ágiles. Esto nos ha permitido la creación de un \textit{backlog} con las tareas a desarrollar, con su priorización y duración. Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
+Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una plataforma especializada en la gestión de proyectos ágiles. 
+Esto nos ha permitido la creación de un \textit{product backlog} con las historias y tareas a desarrollar, con su priorización y duración. 
+Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
 
 Gracias a la combinación de Scrum y Jira, ha sido posible mantener una planificación estructurada, con objetivos definidos por sprint, así como una organización clara de los recursos y tiempos destinados al desarrollo de los distintos minijuegos educativos de la aplicación.
 
-En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas.
+En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas, contando con un único miembro en el equipo de trabajo: el autor de este trabajo de fin de máster.
 
 \subsection{Requisitos y análisis de la plataforma}
-Tras el análisis de propuestas similares, se han extraído las características más apropiadas para el perfil del usuario objetivo, pero también se detectaron ciertos aspectos mejorables o poco adaptados. Estos elementos fueron replanteados en el diseño de esta plataforma con el objetivo de optimizar la experiencia del usuario.
+Tras el análisis de propuestas similares, se han extraído las características más apropiadas para el perfil del usuario objetivo, pero también se detectaron ciertos aspectos mejorables o poco adaptados. 
+Estos elementos fueron replanteados en el diseño de esta plataforma con el objetivo de optimizar la experiencia del usuario.
 
 Así, este proyecto no solo toma como referencia propuestas existentes, sino que también propone una evolución de las mismas, centrándose en áreas clave para las personas con TDAH.
+Para ello, siguiendo la metodología ágil, se van a definir los requisitos en forma de historias de usuario que describen las funcionalidades y características que debe tener la plataforma, priorizándolas según su importancia y asignándoles la iteración en la que se desarrollará.
+Estas historias formarán parte del \textit{product backlog}, el cual se irá actualizando y refinando a lo largo del desarrollo del proyecto.
 
 \subsubsection{Product Backlog}
 
 \paragraph{Listado completo}
-Las historias de usuario constan de breves descripciones sobre la funcionalidad del sistema desde la perspectiva del usuario que utiliza la web. De este modo, se centran en las necesidades y objetivos de este usuario.
+Las historias de usuario constan de breves descripciones sobre la funcionalidad del sistema desde la perspectiva del usuario que utiliza la plataforma. 
+De este modo, se centran en las necesidades y objetivos de cada usuario.
 
-El siguiente listado cuenta con todas las historias de usuario de nuestra plataforma, asignándoles una estimación de esfuerzo y una prioridad. La estimación del esfuerzo está expresada en Puntos de Historia siguiendo la secuencia de Fibonacci (1, 2, 3, 5, 8),  mientras que la prioridad está medida siguiendo el método MoSCoW (Must, Should, Could, Won’t).
+El siguiente listado cuenta con todas las historias de usuario de nuestra plataforma, asignándoles una estimación de esfuerzo y una prioridad. 
+La estimación del esfuerzo está expresada en Puntos de Historia siguiendo la secuencia de Fibonacci (1, 2, 3, 5, 8),  mientras que la prioridad está medida siguiendo el método MoSCoW (Must, Should, Could, Won’t).
 	
 El método MoSCow es una técnica para priorizar tareas y funcionalidades en la gestión de proyectos, pudiendo asignar cualquiera de los siguientes valores:
 
@@ -75,38 +82,37 @@ HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 4 \\
 \hline
 HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 4 \\
 \hline
-HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 1 \\
+HU.5 & Como usuario necesito consultar los juegos disponibles. & 3 & S & 1 \\
 \hline
-HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 1 \\
+HU.6 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 2 \\
 \hline
-HU.7 & Como usuario necesito consultar información sobre un juego concreto. & 2 & M & 2 \\
+HU.7 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S & 5 \\
 \hline
-HU.8 & Como usuario necesito acceder a un tutorial de cada juego. & 7 & S & 5 \\
+HU.8 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 2 \\
 \hline
-HU.9 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & M & 2 \\
+HU.9 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 3 \\
 \hline
-HU.10 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 3 \\
+HU.10 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 2 \\
 \hline
-HU.11 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 2 \\
+HU.11 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M & 4 \\
 \hline
-HU.12 & Como usuario necesito jugar al juego \textit{Semáforo emocional}. & 7 & M & 4 \\
+HU.12 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 2 \\
 \hline
-HU.13 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 2 \\
+HU.13 & Como usuario necesito consultar mis misiones pendientes. & 3 & C & 5 \\
 \hline
-HU.14 & Como usuario necesito consultar mis misiones pendientes. & 3 & C & 5 \\
+HU.14 & Como usuario necesito consultar mis misiones realizadas. & 3 & C & 5 \\
 \hline
-HU.15 & Como usuario necesito consultar mis misiones realizadas. & 3 & C & 5 \\
+HU.15 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C & 5 \\
 \hline
-HU.16 & Como usuario necesito recibir recompensas al realizar misiones. & 5 & C & 5 \\
+HU.16 & Como usuario necesito consultar las recompensas obtenidas. & 5 & C & 5 \\
 \hline
-HU.17 & Como usuario necesito consultar las recompensas obtenidas. & 5 & C & 5 \\
+HU.17 & Como usuario necesito consultar la evolución de mis habilidades. & 5 & S & 4 \\
 \hline
-HU.18 & Como usuario necesito consultar la evolución de mis habilidades. & 5 & S & 4 \\
-\hline
-HU.19 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 4 \\
+HU.18 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 4 \\
 \hline
 \end{tabularx}
 \caption{Product Backlog}
+\label{tab:productbacklog}
 \end{table}
 \newpage
 
@@ -215,9 +221,9 @@ Como usuario, necesito modificar mi perfil para actualizar mis datos personales 
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.5 - Consultar juegos utilizados anteriormente}  \\
+\textbf{HU.5 - Consultar juegos disponibles}  \\
 \hline
-Como usuario, necesito consultar los juegos utilizados anteriormente para revisar mi historial de uso y retomar aquellos que me resultaron útiles.
+Como usuario, necesito consultar los juegos disponibles para revisar mi historial de uso y retomar aquellos que me resultaron útiles.
 \clearpage
 \textbf{Estimación: }3
 \clearpage
@@ -226,44 +232,20 @@ Como usuario, necesito consultar los juegos utilizados anteriormente para revisa
 \hline
 \textbf{Pruebas de aceptación:}
 \begin{itemize}
-    \item Consultar la lista de juegos utilizados previamente.
-    \item Comprobar que la lista se actualiza tras jugar a un nuevo juego.
+    \item Consultar la lista de juegos disponibles.
+    \item Comprobar que la lista se actualiza tras añadir un nuevo juego.
 \end{itemize}
 \\
 \hline
 \end{tabularx}
-\caption{HU.5 - Consultar juegos utilizados}
+\caption{HU.5 - Consultar juegos disponibles}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.6 - Consultar juegos no utilizados anteriormente}  \\
-\hline
-Como usuario, necesito consultar los juegos nuevos disponibles para poder descubrir contenidos que aún no he probado.
-\clearpage
-\textbf{Estimación: }3
-\clearpage
-\textbf{Prioridad: }M
-\\
-\hline
-\textbf{Pruebas de aceptación:}
-\begin{itemize}
-    \item Acceder a la sección de juegos nuevos y visualizar los disponibles.
-    \item Comprobar que desaparecen de la lista tras jugar por primera vez.
-\end{itemize}
-\\
-\hline
-\end{tabularx}
-\caption{HU.6 - Consultar juegos nuevos}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabularx}{\textwidth}{|X|}
-\hline
-\textbf{HU.7 - Información sobre juego}  \\
+\textbf{HU.6 - Información sobre juego}  \\
 \hline
 Como usuario, necesito consultar información detallada sobre un juego concreto para entender su objetivo, normas y beneficios.
 \clearpage
@@ -280,14 +262,14 @@ Como usuario, necesito consultar información detallada sobre un juego concreto 
 \\
 \hline
 \end{tabularx}
-\caption{HU.7 - Información sobre juego}
+\caption{HU.6 - Información sobre juego}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.8 - Ver tutorial del juego}  \\
+\textbf{HU.7 - Ver tutorial del juego}  \\
 \hline
 Como usuario, necesito acceder a un tutorial de cada juego para saber cómo jugar antes de comenzar.
 \clearpage
@@ -304,14 +286,14 @@ Como usuario, necesito acceder a un tutorial de cada juego para saber cómo juga
 \\
 \hline
 \end{tabularx}
-\caption{HU.8 - Ver tutorial del juego}
+\caption{HU.7 - Ver tutorial del juego}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.9 - Jugar a \textit{Metro de la Memoria}}  \\
+\textbf{HU.8 - Jugar a \textit{Metro de la Memoria}}  \\
 \hline
 Como usuario, necesito jugar al minijuego \textit{Metro de la Memoria} para entrenar la memoria de trabajo de forma divertida.
 \clearpage
@@ -328,14 +310,14 @@ Como usuario, necesito jugar al minijuego \textit{Metro de la Memoria} para entr
 \\
 \hline
 \end{tabularx}
-\caption{HU.9 - Jugar a \textit{Metro de la Memoria}}
+\caption{HU.8 - Jugar a \textit{Metro de la Memoria}}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.10 - Jugar a \textit{Desván Mágico}}  \\
+\textbf{HU.9 - Jugar a \textit{Desván Mágico}}  \\
 \hline
 Como usuario, necesito jugar al minijuego \textit{Desván Mágico} para trabajar la planificación y organización.
 \clearpage
@@ -352,14 +334,14 @@ Como usuario, necesito jugar al minijuego \textit{Desván Mágico} para trabajar
 \\
 \hline
 \end{tabularx}
-\caption{HU.10 - Jugar a \textit{Desván Mágico}}
+\caption{HU.9 - Jugar a \textit{Desván Mágico}}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.11 - Jugar a \textit{Detective Emociones}}  \\
+\textbf{HU.10 - Jugar a \textit{Detective Emociones}}  \\
 \hline
 Como usuario, necesito jugar a \textit{Detective Emociones} para aprender a identificar emociones en diferentes contextos.
 \clearpage
@@ -376,14 +358,14 @@ Como usuario, necesito jugar a \textit{Detective Emociones} para aprender a iden
 \\
 \hline
 \end{tabularx}
-\caption{HU.11 - Jugar a \textit{Detective Emociones}}
+\caption{HU.10 - Jugar a \textit{Detective Emociones}}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.12 - Jugar a \textit{Semáforo Emocional}}  \\
+\textbf{HU.11 - Jugar a \textit{Semáforo Emocional}}  \\
 \hline
 Como usuario, necesito jugar a \textit{Semáforo Emocional} para practicar el control de impulsos mediante toma de decisiones.
 \clearpage
@@ -400,14 +382,14 @@ Como usuario, necesito jugar a \textit{Semáforo Emocional} para practicar el co
 \\
 \hline
 \end{tabularx}
-\caption{HU.12 - Jugar a \textit{Semáforo Emocional}}
+\caption{HU.11 - Jugar a \textit{Semáforo Emocional}}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.13 - Ver progreso por juego}  \\
+\textbf{HU.12 - Ver progreso por juego}  \\
 \hline
 Como usuario, necesito ver mi progreso en cada juego para conocer mi evolución y motivarme a seguir practicando.
 \clearpage
@@ -424,14 +406,14 @@ Como usuario, necesito ver mi progreso en cada juego para conocer mi evolución 
 \\
 \hline
 \end{tabularx}
-\caption{HU.13 - Ver progreso por juego}
+\caption{HU.12 - Ver progreso por juego}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.14 - Ver misiones pendientes}  \\
+\textbf{HU.13 - Ver misiones pendientes}  \\
 \hline
 Como usuario, necesito consultar mis misiones pendientes para saber qué retos tengo que completar.
 \clearpage
@@ -449,14 +431,14 @@ Como usuario, necesito consultar mis misiones pendientes para saber qué retos t
 \\
 \hline
 \end{tabularx}
-\caption{HU.14 - Ver misiones pendientes}
+\caption{HU.13 - Ver misiones pendientes}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.15 - Ver misiones realizadas anteriormente}  \\
+\textbf{HU.14 - Ver misiones realizadas anteriormente}  \\
 \hline
 Como usuario, necesito consultar las misiones realizadas anteriormente (desde que se registró la cuenta) para revisar lo que he conseguido hasta ahora.
 \clearpage
@@ -474,14 +456,14 @@ Como usuario, necesito consultar las misiones realizadas anteriormente (desde qu
 \\
 \hline
 \end{tabularx}
-\caption{HU.15 - Ver misiones realizadas}
+\caption{HU.14 - Ver misiones realizadas}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.16 - Recibir recompensas}  \\
+\textbf{HU.15 - Recibir recompensas}  \\
 \hline
 Como usuario, necesito recibir recompensas al realizar misiones para mantenerme motivado en el proceso de aprendizaje.
 \clearpage
@@ -498,14 +480,14 @@ Como usuario, necesito recibir recompensas al realizar misiones para mantenerme 
 \\
 \hline
 \end{tabularx}
-\caption{HU.16 - Recibir recompensas}
+\caption{HU.15 - Recibir recompensas}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.17 - Ver recompensas}  \\
+\textbf{HU.16 - Ver recompensas}  \\
 \hline
 Como usuario, necesito consultar las recompensas que ya he obtenido anteriormente (desde que se registró la cuenta) para mantener un control de estas.
 \clearpage
@@ -522,14 +504,14 @@ Como usuario, necesito consultar las recompensas que ya he obtenido anteriorment
 \\
 \hline
 \end{tabularx}
-\caption{HU.17 - Ver recompensas}
+\caption{HU.16 - Ver recompensas}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.18 - Ver evolución de habilidades}  \\
+\textbf{HU.17 - Ver evolución de habilidades}  \\
 \hline
 Como usuario, necesito consultar la evolución (desde que se registró la cuenta) de mis habilidades cognitivas y emocionales (memoria, organización, autorregulación emocional y resolución de conflictos) para saber qué habilidades estoy mejorando.
 \clearpage
@@ -547,14 +529,14 @@ Como usuario, necesito consultar la evolución (desde que se registró la cuenta
 \\
 \hline
 \end{tabularx}
-\caption{HU.18 - Ver evolución de habilidades}
+\caption{HU.17 - Ver evolución de habilidades}
 \end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|}
 \hline
-\textbf{HU.19 - Eliminar cuenta}  \\
+\textbf{HU.18 - Eliminar cuenta}  \\
 \hline
 Como usuario, necesito poder eliminar mi cuenta para mantener el control sobre mis datos personales.
 \clearpage
@@ -571,14 +553,17 @@ Como usuario, necesito poder eliminar mi cuenta para mantener el control sobre m
 \\
 \hline
 \end{tabularx}
-\caption{HU.19 - Eliminar cuenta}
+\caption{HU.18 - Eliminar cuenta}
 \end{table}
-\newpage
 
+\newpage
 \subsubsection{Requisitos no funcionales}
-Los requisitos no funcionales se refieren a los atributos de calidad de un sistema que definen su rendimiento, no sus funciones. A diferencia de los requisitos funcionales, que especifican las acciones y tareas que debe realizar un sistema, los requisitos no funcionales se centran en las características generales y el comportamiento del sistema en diversas condiciones. Abordan aspectos como el rendimiento, la usabilidad, la fiabilidad y la escalabilidad, garantizando que el sistema cumpla con los estándares de calidad y proporcione una experiencia de usuario satisfactoria \parencite{requisitos}.
+Los requisitos no funcionales se refieren a los atributos de calidad de un sistema que definen su rendimiento, no sus funciones. 
+A diferencia de los requisitos funcionales, que especifican las acciones y tareas que debe realizar un sistema, los requisitos no funcionales se centran en las características generales y el comportamiento del sistema en diversas condiciones. 
+Abordan aspectos como el rendimiento, la usabilidad, la fiabilidad y la escalabilidad, garantizando que el sistema cumpla con los estándares de calidad y proporcione una experiencia de usuario satisfactoria \parencite{requisitos}.
 
 A continuación, se presentan los principales requisitos no funcionales que deben cumplirse durante el desarrollo y posterior despliegue del proyecto.
+Dichos requisitos se incorporarán a las historias de usuario en forma de tareas o pruebas para abordarlos durante el desarrollo.
 
 \begin{table}[H]
 \centering
@@ -664,10 +649,11 @@ A continuación, se presentan los principales requisitos no funcionales que debe
 \caption{RNF.7 - Mantenibilidad}
 \end{table}
 
+\newpage
 \subsection{Bocetos de la plataforma}
-A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual. 
-En primer lugar, se diseñó un inicio de sesión [\ref{fig:boceto_inicio}] que dirigiera a la pantalla principal de selección de juegos [\ref{fig:boceto_juegos}]. 
-Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos [\ref{fig:boceto_infojuego}], así como a un listado de niveles [\ref{fig:boceto_niveles}].
+A continuación, se muestran los bocetos realizados a mano de la plataforma, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos. 
+En primer lugar, se diseñó un inicio de sesión \cref{fig:boceto_inicio} que dirigiera a la pantalla principal de selección de juegos \cref{fig:boceto_juegos}. 
+Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos \cref{fig:boceto_infojuego}, así como a un listado de niveles \cref{fig:boceto_niveles}.
 Estos niveles se irán desbloqueando a medida que se vayan completando los anteriores con la máxima puntuación.
 En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependiendo de la cantidad de errores cometidos.
 
@@ -700,9 +686,9 @@ En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependie
 
 \newpage
 Tras esto, se diseñaron pantallas para aportar cierta retroalimentación a los usuarios, aspecto clave para las personas con TDAH. 
-En primer lugar, se creó una pantalla para las estadísticas, la cual muestra el progreso del usuario en cada modalidad mediante una barra que refleja el porcentaje de puntos obtenidos respecto al total [\ref{fig:boceto_analisis}].
-En segundo lugar, se añadió otra pantalla para las misiones pendientes, las cuales permitían a los usuarios ganar recompensas si completaban ciertos niveles de cada juego [\ref{fig:boceto_misiones}].
-En tercer lugar, se diseñó una pantalla para consultar y modificar los datos del perfil del usuario [\ref{fig:boceto_perfil}].
+En primer lugar, se creó una pantalla para las estadísticas, la cual muestra el progreso del usuario en cada modalidad mediante una barra que refleja el porcentaje de puntos obtenidos respecto al total \cref{fig:boceto_analisis}.
+En segundo lugar, se añadió otra pantalla para las misiones pendientes, las cuales permitían a los usuarios ganar recompensas si completaban ciertos niveles de cada juego \cref{fig:boceto_misiones}.
+En tercer lugar, se diseñó una pantalla para consultar y modificar los datos del perfil del usuario \cref{fig:boceto_perfil}.
 
 \begin{figure}[H]
     \centering
@@ -726,18 +712,18 @@ En tercer lugar, se diseñó una pantalla para consultar y modificar los datos d
 \end{figure}
 
 \newpage
-Respecto al diseño de los juegos, se ha optado por una estructura interactiva en la que un avatar guía al usuario a lo largo de cada actividad. 
+Respecto al diseño de los juegos, se ha optado por una estructura interactiva en la que un avatar guía al usuario a lo largo de cada actividad como el objetivo de facilitar la gamificación \parencite{avatares}. 
 Este avatar plantea situaciones, preguntas o retos que invitan a la reflexión o resolución de problemas, adaptados a las competencias que se desean trabajar. 
 A lo largo de la experiencia, el usuario deberá resolver distintos tipos de tareas como puzles, escenarios de toma de decisiones, clasificación de elementos o identificación de emociones, en función del juego concreto. 
 Esta dinámica busca mantener la atención del estudiante, fomentar su implicación activa y facilitar el aprendizaje a través del juego significativo y personalizado.
 A continuación, se describen los bocetos de cada juego, explicando su funcionamiento.
-No obstante, el resultado final, así como las mecánicas y dinámicas de cada juego, serán explicadas en capítulos posteriores.
+No obstante, el resultado final, así como las mecánicas y dinámicas de cada juego, serán explicadas dentro de cada iteración, cuando se aborden sus historias de usuario correspondientes.
 
-En primer lugar, en el juego \textbf{Metro de la memoria}, el avatar dará indicaciones sobre en qué parada deberá subirse y bajarse el usuario [\ref{fig:boceto_metro_1}].
-Tras esto, se le proporcionará, a modo de ayuda, una frase mnemotécnica que explique el camino a tomar [\ref{fig:boceto_metro_2}].
+En primer lugar, en el juego \textbf{Metro de la memoria}, el avatar dará indicaciones sobre en qué parada deberá subirse y bajarse el usuario \cref{fig:boceto_metro_1}.
+Tras esto, se le proporcionará, a modo de ayuda, una frase mnemotécnica que explique el camino a tomar \cref{fig:boceto_metro_2}.
 Con toda esta información, el usuario deberá seleccionar, parada a parada, el camino a seguir para llegar al destino establecido.
-Tras seleccionar el camino, se deberá confirmar la elección pulsando sobre el botón \textit{Comprobar} [\ref{fig:boceto_metro_3}].
-Así pues, se comprobará si la ruta seleccionada es correcta o no, mostrando un mensaje de éxito [\ref{fig:boceto_metro_4}] o una advertencia de que el camino es incorrecto, en cuyo caso se restará un intento a un total de 3.
+Tras seleccionar el camino, se deberá confirmar la elección pulsando sobre el botón \textit{Comprobar} \cref{fig:boceto_metro_3}.
+Así pues, se comprobará si la ruta seleccionada es correcta o no, mostrando un mensaje de éxito \cref{fig:boceto_metro_4} o una advertencia de que el camino es incorrecto, en cuyo caso se restará un intento a un total de 3.
 Finalmente, el usuario obtendrá una puntuación en función de los intentos que le hayan sobrado.
 
 \begin{figure}[H]
@@ -768,13 +754,14 @@ Finalmente, el usuario obtendrá una puntuación en función de los intentos que
     \label{fig:boceto_metro_4}
 \end{figure}
 
-En el juego \textbf{Desván mágico}, el personaje explicará al usuario el criterio de organización al iniciar el nivel [\ref{fig:boceto_desvan_1}]. 
-Tras esto, se mostrarán tanto los compartimentos como los objetos, y el usuario deberá arrastrarlos hasta la sección adecuada [\ref{fig:boceto_desvan_2}]. 
+\newpage
+En el juego \textbf{Desván mágico}, el personaje explicará al usuario el criterio de organización al iniciar el nivel \cref{fig:boceto_desvan_1}. 
+Tras esto, se mostrarán tanto los compartimentos como los objetos, y el usuario deberá arrastrarlos hasta la sección adecuada \cref{fig:boceto_desvan_2}. 
 Estos objetos se mostrarán con un dibujo significativo.
-También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto pulsando sobre este, pudiendo eliminarlos en caso de querer añadirlos a otra sección [\ref{fig:boceto_desvan_3}]. 
+También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto pulsando sobre este, pudiendo eliminarlos en caso de querer añadirlos a otra sección \cref{fig:boceto_desvan_3}. 
 Se añadirán algunos objetos a modo de "trampa", los cuales no deberán ser incorporados a ninguno de los compartimentos. 
 Una vez se hayan colocado todos los objetos, se deberá pulsar el botón \textit{Comprobar} para verificar si la organización es correcta.
-Esta pantalla dará información sobre el resultado de la comprobación, obteniendo puntos en función del número de errores [\ref{fig:boceto_desvan_4}].
+Esta pantalla dará información sobre el resultado de la comprobación, obteniendo puntos en función del número de errores \cref{fig:boceto_desvan_4}.
 
 \begin{figure}[H]
     \centering
@@ -804,9 +791,8 @@ Esta pantalla dará información sobre el resultado de la comprobación, obtenie
     \label{fig:boceto_desvan_4}
 \end{figure}
 
-\newpage
-Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio [\ref{fig:boceto_detective_2}] y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando una barra de nivel para una serie de sentimientos [\ref{fig:boceto_detective_4}]. 
-Posteriormente, mostrará un formulario con opciones para que escoja qué habría hecho él de haber estado en esa situación [\ref{fig:boceto_detective_6}].
+Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio \cref{fig:boceto_detective_2} y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando una barra de nivel para una serie de sentimientos \cref{fig:boceto_detective_4}. 
+Posteriormente, mostrará un formulario con opciones para que escoja qué habría hecho él de haber estado en esa situación \cref{fig:boceto_detective_6}.
 Finalmente, el usuario recibirá una recompensa en función de las respuestas dadas, tratando de analizar si ha comprendido la situación y las emociones implicadas, así como su propia respuesta ante una situación similar.
 
 \begin{figure}[H]
@@ -858,9 +844,8 @@ Finalmente, el usuario recibirá una recompensa en función de las respuestas da
     \label{fig:boceto_detective_7}
 \end{figure}
 
-\newpage
-En último lugar, se realizaron los bocetos del juego \textbf{Semáforo emocional}, en los cuales se plantea otra situación hipotética la cuál deberá analizar el usuario [\ref{fig:boceto_semaforo_1}] [\ref{fig:boceto_semaforo_2}]. 
-Tras esto, se muestra una pantalla con un semáforo en rojo, la cual trata de hacer reflexionar al usuario sobre qué sentiría en esa situación [\ref{fig:boceto_semaforo_3}]; seguida de otra con un semáforo en amarillo, para tomar una decisión sobre cómo actuar [\ref{fig:boceto_semaforo_5}]; y una última pantalla con un semáforo en verde, en la que se muestra el desenlace en función de la decisión tomada [\ref{fig:boceto_semaforo_7}].
+En último lugar, se realizaron los bocetos del juego \textbf{Semáforo emocional}, en los cuales se plantea otra situación hipotética la cuál deberá analizar el usuario \cref{fig:boceto_semaforo_1} \cref{fig:boceto_semaforo_2}. 
+Tras esto, se muestra una pantalla con un semáforo en rojo, la cual trata de hacer reflexionar al usuario sobre qué sentiría en esa situación \cref{fig:boceto_semaforo_3}; seguida de otra con un semáforo en amarillo, para tomar una decisión sobre cómo actuar \cref{fig:boceto_semaforo_5}; y una última pantalla con un semáforo en verde, en la que se muestra el desenlace en función de la decisión tomada \cref{fig:boceto_semaforo_7}.
 
 \begin{figure}[H]
     \centering
@@ -911,11 +896,13 @@ Tras esto, se muestra una pantalla con un semáforo en rojo, la cual trata de ha
     \label{fig:boceto_semaforo_7}
 \end{figure}
 
-\newpage
 Todos estos bocetos han sido mostrados a las tutoras del proyecto, quienes aportaron su opinión y sugerencias para mejorar el diseño y la experiencia de usuario.
+
+\subsection{Bocetos de la plataforma - Versión 2}
 Así pues, se han realizado varias modificaciones en los bocetos iniciales para adaptarlos mejor a las necesidades de los usuarios finales.
 En primer lugar, se ha optado por un diseño web para facilitar la integración con la plataforma ya existente, en lugar de una aplicación móvil.
-Respecto al inicio de sesión, se ha decidido incorporar una opción de inicio mediante nombre de usuario e imágenes para la contraseña, facilitando el acceso a los niños más pequeños, los cuales no tienen correo electrónico [\ref{fig:nuevo_boceto_inicio}] [\ref{fig:nuevo_boceto_inicio_imgs}].
+Otros motivos a destacar fue la mayor versatilidad de dicha opción, pudiendo utilizar los juegos en diferentes dispositivos.
+Respecto al inicio de sesión, se ha decidido incorporar una opción de inicio mediante nombre de usuario e imágenes para la contraseña, facilitando el acceso a los niños más pequeños, los cuales no tienen correo electrónico \cref{fig:nuevo_boceto_inicio} \cref{fig:nuevo_boceto_inicio_imgs}.
 
 \begin{figure}[H]
     \centering
@@ -931,10 +918,11 @@ Respecto al inicio de sesión, se ha decidido incorporar una opción de inicio m
     \label{fig:nuevo_boceto_inicio_imgs}
 \end{figure}
 
-En las pantallas de juegos, se decidió eliminar la distinción entre juegos utilizados anteriormente y nuevos juegos, mostrando todos los juegos disponibles desde el inicio [\ref{fig:nuevo_boceto_juegos}].
+\newpage
+En las pantallas de juegos, se decidió eliminar la distinción entre juegos utilizados anteriormente y nuevos juegos, mostrando todos los juegos disponibles desde el inicio \cref{fig:nuevo_boceto_juegos}.
 Este cambió se ha debido a que no habrá un número muy elevado de juegos y puede resultar más intuitivo para el usuario ver todos los juegos en la misma disposición desde el principio.
-Además, se añadió una barra de progreso en cada juego, mostrando la puntuación obtenida en función de la total en cada uno de ellos [\ref{fig:nuevo_boceto_infojuego}].
-Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una versión web [\ref{fig:nuevo_boceto_niveles}].
+Además, se añadió una barra de progreso en cada juego, mostrando la puntuación obtenida en función de la total en cada uno de ellos \cref{fig:nuevo_boceto_infojuego}.
+Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una versión web \cref{fig:nuevo_boceto_niveles}.
 
 \begin{figure}[H]
     \centering
@@ -958,10 +946,10 @@ Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una
 \end{figure}
 
 De cara a los bocetos de las pantallas de retroalimentación, se decidió añadir avatares en cada una de ellas, los cuales guiarán a los usuarios de menor edad y le darán consejos para mejorar su experiencia.
-De este modo, se anadió un avatar como guía en la pantalla de evaluación [\ref{fig:nuevo_boceto_analisis_1}] y se modificó el contenido de este para que fuera más intuitivo e informativo.
+De este modo, se añadió un avatar como guía en la pantalla de evaluación \cref{fig:nuevo_boceto_analisis_1} y se modificó el contenido de la evaluación para que fuera más intuitivo e informativo.
 En primer lugar, se modificó la forma de mostrar el progreso, optando por reflejarlo con estrellas, marcando el número de estrellas conseguidas en función del total de esa modalidad.
-Además, se añadió el número de aciertos y fallos por modalidad, así como un porcentaje que marcara el progreso total [\ref{fig:nuevo_boceto_analisis_2}].
-En segundo lugar, se añadió una sección de historial de intentos, en la cual se muestran los resultados obtenidos en las últimas partidas, pudiendo observar la puntuación obtenida, así como el número de aciertos y fallos [\ref{fig:nuevo_boceto_analisis_3}].
+Además, se añadió el número de aciertos y fallos por modalidad, así como un porcentaje que marcara el progreso total \cref{fig:nuevo_boceto_analisis_2}.
+En segundo lugar, se añadió una sección de historial de intentos, en la cual se muestran los resultados obtenidos en las últimas partidas, pudiendo observar la puntuación obtenida, así como el número de aciertos y fallos \cref{fig:nuevo_boceto_analisis_3}.
 
 \begin{figure}[H]
     \centering
@@ -984,9 +972,9 @@ En segundo lugar, se añadió una sección de historial de intentos, en la cual 
     \label{fig:nuevo_boceto_analisis_3}
 \end{figure}
 
-Para la sección de las misiones, se añadió también un avatar de apoyo que informara al usuario de la finalizad de la sección [\ref{fig:nuevo_boceto_misiones_1}].
+Para la sección de las misiones, se añadió también un avatar de apoyo que informara al usuario de la finalizad de la sección \cref{fig:nuevo_boceto_misiones_1}.
 Además, se modificó el diseño para que fuera más visual y atractivo, mostrando tanto las misiones diarias que pudiera tener el usuario (jugar un tiempo específico al día o pasarse cierto número de niveles), como las misiones pendientes y realizadas en dos listas diferenciadas.
-Para estas misiones se ha añadido información de ayuda para el usuario como el progreso o las etiquetas de la esquina superior derecha de cada misión, las cuales informarían al usuario de aspectos como la dificultad o la habilidad a desarrollar [\ref{fig:nuevo_boceto_misiones_2}]. 
+Para estas misiones se ha añadido información de ayuda para el usuario como el progreso o las etiquetas de la esquina superior derecha de cada misión, las cuales informarían al usuario de aspectos como la dificultad o la habilidad a desarrollar \cref{fig:nuevo_boceto_misiones_2}.
 
 \begin{figure}[H]
     \centering
@@ -1003,11 +991,11 @@ Para estas misiones se ha añadido información de ayuda para el usuario como el
 \end{figure}
 \newpage
 
-Para la pantalla de perfil, también se añadió el avatar de apoyo [\ref{fig:nuevo_boceto_perfil_1}] y se modificó el diseño para que fuera más informativa.
+Para la pantalla de perfil, también se añadió el avatar de apoyo \cref{fig:nuevo_boceto_perfil_1} y se modificó el diseño para que fuera más informativa.
 Se eliminó la fecha de nacimiento para evitar problemas de privacidad, por lo que se decidió mostrar únicamente el nombre sin apellidos y la edad.
-Además, se añadió un resumen de los niveles completados, los puntos conseguidos y el tiempo jugado entre todos los juegos [\ref{fig:nuevo_boceto_perfil_2}].
-Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto los avatares, los cuales se van desbloqueando con las misiones, como los nombres; pudiendo eliminar la cuenta también en caso de ser deseado [\ref{fig:nuevo_boceto_perfil_3}].
-Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cuales se irán desbloqueando a medida que se vayan completando misiones [\ref{fig:nuevo_boceto_logros}].
+Además, se añadió un resumen de los niveles completados, los puntos conseguidos y el tiempo jugado entre todos los juegos \cref{fig:nuevo_boceto_perfil_2}.
+Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto los avatares, los cuales se van desbloqueando con las misiones, como los nombres; pudiendo eliminar la cuenta también en caso de ser deseado \cref{fig:nuevo_boceto_perfil_3}.
+Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cuales se irán desbloqueando a medida que se vayan completando las diferentes misiones de cada juego \cref{fig:nuevo_boceto_logros}.
 
 \begin{figure}[H]
     \centering
@@ -1038,12 +1026,12 @@ Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cu
 \end{figure}
 
 Respecto a los juegos, se decidió mantener la estructura y dinámica de los bocetos iniciales, realizando únicamente modificaciones superficiales.
-Además, se planteó la incorporación de elementos visuales y auditivos que pudieran suponer una distracción para los usuarios con TDAH con el objetivo de ayudar a mejorar su concentración y atención durante las actividades.
+Además, se planteó la incorporación de elementos visuales y auditivos que pudieran suponer una distracción para los usuarios con TDAH con el objetivo de obligarles a mejorar su concentración y enfocar su atención.
 Así pues, se añadieron sonidos de fondo como una bocina de un coche y efectos visuales como confeti en cada juego, los cuales podrán ir apareciendo en momentos específicos y con una frecuencia dependiente del nivel de dificultad.
 A continuación, se muestran los nuevos bocetos de cada juego, en los cuales no se mostrarán dichos elementos, pues no serán algo fijo de cada nivel, sino que irán apareciendo de forma aleatoria.
 
-En el juego \textbf{Metro de la memoria} no se realizaron cambios significativos, salvo el paso a una versión web y la incorporación de unas instrucciones más específicas para ayudar a los usuarios [\ref{fig:nuevo_boceto_metro_1}] [\ref{fig:nuevo_boceto_metro_2}].
-Respecto a la pantalla de selección del camino, se mantuvo sin cambios [\ref{fig:nuevo_boceto_metro_3}], mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_metro_4}].
+En el juego \textbf{Metro de la memoria} no se realizaron cambios significativos, salvo el paso a una versión web y la incorporación de unas instrucciones más específicas para ayudar a los usuarios \cref{fig:nuevo_boceto_metro_1} \cref{fig:nuevo_boceto_metro_2}.
+Respecto a la pantalla de selección del camino, se mantuvo sin cambios \cref{fig:nuevo_boceto_metro_3}, mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_metro_4}.
 
 \begin{figure}[H]
     \centering
@@ -1074,9 +1062,9 @@ Respecto a la pantalla de selección del camino, se mantuvo sin cambios [\ref{fi
 \end{figure}
 
 \newpage
-En el juego \textbf{Desván mágico} tampoco se realizaron cambios significativos, salvo el paso a una versión web [\ref{fig:nuevo_boceto_desvan_1}] y el aumento del tamaño de los objetos y títulos [\ref{fig:nuevo_boceto_desvan_2}].
-Además, se añadió un botón para volver de la pantalla de objetos a la pantalla de organización, en caso de haberse consultado los objetos de un cajón concreto [\ref{fig:nuevo_boceto_desvan_3}].
-Finalmente, en la pantalla de retroalimentación  también se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_desvan_4}].
+En el juego \textbf{Desván mágico} tampoco se realizaron cambios significativos, salvo el paso a una versión web \cref{fig:nuevo_boceto_desvan_1} y el aumento del tamaño de los objetos y títulos \cref{fig:nuevo_boceto_desvan_2}.
+Además, se añadió un botón para volver de la pantalla de objetos a la pantalla de organización, en caso de haberse consultado los objetos de un cajón concreto \cref{fig:nuevo_boceto_desvan_3}.
+Finalmente, en la pantalla de retroalimentación  también se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_desvan_4}.
 
 \begin{figure}[H]
     \centering
@@ -1106,8 +1094,8 @@ Finalmente, en la pantalla de retroalimentación  también se incorporó el resu
     \label{fig:nuevo_boceto_desvan_4}
 \end{figure}
 
-En el juego \textbf{Detective emociones} también se diseñó una nueva versión web [\ref{fig:nuevo_boceto_detective_1}] [\ref{fig:nuevo_boceto_detective_2}], incorporando instrucciones más específicas como la posibilidad de escoger un único sentimiento [\ref{fig:nuevo_boceto_detective_3}] o la existencia de únicamente tres puntos de parada para cada barra [\ref{fig:nuevo_boceto_detective_4}].
-El apartado de toma de decisiones se mantuvo sin cambios [\ref{fig:nuevo_boceto_detective_5}] [\ref{fig:nuevo_boceto_detective_6}], mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado [\ref{fig:nuevo_boceto_detective_7}].
+En el juego \textbf{Detective emociones} también se diseñó una nueva versión web \cref{fig:nuevo_boceto_detective_1} \cref{fig:nuevo_boceto_detective_2}, incorporando instrucciones más específicas como la posibilidad de escoger un único sentimiento \cref{fig:nuevo_boceto_detective_3} o la existencia de únicamente tres puntos de parada para cada barra \cref{fig:nuevo_boceto_detective_4}.
+El apartado de toma de decisiones se mantuvo sin cambios \cref{fig:nuevo_boceto_detective_5} \cref{fig:nuevo_boceto_detective_6}, mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_detective_7}.
 
 \begin{figure}[H]
     \centering
@@ -1158,7 +1146,7 @@ El apartado de toma de decisiones se mantuvo sin cambios [\ref{fig:nuevo_boceto_
     \label{fig:nuevo_boceto_detective_7}
 \end{figure}
 
-Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio significativo, por lo que se aportan a continuación los bocetos de la nueva versión web [\ref{fig:nuevo_boceto_semaforo_1}] [\ref{fig:nuevo_boceto_semaforo_2}] [\ref{fig:nuevo_boceto_semaforo_3}] [\ref{fig:nuevo_boceto_semaforo_4}] [\ref{fig:nuevo_boceto_semaforo_5}] [\ref{fig:nuevo_boceto_semaforo_6}] [\ref{fig:nuevo_boceto_semaforo_7}].
+Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio significativo, por lo que se aportan a continuación los bocetos de la nueva versión web \cref{fig:nuevo_boceto_semaforo_1} \cref{fig:nuevo_boceto_semaforo_2} \cref{fig:nuevo_boceto_semaforo_3} \cref{fig:nuevo_boceto_semaforo_4} \cref{fig:nuevo_boceto_semaforo_5} \cref{fig:nuevo_boceto_semaforo_6} \cref{fig:nuevo_boceto_semaforo_7}.
 
 \begin{figure}[H]
     \centering
@@ -1212,9 +1200,9 @@ Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio si
 \newpage
 Finalmente, se acordó añadir la opción de iniciar sesión como tutores.
 Estos usuarios tendrán acceso a una sección específica en la cual podrían ver el progreso de los niños y niñas a su cargo.
-Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsqueda [\ref{fig:nuevo_boceto_tutores_1}].
-Además, se podrá acceder al perfil de cada estudiante, en el cual se mostrará su información básica, pudiendo asignar al estudiante [\ref{fig:nuevo_boceto_tutores_2}] y acceder a su evaluación [\ref{fig:nuevo_boceto_analisis_2}] [\ref{fig:nuevo_boceto_analisis_3}].
-También se podrá acceder a su perfil, en el cual se mostrará su información de usuario y se podrá editar [\ref{fig:nuevo_boceto_tutores_3}].
+Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsqueda \cref{fig:nuevo_boceto_tutores_1}.
+Además, se podrá acceder al perfil de cada estudiante, en el cual se mostrará su información básica, pudiendo asignar al estudiante \cref{fig:nuevo_boceto_tutores_2} y acceder a su evaluación \cref{fig:nuevo_boceto_analisis_2} \cref{fig:nuevo_boceto_analisis_3}.
+También se podrá acceder a su perfil, en el cual se mostrará su información de usuario y se podrá editar \cref{fig:nuevo_boceto_tutores_3}.
 
 \begin{figure}[H]
     \centering
@@ -1251,62 +1239,65 @@ Tras el análisis de otras aplicaciones similares y el planteamiento del proyect
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|p{1cm}|p{1cm}|p{1cm}|p{1.3cm}|p{3cm}|}
+\begin{tabularx}{\textwidth}{|X|p{1cm}|p{1cm}|p{1cm}|p{1.3cm}|p{1.3cm}|p{2cm}|}
     \hline
-    \textbf{Competencia} & \textbf{RPA} & \textbf{Lum.} & \textbf{CG} & \textbf{Ludi Mind} & \textbf{Juegos implicados} \\
+    \textbf{Competencia} & \textbf{RPA} & \textbf{JC} & \textbf{Lum.} & \textbf{CG} & \textbf{Ludi Mind} & \textbf{Juegos implicados} \\
     \hline
-    Autorregulación emocional         & x &   &   & x & 3,4 \\
+    Autorregulación emocional         & x & x &   &   & x & 3,4 \\
     \hline
-    Resolución de conflictos sociales & x &   &   & x & 4 \\
+    Resolución de conflictos sociales & x &   &   &   & x & 4 \\
     \hline
-    Identificación emocional          & x &   &   & x & 3 \\
+    Identificación emocional          & x &   &   & x & x & 3 \\
     \hline
-    Memoria de trabajo                &   & x & x & x & 1 \\
+    Memoria de trabajo                &   & x & x & x & x & 1 \\
     \hline
-    Organización de objetos/tareas    &   &   & x & x & 2 \\
+    Organización de objetos/tareas    &   &   &   & x & x & 2 \\
     \hline
-    Planificación / anticipación      &   & x & x & x & 2,4 \\
+    Planificación / anticipación      &   & x & x & x & x & 2,4 \\
     \hline
-    Control inhibitorio / impulsos    & x & x & x & x & 4 \\
+    Control inhibitorio / impulsos    & x & x & x & x & x & 4 \\
     \hline
-    Gestión del tiempo                &   & x &   & x & 2 \\
+    Gestión del tiempo                &   & x & x &   & x & 2 \\
     \hline
-    Motivación por refuerzo           & x & x & x & x & 1,2,3,4 \\
+    Motivación por refuerzo           & x & x & x & x & x & 1,2,3,4 \\
     \hline
 \end{tabularx}
-\caption{Nueva comparativa entre competencias de aplicaciones}
+\caption{Comparativa entre competencias de las aplicaciones}
 \end{table}
 
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
     \hline
-    \textbf{Característica} & \textbf{Respira, Piensa, Actúa} & \textbf{Lumosity} & \textbf{CogniFit} & \textbf{LudiMind} \\
+    \textbf{Característica} & \textbf{RPA} & \textbf{Jumpy Car ADHD} & \textbf{Lumosity} & \textbf{CogniFit} & \textbf{LudiMind} \\
     \hline
-    Precio & Gratuita & Gratis con limitación; suscripción premium para escoger juegos & Suscripción obligatoria & Gratuita \\
+    Precio & Gratuita & Gratuita & Gratis con limitación; suscripción premium para escoger juegos & Suscripción obligatoria & Gratuita \\
     \hline
-    Sistema Operativo & iOS, Android & Web, iOS, Android & Web, iOS, Android & Web, iOS, Android \\
+    Sistema Operativo & iOS, Android & Android & Web, iOS, Android & Web, iOS, Android & Web, iOS, Android \\
     \hline
-    Edad recomendada & 2–5 años & $\ge$ 13 años & 6–18 años & 9–17 años \\
+    Edad recomendada & 2–5 años & 6–12 años & $\ge$13 años & 6–18 años & 9–17 años \\
     \hline
-    Nivel de dificultad & Fijo & Adaptativo & Adaptativo & Adaptativo \\
+    Nivel de dificultad & Fijo & Fijo & Adaptativo & Adaptativo & Adaptativo \\
     \hline
-    Perfil TDAH & No & No & Sí & Sí \\
+    Perfil TDAH & No & Sí & No & Sí & Sí \\
     \hline
-    Personalización & No & Sí & Sí & Sí \\
+    Personalizac. & No & No & Sí & Sí & Sí \\
     \hline
-    Estudios que evalúan su eficacia & No & Sí & Sí & Sí \\
+    Estudios que evalúan su eficacia & No & No & Sí & Sí & Sí \\
     \hline
-    Registro de usuarios y perfiles & No & Sí & Sí & Sí \\
+    Registro de usuarios y perfiles & No & No & Sí & Sí & Sí \\
     \hline
-    Seguimiento del progreso & No & Sí & Sí & Sí \\
+    Niveles progresivos & No & Sí & Sí & Sí & Sí \\
     \hline
-    Refuerzos y recompensas & No & Sí & Sí & Sí \\
+    Retroaliment. & Sí & Sí & Sí & Sí & Sí \\
+    \hline
+    Gamificación & Sí & Sí & Sí & Sí & Sí \\
     \hline
 \end{tabularx}
 \caption{Comparativa de las aplicaciones según características}
 \end{table}
 
+\newpage
 Esta tabla muestra cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. 
 Mientras que la primera aplicación estudiada se centra en la autorregulación emocional y, tanto Lumosity como CogniFit, en funciones cognitivas generales, la plataforma desarrollada combina memoria, organización, habilidades emocionales y sociales, logrando adaptarse mejor a las necesidades de niños con TDAH. 
 De estas aplicaciones analizadas se han tomado numerosas ideas que servirán para el desarrollo de la plataforma, buscando obtener un resultado lo más completo y efectivo posible.
@@ -1314,7 +1305,7 @@ La aplicación Respira, Piensa, Actúa nos ha inspirado para la elaboración del
 Por otro lado, Lumosity y CogniFit han servido de referencia para la estructura de la aplicación, añadiendo diferentes misiones y evaluaciones del rendimiento del usuario.
 
 \subsection{Elección de herramientas de desarrollo}
-El objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. 
+Un objetivo de este proyecto es desarrollar una plataforma web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. 
 Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
 
 A continuación, se muestra una tabla comparativa con las principales opciones consideradas para el desarrollo de la plataforma, evaluadas en el contexto del proyecto.
@@ -1390,7 +1381,9 @@ Asimismo, se ha optado por incorporar Tailwind CSS como framework de estilos. Es
     \caption{Herramientas seleccionadas - React.js + Tailwind CSS}
 \end{figure}
 
-Finalmente, para la base de datos se ha escogido Supabase, una plataforma BaaS (Backend as a Service) alojada en la nube que provee a los desarrolladores una amplia gama de herramientas para crear y gestionar servicios backend. Esta herramienta ofrece todos los servicios necesarios para crear una aplicación escalable y segura: gestión de base de datos, autenticación, almacenamiento de archivos, generación automática de APIs y actualizaciones en tiempo real, entre otros. En cuanto a su base de datos, utiliza PostgreSQL relacional de código abierto, conocida por ser confiable y escalable \parencite{supabase}.
+Finalmente, para el desarrollo backend también se ha escogido Supabase, una plataforma BaaS (Backend as a Service) alojada en la nube que provee a los desarrolladores una amplia gama de herramientas para crear y gestionar servicios backend. 
+Esta herramienta ofrece todos los servicios necesarios para crear una aplicación escalable y segura: gestión de base de datos, autenticación, almacenamiento de archivos, generación automática de APIs y actualizaciones en tiempo real, entre otros. 
+En cuanto a su base de datos, utiliza PostgreSQL relacional de código abierto, conocida por ser confiable y escalable \parencite{supabase}.
 
 \begin{figure}[H]
     \centering
@@ -1401,7 +1394,7 @@ Finalmente, para la base de datos se ha escogido Supabase, una plataforma BaaS (
 En conjunto, la combinación de React.js y Tailwind CSS para el frontend, Node.js con Express para el backend y Supabase para la base de datos proporciona una base tecnológica sólida, escalable y flexible, perfectamente adaptada a los requerimientos de la plataforma y a su integración en la web ya existente.
 
 \subsection{Diagrama de arquitectura}
-Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la plataforma, se ha realizado un diagrama de arquitectura que muestra dicha información de manera más clara y visual.
+Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la plataforma, se ha realizado un diagrama de arquitectura del sistema que lo muestra de manera más clara y visual.
 
 \begin{figure}[H]
     \centering
@@ -1411,11 +1404,17 @@ Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la 
 
 \newpage
 \subsection{Iteraciones del proyecto}
+El desarrollo del proyecto se ha estructurado en cinco iteraciones principales, siguiendo una metodología ágil e incremental que permite ir incorporando y validando funcionalidades de manera progresiva. 
+En cada iteración se han definido objetivos concretos asociados a las historias de usuario, garantizando la trazabilidad entre los requisitos y su implementación práctica. 
+El \tabref{tab:productbacklog} recoge la asignación de estas historias a cada iteración.
+Este enfoque iterativo ha facilitado la mejora continua del producto y la validación constante mediante pruebas y retroalimentación.
+
 \subsubsection{Sprint 1}
 \paragraph{Desarrollo del sprint}
-En esta iteración se comenzó con el desarrollo de la plataforma. Para ello, se escogió el lenguaje de programación, planteando diversos lenguajes de programación, y se creó un repositorio de trabajo al que ir incorporando gradualmente el progreso de la implementación.
+En esta iteración se comenzó con el desarrollo de la plataforma. 
+Para ello, se escogió el lenguaje de programación, planteando diversos lenguajes de programación, y se creó un repositorio de trabajo de Github al que ir incorporando gradualmente el progreso de la implementación.
 
-Tras esto, se desarrolló la estructura básica de la página, incluyendo la configuración inicial del entorno de desarrollo, la creación de la base de datos y la implementación de funcionalidades básicas como un inicio de sesión o un registro de usuarios.
+Tras esto, se realizó la configuración inicial del entorno de desarrollo, la creación de la base de datos y la implementación de funcionalidades básicas como un inicio de sesión o un registro de usuarios.
 A esto se le añadió la creación de la pantalla principal, que permite consultar los distintos juegos disponibles en la plataforma, tanto los jugados anteriormente como los nuevos.
 
 \begin{figure}[H]
@@ -1424,6 +1423,7 @@ A esto se le añadió la creación de la pantalla principal, que permite consult
     \caption{Backlog - Sprint 1}
 \end{figure}
 
+\newpage
 \paragraph{Historias de usuario}
 Respecto a las historias de usuario, en esta fase se han desarrollado cuatro de ellas, expuestas a continuación:
 
@@ -1437,15 +1437,12 @@ HU.1 & Como usuario necesito registrarme. & 2 & M & 1 \\
 \hline
 HU.2 & Como usuario necesito iniciar sesión. & 3 & M & 1 \\
 \hline
-HU.5 & Como usuario necesito consultar los juegos utilizados anteriormente. & 3 & S & 1 \\
-\hline
-HU.6 & Como usuario necesito consultar juegos nuevos. & 3 & M & 1 \\
+HU.5 & Como usuario necesito consultar los juegos disponibles. & 3 & S & 1 \\
 \hline
 \end{tabularx}
 \caption{Listado de Historias de usuario - Sprint 1}
 \end{table}
 
-\newpage
 Estas historias de usuario se han dividido en tareas más pequeñas, las cuales se han ido completando a lo largo del sprint. 
 A continuación, se muestra el desglose de tareas realizado para cada historia de usuario, realizando una estimación de esfuerzo medida en días.
 
@@ -1465,9 +1462,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
                 \hline
                 \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
                 \hline
-                T.1 & Realizar un boceto de la pantalla de registro. & 0.5 \\
-                \hline
-                T.1 & Crear formulario de registro. & 1 \\
+                T.1 & Implementar formulario de registro. & 1 \\
                 \hline
                 T.2 & Realizar las pruebas de aceptación. & 0.5 \\
                 \hline
@@ -1499,13 +1494,11 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
                 \hline
                 \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
                 \hline
-                T.1 & Realizar un boceto de la pantalla de inicio de sesión. & 0.5 \\
+                T.1 & Crear formulario de inicio de sesión. & 1 \\
                 \hline
-                T.2 & Crear formulario de inicio de sesión. & 1 \\
+                T.2 & Realizar las pruebas de aceptación. & 1 \\
                 \hline
-                T.3 & Realizar las pruebas de aceptación. & 1 \\
-                \hline
-                T.4 & Implementar lógica de inicio de sesión en el backend. & 0.5 \\
+                T.3 & Implementar lógica de inicio de sesión en el backend. & 0.5 \\
                 \hline
             \end{tabular}
             \vspace{0.5em}
@@ -1524,7 +1517,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
 \centering
 \begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
     \hline
-    \textbf{HU.5} & \textbf{Como usuario necesito consultar los juegos utilizados anteriormente.} & \textbf{3PH} \\
+    \textbf{HU.5} & \textbf{Como usuario necesito consultar los juegos disponibles.} & \textbf{3PH} \\
     \hline
     \multicolumn{3}{|c|}{
         \begin{minipage}{0.95\textwidth}
@@ -1533,13 +1526,11 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
                 \hline
                 \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
                 \hline
-                T.1 & Realizar un boceto de la pantalla de juegos. & 0.5 \\
+                T.1 & Crear pantalla de juegos. & 0.5 \\
                 \hline
-                T.2 & Crear pantalla de juegos. & 0.5 \\
+                T.2 & Realizar las pruebas de aceptación. & 0.5 \\
                 \hline
-                T.3 & Realizar las pruebas de aceptación. & 0.5 \\
-                \hline
-                T.4 & Implementar lógica de la pantalla de juegos en el backend. & 1 \\
+                T.3 & Implementar lógica de la pantalla de juegos en el backend. & 1 \\
                 \hline
             \end{tabular}
             \vspace{0.5em}
@@ -1547,41 +1538,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
     } \\
     \hline
 \end{tabularx}
-\caption{HU.5 - Consultar juegos anteriores - Desglose de tareas}
-\vspace{0.8em}
-\end{table}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{1.3}
-\setlength{\tabcolsep}{10pt}
-\vspace{0.8em}
-\centering
-\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
-    \hline
-    \textbf{HU.6} & \textbf{Como usuario necesito consultar juegos nuevos.} & \textbf{3PH} \\
-    \hline
-    \multicolumn{3}{|c|}{
-        \begin{minipage}{0.95\textwidth}
-            \vspace{0.5em}
-            \begin{tabular}{|l|p{0.7\textwidth}|c|}
-                \hline
-                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
-                \hline
-                T.1 & Realizar un boceto de la pantalla de juegos. & 0.5 \\
-                \hline
-                T.2 & Crear pantalla de juegos. & 0.5 \\
-                \hline
-                T.3 & Realizar las pruebas de aceptación. & 0.5 \\
-                \hline
-                T.4 & Implementar lógica de la pantalla de juegos en el backend. & 1 \\
-                \hline
-            \end{tabular}
-            \vspace{0.5em}
-        \end{minipage}
-    } \\
-    \hline
-\end{tabularx}
-\caption{HU.6 - Consultar juegos nuevos - Desglose de tareas}
+\caption{HU.5 - Consultar juegos disponibles - Desglose de tareas}
 \vspace{0.8em}
 \end{table}
 
@@ -1592,6 +1549,8 @@ La elección del lenguaje de programación y la creación del repositorio de tra
 Sin embargo, el ritmo de trabajo fue superior al previsto, terminando las tareas planteadas antes de lo estipulado. 
 No obstante, se determinó que dicho suceso no ocurriría en futuras iteraciones, pues ya se comenzaría con la implementación de los juegos, los cuales contarán con diversos niveles. 
 De este modo, el número de niveles añadidos podrá ir en función del ritmo de trabajo de cada iteración.
+
+\paragraph{Resultados obtenidos}
 
 \subsubsection{Sprint 2}
 
