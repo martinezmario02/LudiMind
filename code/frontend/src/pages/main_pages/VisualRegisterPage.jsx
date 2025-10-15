@@ -5,12 +5,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function VisualLoginPage() {
+export default function VisualRegisterPage() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
-    const [selectedSequence, setSelectedSequence] = useState([]);
+    const [name, setName] = useState("");
+    const [birthdate, setBirthdate] = useState("");
+    const [sequence, setSequence] = useState([]);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
     const IMAGES = [
         "https://xnqinddknjtajkgufbzr.supabase.co/storage/v1/object/public/password-images/cars.jpeg",
         "https://xnqinddknjtajkgufbzr.supabase.co/storage/v1/object/public/password-images/pikachu.png",
@@ -21,13 +24,13 @@ export default function VisualLoginPage() {
     ];
 
     const handleImageClick = (img) => {
-        if (selectedSequence.length < 4) {
-            setSelectedSequence([...selectedSequence, img]);
+        if (sequence.length < 4) {
+            setSequence([...sequence, img]);
         }
     };
 
     const handleRemove = (img) => {
-        setSelectedSequence(selectedSequence.filter((i) => i !== img));
+        setSequence(sequence.filter((i) => i !== img));
     };
 
     const handleSubmit = async (e) => {
@@ -35,22 +38,22 @@ export default function VisualLoginPage() {
         setError("");
         setSuccess("");
 
-        if (!username || selectedSequence.length === 0) {
+        if (!username || sequence.length === 0) {
             setError("Introduce tu nombre de usuario y selecciona una secuencia de imágenes.");
             return;
         }
 
         try {
             const res = await axios.post(
-                "/api/auth/visual-login", 
-                { username, selectedSequence },
+                "/api/auth/visual-register", 
+                { username, sequence, name, birthdate },
                 { headers: { "Content-Type": "application/json" } }
             );
-            if (res.data.success) {
-                // localStorage.setItem("token", res.data.session.access_token);
-                navigate("/games");
+
+            if (res.data.message === "Estudiante registrado correctamente") {
+                navigate("/visual-login");
             } else {
-                setError(res.data.error || "Credenciales incorrectas");
+                setError(res.data.error || "No se pudo registrar la cuenta");
             }
         } catch (err) {
             console.error(err);
@@ -58,7 +61,7 @@ export default function VisualLoginPage() {
         }
     };
 
-    const handleReset = () => setSelectedSequence([]);
+    const handleReset = () => setSequence([]);
 
     return (
         <div className="min-h-screen bg-background">
@@ -67,7 +70,7 @@ export default function VisualLoginPage() {
                     LudiMind
                 </h1>
                 <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto">
-                    Inicia sesión para acceder a tu cuenta y comenzar a mejorar tus habilidades
+                    Regístrate para crear tu cuenta y empezar a mejorar tus habilidades
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6 w-90 mx-auto p-6 bg-white rounded-lg shadow">
@@ -78,6 +81,18 @@ export default function VisualLoginPage() {
                     <div>
                         <label className="block text-sm font-medium mb-1">Nombre de usuario</label>
                         <Input type="text" placeholder="Ej: lucas_03" value={username} onChange={(e) => setUsername(e.target.value)} className="w-32 px-4 py-2 border rounded-md"/>
+                    </div>
+
+                    {/* Name */}
+                    <div>
+                        <label className="block text-sm font-medium mb-1">Nombre</label>
+                        <Input type="text" placeholder="Ej: Lucas" value={name} onChange={(e) => setName(e.target.value)} className="w-32 px-4 py-2 border rounded-md"/>
+                    </div>
+
+                    {/* Birthdate */}
+                    <div>
+                        <label className="block text-sm font-medium mb-1">Año de nacimiento</label>
+                        <Input type="number" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} className="w-32 px-4 py-2 border rounded-md"/>
                     </div>
 
                     {/* Images */}
@@ -96,36 +111,34 @@ export default function VisualLoginPage() {
                     <div>
                         <label className="block text-sm font-medium mb-2">Tu secuencia</label>
                         <div className="border border-gray-300 rounded-md py-3 flex justify-center gap-3 bg-background2 min-h-[80px]">
-                            {selectedSequence.length === 0 ? (
+                            {sequence.length === 0 ? (
                                 <p className="text-muted-foreground text-sm self-center"> Aún no has elegido imágenes</p>
                             ) : (
-                                selectedSequence.map((img, i) => (
+                                sequence.map((img, i) => (
                                     <button type="button" key={i} onClick={() => handleRemove(img)} className="w-32 h-32 border border-primary/50 rounded-md">
                                         <img src={img} alt={`sel-${i}`} className="w-full h-full object-contain rounded-md" />
                                     </button>
                                 ))
                             )}
                         </div>
-                        {selectedSequence.length > 0 && (
+                        {sequence.length > 0 && (
                             <button type="button" onClick={handleReset} className="mt-2 text-sm text-muted-foreground underline hover:text-foreground">
                                 Borrar secuencia
                             </button>
                         )}
                     </div>
 
-                    {/* Init button */}
+                    {/* Register button */}
                     <Button type="submit" className="w-full">
-                        Iniciar Sesión
+                        Registrarse
                     </Button>
                 </form>
-            </div>
 
-            {/* Forgot sequence link */}
-            <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                    ¿Has olvidado tu secuencia?{" "}
-                    <a href="/recover" className="text-blue-500 hover:underline">
-                        Recupérala aquí
+                {/* Already have account link */}
+                <p className="text-sm text-muted-foreground mt-4">
+                    ¿Ya tienes cuenta?{" "}
+                    <a href="/login" className="text-blue-500 hover:underline">
+                        Inicia sesión aquí
                     </a>
                 </p>
             </div>

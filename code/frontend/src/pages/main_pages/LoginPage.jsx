@@ -35,8 +35,8 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8 min-h-screen bg-background">
-            <div className="text-center mb-12 mt-8">
+        <div className="min-h-screen bg-background">
+            <div className="text-center container mx-auto px-4 py-8">
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 font-sans">
                     LudiMind
                 </h1>

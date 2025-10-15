@@ -7,6 +7,8 @@ import LoginPage from "./pages/main_pages/LoginPage";
 import RegisterPage from "./pages/main_pages/RegisterPage";
 import ResetPasswordPage from "./pages/main_pages/ResetPasswordPage";
 import SetPasswordPage from "./pages/main_pages/SetPasswordPage";
+import VisualLoginPage from "./pages/main_pages/VisualLogin.jsx";
+import VisualRegisterPage from "./pages/main_pages/VisualRegisterPage.jsx";
 import GamesPage from "./pages/games_pages/GamesPage";
 import GameDetailPage from "./pages/games_pages/GameDetailPage";
 import GameLevelsPage from "./pages/games_pages/GameLevelsPage";
@@ -32,6 +34,8 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/set-password" element={<SetPasswordPage />} />
+          <Route path="/visual-login" element={<VisualLoginPage />} />
+          <Route path="/visual-register" element={<VisualRegisterPage />} />
 
           <Route path="/games" element={<GamesPage />} />
           <Route path="/games/:id" element={<GameDetailPage />} />
