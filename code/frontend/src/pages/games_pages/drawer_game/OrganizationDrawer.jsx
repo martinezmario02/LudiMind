@@ -51,17 +51,14 @@ export default function OrganizationDrawer() {
     const [objects, setObjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+    if (!token) return;
 
     // Get user
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-
         const fetchUser = async () => {
             try {
-                const res = await axios.get("/api/auth/me", {
-                    headers: { Authorization: `Bearer ${token}` },
-                });
+                const res = await axios.get("/api/auth/me-visual", { headers: { Authorization: `Bearer ${token}` },});
                 setUser(res.data);
             } catch (err) {
                 console.error("Error getting user:", err);
@@ -76,12 +73,10 @@ export default function OrganizationDrawer() {
 
         const fetchInfo = async () => {
             try {
-                const resDrawers = await axios.get(`/api/drawer/drawers-info/${id}`);
+                const resDrawers = await axios.get(`/api/drawer/drawers-info/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },});
                 setDrawers(resDrawers.data);
 
-                const resObjects = await axios.get(`/api/drawer/unassigned-objects/${id}`, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-                });
+                const resObjects = await axios.get(`/api/drawer/unassigned-objects/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },});
                 setObjects(resObjects.data);
             } catch (err) {
                 console.error("Error fetching drawers or objects:", err);

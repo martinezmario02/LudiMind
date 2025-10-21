@@ -13,7 +13,7 @@ export default function Header() {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get("/api/auth/me-visual", {
+        const response = await axios.get("/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserName(response.data.name);
@@ -27,7 +27,7 @@ export default function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/visual-login";
+    window.location.href = "/login";
   };
 
   return (

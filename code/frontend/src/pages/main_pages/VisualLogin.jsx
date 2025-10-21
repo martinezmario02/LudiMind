@@ -21,14 +21,15 @@ export default function VisualLoginPage() {
     ];
 
     const handleImageClick = (img) => {
-        if (selectedSequence.length < 4) {
-            setSelectedSequence([...selectedSequence, img]);
-        }
+        if (selectedSequence.length >= 4) return;
+        setSelectedSequence([...selectedSequence, img]);
     };
 
     const handleRemove = (img) => {
         setSelectedSequence(selectedSequence.filter((i) => i !== img));
     };
+
+    const handleReset = () => setSelectedSequence([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,23 +43,26 @@ export default function VisualLoginPage() {
 
         try {
             const res = await axios.post(
-                "/api/auth/visual-login", 
+                "/api/auth/visual-login",
                 { username, selectedSequence },
                 { headers: { "Content-Type": "application/json" } }
             );
-            if (res.data.success) {
-                // localStorage.setItem("token", res.data.session.access_token);
+
+            if (res.data?.success && res.data?.token) {
+                localStorage.setItem("token", res.data.token); 
                 navigate("/games");
             } else {
-                setError(res.data.error || "Credenciales incorrectas");
+                setError(res.data?.error || "Credenciales incorrectas");
             }
         } catch (err) {
             console.error(err);
-            setError("Error al conectar con el servidor");
+            if (err.response?.data?.error) {
+                setError(err.response.data.error);
+            } else {
+                setError("Error al conectar con el servidor");
+            }
         }
     };
-
-    const handleReset = () => setSelectedSequence([]);
 
     return (
         <div className="min-h-screen bg-background">

@@ -10,13 +10,15 @@ export default function ContentDrawer() {
   const [objects, setObjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  if (!token) return;
 
   useEffect(() => {
     const fetchObjects = async () => {
       try {
-        const res = await axios.get(`/api/drawer/content/${id}`);
+        const res = await axios.get(`/api/drawer/content/${id}`, { headers: { Authorization: `Bearer ${token}` },});
         setObjects(res.data);
-        const drawer = await axios.get(`/api/drawer/drawer-info/${id}`);
+        const drawer = await axios.get(`/api/drawer/drawer-info/${id}`, { headers: { Authorization: `Bearer ${token}` },});
         setDrawer(drawer.data);
       } catch (err) {
         console.error("Error fetching objects:", err);
@@ -30,9 +32,8 @@ export default function ContentDrawer() {
   const removeObject = async (objectId) => {
     try {
       await axios.post("/api/drawer/remove-object", {
-        drawerId: id,
-        objectId,
-      });
+        drawerId: id, objectId,
+      }, { headers: { Authorization: `Bearer ${token}` } });
       setObjects(objects.filter(obj => obj.id !== objectId));
     } catch (err) {
       console.error("Error removing object:", err);

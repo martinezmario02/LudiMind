@@ -1,6 +1,17 @@
 import { supabase } from "../supabaseClient.js";
+import jwt from "jsonwebtoken";
 
-// Get tasks function
+// Get student ID from token function
+const getStudentIdFromToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return decoded?.studentId || null;
+  } catch (err) {
+    return null;
+  }
+};
+
+// Get tasks info function
 export const getTasksInfo = async (req, res) => {
   const { id } = req.params;
 
@@ -20,7 +31,7 @@ export const getTasksInfo = async (req, res) => {
   }
 };
 
-// Get station function
+// Get station by ID function
 export const getStation = async (req, res) => {
   const { id } = req.params;
 
@@ -56,10 +67,9 @@ export const getAllStations = async (req, res) => {
   }
 };
 
-// Get lines with stations function
+// --- Get lines with stations function ---
 export const getLinesWithStations = async (req, res) => {
   try {
-    // Get lines
     const { data: lines, error: errLines } = await supabase
       .from("metro_lines")
       .select("*")
@@ -67,21 +77,18 @@ export const getLinesWithStations = async (req, res) => {
 
     if (errLines) throw errLines;
 
-    // Get stations
     const { data: stations, error: errStations } = await supabase
       .from("metro_stations")
       .select("*");
 
     if (errStations) throw errStations;
 
-    // Get line-station relationships
     const { data: lineStations, error: errLineStations } = await supabase
       .from("metro_line_stations")
       .select("*");
 
     if (errLineStations) throw errLineStations;
 
-    // Map stations to each line
     const linesWithStations = lines.map((line) => ({
       ...line,
       stations: lineStations
@@ -100,20 +107,19 @@ export const getLinesWithStations = async (req, res) => {
 // Check sequence function
 export const checkSequence = async (req, res) => {
   const { id } = req.params;
-  const { sequence, game_id, attempt } = req.body; 
+  const { sequence, game_id, attempt } = req.body;
   const token = req.headers.authorization?.replace("Bearer ", "");
+
   if (!token) return res.status(401).json({ error: "Token requerido" });
 
-  const { data: authData, error: authError } = await supabase.auth.getUser(token);
-  if (authError || !authData.user) return res.status(401).json({ error: "No autorizado" });
-  const userId = authData.user.id;
+  const studentId = getStudentIdFromToken(token);
+  if (!studentId) return res.status(401).json({ error: "No autorizado" });
 
   if (!Array.isArray(sequence) || sequence.length === 0) {
-    return res.status(400).json({ error: "Invalid sequence format" });
+    return res.status(400).json({ error: "Formato de secuencia inválido" });
   }
 
   try {
-    // Take the task
     const { data: task, error: taskError } = await supabase
       .from("metro_tasks")
       .select("path")
@@ -121,13 +127,14 @@ export const checkSequence = async (req, res) => {
       .single();
 
     if (taskError || !task) {
-      return res.status(404).json({ error: "Task not found" });
+      return res.status(404).json({ error: "Tarea no encontrada" });
     }
 
-    // Check sequence
-    const isCorrect = JSON.stringify(sequence) === JSON.stringify(task.path);
+    // Normalize sequences to numbers for comparison
+    const normalizedSequence = sequence.map(Number);
+    const normalizedPath = task.path.map(Number);
+    const isCorrect = JSON.stringify(normalizedSequence) === JSON.stringify(normalizedPath);
 
-    // Calculate score based on attempt
     let score = 0;
     if (isCorrect) {
       if (attempt === 1) score = 3;
@@ -137,11 +144,11 @@ export const checkSequence = async (req, res) => {
       score = 0;
     }
 
-    // Set or update game session
+    // Check if session already exists
     const { data: existing } = await supabase
       .from("game_sessions")
       .select("id, score")
-      .eq("user_id", userId)
+      .eq("user_id", studentId)  
       .eq("game_id", game_id)
       .eq("level_id", id)
       .maybeSingle();
@@ -153,25 +160,23 @@ export const checkSequence = async (req, res) => {
         .eq("id", existing.id);
 
       if (updateError) {
-        console.error("Error updating session:", updateError.message);
-        return res.status(500).json({ error: "Error updating game session" });
+        console.error("Error actualizando sesión:", updateError.message);
+        return res.status(500).json({ error: "Error actualizando sesión" });
       }
     } else {
       const { error: insertError } = await supabase
         .from("game_sessions")
-        .insert([
-          { user_id: userId, game_id, level_id: id, score }
-        ]);
+        .insert([{ user_id: studentId, game_id, level_id: id, score }]);
 
       if (insertError) {
-        console.error("Error inserting session:", insertError.message);
-        return res.status(500).json({ error: "Error saving game session" });
+        console.error("Error guardando sesión:", insertError.message);
+        return res.status(500).json({ error: "Error guardando sesión" });
       }
     }
 
     return res.json({ isCorrect, score, finished: isCorrect || attempt >= 3 });
   } catch (error) {
     console.error("Error checking sequence:", error);
-    return res.status(500).json({ error: "Error checking sequence" });
+    return res.status(500).json({ error: "Error comprobando secuencia" });
   }
 };

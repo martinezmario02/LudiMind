@@ -1,4 +1,5 @@
 import { supabase } from "../supabaseClient.js";
+import jwt from "jsonwebtoken";
 
 // Register function
 export const register = async (req, res) => {
@@ -119,16 +120,58 @@ export const getCurrentUser = async (req, res) => {
   }
 };
 
+// Get current student function
+export const getCurrentStudent = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) {
+    return res.status(401).json({ error: "No autorizado" });
+  }
+
+  try {
+    // Get and verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    if (!decoded?.studentId) {
+      return res.status(401).json({ error: "Token inválido o incompleto" });
+    }
+
+    // Get student data
+    const { data: student, error: studentError } = await supabase
+      .from("students")
+      .select("id, name, username, birthdate")
+      .eq("id", decoded.studentId)
+      .single();
+
+    if (studentError || !student) {
+      return res.status(404).json({ error: "Estudiante no encontrado" });
+    }
+
+    return res.json({
+      id: student.id,
+      name: student.name,
+      username: student.username,
+      birthdate: student.birthdate,
+      loginType: "visual",
+    });
+  } catch (err) {
+    console.error("Error en getCurrentStudent:", err);
+    if (err.name === "JsonWebTokenError") {
+      return res.status(401).json({ error: "Token no válido" });
+    }
+    return res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
+
 // Login with images
 export const visualLogin = async (req, res) => {
   const { username, selectedSequence } = req.body;
 
   if (!username || !Array.isArray(selectedSequence) || selectedSequence.length === 0) {
-    return res.status(400).json({ error: "Faltan datos o formato incorrecto" });
+    return res.status(400).json({ success: false, error: "Faltan datos o formato incorrecto" });
   }
 
   try {
-    // Get student
+    // Get student by username
     const { data: student, error: studentError } = await supabase
       .from("students")
       .select("id, name")
@@ -136,42 +179,44 @@ export const visualLogin = async (req, res) => {
       .single();
 
     if (studentError || !student) {
-      return res.status(404).json({ error: "Usuario no encontrado" });
+      return res.status(404).json({ success: false, error: "Usuario no encontrado" });
     }
 
     // Get stored sequence
     const { data: storedSequence, error: seqError } = await supabase
       .from("visual_login_sequences")
       .select("image_url")
-      .eq("student_id", student.id)
+      .eq("user_id", student.id)
       .order("order_index", { ascending: true });
 
-    if (seqError || !storedSequence || storedSequence.length === 0) {
-      return res.status(400).json({ error: "Secuencia no encontrada" });
+    if (seqError || !storedSequence?.length) {
+      return res.status(400).json({ success: false, error: "Secuencia no encontrada" });
     }
 
-    // Compare the selected sequence with the stored one
+    // Compare sequences
     const isMatch =
       storedSequence.length === selectedSequence.length &&
       storedSequence.every((item, index) => item.image_url === selectedSequence[index]);
 
     if (!isMatch) {
-      return res.status(401).json({ error: "Secuencia incorrecta" });
+      return res.status(401).json({ success: false, error: "Secuencia incorrecta" });
     }
 
     // Create session object
-    const session = {
-      studentId: student.id,
-      name: student.name,
-      username,
-      loginType: "visual",
-      createdAt: new Date(),
-    };
+    const token = jwt.sign(
+      { studentId: student.id },
+      process.env.JWT_SECRET,
+      { expiresIn: "2h" }
+    );
 
-    res.json({ message: "Inicio de sesión exitoso", session });
+    return res.json({
+      success: true,
+      message: "Inicio de sesión exitoso",
+      token, 
+    });
   } catch (err) {
     console.error("Error en visualLogin:", err);
-    res.status(500).json({ error: "Error interno del servidor" });
+    return res.status(500).json({ success: false, error: "Error interno del servidor" });
   }
 };
 

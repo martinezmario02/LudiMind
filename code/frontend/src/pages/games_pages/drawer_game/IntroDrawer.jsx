@@ -21,7 +21,7 @@ export default function IntroDrawer() {
                 const token = localStorage.getItem("token");
                 if (!token) return;
                 await axios.post(`/api/drawer/reset-level/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
-                const response = await axios.get(`/api/drawer/info-level/${id}`);
+                const response = await axios.get(`/api/drawer/info-level/${id}`, { headers: { Authorization: `Bearer ${token}` } });
                 const levelData = response.data;
                 setLevelData(levelData);
             } catch (err) {
