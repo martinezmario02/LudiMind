@@ -3,6 +3,7 @@ import Button from "../../components/ui/Button.jsx";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function VisualLoginPage() {
@@ -124,13 +125,13 @@ export default function VisualLoginPage() {
                 </form>
             </div>
 
-            {/* Forgot sequence link */}
+            {/* Teacher login */}
             <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                    ¿Has olvidado tu secuencia?{" "}
-                    <a href="/recover" className="text-blue-500 hover:underline">
-                        Recupérala aquí
-                    </a>
+                <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto mt-6">
+                    ¿Eres tutor?{" "}
+                    <Link to="/login" className="text-foreground2 underline">
+                        Inicia sesión aquí
+                    </Link>
                 </p>
             </div>
         </div>

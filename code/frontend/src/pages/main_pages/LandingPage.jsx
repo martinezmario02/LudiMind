@@ -13,10 +13,10 @@ export default function HomePage() {
                     </div>
                     <div className="flex space-x-4">
                         <Button asChild variant="outline" size="lg" className="text-foreground hover:text-foreground2">
-                            <Link to="/login">Iniciar Sesión</Link>
+                            <Link to="/visual-login">Iniciar Sesión</Link>
                         </Button>
                         <Button asChild size="lg" className="bg-foreground hover:bg-foreground2 text-white">
-                            <Link to="/register">Registrarse Ahora</Link>
+                            <Link to="/visual-register">Registrarse Ahora</Link>
                         </Button>
                     </div>
                 </nav>

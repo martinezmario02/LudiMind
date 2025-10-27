@@ -3,6 +3,7 @@ import Button from "../../components/ui/Button.jsx";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function VisualRegisterPage() {
@@ -135,12 +136,23 @@ export default function VisualRegisterPage() {
                 </form>
 
                 {/* Already have account link */}
-                <p className="text-sm text-muted-foreground mt-4">
-                    ¿Ya tienes cuenta?{" "}
-                    <a href="/login" className="text-blue-500 hover:underline">
-                        Inicia sesión aquí
-                    </a>
-                </p>
+                <div className="text-center">
+                    <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto mt-6">
+                        ¿Ya tienes cuenta?{" "}
+                        <Link to="/visual-login" className="text-foreground2 underline">
+                            Inicia sesión aquí
+                        </Link>
+                    </p>
+                </div>
+                {/* Teacher register */}
+                <div className="text-center">
+                    <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto mt-6">
+                        ¿Eres tutor?{" "}
+                        <Link to="/login" className="text-foreground2 underline">
+                            Regístrate aquí
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
