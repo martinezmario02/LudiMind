@@ -15,11 +15,11 @@ export default function MetroMap() {
     useEffect(() => {
         const fetchLines = async () => {
             try {
-                const res = await axios.get("/api/metro/lines-stations");
+                const res = await axios.get(`/api/metro/lines-stations?levelId=${id}`);
                 setLines(res.data);
+
                 const response = await axios.get(`/api/metro/tasks/${id}`);
-                const taskData = response.data;
-                setTask(taskData);
+                setTask(response.data);
             } catch (err) {
                 console.error("Error fetching metro lines:", err);
             }
@@ -69,6 +69,7 @@ export default function MetroMap() {
                 },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
+
 
             if (!res.data.isCorrect) alert(`❌ Incorrecto: Te quedan ${3 - newAttempts} intentos`);
             setSelectedStations([]);

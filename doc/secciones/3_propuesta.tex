@@ -1764,7 +1764,115 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
 \vspace{0.8em}
 \end{table}
 
+\newpage
 \paragraph{Resultados obtenidos}
+Durante este segundo sprint se añadió tanto la pantalla de información sobre cada juego \cref{fig:result_infojuego} como la de los diferentes niveles que componen cada juego, los cuales se van desbloqueando cuando se van obteniendo las tres estrellas del nivel anterior \cref{fig:result_niveles}.
+
+Además, se logró implementar el juego \textit{Metro de la memoria} junto a sus tres primeros niveles de dificultad.
+Este juego consta de una pantalla inicial, donde se muestra una breve explicación de la situación, con una parada inicial y otra final \cref{fig:result_metro_1}.
+Tras esto, se muestra la frase mnemotécnica a modo de ayuda, la cual los usuarios deberán memorizar para seleccionar el camino correcto \cref{fig:result_metro_2}.
+A continuación, se presenta el mapa del metro con las diferentes paradas \cref{fig:result_metro_3} y el usuario deberá seleccionar las correctas para llegar a la parada final \cref{fig:result_metro_4}.
+Los usuarios contarán con tres intentos para completar el nivel y, al finalizar, se les mostrará una pantalla de resultados con su puntuación calculada en función de los intentos utilizados \cref{fig:result_metro_5}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_infojuego.png}
+    \caption{Resultados obtenidos - Pantalla de información sobre el juego}
+    \label{fig:result_infojuego}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_niveles.png}
+    \caption{Resultados obtenidos - Pantalla de niveles del juego}
+    \label{fig:result_niveles}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_1.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 1}
+    \label{fig:result_metro_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_2.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 2}
+    \label{fig:result_metro_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_3.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 3}
+    \label{fig:result_metro_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_4.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 4}
+    \label{fig:result_metro_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_5.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 5}
+    \label{fig:result_metro_5}
+\end{figure}
+
+\newpage
+También se añadió un nuevo inicio de sesión para el estudiantado. 
+Este inicio de sesión se basa en la selección de imágenes en lugar de la introducción de texto, facilitando el acceso a los niños más pequeños \cref{fig:result_login_imgs} \cref{fig:result_login_imgs_2}.
+Finalmente, se implementó otra pantalla de registro mediante imágenes, con la misma finalidad que el nuevo inicio de sesión \cref{fig:result_registro_imgs}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_login_imgs.png}
+    \caption{Resultados obtenidos - Pantalla de inicio de sesión con imágenes - Parte 1}
+    \label{fig:result_login_imgs}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_login_imgs_2.png}
+    \caption{Resultados obtenidos - Pantalla de inicio de sesión con imágenes - Parte 2}
+    \label{fig:result_login_imgs_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_registro_imgs.png}
+    \caption{Resultados obtenidos - Pantalla de registro mediante imágenes}
+    \label{fig:result_registro_imgs}
+\end{figure}
+
+A modo de resumen de la estructura del backend hasta esta iteración, se muestran tanto el diagrama de ficheros \cref{fig:sprint2_ficheros} como el de base de datos \cref{fig:sprint2_bd}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint2_ficheros.png}
+    \caption{Sprint 2 - Diagrama de ficheros}
+    \label{fig:sprint2_ficheros}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint2_bd.png}
+    \caption{Sprint 2 - Diagrama de base de datos}
+    \label{fig:sprint2_bd}
+\end{figure}
+
 \paragraph{Retrospectiva}
+Este sprint también se desarrolló de manera satisfactoria, comenzando con la implementación de los juegos de la plataforma. 
+El ritmo de trabajo se fue adaptando mucho mejor al previsto.
+No obstante, tras la reunión con las tutoras del proyecto se determinó que algunas mejoras eran necesarias para optimizar la experiencia del usuario.
+
+Estos cambios resultaron muy beneficiosos, ya que sus sugerencias permitieron mejorar la experiencia del usuario y la accesibilidad de la plataforma.
+De esta forma, la implementación del inicio de sesión y registro mediante imágenes fue especialmente relevante para facilitar el acceso a los estudiantes de menor edad.
+Sin embargo, estas mejoras añadieron una carga de trabajo adicional que hizo que no se pudieran completar todas las tareas planificadas inicialmente, posponiendo al sprint posterior la creación de los dos últimos niveles del primer juego.
+Esto fue debido a que se optó por diferenciar entre los niveles infantiles y los más avanzados, teniendo que realizar de manera distinta estos dos últimos (con un mapa menos infantil y sin el avatar de guía).
 
 \subsection{Presupuesto del proyecto}

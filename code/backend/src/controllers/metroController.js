@@ -11,20 +11,49 @@ const getStudentIdFromToken = (token) => {
   }
 };
 
+// Get map based on level function
+const getMapIdByLevel = (level) => {
+  if (level <= 3) return 1;
+  if (level === 4 || level === 5) return 2;
+  return null;
+};
+
 // Get tasks info function
 export const getTasksInfo = async (req, res) => {
-  const { id } = req.params;
+  const levelId = req.params.id; 
 
   try {
-    const { data, error } = await supabase
-      .from("metro_tasks")
-      .select("*")
-      .eq("level_id", id)
+    // Get level number
+    const { data: levelData, error: levelErr } = await supabase
+      .from("game_levels")
+      .select("level_number, game_id")
+      .eq("id", levelId)
       .single();
 
-    if (error) throw error;
+    if (levelErr || !levelData)
+      return res.status(404).json({ error: "Nivel no encontrado" });
 
-    return res.json(data);
+    // Get map associated with that level
+    const { data: mapData, error: mapErr } = await supabase
+      .from("metro_maps")
+      .select("*")
+      .eq("number", levelData.level_number <= 3 ? 1 : 2) 
+      .single();
+
+    if (mapErr || !mapData)
+      return res.status(404).json({ error: "Mapa no encontrado" });
+
+    // Get task for that level
+    const { data: task, error: taskErr } = await supabase
+      .from("metro_tasks")
+      .select("*")
+      .eq("level_id", levelId)
+      .single();
+
+    if (taskErr || !task)
+      return res.status(404).json({ error: "Tarea no encontrada" });
+
+    return res.json(task);
   } catch (error) {
     console.error("Error fetching tasks info:", error);
     return res.status(500).json({ error: "Error fetching tasks info" });
@@ -34,7 +63,6 @@ export const getTasksInfo = async (req, res) => {
 // Get station by ID function
 export const getStation = async (req, res) => {
   const { id } = req.params;
-
   try {
     const { data, error } = await supabase
       .from("metro_stations")
@@ -43,7 +71,6 @@ export const getStation = async (req, res) => {
       .single();
 
     if (error) throw error;
-
     return res.json(data);
   } catch (error) {
     console.error("Error fetching station:", error);
@@ -52,14 +79,10 @@ export const getStation = async (req, res) => {
 };
 
 // Get all stations function
-export const getAllStations = async (req, res) => {
+export const getAllStations = async (_req, res) => {
   try {
-    const { data, error } = await supabase
-      .from("metro_stations")
-      .select("*");
-
+    const { data, error } = await supabase.from("metro_stations").select("*");
     if (error) throw error;
-
     return res.json(data);
   } catch (error) {
     console.error("Error fetching stations:", error);
@@ -67,12 +90,36 @@ export const getAllStations = async (req, res) => {
   }
 };
 
-// --- Get lines with stations function ---
+// Get lines with stations function
 export const getLinesWithStations = async (req, res) => {
+  const levelId = req.query.levelId;
+
   try {
+    // Get level number
+    const { data: levelData, error: levelErr } = await supabase
+      .from("game_levels")
+      .select("level_number")
+      .eq("id", levelId)
+      .single();
+
+    if (levelErr || !levelData)
+      return res.status(404).json({ error: "Nivel no encontrado" });
+
+    // Get map based on level number
+    const { data: mapData, error: mapErr } = await supabase
+      .from("metro_maps")
+      .select("*")
+      .eq("number", levelData.level_number <= 3 ? 1 : 2)
+      .single();
+
+    if (mapErr || !mapData)
+      return res.status(404).json({ error: "Mapa no encontrado" });
+
+    // Get lines and their stations
     const { data: lines, error: errLines } = await supabase
       .from("metro_lines")
       .select("*")
+      .eq("map_id", mapData.id)
       .order("order_index", { ascending: true });
 
     if (errLines) throw errLines;
@@ -80,33 +127,34 @@ export const getLinesWithStations = async (req, res) => {
     const { data: stations, error: errStations } = await supabase
       .from("metro_stations")
       .select("*");
-
     if (errStations) throw errStations;
 
     const { data: lineStations, error: errLineStations } = await supabase
       .from("metro_line_stations")
       .select("*");
-
     if (errLineStations) throw errLineStations;
 
     const linesWithStations = lines.map((line) => ({
       ...line,
       stations: lineStations
-        .filter((ls) => ls.line_id === line.id)
+        .filter(ls => ls.line_id === line.id)
         .sort((a, b) => a.order_index - b.order_index)
-        .map((ls) => stations.find((s) => s.id === ls.station_id)),
+        .map(ls => stations.find(s => s.id === ls.station_id))
+        .filter(Boolean)
     }));
 
     return res.json(linesWithStations);
   } catch (err) {
     console.error("Error fetching lines with stations:", err);
-    return res.status(500).json({ error: "Error fetching lines with stations" });
+    return res
+      .status(500)
+      .json({ error: "Error fetching lines with stations" });
   }
 };
 
 // Check sequence function
 export const checkSequence = async (req, res) => {
-  const { id } = req.params;
+  const levelId = req.params.id; 
   const { sequence, game_id, attempt } = req.body;
   const token = req.headers.authorization?.replace("Bearer ", "");
 
@@ -120,37 +168,47 @@ export const checkSequence = async (req, res) => {
   }
 
   try {
+    // Get level number
+    const { data: levelData, error: levelErr } = await supabase
+      .from("game_levels")
+      .select("level_number")
+      .eq("id", levelId)
+      .single();
+
+    if (levelErr || !levelData)
+      return res.status(404).json({ error: "Nivel no encontrado" });
+
+    // Get task for that level
     const { data: task, error: taskError } = await supabase
       .from("metro_tasks")
       .select("path")
-      .eq("level_id", id)
+      .eq("level_id", levelId)
       .single();
 
     if (taskError || !task) {
       return res.status(404).json({ error: "Tarea no encontrada" });
     }
 
-    // Normalize sequences to numbers for comparison
+    // Check if the sequence is correct
     const normalizedSequence = sequence.map(Number);
     const normalizedPath = task.path.map(Number);
-    const isCorrect = JSON.stringify(normalizedSequence) === JSON.stringify(normalizedPath);
+    const isCorrect =
+      JSON.stringify(normalizedSequence) === JSON.stringify(normalizedPath);
 
     let score = 0;
     if (isCorrect) {
       if (attempt === 1) score = 3;
       else if (attempt === 2) score = 2;
       else if (attempt === 3) score = 1;
-    } else if (attempt >= 3) {
-      score = 0;
-    }
+    } else if (attempt >= 3) score = 0;
 
-    // Check if session already exists
+    // Store or update game session
     const { data: existing } = await supabase
       .from("game_sessions")
       .select("id, score")
-      .eq("user_id", studentId)  
+      .eq("user_id", studentId)
       .eq("game_id", game_id)
-      .eq("level_id", id)
+      .eq("level_id", levelId)
       .maybeSingle();
 
     if (existing) {
@@ -158,20 +216,12 @@ export const checkSequence = async (req, res) => {
         .from("game_sessions")
         .update({ score })
         .eq("id", existing.id);
-
-      if (updateError) {
-        console.error("Error actualizando sesión:", updateError.message);
-        return res.status(500).json({ error: "Error actualizando sesión" });
-      }
+      if (updateError) throw updateError;
     } else {
       const { error: insertError } = await supabase
         .from("game_sessions")
-        .insert([{ user_id: studentId, game_id, level_id: id, score }]);
-
-      if (insertError) {
-        console.error("Error guardando sesión:", insertError.message);
-        return res.status(500).json({ error: "Error guardando sesión" });
-      }
+        .insert([{ user_id: studentId, game_id, level_id: levelId, score }]);
+      if (insertError) throw insertError;
     }
 
     return res.json({ isCorrect, score, finished: isCorrect || attempt >= 3 });
