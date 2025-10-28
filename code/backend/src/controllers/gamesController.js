@@ -161,10 +161,10 @@ export const resultLevel = async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("game_sessions")
-      .select("score")
+      .select("score, game_levels!inner(level_number)")
       .eq("level_id", id)
       .eq("user_id", studentId)
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
     return res.json(data);

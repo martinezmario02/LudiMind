@@ -29,26 +29,33 @@ export default function RetrospectiveMetro() {
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/games`)}>
                 <CharacterSpeech
-                    text={
-                    <>
-                        ¡Muchas gracias por tu ayuda!
-                        <br />
-                        {levelData?.score === 0 ? (
-                            <>No hemos conseguido llegar al destino, la próxima vez será...</>
-                        ) : (
-                            <>
-                                He conseguido llegar a mi destino.
-                                <br />
-                                Te entrego esto como agradecimiento:
-                                <br />
-                                {/* Stars */}
-                                {[1, 2, 3].map((n) => (
-                                    <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
-                                ))}
-                            </>
-                        )}
-                    </>
-                    } image="/imgs/avatar_panda.png"/>
+                    text={levelData?.game_levels?.level_number <= 3 ? (
+                        <>
+                            ¡Muchas gracias por tu ayuda!
+                            <br />
+                            {levelData?.score === 0 ? (
+                                <>No hemos conseguido llegar al destino, la próxima vez será...</>
+                            ) : (
+                                <>
+                                    He conseguido llegar a mi destino.
+                                    <br />
+                                    Te entrego esto como agradecimiento:
+                                    <br />
+                                    {/* Stars */}
+                                    {[1, 2, 3].map((n) => (
+                                        <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
+                                    ))}
+                                </>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            Gracias por completar el nivel.
+                            <br />
+                            Has obtenido {levelData?.score} puntos en esta misión.
+                        </>
+                    )}
+                    image="/imgs/avatar_panda.png" showAvatar={levelData?.game_levels?.level_number <= 3} />
             </div>
         </div>
     );

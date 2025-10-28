@@ -29,15 +29,19 @@ export default function ClueMetro() {
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/memory/${id}/lines`)}>
                 <CharacterSpeech 
-                    text={
+                    text={task.level_number <= 3 ? (
                         <>
                         Vamos a utilizar una frase para que recuerdes por donde pasar.<br/>
                         Deberás memorizarla antes de continuar al siguiente paso:<br/>
                         <span className="font-extrabold text-primary">"{task.clue}"</span>
                         </>
-                    } 
-                    image="/imgs/avatar_panda.png" 
-                />
+                    ) : (
+                        <>
+                        Recuerda la siguiente pista:<br/>
+                        <span className="font-extrabold text-primary">"{task.clue}"</span>
+                        </>
+                    )}
+                    image="/imgs/avatar_panda.png" showAvatar={task.level_number <= 3} />
             </div>
         </div>
     );

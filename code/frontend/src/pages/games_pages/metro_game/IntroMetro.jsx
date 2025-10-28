@@ -42,8 +42,11 @@ export default function IntroMetro() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow" onClick={() => navigate(`/memory/${id}/clue`)}>
-        <CharacterSpeech text={`Actualmente me encuentro en la parada ${start.name} (${start.emoji}) 
-          y necesito llegar a ${end.name} (${end.emoji}). ¿Podrías ayudarme a llegar?`} image="/imgs/avatar_panda.png" />
+        <CharacterSpeech 
+          text={task.level_number <= 3
+            ? `Actualmente me encuentro en la parada ${start.name} (${start.emoji}) y necesito llegar a ${end.name} (${end.emoji}). ¿Podrías ayudarme a llegar?`
+            : `Debes planificar tu trayecto desde ${start.name} hasta ${end.name} de manera eficiente.`} 
+          image="/imgs/avatar_panda.png" showAvatar={task.level_number <= 3} />
       </div>
     </div>
   );
