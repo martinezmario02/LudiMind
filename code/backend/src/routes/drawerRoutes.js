@@ -6,7 +6,7 @@ const router = Router();
 router.get("/info-level/:id", getInfoLevel);
 router.get("/drawers-info/:id", getDrawersInfo);
 router.get("/drawer-info/:id", getDrawerInfo);
-router.post("/objects-info", getObjectsInfo);
+router.post("/objects-info/:id", getObjectsInfo);
 router.post("/add-object", addObjectToDrawer);
 router.get("/content/:id", getDrawerContents);
 router.post("/remove-object", removeObjectFromDrawer);

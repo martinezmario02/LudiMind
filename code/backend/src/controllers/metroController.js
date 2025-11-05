@@ -37,7 +37,7 @@ export const getTasksInfo = async (req, res) => {
     const { data: mapData, error: mapErr } = await supabase
       .from("metro_maps")
       .select("*")
-      .eq("number", levelData.level_number <= 3 ? 1 : 2) 
+      .eq("number", levelData.level_number <= 3 ? 1 : 2)
       .single();
 
     if (mapErr || !mapData)
@@ -53,7 +53,18 @@ export const getTasksInfo = async (req, res) => {
     if (taskErr || !task)
       return res.status(404).json({ error: "Tarea no encontrada" });
 
-    return res.json(task);
+    // 👉 Evitar caché en la respuesta
+    res.set({
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+      "Surrogate-Control": "no-store",
+    });
+
+    return res.json({
+      ...task,
+      level_number: levelData.level_number,
+    });
   } catch (error) {
     console.error("Error fetching tasks info:", error);
     return res.status(500).json({ error: "Error fetching tasks info" });

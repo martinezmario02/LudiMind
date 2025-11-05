@@ -21,10 +21,17 @@ export const getInfoLevel = async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("magic_drawer_solutions")
-      .select("*")
+      .select(`*, game_levels:level_id(level_number)`)
       .eq("level_id", id);
+
     if (error) throw error;
 
+    res.set({
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+      "Surrogate-Control": "no-store",
+    });
     return res.json(data);
   } catch (err) {
     console.error("Error fetching tasks info:", err);
@@ -92,8 +99,10 @@ export const getDrawerInfo = async (req, res) => {
 // Get objects info function
 export const getObjectsInfo = async (req, res) => {
   const { ids } = req.body;
+  const { levelId } = req.params.id;
   const token = req.headers.authorization?.replace("Bearer ", "");
   const studentId = await getStudentIdFromToken(token);
+
   if (!studentId) return res.status(401).json({ error: "No autorizado" });
 
   if (!ids || !Array.isArray(ids) || ids.length === 0) {
@@ -103,8 +112,10 @@ export const getObjectsInfo = async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("magic_objects")
-      .select("id, name, type, size, utility, image_url")
+      .select("id, name, type, size, utility, image_url, level_id")
+      .eq("level_id", levelId)
       .in("id", ids);
+
     if (error) throw error;
 
     return res.json(data);
@@ -207,7 +218,7 @@ export const getUnassignedObjects = async (req, res) => {
     if (assignedError) throw assignedError;
 
     const assignedIds = assigned.map(a => a.object_id);
-    const { data: allObjects, error: allError } = await supabase.from("magic_objects").select("*");
+    const { data: allObjects, error: allError } = await supabase.from("magic_objects").select("*").eq("level_id", levelId);
     if (allError) throw allError;
 
     const unassignedObjects = allObjects.filter(obj => !assignedIds.includes(obj.id));

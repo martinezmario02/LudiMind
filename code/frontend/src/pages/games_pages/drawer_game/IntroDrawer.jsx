@@ -7,7 +7,10 @@ import CharacterSpeech from "../CharacterSpeech";
 const categoryLevel = {
   utility: "utilidad",
   type: "tipo",
-  size: "tamaño"
+  size: "tamaño",
+  season: "estación del año",
+  hat: "tipo de sombrero",
+  food: "tipo de comida"
 };
 
 export default function IntroDrawer() {
@@ -18,26 +21,43 @@ export default function IntroDrawer() {
     useEffect(() => {
         const fetchLevelData = async () => {
             try {
-                const token = localStorage.getItem("token");
-                if (!token) return;
-                await axios.post(`/api/drawer/reset-level/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
-                const response = await axios.get(`/api/drawer/info-level/${id}`, { headers: { Authorization: `Bearer ${token}` } });
-                const levelData = response.data;
-                setLevelData(levelData);
+            const token = localStorage.getItem("token");
+            if (!token) return;
+            await axios.post(`/api/drawer/reset-level/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+            const response = await axios.get(`/api/drawer/info-level/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+
+            const mapped = response.data.map((item) => ({
+                ...item,
+                level_number: item.game_levels?.level_number ?? item.level_number,
+                category: item.game_levels?.category ?? item.category,
+            }));
+
+            setLevelData(mapped);
             } catch (err) {
-                console.error("Error fetching task:", err);
+            console.error("Error fetching task:", err);
             }
         };
         fetchLevelData();
     }, [id]);
 
-    if (!levelData) return <p className="text-center">Cargando misión...</p>;
+    if (!levelData || !levelData[0]?.category) return <p className="text-center">Cargando misión...</p>;
+
+    const level = levelData[0];
+    const categoryText = categoryLevel[level.category] || level.category;
+
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/organization/${id}/level`)}>
-                <CharacterSpeech text={`Necesito organizar mi desván mágico en función de su ${categoryLevel[levelData[0].category]}. ¿Podrías ayudarme?`} image="/imgs/avatar_goat.png" />
+            <CharacterSpeech
+                text={level.level_number <= 3
+                ? `Necesito organizar mi desván mágico en función de su ${categoryText}. ¿Podrías ayudarme?`
+                : `Debes organizar los objetos del desván en función de su ${categoryText}.`}
+                image="/imgs/avatar_goat.png"
+                showAvatar={level.level_number <= 3}
+            />
             </div>
         </div>
     );
+
 }
