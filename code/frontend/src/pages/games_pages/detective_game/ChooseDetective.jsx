@@ -27,7 +27,7 @@ export default function EmotionBars() {
     { name: "Tristeza", key: "sadness", emoji: "😢", color: "sadness" },
     { name: "Ira", key: "anger", emoji: "😡", color: "anger" },
     { name: "Miedo", key: "fear", emoji: "😨", color: "fear" },
-    { name: "Asco", key: "disgust", emoji: "🤢", color: "disgust" },
+    { name: "Incomodidad", key: "disgust", emoji: "🤢", color: "disgust" },
   ];
 
   // Get scenario data

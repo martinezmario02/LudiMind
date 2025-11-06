@@ -123,7 +123,7 @@ export const checkEmotionSolution = async (req, res) => {
 
 // Get emotion choices for a level
 export const getEmotionChoices = async (req, res) => {
-  const { id } = req.params; // level_id
+  const { id } = req.params;
 
   try {
     // Get the scenario for the level

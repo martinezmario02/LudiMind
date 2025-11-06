@@ -12,7 +12,7 @@ export default function IntroDetective() {
         <div className="min-h-screen flex flex-col">
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/emotions/${id}/situation`)}>
-                <CharacterSpeech text={`Tengo un amigo que está en un grupo con sus amigos y le pasó esto.`} image="/imgs/avatar_monkey.png" />
+                <CharacterSpeech text={`Tengo un amigo que está en la situación del siguiente chat.`} image="/imgs/avatar_monkey.png" />
             </div>
         </div>
     );
