@@ -22,6 +22,9 @@ import ContentDrawer from "./pages/games_pages/drawer_game/ContentDrawer";
 import RetrospectiveDrawer from "./pages/games_pages/drawer_game/RetrospectiveDrawer";
 import IntroDetective from "./pages/games_pages/detective_game/IntroDetective";
 import SituationDetective from "./pages/games_pages/detective_game/SituationDetective";
+import ChooseDetective from "./pages/games_pages/detective_game/ChooseDetective";
+import ButtonsDetective from "./pages/games_pages/detective_game/ButtonsDetective";
+import RetrospectiveDetective from "./pages/games_pages/detective_game/RetrospectiveDetective";
 
 export default function App() {
   return (
@@ -53,6 +56,9 @@ export default function App() {
 
           <Route path="/emotions/:id" element={<IntroDetective />} />
           <Route path="/emotions/:id/situation" element={<SituationDetective />} />
+          <Route path="/emotions/:id/choose" element={<ChooseDetective />} />
+          <Route path="/emotions/:id/buttons" element={<ButtonsDetective />} />
+          <Route path="/emotions/:id/retrospective" element={<RetrospectiveDetective />} />
         </Routes>
       </Router>
     </DndProvider>
