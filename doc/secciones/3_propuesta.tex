@@ -1875,4 +1875,113 @@ De esta forma, la implementación del inicio de sesión y registro mediante imá
 Sin embargo, estas mejoras añadieron una carga de trabajo adicional que hizo que no se pudieran completar todas las tareas planificadas inicialmente, posponiendo al sprint posterior la creación de los dos últimos niveles del primer juego.
 Esto fue debido a que se optó por diferenciar entre los niveles infantiles y los más avanzados, teniendo que realizar de manera distinta estos dos últimos (con un mapa menos infantil y sin el avatar de guía).
 
+\subsubsection{Sprint 3}
+\paragraph{Desarrollo del sprint}
+En esta iteración se continuó con la implementación de los juegos de la plataforma. 
+En primer lugar, se desarrollaron los niveles restantes del juego \textit{Metro de la memoria}, los cuales estaban orientados a un público más avanzado, sin avatar de guía y con una dificultad mayor.
+Tras esto, se implementaron los dos siguientes juegos, \textit{Desván mágico} y \textit{Detective emociones}, junto con los cinco niveles de cada uno de ellos.
+A continuación, se muestra el backlog inicial del sprint \cref{fig:sprint3}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint3.png}
+    \caption{Sprint 3 - Backlog}
+    \label{fig:sprint3}
+\end{figure}
+
+\newpage
+\paragraph{Historias de usuario}
+Respecto a las historias de usuario, en esta iteración se han desarrollado dos más, expuestas a continuación.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
+\hline
+\textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+\hline
+HU.9 & Como usuario necesito jugar al juego \textit{Desván mágico}. & 7 & M & 3 \\
+\hline
+HU.10 & Como usuario necesito jugar al juego \textit{Detective emociones}. & 7 & M & 3 \\
+\hline
+\end{tabularx}
+\caption{Listado de Historias de usuario - Sprint 3}
+\end{table}
+
+A continuación, también se muestra el desglose de tareas realizado para cada historia de usuario de esta iteración, realizando una estimación de esfuerzo medida en días.
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+\vspace{0.8em}
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
+    \hline
+    \textbf{HU.9} & \textbf{Como usuario necesito jugar al juego \textit{Desván mágico}.} & \textbf{7PH} \\
+    \hline
+    \multicolumn{3}{|c|}{
+        \begin{minipage}{0.95\textwidth}
+            \vspace{0.5em}
+            \begin{tabular}{|l|p{0.7\textwidth}|c|}
+                \hline
+                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
+                \hline
+                T.1 & Crear pantallas del juego. & 2 \\
+                \hline
+                T.2 & Realizar las pruebas de aceptación. & 1 \\
+                \hline
+                T.3 & Implementar lógica del juego en el backend. & 2 \\
+                \hline
+                T.4 & Implementar cinco niveles de dificultad. & 2 \\
+                \hline
+                T.5 & Implementar avatar guía para niveles infantiles. & 0.5 \\
+                \hline
+            \end{tabular}
+            \vspace{0.5em}
+        \end{minipage}
+    } \\
+    \hline
+\end{tabularx}
+\caption{HU.9 - Jugar al juego \textit{Desván mágico} - Desglose de tareas}
+\vspace{0.8em}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+\vspace{0.8em}
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
+    \hline
+    \textbf{HU.10} & \textbf{Como usuario necesito jugar al juego \textit{Detective emociones}.} & \textbf{7PH} \\
+    \hline
+    \multicolumn{3}{|c|}{
+        \begin{minipage}{0.95\textwidth}
+            \vspace{0.5em}
+            \begin{tabular}{|l|p{0.7\textwidth}|c|}
+                \hline
+                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
+                \hline
+                T.1 & Crear pantallas del juego. & 2 \\
+                \hline
+                T.2 & Realizar las pruebas de aceptación. & 1 \\
+                \hline
+                T.3 & Implementar lógica del juego en el backend. & 2 \\
+                \hline
+                T.4 & Implementar cinco niveles de dificultad. & 2 \\
+                \hline
+                T.5 & Implementar avatar guía para niveles infantiles. & 0.5 \\
+                \hline
+            \end{tabular}
+            \vspace{0.5em}
+        \end{minipage}
+    } \\
+    \hline
+\end{tabularx}
+\caption{HU.10 - Jugar al juego \textit{Detective emociones} - Desglose de tareas}
+\vspace{0.8em}
+\end{table}
+
+\paragraph{Resultados obtenidos}
+\paragraph{Retrospectiva}
+
 \subsection{Presupuesto del proyecto}
