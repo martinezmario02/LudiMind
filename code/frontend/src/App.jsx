@@ -25,6 +25,12 @@ import SituationDetective from "./pages/games_pages/detective_game/SituationDete
 import ChooseDetective from "./pages/games_pages/detective_game/ChooseDetective";
 import ButtonsDetective from "./pages/games_pages/detective_game/ButtonsDetective";
 import RetrospectiveDetective from "./pages/games_pages/detective_game/RetrospectiveDetective";
+import IntroSemaphore from "./pages/games_pages/semaphore_game/IntroSemaphore";
+import RedSemaphore from "./pages/games_pages/semaphore_game/RedSemaphore";
+import RedRetroSemaphore from "./pages/games_pages/semaphore_game/RedRetroSemaphore";
+import YellowSemaphore from "./pages/games_pages/semaphore_game/YellowSemaphore";
+import YellowRetroSemaphore from "./pages/games_pages/semaphore_game/YellowRetroSemaphore";
+import GreenSemaphore from "./pages/games_pages/semaphore_game/GreenSemaphore";
 
 export default function App() {
   return (
@@ -59,6 +65,13 @@ export default function App() {
           <Route path="/emotions/:id/choose" element={<ChooseDetective />} />
           <Route path="/emotions/:id/buttons" element={<ButtonsDetective />} />
           <Route path="/emotions/:id/retrospective" element={<RetrospectiveDetective />} />
+
+          <Route path="/selfcontrol/:id" element={<IntroSemaphore />} />
+          <Route path="/selfcontrol/:id/red" element={<RedSemaphore />} />
+          <Route path="/selfcontrol/:id/red-retrospective" element={<RedRetroSemaphore />} />
+          <Route path="/selfcontrol/:id/yellow" element={<YellowSemaphore />} />
+          <Route path="/selfcontrol/:id/yellow-retrospective" element={<YellowRetroSemaphore />} />
+          <Route path="/selfcontrol/:id/green" element={<GreenSemaphore />} />
         </Routes>
       </Router>
     </DndProvider>

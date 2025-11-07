@@ -5,6 +5,7 @@ import gamesRoutes from "./routes/gamesRoutes.js";
 import metroRoutes from "./routes/metroRoutes.js";
 import drawerRoutes from "./routes/drawerRoutes.js";
 import detectiveRoutes from "./routes/detectiveRoutes.js";
+import semaphoreRoutes from "./routes/semaphoreRoutes.js";
 
 const app = express();
 app.use(cors({
@@ -21,5 +22,6 @@ app.use("/api/games", gamesRoutes);
 app.use("/api/metro", metroRoutes);
 app.use("/api/drawer", drawerRoutes);
 app.use("/api/detective", detectiveRoutes);
+app.use("/api/semaphore", semaphoreRoutes);
 
 app.listen(5000, () => console.log("✅ Backend en http://localhost:5000"));
