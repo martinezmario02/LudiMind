@@ -40,14 +40,13 @@ export default function ButtonsDetective() {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <div className="flex-grow flex flex-col items-center justify-center px-6 py-10">
+            <div className="flex-grow flex flex-col items-center px-6 py-10">
                 <h2 className="text-2xl font-extrabold text-center mb-8 drop-shadow-md">
                     ¿Qué harías tú en esta situación?
                 </h2>
-
-                <div className="flex flex-col gap-6 w-full max-w-lg">
+                <div className="flex flex-col gap-12 w-full max-w-lg">
                     {choices.map((choice) => (
-                        <Button key={choice.id} className="py-4 text-lg font-semibold w-full rounded-xl shadow-sm" onClick={() => handleChoice(choice.id)}>
+                        <Button key={choice.id} className="py-9 text-2xl font-semibold w-full rounded-xl shadow-sm" onClick={() => handleChoice(choice.id)}>
                             {choice.text}
                         </Button>
                     ))}
