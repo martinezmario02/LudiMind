@@ -53,7 +53,6 @@ export const getTasksInfo = async (req, res) => {
     if (taskErr || !task)
       return res.status(404).json({ error: "Tarea no encontrada" });
 
-    // 👉 Evitar caché en la respuesta
     res.set({
       "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
       "Pragma": "no-cache",

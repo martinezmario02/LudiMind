@@ -29,24 +29,31 @@ export default function RetrospectiveDetective() {
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/games`)}>
                 <CharacterSpeech
-                    text={
-                    <>
-                        ¡Lo tendré en cuenta!
-                        <br />
-                        {levelData?.score === 3 ? (
-                            <>Estoy de acuerdo con todo lo que hemos discutido.</>
-                        ) : (
-                            <>Me da la sensación de que no hemos tomado las mejores decisiones...</>
-                        )}
-                        <br />
-                        Te entrego esto como agradecimiento:
-                        <br />
-                        {/* Stars */}
-                        {[1, 2, 3].map((n) => (
-                            <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
-                        ))}
-                    </>
-                    } image="/imgs/avatar_monkey.png"/>
+                    text={levelData?.game_levels?.level_number <= 3 ? (
+                        <>
+                            ¡Lo tendré en cuenta!
+                            <br />
+                            {levelData?.score === 3 ? (
+                                <>Estoy de acuerdo con todo lo que hemos discutido.</>
+                            ) : (
+                                <>Me da la sensación de que no hemos tomado las mejores decisiones...</>
+                            )}
+                            <br />
+                            Te entrego esto como agradecimiento:
+                            <br />
+                            {/* Stars */}
+                            {[1, 2, 3].map((n) => (
+                                <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            Gracias por completar el nivel.
+                            <br />
+                            Has obtenido {levelData?.score} puntos en esta misión.
+                        </>
+                    )}
+                    image="/imgs/avatar_monkey.png" showAvatar={levelData?.game_levels?.level_number <= 3} />
             </div>
         </div>
     );

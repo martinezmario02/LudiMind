@@ -11,7 +11,10 @@ export default function SituationDetective() {
     useEffect(() => {
         const fetchLevelData = async () => {
             try {
-                const response = await axios.get(`/api/detective/info-level/${id}`);
+                const token = localStorage.getItem("token");
+                if (!token) return;
+
+                const response = await axios.get(`/api/detective/info-level/${id}`, { headers: { Authorization: `Bearer ${token}` } });
                 const levelData = response.data;
                 setLevelData(levelData);
             } catch (err) {

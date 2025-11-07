@@ -30,11 +30,13 @@ export default function EmotionBars() {
     { name: "Incomodidad", key: "disgust", emoji: "🤢", color: "disgust" },
   ];
 
+  const token = localStorage.getItem("token");
+
   // Get scenario data
   useEffect(() => {
     const fetchScenario = async () => {
       try {
-        const res = await axios.get(`/api/detective/info-level/${id}`);
+        const res = await axios.get(`/api/detective/info-level/${id}`, { headers: { Authorization: `Bearer ${token}` } });
         setScenario(res.data);
       } catch (err) {
         console.error("Error fetching emotion scenario:", err);
@@ -78,7 +80,6 @@ export default function EmotionBars() {
     }
 
     try {
-      const token = localStorage.getItem("token");
       const newAttempts = attempts + 1;
       setAttempts(newAttempts);
 

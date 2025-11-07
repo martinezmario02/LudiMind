@@ -14,19 +14,39 @@ const getStudentIdFromToken = async (token) => {
 // Get info level function
 export const getInfoLevel = async (req, res) => {
   const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  const studentId = await getStudentIdFromToken(token);
+  if (!studentId) return res.status(401).json({ error: "No autorizado" });
 
   try {
     const { data, error } = await supabase
       .from("emotion_scenarios")
-      .select("*")
+      .select(`*, game_levels!inner(level_number)`)
       .eq("level_id", id)
-      .single();
+      .limit(1);
 
     if (error) throw error;
+    if (!data || data.length === 0)
+      return res.status(404).json({ error: "Nivel no encontrado" });
 
-    return res.json(data);
-  } catch (error) {
-    console.error("Error fetching level info:", error);
+    const scenario = data[0];
+    const level_number = scenario.game_levels?.level_number || null;
+
+    const response = {
+      ...scenario,
+      level_number,
+    };
+
+    res.set({
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+      "Surrogate-Control": "no-store",
+    });
+
+    return res.json(response);
+  } catch (err) {
+    console.error("Error fetching level info:", err);
     return res.status(500).json({ error: "Error fetching level info" });
   }
 };

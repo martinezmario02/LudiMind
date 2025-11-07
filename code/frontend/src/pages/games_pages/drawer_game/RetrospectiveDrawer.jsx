@@ -29,24 +29,31 @@ export default function RetrospectiveDrawer() {
             <Header />
             <div className="flex-grow" onClick={() => navigate(`/games`)}>
                 <CharacterSpeech
-                    text={
-                    <>
-                        ¡Muchas gracias por tu ayuda!
-                        <br />
-                        {levelData?.score === 3 ? (
-                            <>Hemos conseguido organizar correctamente los objetos para mi viaje.</>
-                        ) : (
-                            <>Me da la sensación de que no lo hemos organizado de la mejor manera...</>
-                        )}
-                        <br />
-                        Te entrego esto como agradecimiento:
-                        <br />
-                        {/* Stars */}
-                        {[1, 2, 3].map((n) => (
-                            <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
-                        ))}
-                    </>
-                    } image="/imgs/avatar_goat.png"/>
+                    text={levelData?.game_levels?.level_number <= 3 ? (
+                        <>
+                            ¡Muchas gracias por tu ayuda!
+                            <br />
+                            {levelData?.score === 3 ? (
+                                <>Hemos conseguido organizar correctamente los objetos para mi viaje.</>
+                            ) : (
+                                <>Me da la sensación de que no lo hemos organizado de la mejor manera...</>
+                            )}
+                            <br />
+                            Te entrego esto como agradecimiento:
+                            <br />
+                            {/* Stars */}
+                            {[1, 2, 3].map((n) => (
+                                <span key={n} style={{ color: n <= (levelData?.score || 0) ? "gold" : "lightgray", fontSize: "1.5rem", marginRight: "4px" }}>★</span>
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            Gracias por completar el nivel.
+                            <br />
+                            Has obtenido {levelData?.score} puntos en esta misión.
+                        </>
+                    )}
+                    image="/imgs/avatar_goat.png" showAvatar={levelData?.game_levels?.level_number <= 3} />
             </div>
         </div>
     );
