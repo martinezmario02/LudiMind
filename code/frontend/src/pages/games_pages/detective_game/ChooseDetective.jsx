@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
 import Slider from "../../../components/ui/Slider";
+import Message from "../../distractors/Message";
 
 export default function EmotionBars() {
   const { id } = useParams();
@@ -134,6 +135,9 @@ export default function EmotionBars() {
         <div className="mt-8 text-center">
           <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSubmit}>Comprobar</Button>
         </div>
+
+        {/* Distractors */}
+        <Message silence={3000} volume={0.6} />
       </div>
     </div>
   );

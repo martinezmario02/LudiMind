@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
+import CarHorn from "../../distractors/CarHorn";
 import { useDrag, useDrop } from "react-dnd";
 
 const ItemTypes = { OBJECT: "object" };
@@ -146,6 +147,9 @@ export default function OrganizationDrawer() {
                 <div className="mb-6 mt-4">
                     <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSolveLevel}>Comprobar</Button>
                 </div>
+
+                {/* Distractors */}
+                <CarHorn silence={5000} volume={0.6} />
             </div>
         </div>
     );

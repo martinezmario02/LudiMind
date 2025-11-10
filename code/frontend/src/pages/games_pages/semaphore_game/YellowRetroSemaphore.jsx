@@ -35,6 +35,10 @@ export default function YellowRetroSemaphore() {
                     image="/imgs/avatar_cat.png"
                     showAvatar={levelNumber <= 3}
                 />
+                {/* Distractors */}
+                <div className="absolute left-3/4 -translate-x-1/2 animate-floatUp" style={{ bottom: "-10%", animationDuration: "15s" }}>
+                    <img src="/imgs/distractor_bubble.png" alt="burbuja" className="w-40 h-40 drop-shadow-lg opacity-90" />
+                </div>
             </div>
         </div>
     );

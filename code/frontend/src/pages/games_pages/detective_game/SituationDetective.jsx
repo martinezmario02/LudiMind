@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
+import Message from "../../distractors/Message";
 
 export default function SituationDetective() {
     const { id } = useParams();
@@ -31,6 +32,9 @@ export default function SituationDetective() {
             <div className="flex-grow" onClick={() => navigate(`/emotions/${id}/choose`)}>
                 <img src={levelData.image_url} alt="situation" className="mx-auto my-6 max-h-[800px]"  />
             </div>
+
+            {/* Distractors */}
+            <Message silence={3000} volume={0.6} />
         </div>
     );
 }

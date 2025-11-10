@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
+import Message from "../../distractors/Message";
 
 export default function ButtonsDetective() {
     const { id } = useParams();
@@ -52,6 +53,8 @@ export default function ButtonsDetective() {
                     ))}
                 </div>
             </div>
+            {/* Distractors */}
+            <Message silence={3000} volume={0.6} />
         </div>
     );
 }

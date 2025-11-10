@@ -123,6 +123,11 @@ export default function MetroMap() {
                 <div className="mt-8">
                     <Button className="px-6 py-3 text-lg font-semibold" onClick={handleSubmit}>Comprobar</Button>
                 </div>
+
+                {/* Distractors */}
+                <div className="absolute left-3/4 -translate-x-1/2 animate-floatUp" style={{ bottom: "-10%", animationDuration: "15s" }}>
+                    <img src="/imgs/distractor_globe.png" alt="globo" className="w-40 h-40 drop-shadow-lg opacity-90" />
+                </div>
             </div>
         </div>
     );
