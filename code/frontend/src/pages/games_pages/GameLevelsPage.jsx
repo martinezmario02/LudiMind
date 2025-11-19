@@ -99,13 +99,15 @@ export default function LevelsPage() {
               return (
                 <div
                   key={level.id}
-                  className={`p-4 rounded-lg text-center transition ${
-                    isLocked
-                      ? "bg-gray-200 opacity-50 cursor-not-allowed"
-                      : "bg-white shadow hover:shadow-lg cursor-pointer"
-                  }`}
+                  // className={`p-4 rounded-lg text-center transition ${
+                  //   isLocked
+                  //     ? "bg-gray-200 opacity-50 cursor-not-allowed"
+                  //     : "bg-white shadow hover:shadow-lg cursor-pointer"
+                  // }`}
+                  className="p-4 rounded-lg text-center transition bg-white shadow hover:shadow-lg cursor-pointer"
                   onClick={() => {
-                    if (!isLocked) navigate(`/${game.category}/${level.id}`);
+                    // if (!isLocked) navigate(`/${game.category}/${level.id}`);
+                    navigate(`/${game.category}/${level.id}`);
                   }}
                 >
                   <h2 className="font-bold mb-2">Nivel {level.level_number}</h2>

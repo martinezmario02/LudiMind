@@ -148,7 +148,7 @@ export default function VisualRegisterPage() {
                 <div className="text-center">
                     <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto mt-6">
                         ¿Eres tutor?{" "}
-                        <Link to="/login" className="text-foreground2 underline">
+                        <Link to="/register" className="text-foreground2 underline">
                             Regístrate aquí
                         </Link>
                     </p>
