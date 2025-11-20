@@ -37,7 +37,7 @@ export const getTasksInfo = async (req, res) => {
     const { data: mapData, error: mapErr } = await supabase
       .from("metro_maps")
       .select("*")
-      .eq("number", levelData.level_number <= 3 ? 1 : 2)
+      .eq("number", levelData.level_number <= 3 ? 1 : levelData.level_number === 4 ? 2 : 3)
       .single();
 
     if (mapErr || !mapData)
@@ -119,7 +119,7 @@ export const getLinesWithStations = async (req, res) => {
     const { data: mapData, error: mapErr } = await supabase
       .from("metro_maps")
       .select("*")
-      .eq("number", levelData.level_number <= 3 ? 1 : 2)
+      .eq("number", levelData.level_number <= 3 ? 1 : levelData.level_number === 4 ? 2 : 3)
       .single();
 
     if (mapErr || !mapData)

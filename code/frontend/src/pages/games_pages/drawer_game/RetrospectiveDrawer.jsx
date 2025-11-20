@@ -50,7 +50,7 @@ export default function RetrospectiveDrawer() {
                         <>
                             Gracias por completar el nivel.
                             <br />
-                            Has obtenido {levelData?.score} puntos en esta misión.
+                            Has obtenido {levelData?.score} puntos en esta misión y el máximo era 3.
                         </>
                     )}
                     image="/imgs/avatar_goat.png" showAvatar={levelData?.game_levels?.level_number <= 3} />

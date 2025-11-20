@@ -64,7 +64,7 @@ export default function GreenSemaphore() {
                         <>
                             Gracias por completar el nivel.
                             <br />
-                            Has obtenido {levelData?.totalScore} puntos en esta misión.
+                            Has obtenido {levelData?.totalScore} puntos en esta misión y el máximo era 3.
                         </>
                     )}
                     image="/imgs/avatar_cat.png" showAvatar={levelNumber <= 3}

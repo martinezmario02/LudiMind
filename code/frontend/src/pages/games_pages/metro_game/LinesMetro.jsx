@@ -88,7 +88,7 @@ export default function MetroMap() {
 
                 {/* Metro map */}
                 <div className="rounded-xl shadow-lg p-6 flex justify-center items-center">
-                    <svg width="800" height="600" style={{ border: "1px solid #ccc" }}>
+                    <svg width="900" height="600" style={{ border: "1px solid #ccc" }}>
                         {/* Show lines */}
                         {lines.map((line) => (
                             <polyline key={line.id} points={line.stations.map((s) => `${s.x * 150 + 50},${s.y * 150 + 50}`).join(" ")}
