@@ -2187,20 +2187,7 @@ Además, se planificó la realización de pruebas con usuarios para evaluar la u
 
 De este modo, durante este sprint se sustituyó la implementación de las funcionalidades restantes por la planificación y realización de dichas pruebas con usuarios, así como la incorporación de las mejoras sugeridas.
 Estas modificaciones fueron necesarias para optimizar la experiencia del usuario y la accesibilidad de la plataforma, asegurando que cumpla con los objetivos planteados inicialmente.
-Podemos destacar las siguientes:
-
-\begin{itemize}
-    \item Incorporación de un botón de ayuda en el juego \textit{Metro de la memoria}.
-    \item Incorporación de mapas más complejos en los niveles avanzados del juego \textit{Metro de la memoria}.
-    \item Incorporación de más cajones y objetos en el juego \textit{Desván mágico}.
-    \item Inclusión de una batería de objetos para cada nivel, mostrando diferentes objetos en cada intento en el juego \textit{Desván mágico}.
-    \item Posibilidad de varias respuestas correctas en el juego \textit{Detective emociones}.
-    \item Almacenamiento del tiempo de juego e incorporación de un alarma si se supera un límite establecido (30 minutos aproximadamente).
-    \item Posibilidad de elección del tipo de contraseña (texto o imágenes) tanto en el registro como en el inicio de sesión.
-    \item Posibilidad de asignación de distractores por parte de los tutores en los juegos.
-\end{itemize}
-
-Todas estas mejoras se irán implementando durante los sprints posteriores, adaptándose al ritmo de trabajo establecido y asegurando la calidad del producto final.
+Todas estas mejoras, indicadas en el apartado de \textit{Evaluación}, se irán implementando durante los sprints posteriores, adaptándose al ritmo de trabajo establecido y asegurando la calidad del producto final.
 Así pues, a continuación, se muestra el backlog final del sprint \cref{fig:sprint4_final}.
 
 \begin{figure}[H]
@@ -2264,6 +2251,157 @@ A continuación, también se muestra el desglose de tareas realizado para dicha 
 \end{table}
 
 \paragraph{Resultados obtenidos}
+En este cuarto sprint se logró implementar el último juego de la plataforma, \textit{Semáforo emocional}, con sus cinco niveles de dificultad, incorporando así la base de los cuatro juegos planificados inicialmente.
+Este juego comienza con una pantalla inicial donde se muestra una breve explicación de la situación \cref{fig:result_semaforo_1}.
+A continuación, se presenta al usuario una pantalla con un semáforo en rojo, indicándole que debe detenerse y reflexionar sobre cómo se sentiría en dicha situación \cref{fig:result_semaforo_2}.
+Tras esto, el avatar le dará feedback sobre su elección \cref{fig:result_semaforo_3} y, a continuación, se le mostrará el semáforo en amarillo, indicándole que debe pensar en cómo podría actuar en dicha situación \cref{fig:result_semaforo_4}.
+Nuevamente, el avatar le dará feedback sobre su elección \cref{fig:result_semaforo_5}, y se mostrará una pantalla final con el semáforo en verde, indicando cómo la situación finalizará en función de sus decisiones \cref{fig:result_semaforo_6}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_1.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 1}
+    \label{fig:result_semaforo_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_2.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 2}
+    \label{fig:result_semaforo_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_3.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 3}
+    \label{fig:result_semaforo_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_4.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 4}
+    \label{fig:result_semaforo_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_5.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 5}
+    \label{fig:result_semaforo_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_6.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 6}
+    \label{fig:result_semaforo_6}
+\end{figure}
+
+En el caso de ir tomando decisiones erróneas, el avatar le irá corrigiendo y aconsejando, con el objetivo de que el usuario aprenda a identificar y gestionar sus emociones de manera adecuada \cref{fig:result_semaforo_7} \cref{fig:result_semaforo_8}.
+De este modo, se busca fomentar la inteligencia emocional y el desarrollo de habilidades sociales entre los usuarios.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_7.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 7}
+    \label{fig:result_semaforo_7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_semaforo_8.png}
+    \caption{Resultados obtenidos - Juego \textit{Semáforo emocional} - Parte 8}
+    \label{fig:result_semaforo_8}
+\end{figure}
+
+Además, de cara a las pruebas con el grupo no clínico, se decidió implementar una serie de distractores visuales y sonoros para simular un entorno más realista y evaluar cómo estos afectan la concentración y el rendimiento de los usuarios durante el juego.
+Así, se añadió un distractor por cada juego:
+
+\begin{itemize}
+    \item En el juego \textit{Metro de la memoria}, se incorporó un distractor visual en forma de globo, el cual aparece y se desplaza por la pantalla durante el juego \cref{fig:result_distractor_1}.
+    \item En el juego \textit{Desván mágico}, se añadió un distractor sonoro que reproduce el sonido de una bocina de un coche.
+    \item En el juego \textit{Detective emociones}, se implementó otro distractor sonoro quer reproduce una notificación emergente que simula un mensaje de chat.
+    \item En el juego \textit{Semáforo emocional}, se incluyó un distractor visual en forma de burbuja que vuela a través de la pantalla durante el juego \cref{fig:result_distractor_2}.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_distractor_1.png}
+    \caption{Resultados obtenidos - Distractor visual - Juego \textit{Metro de la memoria}}
+    \label{fig:result_distractor_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_distractor_2.png}
+    \caption{Resultados obtenidos - Distractor visual - Juego \textit{Semáforo emocional}}
+    \label{fig:result_distractor_2}
+\end{figure}
+
+\newpage
+Tras finalizar esto, se decidió centrar el trabajo en la mejora de la experiencia del usuario y la optimización de la plataforma mediante la incorporación de las sugerencias recibidas en la reunión con las tutoras del proyecto y la sesión de pruebas con usuarios.
+Por ello, se realizaron las modificaciones planteadas para el juego \textit{Metro de la memoria}, mejorando la interfaz y la jugabilidad.
+Estas modificaciones incluyó la incorporación de un botón de ayuda para mostrar la frase mnemotécnica durante el juego \cref{fig:result_metro_mejora_1} \cref{fig:result_metro_mejora_2}.
+De este modo, se facilita la experiencia del usuario y se adapta mejor a sus necesidades, ya que en el caso de olvidar el recorrido, puede recurrir a esta ayuda sin necesidad de reiniciar el nivel.
+No obstante, para reflejar dicha ayuda en la puntuación final, se decidió penalizar al usuario restando un punto si utiliza esta función.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_mejora_1.png}
+    \caption{Modificaciones realizadas - Juego \textit{Metro de la memoria} - Parte 1}
+    \label{fig:result_metro_mejora_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_mejora_2.png}
+    \caption{Modificaciones realizadas - Juego \textit{Metro de la memoria} - Parte 2}
+    \label{fig:result_metro_mejora_2}
+\end{figure}
+
+\newpage
+Además, se añadieron mapas más complejos para los dos últimos niveles, tratando de adaptarlos a un público más avanzado \cref{fig:result_metro_mejora_3} \cref{fig:result_metro_mejora_4}.
+De este modo, se busca ofrecer un desafío adecuado a los usuarios con mayor experiencia, manteniendo su interés y motivación para seguir utilizando la plataforma.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_mejora_3.png}
+    \caption{Modificaciones realizadas - Juego \textit{Metro de la memoria} - Parte 3}
+    \label{fig:result_metro_mejora_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_mejora_4.png}
+    \caption{Modificaciones realizadas - Juego \textit{Metro de la memoria} - Parte 4}
+    \label{fig:result_metro_mejora_4}
+\end{figure}
+
+\newpage
+Por otro lado, para resumir la estructura del backend hasta este sprint, se muestran tanto el diagrama de ficheros \cref{fig:sprint4_ficheros} como el de base de datos \cref{fig:sprint4_bd} hasta dicho momento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint4_ficheros.png}
+    \caption{Sprint 4 - Diagrama de ficheros}
+    \label{fig:sprint4_ficheros}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint4_bd.png}
+    \caption{Sprint 4 - Diagrama de base de datos}
+    \label{fig:sprint4_bd}
+\end{figure}
+
 \paragraph{Retrospectiva}
+Durante este sprint se implementó el juego planificado: \textit{Semáforo emocional}.
+No obstante, al añadir la sesión de pruebas con el grupo no clínico, la cual no estaba prevista para este sprint, se tuvieron que realizar algunos cambios en las tareas planificadas.
+De este modo, se añadió la planificación y realización de pruebas, así como algunas de las modificaciones de la plataforma tras probarla; y se eliminaron las tareas relativas a las secciones de la plataforma que no estaban relacionadas con los juegos.
+Esto se debió a que se dicidió priorizar los juegos a secciones como la retroalimentación, misiones o el perfil de usuario.
+Así pues, se eliminaron algunas tareas, pero se remplazaron por otras, pasando de 20 puntos de historia a 22 en este sprint, lo cual no era un cambio demasiado significativo.
+El resto de tareas se optó por dejarlas para iteraciones futuras, planteando la opción de añadir alguna iteración nueva.
 
 \subsection{Presupuesto del proyecto}
