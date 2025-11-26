@@ -202,15 +202,10 @@ export const checkSequence = async (req, res) => {
     // Check if the sequence is correct
     const normalizedSequence = sequence.map(Number);
     const normalizedPath = task.path.map(Number);
-    const isCorrect =
-      JSON.stringify(normalizedSequence) === JSON.stringify(normalizedPath);
+    const isCorrect = JSON.stringify(normalizedSequence) === JSON.stringify(normalizedPath);
 
     let score = 0;
-    if (isCorrect) {
-      if (attempt === 1) score = 3;
-      else if (attempt === 2) score = 2;
-      else if (attempt === 3) score = 1;
-    } else if (attempt >= 3) score = 0;
+    if (isCorrect) score = Math.max(3 - (attempt - 1), 0);   
 
     // Store or update game session
     const { data: existing } = await supabase
@@ -222,6 +217,8 @@ export const checkSequence = async (req, res) => {
       .maybeSingle();
 
     if (existing) {
+      // if (existing.help_used) score = Math.max(score - 1, 0);
+
       const { error: updateError } = await supabase
         .from("game_sessions")
         .update({ score })

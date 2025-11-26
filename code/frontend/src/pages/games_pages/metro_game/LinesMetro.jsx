@@ -10,6 +10,7 @@ export default function MetroMap() {
     const [task, setTask] = useState(null);
     const [selectedStations, setSelectedStations] = useState([]);
     const [attempts, setAttempts] = useState(0);
+    const [showHelp, setShowHelp] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -45,6 +46,7 @@ export default function MetroMap() {
         return false;
     };
 
+    // Check if the selected stations are possible
     const handleStationClick = (stationId) => {
         if (selectedStations.includes(stationId)) return;
         if (!isContiguous(stationId)) {
@@ -54,6 +56,7 @@ export default function MetroMap() {
         setSelectedStations([...selectedStations, stationId]);
     };
 
+    // Check if the selected stations match the task sequence
     const handleSubmit = async () => {
         try {
             const token = localStorage.getItem("token");
@@ -79,12 +82,36 @@ export default function MetroMap() {
         }
     };
 
+    // Help button handler
+    const handleHelp = async () => {
+        const confirmUse = window.confirm("¿Seguro que quieres usar la ayuda? Se restará 1 punto al resultado.");
+        if (!confirmUse) return;
+
+        try {
+            const token = localStorage.getItem("token");
+            await axios.post(`/api/games/help/${id}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+            setShowHelp(true);
+        } catch (err) {
+            console.error("Error updating help usage:", err);
+            alert("Error al registrar la ayuda.");
+        }
+    };
+
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col relative">
             <Header />
-            <div className="flex-grow flex flex-col items-center pt-8 px-4">
-                <h2 className="text-2xl font-extrabold text-center mb-8 drop-shadow-md"> Selecciona, una a una, las paradas por las que deberá pasar. </h2>
+
+            {/* Help button */}
+            <div className="mt-4 flex justify-end">
+                <Button onClick={handleHelp} className="text-lg font-semibold mr-4"> Ayuda</Button>
+            </div>
+
+            <div className="flex-grow flex flex-col items-center px-4">
+                <h2 className="text-2xl font-extrabold text-primary text-center mb-2 drop-shadow-md"> Selecciona, una a una, las paradas por las que deberá pasar. </h2>
+                {showHelp && task && (
+                    <h3 className="font-bold text-primary mb-2">Ayuda: {task.clue}</h3>
+                )}
 
                 {/* Metro map */}
                 <div className="rounded-xl shadow-lg p-6 flex justify-center items-center">

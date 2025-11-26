@@ -161,15 +161,50 @@ export const resultLevel = async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("game_sessions")
-      .select("score, game_levels!inner(level_number)")
+      .select("score, help_used, game_levels!inner(level_number)")
       .eq("level_id", id)
       .eq("user_id", studentId)
       .maybeSingle();
 
     if (error) throw error;
+
+    if (data && data.help_used) {
+      data.score = Math.max(data.score - 1, 0);
+    }
+    
+    await supabase
+      .from("game_sessions")
+      .update({ score: data.score, help_used: false })
+      .eq("level_id", id)
+      .eq("user_id", studentId);
+    
     return res.json(data);
   } catch (err) {
     console.error("Error fetching info:", err);
     return res.status(500).json({ error: "Error fetching info" });
+  }
+};
+
+// Set help used function
+export const helpUsed = async (req, res) => {
+  const { id } = req.params;
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const studentId = getStudentIdFromToken(token);
+  if (!studentId) return res.status(401).json({ error: "No autorizado" });
+
+  try {
+    const { data, error } = await supabase
+      .from("game_sessions")
+      .update({ help_used: true })
+      .eq("level_id", id)
+      .eq("user_id", studentId);
+
+    if (error) throw error;
+    return res.json({ message: "Help usage recorded" });
+  } catch (err) {
+    console.error("Error updating help usage:", err);
+    return res.status(500).json({ error: "Error updating help usage" });
   }
 };
