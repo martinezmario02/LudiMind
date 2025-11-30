@@ -83,14 +83,15 @@ export const checkEmotionSolution = async (req, res) => {
       return res.status(404).json({ error: "Solution not found" });
 
     // Get correct emotion and intensity
-    const correctEmotion = Object.keys(solution).reduce((a, b) =>
-      solution[a] > solution[b] ? a : b
-    );
+    const correctOptions = Object.entries(solution)
+      .filter(([emotion, value]) => value > 0)
+      .map(([emotion, value]) => ({ emotion, intensity: value }));
 
-    const correctIntensity = solution[correctEmotion];
-    const isCorrectEmotion = selectedEmotion === correctEmotion;
-    const isCorrectIntensity = parseInt(intensity) === parseInt(correctIntensity);
-    const isCorrect = isCorrectEmotion && isCorrectIntensity;
+    const isCorrect = correctOptions.some(
+      opt =>
+        opt.emotion === selectedEmotion &&
+        parseInt(opt.intensity) === parseInt(intensity)
+    );
     const emotionAttemptValue = isCorrect ? attempt : null;
 
     // Save progress
@@ -128,8 +129,7 @@ export const checkEmotionSolution = async (req, res) => {
     return res.json({
       isCorrect,
       finished,
-      correctEmotion,
-      correctIntensity,
+      correctOptions,
       attempt,
       message: isCorrect
         ? "✅ ¡Muy bien! Has identificado correctamente la emoción."

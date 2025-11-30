@@ -110,7 +110,7 @@ export default function EmotionBars() {
       <Header />
       <div className="flex-grow flex flex-col items-center pt-8 px-4">
         <h2 className="text-2xl font-extrabold text-center mb-4 drop-shadow-md">
-          ¿Cómo crees que se siente el niño?
+          ¿Cómo crees que se siente Marcos?
         </h2>
         <p className="text-center mb-6">
           Solo una emoción puede tener un valor distinto de cero.

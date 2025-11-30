@@ -43,7 +43,7 @@ export default function ButtonsDetective() {
             <Header />
             <div className="flex-grow flex flex-col items-center px-6 py-10">
                 <h2 className="text-2xl font-extrabold text-center mb-8 drop-shadow-md">
-                    ¿Qué harías tú en esta situación?
+                    ¿Qué harías tú si fueras Marcos y estuvieras en esta situación?
                 </h2>
                 <div className="flex flex-col gap-12 w-full max-w-lg">
                     {choices.map((choice) => (
