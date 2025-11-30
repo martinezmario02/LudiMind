@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
-import CarHorn from "../../distractors/CarHorn";
+import CarHorn from "../../auditory_distractions/CarHorn";
 import { useDrag, useDrop } from "react-dnd";
 
 const ItemTypes = { OBJECT: "object" };
@@ -39,7 +39,7 @@ function DroppableDrawer({ drawer, onObjectDropped }) {
 
     return (
         <div ref={dropRef} onClick={() => navigate(`/organization/content/${drawer.id}`)}
-            className={`bg-[url('/imgs/wood_texture.jpg')] bg-cover bg-center rounded-2xl shadow-lg p-4 flex flex-col items-center justify-center h-80 w-80 hover:scale-105 transform transition ${isOver ? "ring-4 ring-yellow-400" : ""}`}>
+            className={`bg-[url('/imgs/wood_texture.jpg')] bg-cover bg-center rounded-2xl shadow-lg p-4 flex flex-col items-center justify-center w-full aspect-square hover:scale-105 transform transition ${isOver ? "ring-4 ring-yellow-400" : ""}`}>
             <h2 className="text-3xl font-bold text-white">{drawer.name}</h2>
         </div>
     );
@@ -130,7 +130,7 @@ export default function OrganizationDrawer() {
                 </h2>
 
                 {/* Drawers */}
-                <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center mb-8">
+                <div className={`w-full max-w-5xl grid gap-6 justify-items-center mb-8 grid-cols-1 md:grid-cols-${drawers.length}`}>
                     {drawers.map((drawer) => (
                         <DroppableDrawer key={drawer.id} drawer={drawer} onObjectDropped={handleObjectDropped} />
                     ))}

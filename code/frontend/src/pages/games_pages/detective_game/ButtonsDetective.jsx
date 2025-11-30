@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
-import Message from "../../distractors/Message";
+import Message from "../../auditory_distractions/Message";
 
 export default function ButtonsDetective() {
     const { id } = useParams();

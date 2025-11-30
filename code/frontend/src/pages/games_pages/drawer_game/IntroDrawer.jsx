@@ -52,7 +52,9 @@ export default function IntroDrawer() {
             <CharacterSpeech
                 text={level.level_number <= 3
                 ? `Necesito organizar mi desván mágico en función de su ${categoryText}. ¿Podrías ayudarme?`
-                : `Debes organizar los objetos del desván en función de su ${categoryText}.`}
+                : level.level_number === 4
+                ? `Debes organizar los objetos del desván en función de su ${categoryText}.`
+                : "¡Cuidado! Este nivel es diferente al resto. Solamente deberás colocar los objetos que no sean de ninguno de los materiales indicados en el cajón 'Resto'. ¡El resto de objetos deberán quedarse sin organizar!"}
                 image="/imgs/avatar_goat.png"
                 showAvatar={level.level_number <= 3}
             />

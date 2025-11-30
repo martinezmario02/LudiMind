@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../../../components/ui/Header";
 import Button from "../../../components/ui/Button";
 import Slider from "../../../components/ui/Slider";
-import Message from "../../distractors/Message";
+import Message from "../../auditory_distractions/Message";
 
 export default function EmotionBars() {
   const { id } = useParams();
