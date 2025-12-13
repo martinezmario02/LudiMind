@@ -31,6 +31,7 @@ import RedRetroSemaphore from "./pages/games_pages/semaphore_game/RedRetroSemaph
 import YellowSemaphore from "./pages/games_pages/semaphore_game/YellowSemaphore";
 import YellowRetroSemaphore from "./pages/games_pages/semaphore_game/YellowRetroSemaphore";
 import GreenSemaphore from "./pages/games_pages/semaphore_game/GreenSemaphore";
+import ProfilePage from "./pages/profile_pages/ProfilePage";
 
 export default function App() {
   return (
@@ -72,6 +73,8 @@ export default function App() {
           <Route path="/selfcontrol/:id/yellow" element={<YellowSemaphore />} />
           <Route path="/selfcontrol/:id/yellow-retrospective" element={<YellowRetroSemaphore />} />
           <Route path="/selfcontrol/:id/green" element={<GreenSemaphore />} />
+
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </Router>
     </DndProvider>

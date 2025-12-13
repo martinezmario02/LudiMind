@@ -149,7 +149,7 @@ export default function OrganizationDrawer() {
                 </div>
 
                 {/* Distractors */}
-                <CarHorn silence={5000} volume={0.6} />
+                <CarHorn silence={Math.floor(Math.random() * (6000 - 2000 + 1)) + 2000} volume={0.6} />
             </div>
         </div>
     );

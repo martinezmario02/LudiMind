@@ -34,7 +34,7 @@ export default function SituationDetective() {
             </div>
 
             {/* Distractors */}
-            <Message silence={3000} volume={0.6} />
+            <Message silence={Math.floor(Math.random() * (6000 - 2000 + 1)) + 2000} volume={0.6} />
         </div>
     );
 }

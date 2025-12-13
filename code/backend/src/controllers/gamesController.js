@@ -208,3 +208,42 @@ export const helpUsed = async (req, res) => {
     return res.status(500).json({ error: "Error updating help usage" });
   }
 };
+
+// Get total global score function
+export const totalGlobalScore = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const studentId = getStudentIdFromToken(token);
+  if (!studentId) return res.status(401).json({ error: "No autorizado" });
+
+  const { data, error } = await supabase
+    .from("game_sessions")
+    .select("score")
+    .eq("user_id", studentId);
+
+  if (error) return res.status(400).json({ error: error.message });
+  
+  const totalScore = data.reduce((acc, session) => acc + (session.score || 0), 0);
+
+  return res.json({ totalGlobalScore: totalScore });
+};
+
+// Get completed levels globally function
+export const completedLevelsGlobal = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "Token requerido" });
+
+  const studentId = getStudentIdFromToken(token);
+  if (!studentId) return res.status(401).json({ error: "No autorizado" });
+
+  const { count, error } = await supabase
+    .from("game_sessions")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", studentId)
+    .eq("score", 3);
+
+  if (error) return res.status(400).json({ error: error.message });
+
+  return res.json({ completedLevels: count });
+};

@@ -54,7 +54,7 @@ export default function ButtonsDetective() {
                 </div>
             </div>
             {/* Distractors */}
-            <Message silence={3000} volume={0.6} />
+            <Message silence={Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000} volume={0.6} />
         </div>
     );
 }
