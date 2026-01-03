@@ -27,7 +27,7 @@ export default function HomePage() {
                         LudiMind
                     </h1>
                     <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto">
-                        Una plataforma educativa diseñada especialmente para ayudar a estudiantes con TDAH
+                        Una aplicación educativa diseñada especialmente para ayudar a estudiantes con TDAH
                         a desarrollar sus habilidades a través del juego
                     </p>
                     <p className="text-xl text-foreground mb-8 font-sans max-w-2xl mx-auto mt-6">

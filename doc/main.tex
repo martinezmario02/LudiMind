@@ -23,7 +23,7 @@
 \usepackage[document]{ragged2e}
 \usepackage[table]{xcolor}
 \usepackage{colortbl}
-\definecolor{lightgray}{rgb}{0.9, 0.9, 0.9}
+\definecolor{lightgray}{gray}{0.95}
 \definecolor{black}{rgb}{0, 0, 0}
 \renewcommand{\arraystretch}{1.3}
 \arrayrulecolor{black}
@@ -31,6 +31,7 @@
 \usepackage{tabularx}
 \usepackage{booktabs} 
 \usepackage{longtable}
+\usepackage{pdflscape}
 
 \usepackage[backend=biber,style=apa]{biblatex} % Citación APA
 \addbibresource{bibliografia.bib}
@@ -117,10 +118,10 @@
 Las personas que tienen Trastorno por Déficit de Atención e Hiperactividad (TDAH) enfrentan diariamente problemas relacionados con la autorregulación, la impulsividad, la concentración y la planificación. 
 En el caso de los estudiantes, estos problemas pueden afectar a su desarrollo académico, social y emocional, especialmente si no se aplican estrategias de intervención adecuadas.
 
-Con el propósito de proporcionar una plataforma lúdica y educativa que favorezca la mejora de estas funciones ejecutivas, en este Trabajo de Fin de Máster se ha creado una plataforma digital de minijuegos educativos enfocada en niños y niñas con TDAH. 
+Con el propósito de proporcionar una aplicación lúdica y educativa que favorezca la mejora de estas funciones ejecutivas, en este Trabajo de Fin de Máster se ha creado una aplicación digital de minijuegos educativos enfocada en niños y niñas con TDAH. 
 El proyecto tiene como objetivo estimular habilidades fundamentales como la memoria de trabajo o la planificación, utilizando dinámicas motivadoras, refuerzo positivo y un diseño adaptado a sus necesidades cognitivas.
 
-Para el desarrollo de la plataforma, se ha utilizado React.js para el frontend y Node.js con Express para el backend, asegurando una experiencia de usuario fluida y accesible desde múltiples dispositivos. Además, se ha levantado en contendores Docker para facilitar su despliegue y mantenimiento.
+Para el desarrollo de la aplicación, se ha utilizado React.js para el frontend y Node.js con Express para el backend, asegurando una experiencia de usuario fluida y accesible desde múltiples dispositivos. Además, se ha levantado en contendores Docker para facilitar su despliegue y mantenimiento.
 
 Cada juego está diseñado para desarrollar una competencia específica, brindando retroalimentación inmediata y una experiencia atractiva que promueve la autonomía, el pensamiento crítico y la perseverancia. Además, se incluye un sistema de seguimiento del progreso y recompensas para mantener el compromiso del usuario.
 
@@ -129,7 +130,7 @@ Este enfoque integra la evidencia científica sobre la intervención en TDAH con
 
 \textbf{Palabras clave}
 
-Trastorno por Déficit de Atención e Hiperactividad, Funciones ejecutivas, Juegos educativos, Atención, Motivación, Plataforma digital, Memoria de trabajo, Planificación, Autorregulación emocional, Resolución de conflictos, Estudiantes, Usabilidad, Gamificación, Refuerzo positivo, Evaluación, Intervención psicoeducativa, Neurodesarrollo, Aprendizaje basado en juegos, Terapias asistidas por ordenador, Tecnología educativa.
+Trastorno por Déficit de Atención e Hiperactividad, Funciones ejecutivas, Juegos educativos, Atención, Motivación, aplicación digital, Memoria de trabajo, Planificación, Autorregulación emocional, Resolución de conflictos, Estudiantes, Usabilidad, Gamificación, Refuerzo positivo, Evaluación, Intervención psicoeducativa, Neurodesarrollo, Aprendizaje basado en juegos, Terapias asistidas por ordenador, Tecnología educativa.
 
 \newpage
 \thispagestyle{empty}
@@ -251,6 +252,9 @@ Y para que conste, expiden y firman el presente informe en Granada a 1 de septie
 
 \newpage
 \input{secciones/4_evaluacion}
+
+\newpage
+\input{secciones/5_anexos}
 
 % \newpage
 % \input{secciones/4_mecanicajuegos}
