@@ -36,6 +36,18 @@ export default function ProfileEditPage() {
         }
     };
 
+    const deleteAccount = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            if (!token) return;
+            await axios.post("/api/auth/delete-account", {}, { headers: { Authorization: `Bearer ${token}` } });
+            localStorage.removeItem("token");
+            navigate("/");
+        } catch (error) {
+            console.error("Error al eliminar la cuenta:", error);
+        }
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
@@ -58,11 +70,8 @@ export default function ProfileEditPage() {
                             />
                         </div>
 
-                        {/* Guardar */}
                         <div className="flex justify-end">
-                            <Button onClick={handleSave}>
-                                Guardar cambios
-                            </Button>
+                            <Button onClick={handleSave}> Guardar cambios </Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -72,7 +81,7 @@ export default function ProfileEditPage() {
                     <p className="text-sm text-muted-foreground">
                         ¿Quieres eliminar tu cuenta?
                     </p>
-                    <button className="text-sm font-medium text-primary underline mt-1" onClick={() => console.log("Ir a eliminar cuenta")}>
+                    <button className="text-sm font-medium text-primary underline mt-1" onClick={deleteAccount}>
                         Haz click aquí
                     </button>
                 </div>

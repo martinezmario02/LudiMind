@@ -298,3 +298,41 @@ export const changeName = async (req, res) => {
     return res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
+// Delete account function
+export const deleteAccount = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "No autorizado" });
+
+  try {
+    // Get user identifiers
+    let studentId = null;
+    let authUserId = null;
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      if (decoded?.studentId) studentId = decoded.studentId;
+    } catch {}
+
+    const { data: authData, error: authError } = await supabase.auth.getUser(token);
+    if (!authError && authData?.user) {
+      authUserId = authData.user.id;
+    }
+    if (!studentId && !authUserId) {
+      return res.status(401).json({ error: "Token inválido" });
+    }
+
+    // Delete data
+    if (studentId) {
+      await supabase.from("visual_login_sequences").delete().eq("user_id", studentId);
+      await supabase.from("students").delete().eq("id", studentId);
+    }
+    if (authUserId) {
+      await supabase.from("profiles").delete().eq("id", authUserId);
+      await supabase.auth.admin.deleteUser(authUserId);
+    }
+    return res.json({ message: "Cuenta y datos eliminados correctamente" });
+  } catch (err) {
+    console.error("Error en deleteAccount:", err);
+    return res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
