@@ -1038,8 +1038,14 @@ Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cu
 Respecto a los juegos, se decidió mantener la estructura y dinámica de los bocetos iniciales, realizando únicamente las modificaciones superficiales comentadas en la reunión con las tutoras.
 Estas modificaciones, explicadas a continuación, buscan mejorar la experiencia de usuario y adaptarse mejor a las necesidades de los usuarios con TDAH.
 Además, se planteó la incorporación de elementos visuales y auditivos que pudieran suponer una distracción para los usuarios con TDAH con el objetivo de obligarles a mejorar su concentración y enfocar su atención.
-Así pues, se añadieron sonidos de fondo como una bocina de un coche y efectos visuales como un globo o una burbuja flotando en cada juego, los cuales podrán ir apareciendo en momentos específicos y con una frecuencia dependiente del nivel de dificultad.
-A continuación, se muestran los nuevos bocetos de cada juego, en los cuales no se mostrarán dichos elementos, pues no serán algo fijo de cada nivel, sino que irán apareciendo de forma aleatoria.
+Así pues, se añadieron sonidos de fondo como una bocina de un coche y efectos visuales como un globo o una burbuja flotando en cada juego, los cuales podrán ir apareciendo en momentos específicos y con una frecuencia dependiente del nivel de dificultad \cref{fig:boceto_distractor}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/boceto_distractor.png}
+    \caption{Boceto distractor visual}
+    \label{fig:boceto_distractor}
+\end{figure}
 
 En el juego \textbf{Metro de la memoria} no se realizaron cambios significativos, salvo el paso a una versión web y la incorporación de unas instrucciones más específicas para ayudar a los usuarios \cref{fig:nuevo_boceto_metro_1} \cref{fig:nuevo_boceto_metro_2}.
 Respecto a la pantalla de selección del camino, se mantuvo sin cambios \cref{fig:nuevo_boceto_metro_3}, mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_metro_4}.
@@ -1072,6 +1078,7 @@ Respecto a la pantalla de selección del camino, se mantuvo sin cambios \cref{fi
     \label{fig:nuevo_boceto_metro_4}
 \end{figure}
 
+\newpage
 En el juego \textbf{Desván mágico} tampoco se realizaron cambios significativos, salvo el paso a una versión web \cref{fig:nuevo_boceto_desvan_1} y el aumento del tamaño de los objetos y títulos \cref{fig:nuevo_boceto_desvan_2}.
 Además, se añadió un botón para volver de la pantalla de objetos a la pantalla de organización, en caso de haberse consultado los objetos de un cajón concreto \cref{fig:nuevo_boceto_desvan_3}.
 Finalmente, en la pantalla de retroalimentación  también se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_desvan_4}.
@@ -1104,7 +1111,6 @@ Finalmente, en la pantalla de retroalimentación  también se incorporó el resu
     \label{fig:nuevo_boceto_desvan_4}
 \end{figure}
 
-\newpage
 En el juego \textbf{Detective emociones} también se diseñó una nueva versión web \cref{fig:nuevo_boceto_detective_1} \cref{fig:nuevo_boceto_detective_2}, incorporando instrucciones más específicas como la posibilidad de escoger un único sentimiento \cref{fig:nuevo_boceto_detective_3} o la existencia de únicamente tres puntos de parada para cada sentimiento disponible \cref{fig:nuevo_boceto_detective_4}.
 El apartado de toma de decisiones se mantuvo sin cambios \cref{fig:nuevo_boceto_detective_5} \cref{fig:nuevo_boceto_detective_6}, mientras que en la pantalla de retroalimentación se incorporó el resultado representado con estrellas, para facilitar la comprensión del resultado \cref{fig:nuevo_boceto_detective_7}.
 
@@ -1208,6 +1214,7 @@ Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio si
     \label{fig:nuevo_boceto_semaforo_7}
 \end{figure}
 
+\newpage
 Finalmente, se acordó añadir la opción de iniciar sesión como tutores.
 Estos usuarios tendrán acceso a una sección específica en la cual podrían ver el progreso de los estudiantes a su cargo.
 Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsqueda \cref{fig:nuevo_boceto_tutores_1}.
@@ -2635,3 +2642,54 @@ Así pues, al igual que en el sprint anterior, se optó por posponer la implemen
 De este modo, se logró avanzar en el desarrollo de la aplicación, asegurando que cumpla con los objetivos planteados inicialmente y ofreciendo una experiencia de usuario óptima.
 
 \subsection{Presupuesto del proyecto}
+A continuación, se presenta el presupuesto detallado del proyecto, desglosado en las diferentes categorías de gastos incurridos durante el desarrollo del mismo.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+    \hline
+    \textbf{Gastos elegibles} & \textbf{Unidades} & \textbf{Coste por unidad} & \textbf{Importe solicitado} \\
+    \hline
+
+    \multicolumn{4}{|c|}{\textbf{GASTOS DE PERSONAL}} \\
+    \hline
+    Total de gastos de personal.  
+    \newline \footnotesize *Suponiendo un sueldo de 2500€ al mes \parencite{paid}.  
+    \newline *El proyecto dura 9 meses. &
+    1 &
+    2500€/mes &
+    22500€ \\
+    \hline
+
+    \multicolumn{4}{|c|}{\textbf{GASTOS DE EJECUCIÓN}} \\
+    \hline
+    \multicolumn{4}{|c|}{Coste de adquisición de material inventariable.} \\
+    \hline
+    Ordenador (Precio del ordenador: 900€).  
+    \newline \footnotesize *Vida útil estimada: 6 años.  
+    \newline *Proyecto de 9 meses. &
+    1 &
+    112,50€ &
+    112,50€ \\
+    \hline
+    Apple iPad (Precio del iPad: 250€).  
+    \newline \footnotesize *Vida útil estimada: 6 años.  
+    \newline *Proyecto de 9 meses. &
+    1 &
+    31,25€ &
+    31,25€ \\
+    \hline
+
+    \multicolumn{4}{|c|}{\textbf{COSTES INDIRECTOS (10\% presupuesto total: 22643,75)}} \\
+    \hline
+    \multicolumn{3}{|r|}{\textbf{Importe}} & 2264,38€ \\
+    \hline
+    \multicolumn{4}{|c|}{\textbf{TOTAL PRESUPUESTO SOLICITADO}} \\
+    \hline
+    \multicolumn{3}{|r|}{\textbf{Importe}} & 24908,13€ \\
+    \hline
+\end{tabularx}
+\caption{Presupuesto del proyecto}
+\label{tab:presupuesto}
+\end{table}
