@@ -2520,11 +2520,11 @@ Respecto a las historias de usuario, en esta iteración también se ha desarroll
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
-\hline
-\textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
-\hline
-HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 5 \\
-\hline
+    \hline
+    \textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+    \hline
+    HU.3 & Como usuario necesito ver mi perfil. & 2 & C & 5 \\
+    \hline
 \end{tabularx}
 \caption{Listado de Historias de usuario - Sprint 5}
 \end{table}
@@ -2563,7 +2563,7 @@ A continuación, también se muestra el desglose de tareas realizado para dicha 
     } \\
     \hline
 \end{tabularx}
-\caption{HU.3 - Como usuario necesito ver mi perfil. - Desglose de tareas}
+\caption{HU.3 - Como usuario necesito ver mi perfil - Desglose de tareas}
 \vspace{0.8em}
 \end{table}
 
@@ -2641,6 +2641,154 @@ Además, se implementó la funcionalidad del perfil de usuario, permitiendo a lo
 Así pues, al igual que en el sprint anterior, se optó por posponer la implementación de las funcionalidades restantes de la aplicación para centrarse en estas mejoras y en las pruebas con el grupo clínico.
 De este modo, se logró avanzar en el desarrollo de la aplicación, asegurando que cumpla con los objetivos planteados inicialmente y ofreciendo una experiencia de usuario óptima.
 
+\subsubsection{Sprint 6}
+\paragraph{Desarrollo del sprint}
+En esta última iteración se planificó la finalización de la funcionalidad del perfil de usuario, permitiendo a los usuarios modificar su información personal y eliminar su cuenta si así lo desean.
+Además, se pretende incorporar la sección de evaluación para estudiantes, la cual permite a los usuarios observar su progreso y rendimiento en los juegos.
+A continuación, se muestra el backlog del sprint \cref{fig:sprint6}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint6.png}
+    \caption{Sprint 6 - Backlog final}
+    \label{fig:sprint6}
+\end{figure}
+
+Como se puede observar, la cantidad de puntos de historia en este sprint es menor que en los anteriores.
+Esto es debido a que se ha decidido centrar el trabajo en la finalización de esta memoria y en el análisis de los resultados obtenidos en las pruebas con usuarios, dejando algunas funcionalidades para trabajo futuro.
+
+\paragraph{Historias de usuario}
+Respecto a las historias de usuario, en esta iteración se han desarrollado dos nuevas, mostradas en la tabla a continuación.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
+    \hline
+    \textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+    \hline
+    HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 6 \\
+    \hline
+    HU.18 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 6 \\
+    \hline
+\end{tabularx}
+\caption{Listado de Historias de usuario - Sprint 6}
+\end{table}
+
+A continuación, también se muestra el desglose de tareas realizado para cada una de dichas historias de usuario, realizando una estimación de esfuerzo medida en días.
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+\vspace{0.8em}
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
+    \hline
+    \textbf{HU.4} & \textbf{Como usuario necesito modificar mi perfil.} & \textbf{2PH} \\
+    \hline
+    \multicolumn{3}{|c|}{
+        \begin{minipage}{0.95\textwidth}
+            \vspace{0.5em}
+            \begin{tabular}{|l|p{0.7\textwidth}|c|}
+                \hline
+                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
+                \hline
+                T.1 & Diseñar boceto de pantallas de modificación del perfil. & 0.5 \\
+                \hline
+                T.2 & Implementar pantallas de modificación del perfil en el frontend. & 1 \\
+                \hline
+                T.3 & Implementar lógica de modificación del perfil en el backend. & 0.5 \\
+                \hline
+                T.4 & Actualizar la base de datos. & 0.5 \\
+                \hline
+                T.5 & Realizar las pruebas de aceptación. & 0.5 \\
+                \hline
+            \end{tabular}
+            \vspace{0.5em}
+        \end{minipage}
+    } \\
+    \hline
+\end{tabularx}
+\caption{HU.4 - Como usuario necesito modificar mi perfil - Desglose de tareas}
+\vspace{0.8em}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+\vspace{0.8em}
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
+    \hline
+    \textbf{HU.18} & \textbf{Como usuario necesito poder eliminar mi cuenta.} & \textbf{1PH} \\
+    \hline
+    \multicolumn{3}{|c|}{
+        \begin{minipage}{0.95\textwidth}
+            \vspace{0.5em}
+            \begin{tabular}{|l|p{0.7\textwidth}|c|}
+                \hline
+                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
+                \hline
+                T.1 & Diseñar boceto de pantallas de eliminación de cuenta. & 0.5 \\
+                \hline
+                T.2 & Implementar pantallas de eliminación de cuenta en el frontend. & 0.5 \\
+                \hline
+                T.3 & Implementar lógica de eliminación de cuenta en el backend. & 0.5 \\
+                \hline
+                T.4 & Actualizar la base de datos. & 0.5 \\
+                \hline
+                T.5 & Realizar las pruebas de aceptación. & 0.5 \\
+                \hline
+            \end{tabular}
+            \vspace{0.5em}
+        \end{minipage}
+    } \\
+    \hline
+\end{tabularx}
+\caption{HU.18 - Como usuario necesito poder eliminar mi cuenta - Desglose de tareas}
+\vspace{0.8em}
+\end{table}
+
+\newpage
+\paragraph{Resultados obtenidos}
+En este último sprint se comenzó con la implementación de la funcionalidad para modificar el perfil de usuario.
+Esta funcionalidad incluye una pantalla donde los usuarios pueden actualizar su nombre, así como eliminar su cuenta si así lo desean \cref{fig:result_modif_perfil}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_modif_perfil.png}
+    \caption{Resultados obtenidos - Modificación del perfil de usuario}
+    \label{fig:result_modif_perfil}
+\end{figure}
+
+Tras esto, se implementó la sección de evaluación para estudiantes, en la cual se muestra un resumen del progreso de cada una de las áreas evaluadas en los juegos.
+Este progreso se refleja mediante estrellas, reflejando tres estrellas por nivel de cada juego \cref{fig:result_evaluacion}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_evaluacion.png}
+    \caption{Resultados obtenidos - Evaluación del sistema}
+    \label{fig:result_evaluacion}
+\end{figure}
+
+\newpage
+Respecto a la estructura del backend, se sigue manteniendo el mismo diagrama de base de datos que en los sprints anteriores \cref{fig:sprint4_bd}, ya que no se realizaron modificaciones en este aspecto.
+No obstante, se muestra el diagrama de ficheros actualizado \cref{fig:sprint6_ficheros}, añadiendo únicamente lo relativo a la modificación del perfil de usuario y la sección de evaluación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/sprint6_ficheros.png}
+    \caption{Sprint 6 - Diagrama de ficheros}
+    \label{fig:sprint6_ficheros}
+\end{figure}
+
+\newpage
+\paragraph{Retrospectiva}
+Este último sprint se realizó con éxito, logrando implementar la funcionalidad para modificar el perfil de usuario y la sección de evaluación para estudiantes.
+Estas funcionalidades permiten a los usuarios personalizar su experiencia en la aplicación y realizar un seguimiento de su progreso en los juegos.
+Además, se continuó con esta memoria, extrayendo conclusiones y analizando los resultados obtenidos en las pruebas con usuarios.
+
+Así pues, se finalizó la parte de implementación de este proyecto, dejando algunas funcionalidades como las misiones y recompensas para trabajo futuro.
+
 \subsection{Presupuesto del proyecto}
 A continuación, se presenta el presupuesto detallado del proyecto, desglosado en las diferentes categorías de gastos incurridos durante el desarrollo del mismo.
 
@@ -2693,3 +2841,14 @@ A continuación, se presenta el presupuesto detallado del proyecto, desglosado e
 \caption{Presupuesto del proyecto}
 \label{tab:presupuesto}
 \end{table}
+
+\subsection{Diagrama de Gantt final}
+Tras finalizar el desarrollo del proyecto, se presenta el diagrama de Gantt final \cref{fig:gantt_final}, el cual refleja las tareas planificadas y su duración a lo largo del tiempo.
+En este diagrama se reflejan todos los cambios realizados durante el desarrollo del proyecto, incluyendo las modificaciones en las historias de usuario y las tareas adicionales llevadas a cabo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/gantt_final.png}
+    \caption{Diagrama de Gantt final}
+    \label{fig:gantt_final}
+\end{figure}
