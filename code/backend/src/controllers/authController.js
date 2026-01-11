@@ -267,3 +267,34 @@ export const visualRegister = async (req, res) => {
     res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
+// Change name function
+export const changeName = async (req, res) => {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  const { name } = req.body;
+
+  if (!token) return res.status(401).json({ error: "No autorizado" });
+  if (!name) return res.status(400).json({ error: "Falta el nuevo nombre" });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded?.studentId) {
+      return res.status(401).json({ error: "Token inválido o incompleto" });
+    }
+
+    // Change name
+    const { error: updateError } = await supabase
+      .from("students")
+      .update({ name })
+      .eq("id", decoded.studentId);
+
+    if (updateError) {
+      return res.status(400).json({ error: updateError.message });
+    }
+
+    return res.json({ message: "Nombre actualizado correctamente" });
+  } catch (err) {
+    console.error("Error en changeName:", err);
+    return res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
