@@ -3,15 +3,15 @@
 \subsection{Definición de la propuesta}
 Este proyecto recibe el nombre de \textit{LudiMind}, el cual surge de la combinación de la palabra \textit{ludus} (del latín, juego o actividad lúdica) y \textit{mind} (palabra inglesa que significa mente).
 De esta forma, \textit{LudiMind} transmite la idea de una aplicación que utiliza el juego como vía para estimular la mente, favoreciendo el aprendizaje, la autorregulación emocional y el desarrollo de habilidades cognitivas en niños y niñas con necesidades específicas de apoyo educativo, más concretamente, con TDAH.
-Se desarrollarán cuatro juegos diseñados específicamente para trabajar áreas clave afectadas por el TDAH, todos ellos con varios niveles, cuya complejidad se verá incrementada a medida que el jugador avance.
+Se desarrollarán cuatro juegos, diseñados específicamente para trabajar áreas clave afectadas por el TDAH, todos ellos con varios niveles, cuya complejidad se verá incrementada a medida que el jugador avance.
 Estos juegos son guiados por un avatar que plantea situaciones, preguntas o retos que invitan a la reflexión o resolución de problemas, adaptados a las competencias que se desean trabajar.
 A continuación se describe brevemente cada uno de los juegos.
 
 \begin{itemize}
     \item \textbf{Juego de memoria y funciones ejecutivas:} Se tratará de sumergir a los jugadores y jugadoras en una aventura digital donde deben utilizar la red de metro de una ciudad ficticia, mientras desarrollan funciones ejecutivas y aprenden estrategias de memorización.
-    El jugador o jugadora deberá recordar la parada de origen y destino, proporcionándole una frase mnemotécnica a modo de ayuda.
+    El jugador o jugadora deberá recordar la parada de origen y destino, proporcionándole una frase mnemotécnica a modo de ayuda para escoger la línea de metro adecuada.
     A medida que se avanzan los niveles, se incrementa la dificultad proporcionando frases menos precisas.
-    \item \textbf{Juego de planificación:} El jugador o jugadora accederá a un espacio (desván mágico) que contendrá una gran cantidad de objetos desordenados (escolares, personales, fantásticos). 
+    \item \textbf{Juego de planificación:} El jugador o jugadora accederá a un espacio (desván mágico) que contendrá una gran cantidad de objetos desordenados (escolares, personales, etc.). 
     El objetivo será organizar los objetos moviéndolos a los compartimentos correctos según diferentes criteros que cambiarán según el nivel. 
     Estos compartimentos podrán reflejar categorías de objetos u otras formas de organización (por iniciales, por tipo de palabra). 
     Además, se plantea la posibilidad de añadir niveles de mayor dificultad, en los cuales se agrupen distintas tareas en compartimentos, los cuales reflejen el tiempo que se dedicará a dicha tarea. 
@@ -36,9 +36,8 @@ Esta propuesta busca no solo apoyar el desarrollo de habilidades cognitivas y em
 Para llevar a cabo el desarrollo de la aplicación, se ha optado por utilizar una metodología ágil, concretamente \textbf{Scrum}, con el fin de facilitar una planificación flexible, iterativa y centrada en la mejora continua. 
 Esto nos permite adaptarnos de forma dinámica a posibles cambios que puedan ir surgiendo mientras se desarrolla y prueba la aplicación, además de ayudar a la revisión y aportación de mejoras por parte de las tutoras del proyecto.
 Además, Scrum estructura el desarrollo en ciclos de trabajo denominados \textit{sprints} o \textit{iteraciones}, al final de los cuales se obtiene un incremento funcional del producto \parencite{proyectosagiles}.
-En el momento en el que se tenga un producto mínimo viable se realizarán pruebas con usuarios finales (alumnado con y sin TDAH) para validar la implementación y obtener feedback de cara a realizar mejoras en los últimos sprints.
+En el momento en el que se tenga un producto mínimo viable, se realizarán pruebas con usuarios finales (alumnado con y sin TDAH) para validar la implementación y obtener feedback de cara a realizar mejoras en los últimos sprints.
 
-\newpage
 Para la organización y seguimiento del proyecto se ha empleado la herramienta \textbf{Jira}, una aplicación especializada en la gestión de proyectos ágiles. 
 Esto nos ha permitido la creación de un \textit{product backlog} con las historias y tareas a desarrollar, con su priorización y duración. 
 Además, facilita la visualización de los estados de cada tarea, lo que hace más visual el estado del proyecto.
@@ -46,6 +45,7 @@ Además, facilita la visualización de los estados de cada tarea, lo que hace m�
 Gracias a la combinación de Scrum y Jira, ha sido posible mantener una planificación estructurada, con objetivos definidos por sprint, así como una organización clara de los recursos y tiempos destinados al desarrollo de los distintos minijuegos educativos de la aplicación.
 
 En este caso, la realización del proyecto está dividida en iteraciones cada 3 semanas, contando con un único miembro en el equipo de trabajo: el autor de este trabajo de fin de máster.
+Las tutoras del proyecto tendrán un doble rol: cliente y product owner.
 
 \subsection{Requisitos y análisis de la aplicación}
 Tras el análisis de propuestas similares en el capítulo anterior, se han extraído las características más apropiadas para el perfil del usuario objetivo, pero también se detectaron ciertos aspectos mejorables o poco adaptados. 
@@ -564,7 +564,6 @@ Como usuario, necesito poder eliminar mi cuenta para mantener el control sobre m
 \caption{HU.18 - Eliminar cuenta}
 \end{table}
 
-\newpage
 \subsubsection{Requisitos no funcionales}
 Los requisitos no funcionales se refieren a los atributos de calidad de un sistema que definen su rendimiento, no sus funciones. 
 A diferencia de los requisitos funcionales, que especifican las acciones y tareas que debe realizar un sistema, los requisitos no funcionales se centran en las características generales y el comportamiento del sistema en diversas condiciones. 
@@ -657,11 +656,23 @@ Dichos requisitos se incorporarán a las historias de usuario en forma de tareas
 \caption{RNF.7 - Mantenibilidad}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|}
+\hline
+\textbf{RNF.8} & Integración con DiverAccion \\
+\hline
+\textbf{Descripción} & La aplicación debe integrarse de forma fluida con el sistema DiverAccion, permitiendo el intercambio de datos y la sincronización de progresos. \\
+\hline
+\end{tabularx}
+\caption{RNF.8 - Integración con DiverAccion}
+\end{table}
+
 \newpage
 \subsection{Bocetos de la aplicación}
 A continuación, se muestran los bocetos realizados a mano de la aplicación, así como de cada juego de forma individual, sirviendo de base para la definición de requisitos. 
 En primer lugar, se diseñó un inicio de sesión \cref{fig:boceto_inicio} que dirigiera a la pantalla principal de selección de juegos \cref{fig:boceto_juegos}. 
-Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de estos \cref{fig:boceto_infojuego}, así como a un listado de niveles \cref{fig:boceto_niveles}.
+Esta pantalla debería mostrar los juegos, pudiendo acceder a una explicación de éstos \cref{fig:boceto_infojuego}, así como a un listado de niveles \cref{fig:boceto_niveles}.
 Estos niveles se irán desbloqueando a medida que se vayan completando los anteriores con la máxima puntuación.
 En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependiendo de la cantidad de errores cometidos.
 
@@ -692,7 +703,6 @@ En cada nivel, se podrá obtener una puntuación entre 0 y 3 estrellas, dependie
     \label{fig:boceto_niveles}
 \end{figure}
 
-\newpage
 Tras esto, se diseñaron pantallas para aportar cierta retroalimentación a los usuarios, aspecto clave para las personas con TDAH. 
 En primer lugar, se creó una pantalla para las estadísticas, la cual muestra el progreso del usuario en cada modalidad mediante una barra que refleja el porcentaje de puntos obtenidos respecto al total \cref{fig:boceto_analisis}.
 En segundo lugar, se añadió otra pantalla para las misiones pendientes, las cuales permitían a los usuarios ganar recompensas si completaban ciertos niveles de cada juego \cref{fig:boceto_misiones}.
@@ -719,7 +729,6 @@ En tercer lugar, se diseñó una pantalla para consultar y modificar los datos d
     \label{fig:boceto_perfil}
 \end{figure}
 
-\newpage
 Respecto al diseño de los juegos, se ha optado por una estructura interactiva en la que un avatar guía al usuario a lo largo de cada actividad como el objetivo de facilitar la gamificación \parencite{avatares}. 
 Este avatar plantea situaciones, preguntas o retos que invitan a la reflexión o resolución de problemas, adaptados a las competencias que se desean trabajar. 
 A lo largo de la experiencia, el usuario deberá resolver distintos tipos de tareas como puzles, escenarios de toma de decisiones, clasificación de elementos o identificación de emociones, en función del juego concreto. 
@@ -766,7 +775,7 @@ Finalmente, el usuario obtendrá una puntuación en función de los intentos que
 En el juego \textbf{Desván mágico}, el personaje explicará al usuario el criterio de organización al iniciar el nivel \cref{fig:boceto_desvan_1}. 
 Tras esto, se mostrarán tanto los compartimentos como los objetos, y el usuario deberá arrastrarlos hasta la sección adecuada \cref{fig:boceto_desvan_2}. 
 Estos objetos se mostrarán con un dibujo significativo.
-También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto pulsando sobre este, pudiendo eliminarlos en caso de querer añadirlos a otra sección \cref{fig:boceto_desvan_3}. 
+También se dará la posibilidad de consultar los objetos ya establecidos en un compartimento concreto pulsando sobre éste, pudiendo eliminarlos en caso de querer añadirlos a otra sección \cref{fig:boceto_desvan_3}. 
 Se añadirán algunos objetos a modo de "trampa", los cuales no deberán ser incorporados a ninguno de los compartimentos. 
 Una vez se hayan colocado todos los objetos, se deberá pulsar el botón \textit{Comprobar} para verificar si la organización es correcta.
 Esta pantalla dará información sobre el resultado de la comprobación, obteniendo puntos en función del número de errores \cref{fig:boceto_desvan_4}.
@@ -799,7 +808,7 @@ Esta pantalla dará información sobre el resultado de la comprobación, obtenie
     \label{fig:boceto_desvan_4}
 \end{figure}
 
-Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio \cref{fig:boceto_detective_2} y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando una barra de nivel para una serie de sentimientos \cref{fig:boceto_detective_4}. 
+Respecto al juego \textbf{Detective emociones}, el avatar planteará una situación sobre un personaje ficticio \cref{fig:boceto_detective_2} y pedirá al usuario que analice los sentimientos que debe sentir ese personaje, mostrando barras de nivel para una serie de sentimientos \cref{fig:boceto_detective_4}. 
 Posteriormente, mostrará un formulario con opciones para que escoja qué habría hecho él de haber estado en esa situación \cref{fig:boceto_detective_6}.
 Finalmente, el usuario recibirá una recompensa en función de las respuestas dadas, tratando de analizar si ha comprendido la situación y las emociones implicadas, así como su propia respuesta ante una situación similar.
 
@@ -931,7 +940,7 @@ De este modo, el nombre de usuario facilita el acceso a los estudiantes de menor
 En las pantallas de juegos, se decidió eliminar la distinción entre juegos utilizados anteriormente y nuevos juegos, tal y como se reflejaba en el boceto anterior \cref{fig:boceto_juegos}, mostrando todos los juegos disponibles desde el inicio \cref{fig:nuevo_boceto_juegos}.
 Este cambió se ha debido a que no habrá un número muy elevado de juegos y puede resultar más intuitivo para el usuario ver todos los juegos en la misma disposición desde el principio.
 Además, se añadió una barra de progreso en cada juego, mostrando la puntuación obtenida en función de la total en cada uno de ellos \cref{fig:nuevo_boceto_infojuego}.
-Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una versión web \cref{fig:nuevo_boceto_niveles}.
+Respecto a la pantalla de niveles, no se realizaron cambios, salvo el paso a una versión web con el formato en apaisado \cref{fig:nuevo_boceto_niveles}.
 
 \begin{figure}[H]
     \centering
@@ -983,8 +992,8 @@ En segundo lugar, se añadió una sección de historial de intentos, en la cual 
 
 \newpage
 Para la sección de las misiones, se añadió también un avatar de apoyo que informará al usuario de la finalidad de la sección \cref{fig:nuevo_boceto_misiones_1}.
-Además, se modificó el diseño para que fuera más visual y atractivo, mostrando tanto las misiones diarias que pudiera tener el usuario (jugar un tiempo específico al día o pasarse cierto número de niveles), como las misiones pendientes y realizadas en dos listas diferenciadas.
-Para estas misiones se ha añadido información de ayuda para el usuario, como el progreso o las etiquetas de la esquina superior derecha de cada misión, las cuales informarían al usuario de aspectos como la dificultad o la habilidad a desarrollar \cref{fig:nuevo_boceto_misiones_2}.
+Además, se modificó el diseño para que fuera más visual y atractivo, mostrando tanto las misiones diarias que pudiera tener el usuario (jugar un tiempo específico al día o pasarse cierto número de niveles), como las misiones pendientes y realizadas en dos listas diferenciadas \cref{fig:nuevo_boceto_misiones_2}.
+Para estas misiones se ha añadido también información de ayuda para el usuario, como el progreso o la recompensa.
 
 \begin{figure}[H]
     \centering
@@ -1003,7 +1012,7 @@ Para estas misiones se ha añadido información de ayuda para el usuario, como e
 Para la pantalla de perfil, también se añadió el avatar de apoyo \cref{fig:nuevo_boceto_perfil_1} y se modificó el diseño para que fuera más informativa.
 Se eliminó la fecha de nacimiento en relación con la LOPDGDD, para minimizar datos y evitar problemas de privacidad, por lo que se decidió mostrar únicamente el nombre sin apellidos y la edad (este dato se mantiene para adaptar el nivel de dificultad y presentación de los juegos al usuario).
 Además, se añadió un resumen de los niveles completados, los puntos conseguidos y el tiempo jugado entre todos los juegos \cref{fig:nuevo_boceto_perfil_2}.
-Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto las imágenes del perfil, los cuales se van desbloqueando con las misiones, como los nombres; pudiendo eliminar la cuenta también en caso de ser deseado \cref{fig:nuevo_boceto_perfil_3}.
+Por otro lado, se incorporó una sección de edición del perfil, pudiendo modificar tanto las imágenes del perfil, los cuales se van desbloqueando con las misiones, como los nombres \cref{fig:nuevo_boceto_perfil_3}.
 Finalmente, se añadió una pantalla para consultar los logros obtenidos, los cuales se irán mostrando a medida que se vayan completando las diferentes misiones de cada juego \cref{fig:nuevo_boceto_logros}.
 
 \begin{figure}[H]
@@ -1215,11 +1224,11 @@ Respecto al juego \textbf{Semáforo emocional}, no se realizó ningún cambio si
 \end{figure}
 
 \newpage
-Finalmente, se acordó añadir la opción de iniciar sesión como tutores.
+Finalmente, se acordó añadir la opción de iniciar sesión como tutores, lo que significará añadir nuevas historias de usuario para este actor, el tutor.
 Estos usuarios tendrán acceso a una sección específica en la cual podrían ver el progreso de los estudiantes a su cargo.
-Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsqueda \cref{fig:nuevo_boceto_tutores_1}.
-Además, se podrá acceder al perfil de cada estudiante, en el cual se mostrará su información básica, pudiendo asignar el estudiante al tutor vigente \cref{fig:nuevo_boceto_tutores_2} y acceder a su evaluación \cref{fig:nuevo_boceto_analisis_2} \cref{fig:nuevo_boceto_analisis_3}.
-Un tutor también podrá acceder a su perfil, en el cual se mostrará su información de usuario y se podrá editar \cref{fig:nuevo_boceto_tutores_3}.
+Así pues, se mostrará un listado de los usuarios asignados a ese tutor, pudiendo realizar búsquedas \cref{fig:nuevo_boceto_tutores_1}.
+Además, el tutor podrá acceder al perfil de cada estudiante, en el cual se mostrará su información básica, pudiendo asignar el estudiante al tutor vigente \cref{fig:nuevo_boceto_tutores_2} y acceder a su evaluación \cref{fig:nuevo_boceto_analisis_2} \cref{fig:nuevo_boceto_analisis_3}.
+Un tutor también podrá acceder a su perfil, en el cual se mostrará su información de usuario, y la podrá editar \cref{fig:nuevo_boceto_tutores_3}.
 
 \begin{figure}[H]
     \centering
@@ -1242,10 +1251,187 @@ Un tutor también podrá acceder a su perfil, en el cual se mostrará su informa
     \label{fig:nuevo_boceto_tutores_3}
 \end{figure}
 
+\newpage
+Así pues, se muestra una tabla (\tabref{tab:nuevas_historias_tutor}) con las nuevas historias de usuario para el actor tutor, así como sus respectivas tarjetas:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.6\textwidth}|X|X|X|}
+\hline
+\textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
+\hline
+HU.19 & Como tutor, quiero ver un listado de los estudiantes a mi cargo para poder consultar su progreso. & 3 & S & 6 \\
+\hline
+HU.20 & Como tutor, quiero buscar un estudiante específico en el listado para encontrarlo fácilmente. & 2 & S & 6 \\
+\hline
+HU.21 & Como tutor, quiero acceder al perfil de un estudiante para ver su información y progreso. & 3 & S & 6 \\
+\hline
+HU.22 & Como tutor, quiero asignar un estudiante a mi tutoría para gestionar su progreso. & 2 & S & 6 \\
+\hline
+HU.23 & Como tutor, quiero ver la evaluación de un estudiante para analizar su rendimiento en los juegos. & 3 & S & 6 \\
+\hline
+HU.24 & Como tutor, quiero acceder a mi perfil para ver y editar mi información de usuario. & 2 & C & 6 \\
+\hline
+\end{tabularx}
+\caption{Nuevas historias de usuario para el actor tutor}
+\label{tab:nuevas_historias_tutor}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.19 - Listado de estudiantes}  \\
+\hline
+Como tutor, necesito ver un listado de los estudiantes a mi cargo para poder consultar su progreso.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección del listado de estudiantes.
+    \item Comprobar que aparecen únicamente los estudiantes a mi cargo.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.19 - Listado de estudiantes}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.20 - Búsqueda de estudiante}  \\
+\hline
+Como tutor, necesito buscar un estudiante específico en el listado para encontrarlo fácilmente.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección del listado de estudiantes.
+    \item Utilizar la barra de búsqueda para encontrar un estudiante específico.
+    \item Comprobar que el estudiante aparece en los resultados de búsqueda.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.20 - Búsqueda de estudiante}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.21 - Perfil de estudiante}  \\
+\hline
+Como tutor, necesito acceder al perfil de un estudiante para ver su información y progreso.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al perfil de un estudiante desde el listado.
+    \item Comprobar que se muestra la información básica del estudiante.
+    \item Comprobar que se muestra el progreso del estudiante en los juegos.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.21 - Perfil de estudiante}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.22 - Asignar estudiante}  \\
+\hline
+Como tutor, necesito asignar un estudiante a mi tutoría para gestionar su progreso.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al perfil de un estudiante.
+    \item Utilizar la opción para asignar el estudiante a mi tutoría.
+    \item Comprobar que el estudiante queda asignado a mi tutoría.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.22 - Asignar estudiante}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.23 - Evaluación de estudiante}  \\
+\hline
+Como tutor, necesito ver la evaluación de un estudiante para analizar su rendimiento en los juegos.
+\clearpage
+\textbf{Estimación: }3
+\clearpage
+\textbf{Prioridad: }S
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder al perfil de un estudiante.
+    \item Acceder a la sección de evaluación del estudiante.
+    \item Comprobar que se muestra la evaluación del estudiante en los juegos.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.23 - Evaluación de estudiante}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{HU.24 - Perfil de tutor}  \\
+\hline
+Como tutor, necesito acceder a mi perfil para ver y editar mi información de usuario.
+\clearpage
+\textbf{Estimación: }2
+\clearpage
+\textbf{Prioridad: }C
+\\
+\hline
+\textbf{Pruebas de aceptación:}
+\begin{itemize}
+    \item Acceder a la sección de perfil de tutor.
+    \item Comprobar que se muestra mi información de usuario.
+    \item Editar mi información de usuario y guardar los cambios.
+    \item Comprobar que los cambios se han guardado correctamente.
+\end{itemize}
+\\
+\hline
+\end{tabularx}
+\caption{HU.24 - Perfil de tutor}
+\end{table}
+
 Estas actividades iniciales han permitido establecer una visión clara y coherente del producto a desarrollar, asegurando que cada juego responda a una necesidad concreta detectada en el contexto del TDAH.
 
+\newpage
 \subsection{Comparativa de aplicaciones con el proyecto}
-Tras el análisis de otras aplicaciones similares en el capítulo anterior y el planteamiento del proyecto a desarrollar, se han añadido las características de nuestro proyecto a la comparación previamente realizada. Con esta información, se han obtenido las siguientes tablas resumen, numerando los juegos implementados de la siguiente forma:
+Tras el análisis de otras aplicaciones similares en el capítulo anterior y el planteamiento del proyecto a desarrollar, se han añadido las características que incluirá nuestro proyecto a la comparación previamente realizada. Con esta información, se han obtenido las siguientes tablas resumen, numerando los juegos implementados de la siguiente forma:
 
 \begin{enumerate}
     \item Metro de la memoria
@@ -1315,7 +1501,7 @@ Tras el análisis de otras aplicaciones similares en el capítulo anterior y el 
 \end{table}
 
 \newpage
-Esta tabla muestra cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. 
+Estas tablas muestran cómo este proyecto logra integrar de forma equilibrada competencias clave relacionadas con el TDAH que no están completamente cubiertas por aplicaciones existentes. 
 Mientras que la primera aplicación estudiada se centra en la autorregulación emocional y, tanto Lumosity como CogniFit, en funciones cognitivas generales, la aplicación que se va a desarrollar combinará memoria, organización, habilidades emocionales y sociales, logrando adaptarse mejor a las necesidades de niños con TDAH. 
 De estas aplicaciones analizadas se han tomado numerosas ideas que servirán para el desarrollo de nuestra aplicación, buscando obtener un resultado lo más completo y efectivo posible.
 La aplicación Respira, Piensa, Actúa nos ha inspirado para la elaboración del juego Semáforo emocional, el cual también trabaja la autorregulación emocional. 
@@ -1323,7 +1509,7 @@ Por otro lado, Lumosity y CogniFit han servido de referencia para la estructura 
 
 \subsection{Elección de herramientas de desarrollo}
 Un objetivo de este proyecto es desarrollar una aplicación web que pueda integrarse dentro de una web ya existente, por lo que se ha optado por priorizar tecnologías compatibles con la arquitectura web actual, las cuales permitan una integración fácil y modular. 
-Además, deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
+Además, teniendo en cuenta los requisitos del proyecto, las tecnologías elegidas deben ofrecer flexibilidad tanto en diseño como en lógica y tener buena escalabilidad y mantenimiento a largo plazo.
 
 A continuación, se muestra una tabla comparativa con las principales opciones consideradas para el desarrollo de la aplicación, evaluadas en el contexto del proyecto.
 
@@ -1419,12 +1605,12 @@ Tras escoger todas las tecnologías que se utilizarán para el desarrollo de la 
     \caption{Diagrama de arquitectura}
 \end{figure}
 
+\newpage
 Como se puede observar en el diagrama, la arquitectura del sistema sigue un modelo cliente-servidor clásico, en el que tanto el alumnado como los tutores acceden a la aplicación web a través de sus navegadores.
 El cliente corresponde a la interfaz de usuario desarrollada con React.js y Tailwind CSS, la cual se comunica con el servidor mediante peticiones HTTP a una API REST creada con Node.js y Express.
 El servidor, a su vez, interactúa con la base de datos relacional alojada en Supabase para gestionar la información de usuarios, juegos, puntuaciones y demás datos relevantes.
 Esta arquitectura modular y escalable permite una fácil integración de nuevas funcionalidades y una gestión eficiente de los recursos, asegurando un rendimiento óptimo y una experiencia de usuario fluida.
 
-\newpage
 \subsection{Iteraciones del proyecto}
 Teniendo en cuenta el tiempo que se desea dedicar al desarrollo, el proyecto se ha estructurado inicialmente en cinco iteraciones principales, siguiendo una metodología ágil e incremental que permite ir incorporando y validando funcionalidades de manera progresiva. 
 En cada iteración se han definido objetivos concretos asociados a las historias de usuario, garantizando la trazabilidad entre los requisitos y su implementación práctica. 
@@ -1455,7 +1641,6 @@ A esto se le añadió la creación de la pantalla principal, que permite consult
     \caption{Sprint 1 - Backlog}
 \end{figure}
 
-\newpage
 \paragraph{Historias de usuario}
 Respecto a las historias de usuario, en esta fase se han desarrollado tres de ellas, expuestas a continuación:
 
@@ -1667,7 +1852,7 @@ De este modo, el número de niveles añadidos podrá ir en función del ritmo de
 
 \subsubsection{Sprint 2}
 \paragraph{Desarrollo del sprint}
-En esta iteración se empezó a implementar los juegos de la aplicación. 
+En esta iteración se empezaron a implementar los juegos de la aplicación. 
 En primer lugar, se desarrollaron las páginas de descripción de cada juego, así como la de los diferentes niveles que los componen.
 Tras esto, se implementó el primer juego, \textit{Metro de la memoria}, junto con sus diferentes niveles, cuya dificultad varía en función del nivel.
 En total, se implementaron cinco niveles de dificultad: tres de ellos fueron para un público más inexperto e infantil, con un avatar de guía para la realización de las actividades; y dos niveles más avanzados, sin avatar y con una dificultad mayor.
@@ -1692,7 +1877,7 @@ Tras esto, se añadió una nueva tarea al sprint, la cual consistía en implemen
 \end{figure}
 
 \paragraph{Historias de usuario}
-Respecto a las historias de usuario, en esta iteración se han realizado otras cinco de ellas, las tres previstas inicialmente y dos nuevas (HU.19 y HU.20) incorporadas tras la reunión con las tutoras, todas ellas expuestas a continuación:
+Respecto a las historias de usuario, en esta iteración se han realizado otras cinco de ellas, las tres previstas inicialmente y dos nuevas (HU.25 y HU.26) incorporadas tras la reunión con las tutoras, todas ellas expuestas a continuación:
 
 \begin{table}[H]
 \centering
@@ -1706,9 +1891,9 @@ HU.8 & Como usuario necesito jugar al juego \textit{Metro de la memoria}. & 7 & 
 \hline
 HU.12 & Como usuario necesito ver mi progreso en cada juego. & 3 & M & 2 \\
 \hline
-HU.19 & Como usuario necesito registrarme mediante imágenes. & 3 & S & 2 \\
+HU.25 & Como usuario necesito registrarme mediante imágenes. & 3 & S & 2 \\
 \hline
-HU.20 & Como usuario necesito iniciar sesión mediante imágenes. & 3 & S & 2 \\
+HU.26 & Como usuario necesito iniciar sesión mediante imágenes. & 3 & S & 2 \\
 \hline
 \end{tabularx}
 \caption{Listado de Historias de usuario - Sprint 2}
@@ -1836,7 +2021,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
 \centering
 \begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
     \hline
-    \textbf{HU.19} & \textbf{Como usuario necesito registrarme mediante imágenes.} & \textbf{3PH} \\
+    \textbf{HU.25} & \textbf{Como usuario necesito registrarme mediante imágenes.} & \textbf{3PH} \\
     \hline
     \multicolumn{3}{|c|}{
         \begin{minipage}{0.95\textwidth}
@@ -1861,7 +2046,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
     } \\
     \hline
 \end{tabularx}
-\caption{HU.19 - Registro mediante imágenes - Desglose de tareas}
+\caption{HU.25 - Registro mediante imágenes - Desglose de tareas}
 \vspace{0.8em}
 \end{table}
 
@@ -1872,7 +2057,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
 \centering
 \begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
     \hline
-    \textbf{HU.20} & \textbf{Como usuario necesito iniciar sesión mediante imágenes.} & \textbf{3PH} \\
+    \textbf{HU.26} & \textbf{Como usuario necesito iniciar sesión mediante imágenes.} & \textbf{3PH} \\
     \hline
     \multicolumn{3}{|c|}{
         \begin{minipage}{0.95\textwidth}
@@ -1897,7 +2082,7 @@ A continuación, se muestra el desglose de tareas realizado para cada historia d
     } \\
     \hline
 \end{tabularx}
-\caption{HU.20 - Inicio de sesión mediante imágenes - Desglose de tareas}
+\caption{HU.26 - Inicio de sesión mediante imágenes - Desglose de tareas}
 \vspace{0.8em}
 \end{table}
 
@@ -1910,7 +2095,7 @@ Además, se logró implementar el juego \textit{Metro de la memoria} junto a sus
 Este juego consta de una pantalla inicial, donde se muestra una breve explicación de la situación, con una parada inicial y otra final \cref{fig:result_metro_1}.
 Tras esto, se muestra la frase mnemotécnica a modo de ayuda, la cual los usuarios deberán memorizar para seleccionar el camino correcto \cref{fig:result_metro_2}.
 A continuación, se presenta el mapa del metro con las diferentes paradas \cref{fig:result_metro_3} y el usuario deberá seleccionar las correctas para llegar a la parada final \cref{fig:result_metro_4}.
-Los usuarios contarán con tres intentos para completar el nivel y, al finalizar, se les mostrará una pantalla de resultados con su puntuación calculada en función de los intentos utilizados \cref{fig:result_metro_5}.
+Los usuarios contarán con tres intentos para completar el nivel y, al finalizar, se les mostrará una pantalla de resultados con su puntuación calculada en función de los intentos utilizados, pudiendo completar el nivel \cref{fig:result_metro_5} o no \cref{fig:result_metro_6}.
 
 \begin{figure}[H]
     \centering
@@ -1961,7 +2146,13 @@ Los usuarios contarán con tres intentos para completar el nivel y, al finalizar
     \label{fig:result_metro_5}
 \end{figure}
 
-\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_metro_6.png}
+    \caption{Resultados obtenidos - Juego \textit{Metro de la memoria} - Parte 6}
+    \label{fig:result_metro_6}
+\end{figure}
+
 También se añadió un nuevo inicio de sesión para el estudiantado. 
 Este inicio de sesión se basa en la selección de imágenes en lugar de la introducción de texto, facilitando el acceso a los niños y niñas de menor edad \cref{fig:result_login_imgs} \cref{fig:result_login_imgs_2}.
 Finalmente, se implementó otra pantalla de registro mediante imágenes, con la misma finalidad que el nuevo inicio de sesión \cref{fig:result_registro_imgs}.
@@ -1987,12 +2178,13 @@ Finalmente, se implementó otra pantalla de registro mediante imágenes, con la 
     \label{fig:result_registro_imgs}
 \end{figure}
 
+\newpage
 A modo de resumen de la estructura del backend hasta esta iteración, se muestran tanto el diagrama de ficheros \cref{fig:sprint2_ficheros} como el de base de datos \cref{fig:sprint2_bd}.
 Respecto a la estructura de ficheros, se puede observar que se ha añadido un fichero para el juego \textit{Metro de la memoria} tanto en los controladores como en las rutas de la API del backend.
 Además, se añadieron nuevas páginas en el frontend para la información sobre el nuevo inicio de sesión, los juegos y los niveles de cada juego, así como una carpeta para las pantallas del nuevo juego implementado.
 Todos estos cambios, reflejados de color rojo, se hicieron con el objetivo de mantener una estructura organizada y facilitar la escalabilidad del proyecto.
 Respecto a la base de datos, se añadieron nuevas tablas como \textit{game\_levels} para almacenar la información de los niveles de cada juego, \textit{visual\_login\_sequences} para almacenar las secuencias de inicio de sesión mediante imágenes, y \textit{students}, para diferenciar entre los datos almacenados para los estudiantes y los tutores.
-Además, se añadieron las tablas relacionadas con el juego \textit{Metro de la memoria}, como \textit{metro\_stations}, para las paradas del metro, o \textit{metro\_lines}, para las líneas, entre otras.
+Además, se añadieron las tablas relacionadas con el juego \textit{Metro de la memoria}: \textit{metro\_stations}, para las paradas del metro; \textit{metro\_lines}, para las líneas; \textit{metro\_line\_stations}, para almacenar la sucesión correcta; y \textit{metro\_tasks}, para la información del nivel.
 
 \begin{figure}[H]
     \centering
@@ -2139,7 +2331,7 @@ Posteriormente, se presenta una pantalla de juego con los cajones, así como el 
 
 El usuario deberá arrastrar y soltar los objetos en los cajones correspondientes según la temática de cada uno.
 También se le dará la posibilidad de seleccionar uno de los cajones, mostrando los objetos que ya ha colocado en él y pudiendo sacarlos del cajón \cref{fig:result_desvan_3}.
-Finalmente, al completar el nivel, se mostrará una pantalla de resultados con la puntuación obtenida en función del número de intentos utilizados \cref{fig:result_desvan_4}.
+Finalmente, al completar el nivel, se mostrará una pantalla de resultados con la puntuación obtenida en función del número de intentos utilizados \cref{fig:result_desvan_4} \cref{fig:result_desvan_5}.
 
 \begin{figure}[H]
     \centering
@@ -2167,6 +2359,13 @@ Finalmente, al completar el nivel, se mostrará una pantalla de resultados con l
     \includegraphics[width=1\linewidth]{imgs/result_desvan_4.png}
     \caption{Resultados obtenidos - Juego \textit{Desván mágico} - Parte 4}
     \label{fig:result_desvan_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/result_desvan_5.png}
+    \caption{Resultados obtenidos - Juego \textit{Desván mágico} - Parte 5}
+    \label{fig:result_desvan_5}
 \end{figure}
 
 \newpage
@@ -2241,6 +2440,9 @@ Finalmente, para el juego \textit{Detective emociones}, se añadieron las tablas
 \end{figure}
 \end{landscape}
 
+Como se puede observar, todos los juegos tienen una estructura similar en la base de datos, lo que facilita la escalabilidad del proyecto y la incorporación de nuevos juegos en el futuro.
+Todos estos almacenan información tanto en tablas específicas del juego (como las situaciones planteadas o los objetos a organizar), como en tablas comunes (como las sesiones de los usuarios o los niveles de cada juego).
+
 \paragraph{Retrospectiva}
 Durante esta iteración se logró completar la implementación de los juegos planificados (\textit{Desván mágico} y \textit{Detective emociones}), cumpliendo con los objetivos establecidos al inicio del sprint.
 También se finalizó la creación de los niveles restantes del primer juego, \textit{Metro de la memoria}, los cuales estaban orientados a un público más avanzado.
@@ -2259,7 +2461,7 @@ A continuación, se muestra el backlog inicial del sprint \cref{fig:sprint4}
     \label{fig:sprint4}
 \end{figure}
 
-No obstante, al finalizar el juego \textit{Semáforo emocional}, se decidió incorporar algunos distractores visuales y sonoros y posponer la implementación de las funcionalidades planificadas restantes (la evaluación y el perfil) para centrarse en la mejora de la experiencia del usuario y la optimización de la aplicación.
+No obstante, al finalizar el juego \textit{Semáforo emocional}, se decidió incorporar algunos distractores visuales y sonoros y posponer la implementación de las funcionalidades planificadas restantes (la retroalimentación de los estudiantes y el perfil) para centrarse en la mejora de la experiencia del usuario y la optimización de la aplicación.
 Por ello, se realizó una reunión con las tutoras del proyecto para presentar los avances realizados y recibir su retroalimentación.
 En esta reunión, se discutieron posibles mejoras y ajustes basados en su experiencia y conocimientos.
 Además, se planificó la realización de pruebas con usuarios para evaluar la usabilidad y efectividad de la aplicación (dichas pruebas se detallan en el Capítulo 4).
@@ -2332,6 +2534,7 @@ A continuación, también se muestra el desglose de tareas realizado para dicha 
 \vspace{0.8em}
 \end{table}
 
+\newpage
 \paragraph{Resultados obtenidos}
 En este cuarto sprint se logró implementar el último juego de la aplicación, \textit{Semáforo emocional}, con sus cinco niveles de dificultad, incorporando así la base de los cuatro juegos planificados inicialmente.
 Este juego comienza con una pantalla inicial donde se muestra una breve explicación de la situación \cref{fig:result_semaforo_1}.
@@ -2404,7 +2607,7 @@ Así, se añadió un distractor por cada juego:
 \begin{itemize}
     \item En el juego \textit{Metro de la memoria}, se incorporó un distractor visual en forma de globo, el cual aparece y se desplaza por la pantalla durante el juego \cref{fig:result_distractor_1}.
     \item En el juego \textit{Desván mágico}, se añadió un distractor sonoro que reproduce el sonido de una bocina de un coche.
-    \item En el juego \textit{Detective emociones}, se implementó otro distractor sonoro quer reproduce una notificación emergente que simula un mensaje de chat.
+    \item En el juego \textit{Detective emociones}, se implementó otro distractor sonoro que reproduce una notificación emergente que simula un mensaje de chat.
     \item En el juego \textit{Semáforo emocional}, se incluyó un distractor visual en forma de burbuja que vuela a través de la pantalla durante el juego \cref{fig:result_distractor_2}.
 \end{itemize}
 
@@ -2460,7 +2663,6 @@ De este modo, se busca ofrecer un desafío adecuado a los usuarios con mayor exp
     \label{fig:result_metro_mejora_4}
 \end{figure}
 
-\newpage
 Por otro lado, para resumir la estructura del backend hasta este sprint, se muestran tanto el diagrama de ficheros \cref{fig:sprint4_ficheros} como el de base de datos \cref{fig:sprint4_bd} hasta dicho momento.
 Respecto a la estructura de ficheros, se puede observar que se han añadido ficheros para el nuevo juego tanto en los controladores como en las rutas de la API del backend.
 Además, se añadió una nueva carpeta en el frontend para las pantallas de este juego; así como otra carpeta para los distractores implementados.
@@ -2485,11 +2687,11 @@ incluyendo las siguientes tablas: \textit{semaphore\_scenarios}, para las situac
 
 \paragraph{Retrospectiva}
 Durante este sprint se implementó el juego planificado: \textit{Semáforo emocional}.
-No obstante, al añadir la sesión de pruebas con el grupo no clínico, la cual no estaba prevista para este sprint, se tuvieron que realizar algunos cambios en las historias planificadas.
+No obstante, al añadir la sesión de pruebas con el grupo no clínico, la cual no estaba prevista aún para este sprint, se optó por centrarse en el último juego y mejorar los anteriores.
 De este modo, se añadió la planificación y realización de pruebas, así como algunas de las modificaciones de la aplicación tras probarla; y se eliminaron las historias relativas a las secciones de la aplicación que no estaban relacionadas con los juegos.
 Esto se debió a que se decidió priorizar los juegos a secciones como la retroalimentación, misiones o el perfil de usuario.
-Así pues, se eliminaron algunas historias, pero se remplazaron por otras, pasando de 20 puntos de historia a 22 en este sprint, lo cual no era un cambio demasiado significativo.
-El resto de historias se optó por dejarlas para iteraciones futuras (algunas fuera del alcance de este TFM).
+Así pues, se realizaron cambios, pasando de 20 puntos de historia a 22 en este sprint, lo cual no era un cambio demasiado significativo.
+El resto de historias se optó por dejarlas para iteraciones futuras.
 
 \subsubsection{Sprint 5}
 \paragraph{Desarrollo del sprint}
@@ -2504,7 +2706,7 @@ En esta iteración se planteó inicialmente la implementación de las funcionali
 
 No obstante, se optó por posponer la implementación de estas funcionalidades para centrarse en la mejoras restantes derivadas de las pruebas con usuarios.
 Además, se llevaron a cabo las pruebas con el grupo clínico, recopilando su retroalimentación y sugerencias para seguir mejorando la aplicación.
-De este modo, la única funcionalidad nueva implementada en este sprint fue la incorporación del perfil de usuario, el cual permite a los usuarios ver su información personal, así como consultar su progreso en los juegos.
+De este modo, la única funcionalidad nueva implementada en este sprint fue la incorporación de la consulta del perfil de usuario, prevista en la anterior iteración, la cual permite a los usuarios ver su información personal, así como consultar su progreso en los juegos.
 A continuación, se muestra el backlog final del sprint \cref{fig:sprint5_final}.
 
 \begin{figure}[H]
@@ -2514,6 +2716,7 @@ A continuación, se muestra el backlog final del sprint \cref{fig:sprint5_final}
     \label{fig:sprint5_final}
 \end{figure}
 
+\newpage
 \paragraph{Historias de usuario}
 Respecto a las historias de usuario, en esta iteración también se ha desarrollado únicamente una nueva, dedicando el resto de tiempo a modificaciones y pruebas.
 
@@ -2567,9 +2770,9 @@ A continuación, también se muestra el desglose de tareas realizado para dicha 
 \vspace{0.8em}
 \end{table}
 
-\newpage
 \paragraph{Resultados obtenidos}
-Este quinto sprint comenzó con la implementación de las modificaciones restantes derivadas de las pruebas con el grupo no clínico.
+Este quinto sprint comenzó con la implementación de las modificaciones restantes derivadas de las pruebas con el grupo no clínico, que pasamos a concretar.
+
 Inicialmente, se realizaron cambios en el juego \textit{Desván mágico}, los cuales se centraron en los dos últimos niveles principalmente.
 Por un lado, el nivel 4 se modificó para que contara con un cajón adicional, aumentando así la dificultad y el desafío para los usuarios más avanzados \cref{fig:result_desvan_mejora_1}.
 Por otro lado, el nivel 5 se rediseñó para que los usuarios únicamente debieran organizar los objetos que no pertenecieran a las categorías indicadas, añadiendo así un nuevo enfoque al juego y fomentando la atención y concentración de los usuarios \cref{fig:result_desvan_mejora_2} \cref{fig:result_desvan_mejora_3}.
@@ -2614,7 +2817,6 @@ Además, se añadió la posibilidad de varias respuestas correctas en ciertos ni
     \label{fig:result_detective_mejora_2}
 \end{figure}
 
-\newpage
 Finalmente, se implementó la funcionalidad del perfil de usuario, la cual permite a los usuarios ver su información personal y consultar su progreso en los juegos.
 Esta funcionalidad incluye una pantalla donde se muestra el nombre del usuario, su edad y un resumen de su progreso en cada juego, incluyendo el número de niveles completados, la puntuación obtenida y el tiempo jugado \cref{fig:result_perfil_1}.
 
@@ -2641,6 +2843,7 @@ Además, se implementó la funcionalidad del perfil de usuario, permitiendo a lo
 Así pues, al igual que en el sprint anterior, se optó por posponer la implementación de las funcionalidades restantes de la aplicación para centrarse en estas mejoras y en las pruebas con el grupo clínico.
 De este modo, se logró avanzar en el desarrollo de la aplicación, asegurando que cumpla con los objetivos planteados inicialmente y ofreciendo una experiencia de usuario óptima.
 
+\newpage
 \subsubsection{Sprint 6}
 \paragraph{Desarrollo del sprint}
 En esta última iteración se planificó la finalización de la funcionalidad del perfil de usuario, permitiendo a los usuarios modificar su información personal y eliminar su cuenta si así lo desean.
@@ -2658,7 +2861,8 @@ Como se puede observar, la cantidad de puntos de historia en este sprint es meno
 Esto es debido a que se ha decidido centrar el trabajo en la finalización de esta memoria y en el análisis de los resultados obtenidos en las pruebas con usuarios, dejando algunas funcionalidades para trabajo futuro.
 
 \paragraph{Historias de usuario}
-Respecto a las historias de usuario, en esta iteración se han desarrollado dos nuevas, mostradas en la tabla a continuación.
+Respecto a las historias de usuario, en esta iteración se han desarrollado tres nuevas, las cuales estaban planificadas para iteraciones anteriores, pero no pudieron ser realizadas.
+Estas historias son mostradas en la tabla a continuación.
 
 \begin{table}[H]
 \centering
@@ -2667,6 +2871,8 @@ Respecto a las historias de usuario, en esta iteración se han desarrollado dos 
     \textbf{Ident.} & \textbf{Título} & \textbf{Est.} & \textbf{Prio.} & \textbf{Iter.} \\
     \hline
     HU.4 & Como usuario necesito modificar mi perfil. & 2 & C & 6 \\
+    \hline
+    HU.17 & Como usuario necesito consultar la evolución de mis habilidades. & 5 & S & 6 \\
     \hline
     HU.18 & Como usuario necesito poder eliminar mi cuenta. & 1 & S & 6 \\
     \hline
@@ -2719,6 +2925,42 @@ A continuación, también se muestra el desglose de tareas realizado para cada u
 \centering
 \begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
     \hline
+    \textbf{HU.17} & \textbf{Como usuario necesito consultar la evolución de mis habilidades.} & \textbf{5PH} \\
+    \hline
+    \multicolumn{3}{|c|}{
+        \begin{minipage}{0.95\textwidth}
+            \vspace{0.5em}
+            \begin{tabular}{|l|p{0.7\textwidth}|c|}
+                \hline
+                \textbf{Ident.} & \textbf{Título de la tarea} & \textbf{Est.} \\
+                \hline
+                T.1 & Diseñar boceto de pantallas de evaluación. & 0.5 \\
+                \hline
+                T.2 & Implementar pantallas de evaluación en el frontend. & 2 \\
+                \hline
+                T.3 & Implementar lógica de evaluación en el backend. & 1 \\
+                \hline
+                T.4 & Actualizar la base de datos. & 0.5 \\
+                \hline
+                T.5 & Realizar las pruebas de aceptación. & 1 \\
+                \hline
+            \end{tabular}
+            \vspace{0.5em}
+        \end{minipage}
+    } \\
+    \hline
+\end{tabularx}
+\caption{HU.17 - Como usuario necesito consultar la evolución de mis habilidades - Desglose de tareas}
+\vspace{0.8em}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+\vspace{0.8em}
+\centering
+\begin{tabularx}{\textwidth}{|X|p{0.7\textwidth}|X|}
+    \hline
     \textbf{HU.18} & \textbf{Como usuario necesito poder eliminar mi cuenta.} & \textbf{1PH} \\
     \hline
     \multicolumn{3}{|c|}{
@@ -2751,7 +2993,7 @@ A continuación, también se muestra el desglose de tareas realizado para cada u
 \newpage
 \paragraph{Resultados obtenidos}
 En este último sprint se comenzó con la implementación de la funcionalidad para modificar el perfil de usuario.
-Esta funcionalidad incluye una pantalla donde los usuarios pueden actualizar su nombre, así como eliminar su cuenta si así lo desean \cref{fig:result_modif_perfil}.
+Esta funcionalidad incluye la actualización de información de usuarios, como el nombre, así como eliminar su cuenta si así lo desean, mostrando un mensaje de confirmación \cref{fig:result_modif_perfil}.
 
 \begin{figure}[H]
     \centering
@@ -2790,7 +3032,7 @@ Además, se continuó con esta memoria, extrayendo conclusiones y analizando los
 Así pues, se finalizó la parte de implementación de este proyecto, dejando algunas funcionalidades como las misiones y recompensas para trabajo futuro.
 
 \subsection{Presupuesto del proyecto}
-A continuación, se presenta el presupuesto detallado del proyecto, desglosado en las diferentes categorías de gastos incurridos durante el desarrollo del mismo.
+A continuación, se presenta el presupuesto detallado del proyecto, desglosado en las diferentes categorías de gastos implicados en el desarrollo del mismo.
 
 \begin{table}[H]
 \centering
@@ -2803,11 +3045,12 @@ A continuación, se presenta el presupuesto detallado del proyecto, desglosado e
     \multicolumn{4}{|c|}{\textbf{GASTOS DE PERSONAL}} \\
     \hline
     Total de gastos de personal.  
-    \newline \footnotesize *Suponiendo un sueldo de 2500€ al mes \parencite{paid}.  
-    \newline *El proyecto dura 9 meses. &
+    \newline \footnotesize *Suponiendo un sueldo de 1500€ al mes.  
+    \newline *El proyecto dura 9 meses.
+    \newline **Trabajo de media jornada &
     1 &
-    2500€/mes &
-    22500€ \\
+    1500€/mes &
+    13500€ \\
     \hline
 
     \multicolumn{4}{|c|}{\textbf{GASTOS DE EJECUCIÓN}} \\
@@ -2821,27 +3064,28 @@ A continuación, se presenta el presupuesto detallado del proyecto, desglosado e
     112,50€ &
     112,50€ \\
     \hline
-    Apple iPad (Precio del iPad: 250€).  
+    Apple iPad (Precio del iPad: 400€).  
     \newline \footnotesize *Vida útil estimada: 6 años.  
     \newline *Proyecto de 9 meses. &
     1 &
-    31,25€ &
-    31,25€ \\
+    50€ &
+    50€ \\
     \hline
 
-    \multicolumn{4}{|c|}{\textbf{COSTES INDIRECTOS (10\% presupuesto total: 22643,75)}} \\
+    \multicolumn{4}{|c|}{\textbf{COSTES INDIRECTOS (10\% presupuesto total: 13662,50)}} \\
     \hline
-    \multicolumn{3}{|r|}{\textbf{Importe}} & 2264,38€ \\
+    \multicolumn{3}{|r|}{\textbf{Importe}} & 1366,25€ \\
     \hline
     \multicolumn{4}{|c|}{\textbf{TOTAL PRESUPUESTO SOLICITADO}} \\
     \hline
-    \multicolumn{3}{|r|}{\textbf{Importe}} & 24908,13€ \\
+    \multicolumn{3}{|r|}{\textbf{Importe}} & 15028,75€ \\
     \hline
 \end{tabularx}
 \caption{Presupuesto del proyecto}
 \label{tab:presupuesto}
 \end{table}
 
+\newpage
 \subsection{Diagrama de Gantt final}
 Tras finalizar el desarrollo del proyecto, se presenta el diagrama de Gantt final \cref{fig:gantt_final}, el cual refleja las tareas planificadas y su duración a lo largo del tiempo.
 En este diagrama se reflejan todos los cambios realizados durante el desarrollo del proyecto, incluyendo las modificaciones en las historias de usuario y las tareas adicionales llevadas a cabo.
